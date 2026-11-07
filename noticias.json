@@ -1,6 +1,24 @@
 {
- "at": "2026-11-07T14:51-03:00",
+ "at": "2026-11-07T15:56-03:00",
  "items": [
+  {
+   "c": "mu",
+   "t": "Ministério Público do Paraguai acusa ex-presidente Peña formalmente e pede prisão preventiva",
+   "f": "G1 Mundo",
+   "d": "2026-11-07",
+   "h": "15:12",
+   "u": "https://g1.globo.com/mundo/noticia/2026/11/07/ministerio-publico-do-paraguai-acusa-ex-presidente-pena-formalmente-e-pede-prisao-preventiva.ghtml",
+   "s": "Impeachment de Peña foi aprovado por unanimidade; entenda crise no Paraguai O Ministério Público do Paraguai apresentou neste sábado (7) uma acusação formal contra o ex-presidente Santiago Peña por abuso de confiança e…"
+  },
+  {
+   "c": "mu",
+   "t": "Vance culpa guerra no Irã por derrota republicana e busca espaço para 2028",
+   "f": "InfoMoney",
+   "d": "2026-11-07",
+   "h": "15:07",
+   "u": "https://www.infomoney.com.br/mercados/jd-vance-guerra-ira-derrota-republicana-eleicoes-2028/",
+   "s": "Vice-presidente passa a dar menos destaque a Trump e reforça discurso próprio sobre economia e política externa após democratas conquistarem o Congresso The post Vance culpa guerra no Irã por derrota republicana e busca espaço…"
+  },
   {
    "c": "br",
    "t": "Berkshire lucra 28% menos, mas recompra US$ 9,6 bi e tem US$ 377 bi em caixa",
@@ -27,24 +45,6 @@
    "h": "13:10",
    "u": "https://www.infomoney.com.br/mundo/ex-presidente-do-paraguai-enfrenta-promotores-apos-impeachment-e-prisao-domiciliar/",
    "s": "Santiago Peña presta depoimento no Ministério Público em meio à crise política e financeira desencadeada pelo colapso do banco ueno The post Ex-presidente do Paraguai enfrenta promotores após impeachment e prisão domiciliar…"
-  },
-  {
-   "c": "br",
-   "t": "Dólar sobe 10% após eleição; bancos veem exagero e Congresso como contrapeso",
-   "f": "InfoMoney",
-   "d": "2026-11-07",
-   "h": "13:07",
-   "u": "https://www.infomoney.com.br/mercados/dolar-pos-eleicao-lula-bancos-estrangeiros-projecoes/",
-   "s": "Commerzbank projeta dólar a R$ 5,20, Wells Fargo vê preço justo de R$ 5,30 e Goldman Sachs mantém cautela diante das incertezas fiscais The post Dólar sobe 10% após eleição; bancos veem exagero e Congresso como contrapeso…"
-  },
-  {
-   "c": "br",
-   "t": "Gonet quer barrar ações contra fim das bets até decisão definitiva do STF",
-   "f": "InfoMoney",
-   "d": "2026-11-07",
-   "h": "12:56",
-   "u": "https://www.infomoney.com.br/mercados/gonet-stf-suspensao-acoes-proibicao-bets/",
-   "s": "Procurador-geral aponta insegurança jurídica após decisões que permitiram a retomada temporária de plataformas de apostas; pedido será analisado por Luiz Fux The post Gonet quer barrar ações contra fim das bets até decisão…"
   },
   {
    "c": "br",
@@ -80,7 +80,7 @@
    "d": "2026-11-07",
    "h": "11:29",
    "u": "https://g1.globo.com/mundo/noticia/2026/11/07/santiago-pena-depoe-a-justica-paraguaia-apos-impeachment-e-prisao-domiciliar.ghtml",
-   "s": "Presidente destituído do Paraguai é preso O ex-presidente do Paraguai, Santiago Peña, chegou à Procuradoria-Geral neste sábado (7) para prestar depoimento aos promotores, um dia após sofrer um processo de impeachment e ser…"
+   "s": "O ex-presidente paraguaio Santiago Peña ao chegar à Procuradoria-Geral do Ministério Público em Assunção, no Paraguai, em 7 de novembro de 2026. Fiscalia Paraguay/Handout via REUTERS O ex-presidente do paraguaio Santiago Peña…"
   },
   {
    "c": "br",
@@ -98,15 +98,6 @@
    "h": "10:40",
    "u": "https://g1.globo.com/mundo/noticia/2026/11/07/ueno-bank-escandalo-que-levou-a-queda-do-presidente-do-paraguai-pode-ser-comparado-ao-do-banco-master.ghtml",
    "s": "Ueno Bank: escândalo que levou à queda do presidente do Paraguai pode ser comparado ao do Banco Master? Bloomberg via Getty Images, via BBC A liquidação do banco Ueno desencadeou uma forte crise política no Paraguai, com a…"
-  },
-  {
-   "c": "mu",
-   "t": "Bombardeios sauditas no Iêmen deixam ao menos 22 mortos, diz mídia ligada aos Houthis",
-   "f": "G1 Mundo",
-   "d": "2026-11-07",
-   "h": "09:52",
-   "u": "https://g1.globo.com/mundo/noticia/2026/11/07/bombardeios-sauditas-no-iemen-mortos-houthis.ghtml",
-   "s": "Vídeo divulgado pelo canal de TV Houthi Al-Masirah mostra as consequências de supostos ataques a um mercado em Al-Waziyah, na província de Taiz, no sudoeste do Iêmen Divulgação Um veículo de comunicação ligado aos Houthis, grupo…"
   },
   {
    "c": "br",
@@ -136,13 +127,21 @@
    "s": "A intervenção no Ueno Bank, uma das maiores instituições financeiras do Paraguai, abalou o sistema bancário do país e os mais altos escalões do poder político."
   },
   {
-   "c": "mu",
-   "t": "Açúcar acumula alta de quase 30% em um ano, enquanto alimentos ficam mais baratos, aponta FAO",
+   "c": "br",
+   "t": "Debate sobre juros tem tudo a ver com mobilização juvenil e popular que levou Lula à vitória, diz André Singer",
+   "f": "BBC News Brasil",
+   "d": "2026-11-07",
+   "h": "06:29",
+   "u": "https://www.bbc.com/portuguese/articles/cr62yv4gjd97o?at_medium=RSS&at_campaign=rss",
+   "s": "Cientista político afirma que pacote para bolso do eleitor, ruas mobilizadas e apoio de Janones foram chave da vitória de Lula, mas que avanço da direita radical é 'ameaça' que não desaparece com resultado da eleição."
+  },
+  {
+   "c": "br",
+   "t": "‘Imposto do pecado’: veículos a diesel são os mais prejudicados; veja o que pesa em cada tipo de carro",
    "f": "G1 Economia",
    "d": "2026-11-07",
    "h": "05:00",
-   "u": "https://g1.globo.com/economia/agronegocios/noticia/2026/11/07/acucar-acumula-alta-de-quase-30percent-em-um-ano-enquanto-alimentos-ficam-mais-baratos-aponta-fao.ghtml",
-   "s": "Canavial na região de Ribeirão Preto (SP). Luciano Tolentino/EPTV O preço internacional do açúcar subiu 28,8% em outubro na comparação com o mesmo mês do ano passado, enquanto os preços globais dos alimentos recuaram. Na…"
+   "u": "https://g1.globo.com/carros/noticia/2026/11/07/imposto-do-pecado-carro-diesel.ghtml"
   }
  ]
 }
