@@ -181,6 +181,21 @@ body.locked main,body.locked nav,body.locked #cfab,body.locked #calc,body.locked
 .cbar u{position:absolute;top:-3px;bottom:-3px;width:3px;margin-left:-1px;border-radius:2px;background:var(--navy);text-decoration:none}
 .cempty{color:var(--gray);font-size:14px;padding:10px 0;text-align:center}
 .vzr{padding:10px 0;border-top:1px solid var(--line)}.vzr:first-child{border-top:0}.vzr b{display:block;overflow-wrap:anywhere;font-weight:600}.vzr .acts{margin-top:6px}
+.fsh{display:flex;align-items:center;gap:12px;margin:6px 0 10px}.fsd{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-weight:800;font-size:21px}
+.fsn{font-size:22px;font-weight:800;line-height:1.1}.fst{font-size:13px;color:var(--gray);margin-top:2px}
+.meter{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:8px 0 2px}.meter i{height:8px;border-radius:5px;opacity:.22}.meter i.on{opacity:1}
+.meterl{display:grid;grid-template-columns:repeat(4,1fr);font-size:10px;color:var(--gray);text-align:center;margin-bottom:6px}
+.fsl{margin:12px 0 2px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--gray)}
+.fsu{margin:0;padding:0;list-style:none}.fsu li{position:relative;padding:5px 0 5px 18px;font-size:14px;line-height:1.35;overflow-wrap:anywhere}.fsu li:before{content:"";position:absolute;left:2px;top:12px;width:7px;height:7px;border-radius:50%;background:var(--c,var(--gray))}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.fk{background:var(--bg);border-radius:12px;padding:8px 10px;min-width:0}.fk span{display:block;font-size:11px;color:var(--gray)}.fk b{font-size:14px;word-break:break-word}
+.fsx summary{cursor:pointer;color:var(--blue);font-weight:600;font-size:14px;min-height:44px;display:flex;align-items:center}.fsx ul{margin:0 0 6px 18px;padding:0;font-size:13px;color:var(--gray);line-height:1.5}
+.abt .ab1{display:flex;align-items:center;gap:14px;margin-bottom:12px}.abt .ab1 img{width:60px;height:60px;border-radius:16px;flex:none}.abt .ab1 b{display:block;font-size:19px;letter-spacing:2px}.abt .ab1 span{font-size:13px;color:var(--gray)}
+.abt .ver{display:inline-block;font-size:11px;font-weight:700;color:var(--blue);background:var(--light);border-radius:99px;padding:2px 10px;margin-top:4px}
+.abt dl{margin:0;border-top:1px solid var(--line)}.abt .abr{padding:10px 0;border-bottom:1px solid var(--line)}.abt dt{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--gray)}.abt dd{margin:2px 0 0;font-size:14px;line-height:1.4}
+.abt h4{margin:16px 0 4px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--gray)}
+.abt ol{margin:0;padding:0;list-style:none;counter-reset:n}.abt ol li{position:relative;padding:8px 0 8px 32px;font-size:13.5px;line-height:1.45;counter-increment:n;border-bottom:1px solid var(--line)}.abt ol li:last-child{border-bottom:0}
+.abt ol li:before{content:counter(n);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:50%;background:var(--light);color:var(--blue);font-size:12px;font-weight:800;display:grid;place-items:center}
+.abt .cp{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--gray);text-align:center}.abt .sys{margin:8px 0 0;font-size:11.5px;color:var(--gray);text-align:center}
 @media(min-width:900px){main{margin-left:200px;max-width:760px}nav{top:0;right:auto;bottom:0;width:180px;flex-direction:column;border-top:0;border-right:1px solid var(--line);padding:16px 8px;gap:4px}nav button{flex:0;flex-direction:row;gap:10px;font-size:15px;justify-content:flex-start;padding:0 12px}}
 </style>
 </head>
@@ -530,13 +545,59 @@ function catCard(){const cs=catSpend(cgm),L=S.limits||{},keys=[...new Set([...Ob
  <button class="b2 full" style="margin-top:8px" data-act="catadd">+ Definir limite de uma categoria</button><p class="lbl" style="margin-top:6px">Toque numa categoria para definir o limite mensal. A barra clara é o previsto; a escura, o já pago; o traço marca o limite.</p></div>`}
 function limForm(cat){form('Limite mensal · '+cat,[{k:'c',l:'Limite por mês (R$) — deixe vazio para remover',t:'money',v:fin((S.limits||{})[cat]),p:'0,00'}],v=>{const m=money(v.c);if(m.e)return m.e;S.limits=S.limits||{};if(m.c==null||m.c===0)delete S.limits[cat];else S.limits[cat]=m.c;commit('Limite salvo ✓')})}
 function limAddForm(){form('Novo limite mensal',[{k:'k',l:'Categoria',t:'sel',v:CATS.exp[0],o:CATS.exp.map(c=>[c,c])},{k:'c',l:'Limite por mês (R$)',t:'money',p:'0,00'}],v=>{const m=money(v.c,1);if(m.e)return m.e;S.limits=S.limits||{};S.limits[v.k]=m.c;commit('Limite salvo ✓')})}
+/* ===== MINHA SITUAÇÃO FINANCEIRA: regras claras (nada de nota misteriosa), só com os seus dados do mês atual ===== */
+const FSL={ok:['Saudável','#16A34A','✓','Finanças equilibradas'],est:['Estável','#2563EB','•','Situação controlada, com pontos de atenção'],atn:['Atenção','#D97706','!','Há riscos que merecem cuidado'],crt:['Crítica','#DC2626','!','Compromissos acima do que as finanças suportam'],none:['Sem dados suficientes','#64748B','?','Ainda não dá para avaliar']};
+function finSit(){const td=todayStr(),cm=td.slice(0,7),inc=rowsOf('inc',cm),exp=rowsOf('exp',cm),ok_=i=>stat(i,cm)==='ok';
+ const R=sum(inc,i=>i.c),Rrec=sum(inc.filter(ok_),i=>i.done[cm]),G=sum(inc.filter(i=>stat(i,cm)==='late'),i=>i.c),
+  E=sum(exp,i=>i.c),Epaid=sum(exp.filter(ok_),i=>i.done[cm]),Pm=sum(S.parc.filter(q=>q.ym===cm),q=>q.c),
+  Pun=sum(S.parc.filter(q=>!q.paid),q=>q.c),Pf=sum(S.parc.filter(q=>!q.paid&&q.ym>cm),q=>q.c),D=sum(S.debts,balOf),
+  lx=exp.filter(i=>stat(i,cm)==='late'),lp=S.parc.filter(q=>!q.paid&&(q.due?q.due<td:q.ym<cm)),ld=S.debts.filter(x=>balOf(x)>0&&x.due&&x.due<td),
+  L=sum(lx,i=>i.c)+sum(lp,q=>q.c)+sum(ld,balOf),Lc=lx.length+lp.length+ld.length,bal=balance(),Cm=E+Pm,M=R-Cm,O=D+Pun,
+  ratio=R>0?Cm/R:0,cover=Cm>0?bal/Cm:(bal>0?99:0),mc=(O>0&&M>0)?O/M:0,
+  cs=catSpend(cm),over=Object.keys(S.limits||{}).filter(k=>limSt(k,cs[k]||{paid:0,plan:0})==='over'),pc=Math.round(ratio*100);
+ const m={cm,R,Rrec,G,E,Epaid,Pm,Pun,Pf,D,L,Lc,bal,Cm,M,O,ratio,cover,mc},flags=[],F=(sev,code,txt,rec)=>flags.push({sev,code,txt,rec});
+ const has=S.items.length||S.debts.length||S.parc.length||S.opening||bal!==0;
+ if(!has)return{level:'none',m,flags,why:['Cadastre suas receitas, despesas e dívidas para ver a avaliação.'],good:[],recs:['Comece cadastrando as receitas e as despesas fixas do mês.']};
+ if(bal<0)F('S','saldoneg',`Saldo disponível negativo (${brl(bal)}).`,'Cubra o saldo negativo: lance as receitas que faltam marcar como recebidas e segure os gastos variáveis até o saldo voltar a ser positivo.');
+ if(R<=0&&bal>=0)return{level:'none',m,flags,why:['Você tem despesas ou dívidas cadastradas, mas nenhuma receita neste mês. Sem as receitas não dá para medir a sua capacidade de pagamento.'],good:[],recs:['Cadastre as receitas do mês (previstas ou recebidas) para liberar a avaliação.']};
+ if(R>0){
+  if(ratio>1)F('S','comp100',`Despesas e parcelas do mês (${brl(Cm)}) passam das receitas previstas (${brl(R)}).`,`Reduza os compromissos do mês em pelo menos ${brl(Cm-R)} (cortando despesas) ou aumente a receita.`);
+  else if(ratio>.8)F('H','comp80',`Os compromissos do mês consomem ${pc}% da receita prevista.`,`Procure baixar os compromissos do mês: hoje eles consomem ${pc}% da receita.`);
+  else if(ratio>.6)F('M','comp60',`Os compromissos do mês consomem ${pc}% da receita prevista (acima de 60%).`,'Tente manter os compromissos abaixo de 60% da receita para ter folga.');
+  if(L>=.5*R)F('S','atraso50',`Os atrasos somam ${brl(L)}, metade ou mais da receita mensal.`,`Regularize primeiro os atrasos (${brl(L)}): eles costumam gerar multa e juros.`)}
+ if(Lc>0&&!flags.some(f=>f.code==='atraso50'))F('H','atraso',`Há ${Lc} ${Lc>1?'itens atrasados':'item atrasado'} (${brl(L)}).`,`Regularize primeiro os atrasos (${brl(L)}): eles costumam gerar multa e juros.`);
+ if(O>0&&R>0){
+  if(M<=0){if(cover<1)F('S','semfolga',`Há ${brl(O)} em dívidas e parcelas, sem sobra mensal no orçamento e com pouco dinheiro disponível.`,'Sem folga, evite novas dívidas e parcelas e renegocie ou reduza despesas para abrir espaço no orçamento.');else F('H','semsobra',`Há ${brl(O)} em dívidas e parcelas sem sobra mensal no orçamento; o pagamento depende do dinheiro guardado.`,'Abra folga no orçamento antes de assumir novas dívidas ou parcelas.')}
+  else{const meses=Math.ceil(O/(M/2));if(mc>12)F('H','cap12',`Dívidas e parcelas (${brl(O)}) levariam mais de 12 meses da sua sobra mensal (${brl(M)}) para serem pagas.`,`Separe parte da sobra mensal (${brl(M)}) para as dívidas: com ${brl(Math.round(M/2))} por mês, a quitação levaria cerca de ${meses} meses.`);
+   else if(mc>6)F('M','cap6',`Dívidas e parcelas (${brl(O)}) levariam de 6 a 12 meses da sua sobra mensal (${brl(M)}).`,`Direcione parte da sobra mensal (${brl(M)}) às dívidas para encurtar o prazo.`);
+   else if(mc>3)F('M','cap3',`Dívidas e parcelas (${brl(O)}) levariam de 3 a 6 meses da sua sobra mensal (${brl(M)}).`,`Direcione parte da sobra mensal (${brl(M)}) às dívidas para encurtar o prazo.`)}}
+ if(Cm>0){if(cover<.5)F('H','reserva05',`O dinheiro disponível (${brl(bal)}) cobre menos de meio mês de compromissos (${brl(Cm)}).`,`Monte uma reserva: guarde um valor todo mês até cobrir um mês de compromissos (${brl(Cm)}).`);
+  else if(cover<1)F('M','reserva1',`O dinheiro disponível (${brl(bal)}) cobre menos de um mês de compromissos (${brl(Cm)}).`,`Aumente a reserva até cobrir um mês de compromissos (${brl(Cm)}).`)}
+ if(over.length)F('M','limite',`Limite de categoria ultrapassado: ${over.join(', ')}.`,`Revise os gastos em ${over[0]} ou ajuste o limite se ele estiver irreal.`);
+ if(G>0)F('M','receita',`Há receitas previstas que já venceram e não foram marcadas como recebidas (${brl(G)}).`,'Marque as receitas que já caíram, para o saldo e a avaliação refletirem a realidade.');
+ const n=c=>flags.filter(f=>f.sev===c).length;let level=(n('S')||n('H')>=3)?'crt':(n('H')||n('M')>=3)?'atn':n('M')?'est':'ok';
+ if(level==='ok'&&!(bal>0&&R>0))level='est';
+ const pr={S:0,H:1,M:2},fl=[...flags].sort((a,b)=>pr[a.sev]-pr[b.sev]),good=[];
+ if(bal>0)good.push(`Saldo disponível positivo (${brl(bal)}).`);if(Lc===0)good.push('Nenhum item atrasado.');if(R>0&&ratio<=.6)good.push(`Compromissos do mês em ${pc}% da receita prevista.`);if(O===0)good.push('Sem dívidas nem parcelas pendentes.');else if(M>0&&mc<=3)good.push(`Dívidas e parcelas pendentes (${brl(O)}) cabem em até 3 meses da sua sobra mensal.`);
+ const recs=fl.map(f=>f.rec);if(!recs.length)recs.push('Continue registrando tudo e use a sobra do mês para reforçar suas caixinhas.');
+ return{level,m,flags:fl,why:fl.length?fl.map(f=>f.txt):['Nenhum ponto de risco encontrado nos seus dados deste mês.'],good:good.slice(0,3),recs:[...new Set(recs)].slice(0,2)}}
+function sitCard(){const r=finSit(),L=FSL[r.level],m=r.m,ord=['crt','atn','est','ok'],col=['#DC2626','#D97706','#2563EB','#16A34A'],nm=['Crítica','Atenção','Estável','Saudável'];
+ const k=(t,v,c)=>`<div class="fk"><span>${t}</span><b${c?` style="color:var(--${c})"`:''}>${v}</b></div>`;
+ return `<div class="card fs"><h3>Minha situação financeira</h3><div class="fsh"><div class="fsd" style="background:${L[1]}">${L[2]}</div><div><div class="fsn" style="color:${L[1]}">${L[0]}</div><div class="fst">${L[3]}</div></div></div>
+ ${r.level==='none'?'':`<div class="meter">${ord.map((o,i)=>`<i class="${o===r.level?'on':''}" style="background:${col[i]}"></i>`).join('')}</div><div class="meterl">${nm.map(x=>`<span>${x}</span>`).join('')}</div>`}
+ <div class="fsl">Por que</div><ul class="fsu" style="--c:${L[1]}">${r.why.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
+ ${r.good.length?`<div class="fsl">O que está bem</div><ul class="fsu" style="--c:#16A34A">${r.good.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:''}
+ <div class="fsl">O que fazer agora</div><ul class="fsu" style="--c:var(--blue)">${r.recs.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
+ ${r.level==='none'&&!m.R?'':`<div class="fgrid">${k('Saldo disponível',brl(m.bal),m.bal<0?'red':'')}${k('Folga prevista no mês',brl(m.M),m.M<0?'red':'')}${k('Receitas do mês',brl(m.Rrec)+' de '+brl(m.R))}${k('Despesas do mês',brl(m.Epaid)+' de '+brl(m.E))}${k('Dívidas pendentes',brl(m.D))}${k('Parcelas a pagar',brl(m.Pun)+(m.Pf?' ('+brl(m.Pf)+' nos próximos meses)':''))}${k('Atrasos',brl(m.L),m.L>0?'red':'')}${k('Reserva',m.Cm>0?(m.cover>=99?'sem compromissos':(m.cover<0?'negativa':(c=>c+(c==='1,0'?' mês':' meses'))(m.cover.toFixed(1).replace('.',',')))):'—')}</div>`}
+ <details class="fsx"><summary>Como a avaliação é feita</summary><ul><li>Usa só os seus lançamentos do mês atual, as dívidas, as parcelas e o saldo disponível (apenas o que foi marcado como recebido ou pago).</li><li><b>Crítica:</b> saldo negativo, compromissos acima da receita, dívidas sem folga no orçamento e sem reserva, atrasos de metade da receita ou mais, ou vários riscos altos juntos.</li><li><b>Atenção:</b> algum risco alto (compromissos acima de 80% da receita, itens atrasados, prazo de quitação acima de 12 meses ou reserva abaixo de meio mês) ou vários pontos moderados.</li><li><b>Estável:</b> controlada, com um ou dois pontos moderados (por exemplo, compromissos acima de 60% da receita ou reserva abaixo de um mês).</li><li><b>Saudável:</b> saldo positivo, nenhum atraso, compromissos até 60% da receita, reserva de pelo menos um mês e dívidas que cabem em até 3 meses da sobra mensal.</li><li>O total das dívidas, sozinho, não define o resultado: pesam a sua sobra mensal e o dinheiro disponível.</li></ul></details>
+ <p class="lbl" style="margin-top:8px">Avaliação orientativa, baseada nos dados que você informou. Não substitui aconselhamento profissional.</p></div>`}
 function vRel(){const f=flows(),ms=Array.from({length:12},(_,i)=>ry+'-'+pad(i+1)),L='JFMAMJJASOND'.split(''),z={inc:0,exp:0,dp:0,bx:0};
  const inc=ms.map(m=>(f[m]||z).inc),exp=ms.map(m=>(f[m]||z).exp),has=inc.some(Boolean)||exp.some(Boolean);
  let cum=S.opening?S.opening.c:0;const keys=Object.keys(f).sort();keys.filter(k=>k<ms[0]).forEach(k=>{cum+=net(f[k])});
  const ev=ms.map(m=>(cum+=net(f[m]||z)));const hasEv=keys.some(k=>k.slice(0,4)<=String(ry));
  let pc=0;const dp=ms.map(m=>(pc+=(f[m]||z).dp));const od=sum(S.debts,x=>x.o),paidAll=sum(S.debts,paidOf);
  const sel=rm?f[ry+'-'+rm]||z:null;
- return `<h2>Relatórios</h2><div class="card"><div class="sw"><button class="ib" data-act="yp">‹</button><b>${ry}</b><button class="ib" data-act="yn">›</button></div>
+ return `<h2>Relatórios</h2>${sitCard()}<div class="card"><div class="sw"><button class="ib" data-act="yp">‹</button><b>${ry}</b><button class="ib" data-act="yn">›</button></div>
  <label>Mês<select id="rmSel"><option value="">Ano inteiro</option>${MN.map((n,i)=>`<option value="${pad(i+1)}"${rm===pad(i+1)?' selected':''}>${n}</option>`).join('')}</select></label>
  ${sel?`<div class="grid"><div><div class="lbl">Recebido</div><div class="v pos">${brl(sel.inc)}</div></div><div><div class="lbl">Pago</div><div class="v neg">${brl(sel.exp)}</div></div><div><div class="lbl">Dívidas pagas</div><div class="v">${brl(sel.dp)}</div></div><div><div class="lbl">Guardado (líquido)</div><div class="v">${brl(sel.bx)}</div></div></div>`:''}</div>
  ${catCard()}
@@ -554,7 +615,13 @@ function vCfg(){const p=S.pref;return `<h2>Configurações</h2><div class="card"
  <div class="card"><h3>Avatar</h3><div class="bx"><div style="width:56px;flex:none">${avSvg(S.pref.av,56,false)}</div><button class="b2" style="flex:1" data-act="avs">Personalizar avatar</button></div></div>
  <div class="card"><h3>Backup</h3><div class="acts"><button class="b1" data-act="exp" style="flex:1">Exportar backup</button><button class="b2" data-act="imp" style="flex:1">Importar backup</button></div>${hasCrypto?'<button class="b2 full" style="margin-top:8px" data-act="expenc">Exportar backup criptografado</button>':''}<p class="lbl" style="margin-top:8px">Os dados ficam só neste navegador. Exporte um backup de vez em quando. O backup comum é um arquivo aberto; o <b>criptografado</b> só abre com a senha que você escolher (não é a senha de login — guarde-a: sem ela ninguém recupera o arquivo).</p>${bkpLine()}</div>
  <div class="card"><h3>Zerar todos os dados</h3><p class="lbl" style="margin-bottom:8px">Apaga tudo o que você registrou e deixa o app em branco. Seu nome, tema, avatar e senha continuam. Exporte um backup antes.</p><button class="b2 full neg" data-act="reset">Zerar todos os dados</button></div>
- <div class="card"><h3>Sobre</h3><p class="lbl">WALL STREET · Seu dinheiro, sob controle.<br>Painel de ${esc(S.owner)} · versão ${BUILD}<br>${S.items.length} lançamentos, ${S.debts.length} dívidas, ${S.boxes.length} caixinhas. Funciona offline.</p></div>`}
+ <div class="card abt"><h3>Sobre</h3>
+ <div class="ab1"><img src="icon-192.png" alt="" onerror="this.style.display='none'"><div><b>WALL STREET</b><span>Seu dinheiro, sob controle.</span><div class="ver">Versão ${esc(String(BUILD).split(' · ')[0])}</div></div></div>
+ <dl><div class="abr"><dt>Criador</dt><dd>Paul D'Ávila</dd></div><div class="abr"><dt>Desenvolvimento</dt><dd>Projeto desenvolvido com auxílio de inteligência artificial.</dd></div><div class="abr"><dt>Finalidade</dt><dd>Organização e acompanhamento das finanças pessoais.</dd></div></dl>
+ <h4>Avisos importantes</h4>
+ <ol><li>O WALL STREET é uma ferramenta de organização financeira pessoal, não uma instituição financeira.</li><li>Os cálculos e relatórios são baseados nos dados informados pelo próprio usuário.</li><li>As avaliações financeiras são orientativas e não substituem aconselhamento profissional.</li><li>O usuário é responsável por manter seus dados atualizados e realizar backups.</li><li>O sistema não garante resultados financeiros nem recomenda investimentos.</li></ol>
+ <p class="cp">© 2026 Paul D'Ávila. Todos os direitos reservados.</p>
+ <p class="sys">Painel de ${esc(S.owner)} · ${(n=>n+(n===1?' lançamento':' lançamentos'))(S.items.length)}, ${(n=>n+(n===1?' dívida':' dívidas'))(S.debts.length)}, ${(n=>n+(n===1?' caixinha':' caixinhas'))(S.boxes.length)} · ${esc(String(BUILD).split(' · ').slice(1).join(' · '))} · funciona offline</p></div>`}
 
 /* ----- navegação e renderização ----- */
 const SV=b=>`<svg viewBox="0 0 24 24" aria-hidden="true">${b}</svg>`;
@@ -793,8 +860,8 @@ async function openApp(dek,data,sec){if(!valid(data)){viewLogin('Os dados proteg
  fixPref(migrate(data));S=data;DEK=dek;SECOBJ=sec;SEC0=sec;achCheck(true);document.body.classList.remove('locked');closeLk();G=null;render();loadNews();save();setTimeout(vzOpen,300)}
 async function lockNow(){try{await persistQ}catch(e){}location.reload()}
 async function finishSetup(st,u,p){localStorage.setItem(SECK,JSON.stringify(st.sec));
- const chk=await tryPw(st.sec,u,p);if(!chk||JSON.stringify(chk.data)!==JSON.stringify(S)){localStorage.removeItem(SECK);throw new Error('verificação')}
- SECOBJ=st.sec;SEC0=st.sec;DEK=chk.dek;SECMODE=true;Object.keys(localStorage).filter(k=>k===KEY||k.startsWith(KEY+'.pre-v2')||k.startsWith(KEY+'.invalido-')).forEach(k=>localStorage.removeItem(k));markWelcomed();WEL.on=false}
+ const chk=await tryPw(st.sec,u,p);if(!chk||JSON.stringify(chk.data)!==(st.snap||JSON.stringify(S))){localStorage.removeItem(SECK);throw new Error('verificação')}
+ SECOBJ=st.sec;SEC0=st.sec;DEK=chk.dek;SECMODE=true;Object.keys(localStorage).filter(k=>k===KEY||k.startsWith(KEY+'.pre-v2')||k.startsWith(KEY+'.invalido-')).forEach(k=>localStorage.removeItem(k));persist();markWelcomed();WEL.on=false}
 LK.addEventListener('click',async e=>{const b=e.target.closest('[data-lk]');if(!b)return;const a=b.dataset.lk;
  if(a==='eye'){const i=b.parentElement.querySelector('input');i.type=i.type==='password'?'text':'password';mqCover(i.type==='password')}
  else if(a==='rec')viewRecover();else if(a==='back')viewLogin();else if(a==='skip'){try{localStorage.setItem('wallstreet.secskip','1')}catch(x){}if(FIRST||WEL.on){achCheck(true);markWelcomed();WEL.on=false;save();closeLk();render();toast('Tudo pronto!')}else closeLk()}else if(a==='cancel')closeLk();
@@ -811,8 +878,8 @@ LK.addEventListener('submit',async e=>{e.preventDefault();if(secBusy)return;cons
  else if(id==='nf'){const nm=String(f.n||'').trim().replace(/\s+/g,' ');if(!nm){err('Digite seu nome.');return}if(nm.length>30){err('Use no máximo 30 caracteres.');return}WEL.name=nm;S.owner=nm;G=null;if(WEL.nosec||!hasCrypto)finishNoSec();else viewSetup(false,'welcome')}
  else if(id==='bf'){const o=WEL.bk;await go(async()=>{let d;try{d=JSON.parse(dec.decode(await unseal(await kdf(np(f.p),ub64(o.s),o.it),{iv:o.iv,ct:o.ct})))}catch(x){viewBkPw(o,'Senha incorreta ou arquivo corrompido.');return}welApply(d)})}
  else if(id==='sf'){const m=pwErr(f.u,f.p,f.c);if(m){err(m);return}
-  await go(async()=>{const dek=await crypto.subtle.generateKey({name:'AES-GCM',length:256},true,['encrypt','decrypt']),raw=new Uint8Array(await crypto.subtle.exportKey('raw',dek)),{sec,code}=await wrapAll(f.u,f.p,raw,true);sec.d=await seal(dek,enc.encode(JSON.stringify(S)));
-   viewCode(code,async()=>{await finishSetup({sec},f.u,f.p);closeLk();render();toast(WEL.ctx==='welcome'?'Conta criada! Tudo pronto ✓':'Proteção ativada ✓');WEL.ctx=''},'Seu código de recuperação')})}});
+  await go(async()=>{const dek=await crypto.subtle.generateKey({name:'AES-GCM',length:256},true,['encrypt','decrypt']),raw=new Uint8Array(await crypto.subtle.exportKey('raw',dek)),{sec,code}=await wrapAll(f.u,f.p,raw,true);const snap=JSON.stringify(S);sec.d=await seal(dek,enc.encode(snap));
+   viewCode(code,async()=>{await finishSetup({sec,snap},f.u,f.p);closeLk();render();toast(WEL.ctx==='welcome'?'Conta criada! Tudo pronto ✓':'Proteção ativada ✓');WEL.ctx=''},'Seu código de recuperação')})}});
 /* ----- Ajustes → Segurança ----- */
 function secCard(){if(!hasCrypto)return'<div class="card"><h3>Segurança</h3><p class="lbl">Este navegador/endereço não permite criptografia (precisa de conexão segura, https).</p></div>';
  if(!SECMODE)return`<div class="card"><h3>Segurança</h3><p class="lbl" style="margin-bottom:8px">Proteção por usuário e senha <b>desativada</b>. Qualquer pessoa com acesso a este navegador vê seus dados.</p><button class="b1 full" data-act="secon">Ativar proteção</button></div>`;
