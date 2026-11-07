@@ -1,62 +1,148 @@
 {
- "at": "2026-11-05",
+ "at": "2026-11-07T14:51-03:00",
  "items": [
   {
    "c": "br",
-   "t": "Copom mantém Selic em 13,75% e interrompe sequência de cortes",
-   "s": "O Banco Central manteve a taxa básica de juros em 13,75% ao ano, por unanimidade, na quarta-feira (4). A decisão encerra a série de cinco cortes de 0,25 ponto feitos em 2026. A próxima reunião do Copom é em 8 e 9 de dezembro.",
-   "f": "Jornal do Comércio",
-   "d": "2026-11-04",
-   "u": "https://www.jornaldocomercio.com/economia/2026/11/1269353-bc-copom-interrompe-ciclo-de-calibracao-e-mantem-taxa-selic-em-1375-ao-ano.html"
+   "t": "Berkshire lucra 28% menos, mas recompra US$ 9,6 bi e tem US$ 377 bi em caixa",
+   "f": "InfoMoney",
+   "d": "2026-11-07",
+   "h": "14:40",
+   "u": "https://www.infomoney.com.br/mercados/berkshire-hathaway-lucro-3t26-recompras-caixa-greg-abel/",
+   "s": "Conglomerado de Warren Buffett registra queda nos ganhos com ações e seguros, enquanto novo CEO Greg Abel acelera recompras e amplia investimentos The post Berkshire lucra 28% menos, mas recompra US$ 9,6 bi e tem US$ 377 bi em…"
+  },
+  {
+   "c": "mu",
+   "t": "Forças Armadas dos EUA buscam restringir comércio terrestre iraniano",
+   "f": "InfoMoney",
+   "d": "2026-11-07",
+   "h": "14:09",
+   "u": "https://www.infomoney.com.br/mundo/forcas-armadas-dos-eua-buscam-restringir-comercio-terrestre-iraniano/",
+   "s": "Ação busca impedir o transporte de sistemas avançados de armas e outros materiais sujeitos a sanções The post Forças Armadas dos EUA buscam restringir comércio terrestre iraniano appeared first on InfoMoney ."
+  },
+  {
+   "c": "mu",
+   "t": "Ex-presidente do Paraguai enfrenta promotores após impeachment e prisão domiciliar",
+   "f": "InfoMoney",
+   "d": "2026-11-07",
+   "h": "13:10",
+   "u": "https://www.infomoney.com.br/mundo/ex-presidente-do-paraguai-enfrenta-promotores-apos-impeachment-e-prisao-domiciliar/",
+   "s": "Santiago Peña presta depoimento no Ministério Público em meio à crise política e financeira desencadeada pelo colapso do banco ueno The post Ex-presidente do Paraguai enfrenta promotores após impeachment e prisão domiciliar…"
   },
   {
    "c": "br",
-   "t": "Dólar cai a R$ 5,45 e Ibovespa interrompe seis quedas seguidas",
-   "s": "O dólar comercial fechou a quarta-feira (4) a R$ 5,4518, em baixa de 0,64%. O Ibovespa subiu 1,23% depois de seis pregões de queda. A cobertura associa o movimento ao resultado das eleições americanas.",
-   "f": "O Repórter",
-   "d": "2026-11-04",
-   "h": "22:30",
-   "u": "https://oreporter.com/economia/dolar-cai-r-545-bolsa-sobe-eleicoes-eua-copom"
+   "t": "Dólar sobe 10% após eleição; bancos veem exagero e Congresso como contrapeso",
+   "f": "InfoMoney",
+   "d": "2026-11-07",
+   "h": "13:07",
+   "u": "https://www.infomoney.com.br/mercados/dolar-pos-eleicao-lula-bancos-estrangeiros-projecoes/",
+   "s": "Commerzbank projeta dólar a R$ 5,20, Wells Fargo vê preço justo de R$ 5,30 e Goldman Sachs mantém cautela diante das incertezas fiscais The post Dólar sobe 10% após eleição; bancos veem exagero e Congresso como contrapeso…"
   },
   {
    "c": "br",
-   "t": "Inflação oficial sobe 0,82% em setembro e passa do teto da meta",
-   "s": "O IPCA avançou 0,82% em setembro, depois de recuar 0,32% em agosto. Em 12 meses, a inflação chegou a 4,58%, acima do teto de 4,5% da meta, segundo o IBGE.",
-   "f": "Jornal do Comércio",
-   "d": "2026-10-09",
-   "u": "https://www.jornaldocomercio.com/economia/2026/10/1266395-ipca-sobe-mais-do-que-o-esperado-em-setembro-e-fica-acima-da-meta-de-inflacao.html"
+   "t": "Gonet quer barrar ações contra fim das bets até decisão definitiva do STF",
+   "f": "InfoMoney",
+   "d": "2026-11-07",
+   "h": "12:56",
+   "u": "https://www.infomoney.com.br/mercados/gonet-stf-suspensao-acoes-proibicao-bets/",
+   "s": "Procurador-geral aponta insegurança jurídica após decisões que permitiram a retomada temporária de plataformas de apostas; pedido será analisado por Luiz Fux The post Gonet quer barrar ações contra fim das bets até decisão…"
+  },
+  {
+   "c": "br",
+   "t": "'Imposto do pecado' não é invenção brasileira: álcool e tabaco são taxados nos 38 países da OCDE, grupo de nações ricas",
+   "f": "G1 Economia",
+   "d": "2026-11-07",
+   "h": "12:13",
+   "u": "https://g1.globo.com/economia/noticia/2026/11/07/imposto-do-pecado-nao-e-invencao-brasileira-alcool-e-tabaco-sao-taxados-nos-38-paises-da-ocde-grupo-de-nacoes-ricas.ghtml",
+   "s": "O relatório da OCDE também inclui os combustíveis entre os produtos comumente sujeitos a impostos seletivos. O levantamento, porém, não traz uma relação consolidada dos países que adotam esse tipo de tributação sobre…"
   },
   {
    "c": "mu",
-   "t": "Inflação na zona do euro acelera para 4% em outubro, a maior em três anos",
-   "s": "Pressionada pela energia, a inflação foi de 3,8% em setembro para 4% em outubro, oitavo mês seguido acima da meta de 2% do BCE. A inflação subjacente, sem energia e alimentos, ficou em 2,5%.",
-   "f": "ECO",
-   "d": "2026-11-04",
-   "u": "https://eco.sapo.pt/2026/11/04/inflacao-na-zona-euro-acelera-para-4-em-outubro-e-atinge-maximos-de-tres-anos/"
+   "t": "Ataque a tiros na praça principal de Cracóvia, na Polônia, deixa 6 mortos; VÍDEO",
+   "f": "G1 Mundo",
+   "d": "2026-11-07",
+   "h": "11:57",
+   "u": "https://g1.globo.com/mundo/noticia/2026/11/07/tiroteio-na-praca-principal-de-cracovia-na-polonia-deixa-mortos.ghtml",
+   "s": "O primeiro-ministro do país, Donald Tusk, fez um rápido pronunciamento sobre o caso na rede social X: \"Estou sendo informado pelo Ministério do Interior sobre um tiroteio em Cracóvia . A polícia está investigando o ataque\". A…"
+  },
+  {
+   "c": "br",
+   "t": "A escritora brasileira que virou sensação com romance sobre os neandertais: 'Já tive empregos horríveis, estar no meu quarto escrevendo é libertador'",
+   "f": "BBC News Brasil",
+   "d": "2026-11-07",
+   "h": "11:52",
+   "u": "https://www.bbc.com/portuguese/articles/cwm24k534kr4o?at_medium=RSS&at_campaign=rss",
+   "s": "Escritora de Brasília (DF) lançou neste ano \"Os Imortais\", livro sobre um grupo de neandertais e seu encontro com os homo sapiens e a luta pela sobrevivência que se tornou um dos destaques de 2026 e tem traduções previstas para…"
   },
   {
    "c": "mu",
-   "t": "BCE mantém juros em 2,5% na segunda pausa de 2026",
-   "s": "O Banco Central Europeu deixou a taxa de depósito em 2,5% na reunião de 29 de outubro. Economistas ainda veem espaço para nova alta antes do fim do ano, com a inflação da região em aceleração.",
-   "f": "Doutor Finanças",
-   "d": "2026-10-29",
-   "u": "https://www.doutorfinancas.pt/?p=217691"
+   "t": "Crise no Paraguai: Santiago Peña depõe à Justiça em investigação do banco ueno",
+   "f": "G1 Mundo",
+   "d": "2026-11-07",
+   "h": "11:29",
+   "u": "https://g1.globo.com/mundo/noticia/2026/11/07/santiago-pena-depoe-a-justica-paraguaia-apos-impeachment-e-prisao-domiciliar.ghtml",
+   "s": "Presidente destituído do Paraguai é preso O ex-presidente do Paraguai, Santiago Peña, chegou à Procuradoria-Geral neste sábado (7) para prestar depoimento aos promotores, um dia após sofrer um processo de impeachment e ser…"
+  },
+  {
+   "c": "br",
+   "t": "BC paraguaio diz que devolveu dinheiro de 1,2 milhão de correntistas do banco Ueno",
+   "f": "G1 Economia",
+   "d": "2026-11-07",
+   "h": "11:00",
+   "u": "https://g1.globo.com/economia/noticia/2026/11/07/bc-paraguaio-diz-que-devolveu-dinheiro-de-12-milhao-de-correntistas-do-banco-ueno.ghtml"
   },
   {
    "c": "mu",
-   "t": "Fed mantém juros entre 3,75% e 4% antes das eleições de meio de mandato",
-   "s": "O banco central dos EUA deixou a taxa inalterada na quarta-feira (28), em decisão dividida por 10 votos a 2. O Fed adiou qualquer mudança para depois das eleições legislativas e segue de olho na inflação.",
-   "f": "SBT News",
-   "d": "2026-10-28",
-   "u": "https://sbtnews.sbt.com.br/noticia/mundo/fed-mantem-juros-nos-eua-em-3-75-a-4"
+   "t": "Ueno Bank: escândalo que levou à queda do presidente do Paraguai pode ser comparado ao do Banco Master?",
+   "f": "G1 Economia",
+   "d": "2026-11-07",
+   "h": "10:40",
+   "u": "https://g1.globo.com/mundo/noticia/2026/11/07/ueno-bank-escandalo-que-levou-a-queda-do-presidente-do-paraguai-pode-ser-comparado-ao-do-banco-master.ghtml",
+   "s": "Ueno Bank: escândalo que levou à queda do presidente do Paraguai pode ser comparado ao do Banco Master? Bloomberg via Getty Images, via BBC A liquidação do banco Ueno desencadeou uma forte crise política no Paraguai, com a…"
   },
   {
    "c": "mu",
-   "t": "Presidente do Fed diz que política não pesou na decisão sobre juros",
-   "s": "Kevin Warsh afirmou que as eleições de meio de mandato não influenciaram a manutenção dos juros e que o assunto não apareceu nas reuniões do comitê.",
-   "f": "Exame",
-   "d": "2026-10-28",
-   "u": "https://exame.com/invest/mercados/warsh-diz-que-eleicoes-nos-eua-nao-influenciaram-decisao-de-juros-e-evita-citar-trump/"
+   "t": "Bombardeios sauditas no Iêmen deixam ao menos 22 mortos, diz mídia ligada aos Houthis",
+   "f": "G1 Mundo",
+   "d": "2026-11-07",
+   "h": "09:52",
+   "u": "https://g1.globo.com/mundo/noticia/2026/11/07/bombardeios-sauditas-no-iemen-mortos-houthis.ghtml",
+   "s": "Vídeo divulgado pelo canal de TV Houthi Al-Masirah mostra as consequências de supostos ataques a um mercado em Al-Waziyah, na província de Taiz, no sudoeste do Iêmen Divulgação Um veículo de comunicação ligado aos Houthis, grupo…"
+  },
+  {
+   "c": "br",
+   "t": "VR e VA podem ser aceitos em mais maquininhas a partir deste sábado",
+   "f": "Agência Brasil",
+   "d": "2026-11-07",
+   "h": "09:03",
+   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/vr-e-va-podem-ser-aceitos-em-mais-maquininhas-partir-deste-sabado",
+   "s": "O valor aumenta? Não. As novas regras não determinam aumento nem redução automática do valor do vale-refeição ou do vale-alimentação pago pelas empresas aos funcionários. Os recursos continuam destinados exclusivamente à…"
+  },
+  {
+   "c": "br",
+   "t": "Cartórios fazem mutirão para prevenir golpes na compra de imóveis",
+   "f": "Agência Brasil",
+   "d": "2026-11-07",
+   "h": "08:31",
+   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/cartorios-fazem-mutirao-para-prevenir-golpes-na-compra-de-imoveis",
+   "s": "Para orientar a população sobre como evitar fraudes e proteger seu patrimônio na compra de imóveis, os Cartórios de Notas realizam neste sábado (7) um mutirão nacional gratuito em várias cidades do país. Os golpes podem envolver…"
+  },
+  {
+   "c": "mu",
+   "t": "'Caso Master do Paraguai': entenda a crise de banco que derrubou o presidente Santiago Peña",
+   "f": "BBC News Brasil",
+   "d": "2026-11-07",
+   "h": "07:53",
+   "u": "https://www.bbc.com/portuguese/articles/cmq8njl81978o?at_medium=RSS&at_campaign=rss",
+   "s": "A intervenção no Ueno Bank, uma das maiores instituições financeiras do Paraguai, abalou o sistema bancário do país e os mais altos escalões do poder político."
+  },
+  {
+   "c": "mu",
+   "t": "Açúcar acumula alta de quase 30% em um ano, enquanto alimentos ficam mais baratos, aponta FAO",
+   "f": "G1 Economia",
+   "d": "2026-11-07",
+   "h": "05:00",
+   "u": "https://g1.globo.com/economia/agronegocios/noticia/2026/11/07/acucar-acumula-alta-de-quase-30percent-em-um-ano-enquanto-alimentos-ficam-mais-baratos-aponta-fao.ghtml",
+   "s": "Canavial na região de Ribeirão Preto (SP). Luciano Tolentino/EPTV O preço internacional do açúcar subiu 28,8% em outubro na comparação com o mesmo mês do ano passado, enquanto os preços globais dos alimentos recuaram. Na…"
   }
  ]
 }
