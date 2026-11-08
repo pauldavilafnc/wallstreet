@@ -356,8 +356,40 @@ nav{background-color:var(--navbase)}
 .jgf{animation:jgin .25s ease-out;border-left:5px solid var(--gray)}.jgf.ok{border-left-color:var(--green)}.jgf.bad{border-left-color:var(--red)}.jgf.part{border-left-color:var(--amber)}.jgf p{font-size:14px;line-height:1.45;margin:4px 0}.jgb2{margin-top:6px!important}
 .jgr{text-align:center}.jgstars{display:flex;justify-content:center;gap:6px;animation:jgin .35s ease-out}.jgstars .jgi{width:34px;height:34px;color:var(--gray);opacity:.5;vertical-align:0}.jgstars .jgi.on{color:#F59E0B;fill:#F59E0B;opacity:1}
 .jgnote{margin-top:10px;padding:10px 12px;border-radius:14px;background:var(--light);font-size:14px;text-align:left}.jgnote.up{background:rgba(22,163,74,.16)}
+.svs{padding:14px}.svb{font-size:30px;font-weight:800;margin:4px 0 0;letter-spacing:-.5px}.svb.neg{color:var(--red)}.svw{display:flex;justify-content:space-between;margin:10px 0 4px}.bar.rd i{background:var(--red)}
+:root:not([data-theme=dark]) .jgr .v.pos{color:#14532D}:root:not([data-theme=dark]) .jgr .v.neg{color:#991B1B}
+.shp{width:44px;height:44px;border-radius:50%;overflow:hidden;flex:none;display:block}.shp svg{width:100%;height:100%;display:block}.palp{width:44px;height:44px;border-radius:14px;flex:none;border:2px solid var(--edge)}.shr{gap:12px;align-items:center}.shr .t{flex:1;min-width:0}
+.pals{flex-wrap:wrap}.pals .pal{flex:1 1 calc(33% - 8px);min-width:84px}.avr button.lk,.avc button.lk,.pal.lk{position:relative}.avr button.lk svg.avs{filter:grayscale(.7) brightness(.82)}.avc button.lk{filter:grayscale(.45) brightness(.85)}.pal.lk i{filter:grayscale(.5)}
+.lkb{position:absolute;right:0;bottom:0;width:18px;height:18px;border-radius:50%;background:var(--navy);color:var(--bg);display:grid;place-items:center;border:1.5px solid var(--bg)}.lkb .jgi{width:11px;height:11px;vertical-align:0}
 @keyframes jgin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.jgf,.jgstars{animation:none}.jgb,.jgc2,.jgp i{transition:none}}
+
+/* ===== temas visuais desbloqueáveis na loja (gerados a partir da turquesa) ===== */
+[data-pal=ouro]{--blue:#946E0D;--blue2:#B88614;--h1:#2F2604;--h2:#765A0F;--light:#FBE8CC}
+[data-theme=dark][data-pal=ouro]{--blue:#946E0D;--light:#413612}
+[data-pal=ouro]{--light:rgba(148,110,13,.12);--o1:rgba(214,177,94,.5);--o3:rgba(180,142,45,.32);--o2:rgba(240,225,196,.95);--orbs:radial-gradient(circle at 6% 3%,var(--o1) 0,transparent 32%),radial-gradient(circle at 100% 16%,var(--o3) 0,transparent 30%),radial-gradient(circle at 62% 106%,var(--o2) 0,transparent 44%),radial-gradient(circle at 0% 72%,var(--o3) 0,transparent 26%),linear-gradient(165deg,#F7F2E9,#EBE4D4)}
+[data-theme=dark][data-pal=ouro]{--light:rgba(212,159,45,.17);--o1:rgba(148,110,13,.4);--o3:rgba(184,134,20,.22);--o2:rgba(80,63,14,.55);--orbs:radial-gradient(circle at 94% 5%,var(--o1) 0,transparent 32%),radial-gradient(circle at 0% 42%,var(--o3) 0,transparent 34%),radial-gradient(circle at 68% 102%,var(--o2) 0,transparent 48%),radial-gradient(circle at 10% 100%,var(--o3) 0,transparent 26%),linear-gradient(170deg,#181A06,#0D0E03)}
+[data-pal=ouro]{--blue:#765A0F;--ink:#5E480F;--btn1:#765A0F;--btn2:#5E4A11}
+[data-theme=dark][data-pal=ouro]{--blue:#D49F2D;--ink:#F0CD8E;--btn1:#765A0F;--btn2:#5E4A11}
+[data-pal=ouro]{--sb:rgba(214,190,142,.72);--se:rgba(238,225,202,.92);--b1:#F6F1E8;--b2:#E9E0D0}
+[data-theme=dark][data-pal=ouro]{--sa:rgba(152,121,44,.68);--sb:rgba(68,53,14,.92);--sc:rgba(54,44,12,.5);--sd:rgba(222,187,112,.28);--se:rgba(74,58,14,.52);--b1:#131007;--b2:#090803}
+[data-pal=rose]{--blue:#940D3E;--blue2:#B81454;--h1:#2F0411;--h2:#760F34;--light:#FBCCE3}
+[data-theme=dark][data-pal=rose]{--blue:#940D3E;--light:#411221}
+[data-pal=rose]{--light:rgba(148,13,62,.12);--o1:rgba(214,94,141,.5);--o3:rgba(180,45,94,.32);--o2:rgba(240,196,214,.95);--orbs:radial-gradient(circle at 6% 3%,var(--o1) 0,transparent 32%),radial-gradient(circle at 100% 16%,var(--o3) 0,transparent 30%),radial-gradient(circle at 62% 106%,var(--o2) 0,transparent 44%),radial-gradient(circle at 0% 72%,var(--o3) 0,transparent 26%),linear-gradient(165deg,#F7E9EF,#EBD4DD)}
+[data-theme=dark][data-pal=rose]{--light:rgba(212,45,112,.17);--o1:rgba(148,13,62,.4);--o3:rgba(184,20,84,.22);--o2:rgba(80,14,36,.55);--orbs:radial-gradient(circle at 94% 5%,var(--o1) 0,transparent 32%),radial-gradient(circle at 0% 42%,var(--o3) 0,transparent 34%),radial-gradient(circle at 68% 102%,var(--o2) 0,transparent 48%),radial-gradient(circle at 10% 100%,var(--o3) 0,transparent 26%),linear-gradient(170deg,#1A0606,#0E0303)}
+[data-pal=rose]{--blue:#760F34;--ink:#5E0F2C;--btn1:#760F34;--btn2:#5E112B}
+[data-theme=dark][data-pal=rose]{--blue:#D42D70;--ink:#F08EB9;--btn1:#760F34;--btn2:#5E112B}
+[data-pal=rose]{--sb:rgba(214,142,172,.72);--se:rgba(238,202,218,.92);--b1:#F6E8EE;--b2:#E9D0DB}
+[data-theme=dark][data-pal=rose]{--sa:rgba(152,44,84,.68);--sb:rgba(68,14,33,.92);--sc:rgba(54,12,26,.5);--sd:rgba(222,112,157,.28);--se:rgba(74,14,35,.52);--b1:#13070B;--b2:#090305}
+[data-pal=grafite]{--blue:#474F5A;--blue2:#5B6471;--h1:#16191D;--h2:#3B414A;--light:#E0E3E7}
+[data-theme=dark][data-pal=grafite]{--blue:#474F5A;--light:#26292D}
+[data-pal=grafite]{--light:rgba(71,79,90,.12);--o1:rgba(146,153,162,.5);--o3:rgba(103,111,122,.32);--o2:rgba(215,217,221,.95);--orbs:radial-gradient(circle at 6% 3%,var(--o1) 0,transparent 32%),radial-gradient(circle at 100% 16%,var(--o3) 0,transparent 30%),radial-gradient(circle at 62% 106%,var(--o2) 0,transparent 44%),radial-gradient(circle at 0% 72%,var(--o3) 0,transparent 26%),linear-gradient(165deg,#EFF0F1,#DEDFE1)}
+[data-theme=dark][data-pal=grafite]{--light:rgba(117,127,140,.17);--o1:rgba(71,79,90,.4);--o3:rgba(91,100,113,.22);--o2:rgba(42,46,52,.55);--orbs:radial-gradient(circle at 94% 5%,var(--o1) 0,transparent 32%),radial-gradient(circle at 0% 42%,var(--o3) 0,transparent 34%),radial-gradient(circle at 68% 102%,var(--o2) 0,transparent 48%),radial-gradient(circle at 10% 100%,var(--o3) 0,transparent 26%),linear-gradient(170deg,#0F1011,#080809)}
+[data-pal=grafite]{--blue:#3B414A;--ink:#31363C;--btn1:#3B414A;--btn2:#32373D}
+[data-theme=dark][data-pal=grafite]{--blue:#757F8C;--ink:#B8BEC6;--btn1:#3B414A;--btn2:#32373D}
+[data-pal=grafite]{--sb:rgba(173,177,183,.72);--se:rgba(217,220,223,.92);--b1:#EEEFF0;--b2:#DBDCDE}
+[data-theme=dark][data-pal=grafite]{--sa:rgba(90,97,106,.68);--sb:rgba(37,40,45,.92);--sc:rgba(30,33,36,.5);--sd:rgba(159,166,175,.28);--se:rgba(40,43,48,.52);--b1:#0C0D0E;--b2:#060606}
+.pal .lkb{right:8px;bottom:8px}
 </style>
 </head>
 <body>
@@ -410,12 +442,12 @@ if(!S){S=seed();}
 function migrate(o){ // v2: saldo inicial, notificações, conquistas; parcelas antigas pertencem ao Celular
  if(o.ach===undefined)o.ach=null;if(!o.limits||typeof o.limits!=='object')o.limits={};if(!o.flags||typeof o.flags!=='object')o.flags={};
  if(o.opening===undefined)o.opening=null;if(!o.ntf||typeof o.ntf!=='object'||!o.ntf.read)o.ntf={read:{}};if(!o.ntf.since){const d=new Date();o.ntf.since=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}o.v=2;
- gmFix(o);
+ gmFix(o);gmOwnFix(o);
  const orphan=o.parc.filter(p=>!p.iid||!o.inst.some(x=>x.id===p.iid));
  if(orphan.length){let t=o.inst.find(x=>x.n==='Celular')||o.inst[0];if(!t){t={id:uid(),n:'Parcelado',c:null,np:null,day:null,paid:false};o.inst.push(t)}orphan.forEach(p=>{p.iid=t.id})}return o}
-const fixPref=o=>{if(!o.pref||typeof o.pref!=='object')o.pref={theme:'light',pal:'blue'};if(typeof o.pref.lk!=='number')o.pref.lk=5;if(typeof o.pref.br!=='number')o.pref.br=7;if(typeof o.pref.gl!=='number')o.pref.gl=1;if(o.pref.br===14)o.pref.br=15;delete o.pref.vz;const a=o.pref.av;const ci=(v,n)=>{v=Math.floor(+v||0);return v>=0&&v<n?v:0};o.pref.av=(a&&typeof a==='object')?{ex:ci(a.ex,7),hd:ci(a.hd,6),fc:ci(a.fc,5),fur:ci(a.fur,5),bg:ci(a.bg,9),an:(a.an===0||a.an===false)?0:1}:{ex:0,hd:0,fc:0,fur:0,bg:0,an:1};return o};fixPref(S);migrate(S);
+const fixPref=o=>{if(!o.pref||typeof o.pref!=='object')o.pref={theme:'light',pal:'blue'};if(typeof o.pref.lk!=='number')o.pref.lk=5;if(typeof o.pref.br!=='number')o.pref.br=7;if(typeof o.pref.gl!=='number')o.pref.gl=1;if(o.pref.br===14)o.pref.br=15;delete o.pref.vz;const a=o.pref.av;const ci=(v,n)=>{v=Math.floor(+v||0);return v>=0&&v<n?v:0};o.pref.av=(a&&typeof a==='object')?{ex:ci(a.ex,7),hd:ci(a.hd,9),fc:ci(a.fc,7),fur:ci(a.fur,8),bg:ci(a.bg,12),an:(a.an===0||a.an===false)?0:1}:{ex:0,hd:0,fc:0,fur:0,bg:0,an:1};gmOwnFix(o);return o};fixPref(S);migrate(S);
 function lookPref(){try{const l=JSON.parse(localStorage.getItem('wallstreet.look'));if(l&&l.t)return{theme:l.t,pal:l.p,gl:l.g}}catch(e){}return{theme:'light',pal:'blue'}}
-function applyPref(){const p=(SECMODE&&!DEK)?lookPref():S.pref,r=document.documentElement;r.dataset.theme=p.theme==='dark'?'dark':'light';r.dataset.pal=['blue','violet','teal'].includes(p.pal)?p.pal:'blue';const m=document.querySelector('meta[name=theme-color]');if(m)m.content=p.theme==='dark'?'#0B1220':'#0B1730';try{r.dataset.glass=p.gl===0?'off':'on';localStorage.setItem('wallstreet.look',JSON.stringify({t:r.dataset.theme,p:r.dataset.pal,g:p.gl===0?0:1}))}catch(e){}}
+function applyPref(){const p=(SECMODE&&!DEK)?lookPref():S.pref,r=document.documentElement;r.dataset.theme=p.theme==='dark'?'dark':'light';r.dataset.pal=['blue','violet','teal','ouro','rose','grafite'].includes(p.pal)?p.pal:'blue';const m=document.querySelector('meta[name=theme-color]');if(m)m.content=p.theme==='dark'?'#0B1220':'#0B1730';try{r.dataset.glass=p.gl===0?'off':'on';localStorage.setItem('wallstreet.look',JSON.stringify({t:r.dataset.theme,p:r.dataset.pal,g:p.gl===0?0:1}))}catch(e){}}
 let view='home',vm=ymOf(new Date()),ry=new Date().getFullYear(),rm='',pend=null,open={};
 function save(){if(FIRST)return true;if(SECMODE){if(!DEK)return false;persist();return true}try{localStorage.setItem(KEY,JSON.stringify(S));return true}catch(e){toast('Não foi possível salvar (armazenamento cheio ou bloqueado)');return false}}
 save();
@@ -465,9 +497,9 @@ function itemRow(i,m,btns=true){const s=stat(i,m);
 function ring(p,c){const r=22,L=2*Math.PI*r,d=Math.max(0,Math.min(100,p))/100*L;
  return `<svg viewBox="0 0 56 56" style="width:56px;height:56px;flex:none"><circle cx="28" cy="28" r="${r}" fill="none" style="stroke:var(--light)" stroke-width="6"/><circle cx="28" cy="28" r="${r}" fill="none" style="stroke:${c||'var(--blue)'}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${d} ${L}" transform="rotate(-90 28 28)"/><text x="28" y="32" font-size="12" font-weight="700" text-anchor="middle" style="fill:var(--navy)">${Math.round(p)}%</text></svg>`}
 /* ----- avatar: lobo em SVG leve (expressões, acessórios de cabeça e de rosto, pelagem e fundo) ----- */
-const BGS=[['#1E3A8A'],['#0B1730'],['#2563EB'],['#DBEAFE'],['#0F766E'],['#6D28D9'],['#B91C1C'],['#F59E0B'],['#334155']];
-const FURS=[['#8FA3BF','#E3EAF5','#4E6082','#C9D6EA','Cinza-azulado'],['#59657A','#C4CCDA','#2E374A','#8D99AE','Grafite'],['#E4EBF5','#FFFFFF','#9FB0CC','#F6C9D0','Gelo'],['#A98A6B','#EAD9C3','#6E5238','#E7BFA5','Caramelo'],['#2F3849','#8F9BB0','#141A28','#5A667C','Noturno']];
-const EXPN=['Sério','Confiante','Focado','Desconfiado','Tranquilo','Surpreso','Feroz'],HEADN=['Sem acessório','Boné','Cartola','Coroa','Gorro','Fones'],FACEN=['Sem acessório','Óculos escuros','Óculos redondos','Tapa-olho','Cicatriz'];
+const BGS=[['#1E3A8A'],['#0B1730'],['#2563EB'],['#DBEAFE'],['#0F766E'],['#6D28D9'],['#B91C1C'],['#F59E0B'],['#334155'],['#BE185D'],['#0E7490'],['#CA8A04']];
+const FURS=[['#8FA3BF','#E3EAF5','#4E6082','#C9D6EA','Cinza-azulado'],['#59657A','#C4CCDA','#2E374A','#8D99AE','Grafite'],['#E4EBF5','#FFFFFF','#9FB0CC','#F6C9D0','Gelo'],['#A98A6B','#EAD9C3','#6E5238','#E7BFA5','Caramelo'],['#2F3849','#8F9BB0','#141A28','#5A667C','Noturno'],['#D8A94A','#F7E7B8','#8C6A1D','#F1C98A','Dourado'],['#5F7F6B','#DCE8DC','#35503E','#B7D3BE','Verde-floresta'],['#B4455B','#F6D7DC','#6E1F32','#E8A0AE','Rubi']];
+const EXPN=['Sério','Confiante','Focado','Desconfiado','Tranquilo','Surpreso','Feroz'],HEADN=['Sem acessório','Boné','Cartola','Coroa','Gorro','Fones','Capuz','Chapéu de caubói','Elmo viking'],FACEN=['Sem acessório','Óculos escuros','Óculos redondos','Tapa-olho','Cicatriz','Máscara','Monóculo'];
 const AVK='#0B1220',AVB='#1B2437';
 const avEye=(cx,h,ix,ir)=>{const r=Math.min(ir,2.6*h+1.2);return `<path d="M${cx-9} 50Q${cx} ${50-7*h} ${cx+9} 50Q${cx} ${50+5.5*h} ${cx-9} 50Z" fill="#EAF6FF" stroke="${AVK}" stroke-width="1.1"/><circle cx="${cx+ix}" cy="50" r="${r}" fill="#38BDF8"/><circle cx="${cx+ix}" cy="50" r="${r*.5}" fill="${AVK}"/><circle cx="${cx+ix-.9}" cy="48.7" r=".9" fill="#fff"/><path d="M${cx-9} 50Q${cx} ${50-7*h} ${cx+9} 50" fill="none" stroke="${AVK}" stroke-width="2.2" stroke-linecap="round"/>`};
 const st=(d,w)=>`<path d="${d}" fill="none" stroke="${AVB}" stroke-width="${w||3.2}" stroke-linecap="round" stroke-linejoin="round"/>`;
@@ -484,27 +516,29 @@ const HEADS=['',
  `<path d="M17 31Q50 42 83 31Q83 24 50 24Q17 24 17 31Z" fill="#111827"/><path d="M32 28L34 4Q50 0 66 4L68 28Z" fill="#111827"/><path d="M32.6 22H67.4L68 28H32Z" fill="#2563EB"/><path d="M38 6L39 20" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-linecap="round"/>`,
  `<path d="M27 31L27 10L40 20L50 5L60 20L73 10L73 31Q50 35 27 31Z" fill="#FBBF24" stroke="#B45309" stroke-width="1.6" stroke-linejoin="round"/><circle cx="39" cy="27" r="2.1" fill="#EF4444"/><circle cx="50" cy="27.6" r="2.3" fill="#38BDF8"/><circle cx="61" cy="27" r="2.1" fill="#EF4444"/>`,
  `<path d="M25 34Q25 6 50 6Q75 6 75 34Z" fill="#DC2626"/><path d="M23 30H77V38Q50 43 23 38Z" fill="#B91C1C"/><path d="M33 8L31 30M43 6L42 30M57 6L58 30M67 8L69 30" stroke="rgba(0,0,0,.18)" stroke-width="1.4"/><circle cx="50" cy="5" r="6" fill="#F3F4F6"/>`,
- `<path d="M18 56Q15 12 50 12Q85 12 82 56" fill="none" stroke="#1F2937" stroke-width="5" stroke-linecap="round"/><rect x="9" y="44" width="13" height="26" rx="6.5" fill="#111827" stroke="#38BDF8" stroke-width="1.6"/><rect x="78" y="44" width="13" height="26" rx="6.5" fill="#111827" stroke="#38BDF8" stroke-width="1.6"/>`];
+ `<path d="M18 56Q15 12 50 12Q85 12 82 56" fill="none" stroke="#1F2937" stroke-width="5" stroke-linecap="round"/><rect x="9" y="44" width="13" height="26" rx="6.5" fill="#111827" stroke="#38BDF8" stroke-width="1.6"/><rect x="78" y="44" width="13" height="26" rx="6.5" fill="#111827" stroke="#38BDF8" stroke-width="1.6"/>`,`<path d="M13 62Q6 14 50 7Q94 14 87 62L75 57Q76 33 50 29Q24 33 25 57Z" fill="#334155"/><path d="M25 57Q24 33 50 29Q76 33 75 57" fill="none" stroke="#1E293B" stroke-width="2.2"/>`,`<path d="M8 36Q50 50 92 36Q88 28 70 29Q50 33 30 29Q12 28 8 36Z" fill="#92400E"/><path d="M29 30Q27 7 50 7Q73 7 71 30Q50 35 29 30Z" fill="#B45309"/><path d="M29 24Q50 29 71 24L71.5 29Q50 34 28.5 29Z" fill="#78350F"/><path d="M42 8Q50 14 58 8" fill="none" stroke="#92400E" stroke-width="1.6"/>`,`<path d="M26 33Q27 9 50 9Q73 9 74 33Z" fill="#A8B0BD"/><path d="M24 30H76V37H24Z" fill="#6B7280"/><path d="M27 24Q9 21 6 5Q16 9 29 15Z" fill="#F5ECD7" stroke="#C9B994" stroke-width="1"/><path d="M73 24Q91 21 94 5Q84 9 71 15Z" fill="#F5ECD7" stroke="#C9B994" stroke-width="1"/><path d="M50 9V30" stroke="#8B93A1" stroke-width="2"/>`];
 const FACES=['',
  `<path d="M22 44H47V52Q47 60 38 60H31Q22 60 22 52Z" fill="${AVK}"/><path d="M53 44H78V52Q78 60 69 60H62Q53 60 53 52Z" fill="${AVK}"/><path d="M47 46H53" stroke="${AVK}" stroke-width="3"/><path d="M22 46L12 43M78 46L88 43" stroke="${AVK}" stroke-width="2.6" stroke-linecap="round"/><path d="M26 47L32 47M57 47L63 47" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/>`,
  `<circle cx="36" cy="49.5" r="10.5" fill="rgba(125,211,252,.2)" stroke="#1F2937" stroke-width="2.6"/><circle cx="64" cy="49.5" r="10.5" fill="rgba(125,211,252,.2)" stroke="#1F2937" stroke-width="2.6"/><path d="M46.5 48Q50 45 53.5 48" fill="none" stroke="#1F2937" stroke-width="2.6"/><path d="M25.5 48L14 45M74.5 48L86 45" stroke="#1F2937" stroke-width="2.4" stroke-linecap="round"/>`,
  `<path d="M55 43L23 31M74 55L86 62" stroke="${AVK}" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="64" cy="49.5" rx="10.5" ry="9" fill="${AVK}"/>`,
- `<path d="M30 37L44 62" stroke="#B91C1C" stroke-width="2.6" stroke-linecap="round"/><path d="M32.5 46.5L38 44M36 53L41.5 50.6" stroke="#B91C1C" stroke-width="1.8" stroke-linecap="round"/>`];
+ `<path d="M30 37L44 62" stroke="#B91C1C" stroke-width="2.6" stroke-linecap="round"/><path d="M32.5 46.5L38 44M36 53L41.5 50.6" stroke="#B91C1C" stroke-width="1.8" stroke-linecap="round"/>`,`<path fill-rule="evenodd" d="M19 41H81Q85 49 81 58H19Q15 49 19 41ZM28 49a8 6 0 1 0 16 0a8 6 0 1 0-16 0ZM56 49a8 6 0 1 0 16 0a8 6 0 1 0-16 0Z" fill="#111827"/>`,`<circle cx="64" cy="49.5" r="11" fill="rgba(125,211,252,.18)" stroke="#FBBF24" stroke-width="2.4"/><path d="M74 57Q84 64 79 80" fill="none" stroke="#FBBF24" stroke-width="1.6" stroke-dasharray="2 2"/>`];
 const cl=(v,n)=>{v=Math.floor(+v||0);return v>=0&&v<n?v:0};
 const avSvg=(a,sz,an)=>{const bg=BGS[cl(a.bg,BGS.length)][0],f=FURS[cl(a.fur,FURS.length)],x=EXPS[cl(a.ex,EXPS.length)],hd=cl(a.hd,HEADS.length),fc=cl(a.fc,FACES.length);
  return `<svg class="avs${an?' an':''}" viewBox="0 0 100 100" width="${sz}" height="${sz}" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="${bg}"/><g class="ear l"><path d="M17 50Q14 26 22 7Q37 15 47 31Z" fill="${f[0]}" stroke="${f[0]}" stroke-width="3" stroke-linejoin="round"/><path d="M24 39Q22 25 26 16Q33 20 38 31Z" fill="${f[3]}"/></g><g class="ear r"><path d="M83 50Q86 26 78 7Q63 15 53 31Z" fill="${f[0]}" stroke="${f[0]}" stroke-width="3" stroke-linejoin="round"/><path d="M76 39Q78 25 74 16Q67 20 62 31Z" fill="${f[3]}"/></g><path d="M50 91L36 85L23 72L16 54L22 38L36 30L50 28L64 30L78 38L84 54L77 72L64 85Z" fill="${f[0]}" stroke="${f[0]}" stroke-width="4" stroke-linejoin="round"/><path d="M50 28L43 46L50 54L57 46Z" fill="${f[2]}" opacity=".5"/><path d="M50 91L36 85L26 74L30 62L40 58L50 64L60 58L70 62L74 74L64 85Z" fill="${f[1]}" stroke="${f[1]}" stroke-width="2" stroke-linejoin="round"/><path d="M43 60Q50 55 57 60Q55 68 50 70Q45 68 43 60Z" fill="${AVK}"/><ellipse cx="48" cy="60.6" rx="2.4" ry="1.1" fill="#fff" opacity=".45"/><path d="M50 70V75" stroke="${AVK}" stroke-width="1.8" stroke-linecap="round"/><g class="eyes">${avEye(36,x[0],-x[1]*.8,x[2])}${avEye(64,x[0],x[1],x[2])}</g>${x[4]}${FACES[fc]}${x[3]}${HEADS[hd]}<circle cx="50" cy="50" r="49" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/></svg>`};
 const PRESETS=[{ex:0,hd:0,fc:0,fur:0,bg:0},{ex:1,hd:0,fc:1,fur:4,bg:1},{ex:2,hd:4,fc:0,fur:1,bg:8},{ex:1,hd:3,fc:0,fur:2,bg:0},{ex:4,hd:5,fc:0,fur:3,bg:4},{ex:6,hd:0,fc:4,fur:1,bg:6},{ex:3,hd:2,fc:2,fur:0,bg:5},{ex:0,hd:1,fc:3,fur:4,bg:7}];
 const RM=window.matchMedia?matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
 const animOn=()=>!!S.pref.av.an&&!RM.matches;
-function avSheet(){const a=S.pref.av,o=$('#ov'),on=(c)=>c?'on':'',nm=(l,v)=>`<div class="lab">${l} · <b>${v}</b></div>`;
+function avSheet(){const a=S.pref.av,o=$('#ov'),on=(c)=>c?'on':'',nm=(l,v)=>`<div class="lab">${l} · <b>${v}</b></div>`,P={hd:'h',fc:'f',fur:'u',bg:'b'},
+ lk=(f,i,n,inner,cls)=>{const id=P[f]+i,it=jgItem(id);return `<button class="lk${cls||''}" data-act="shopbuy" data-id="${id}" data-from="av" aria-label="${n}, bloqueado: ${it[4]} moedas" title="${n}: ${it[4]} moedas">${inner}<b class="lkb">${jgIc('lock','s')}</b></button>`};
  o.innerHTML=`<div class="sheet"><h3>Personalizar avatar</h3><div class="avp">${avSvg(a,96,animOn())}</div>
  <div class="lab">Sugestões</div><div class="avg">${PRESETS.map((q,i)=>`<button data-act="avp" data-id="${i}" class="${on(['ex','hd','fc','fur','bg'].every(k=>a[k]===q[k]))}" aria-label="Sugestão ${i+1}">${avSvg(q,44)}</button>`).join('')}</div>
  ${nm('Expressão',EXPN[a.ex])}<div class="avr">${EXPN.map((n,i)=>`<button data-act="avx" data-id="${i}" class="${on(a.ex===i)}" aria-label="${n}" title="${n}">${avSvg({...a,ex:i,hd:0,fc:0},34)}</button>`).join('')}</div>
- ${nm('Acessório de cabeça',HEADN[a.hd])}<div class="avr">${HEADN.map((n,i)=>`<button data-act="avhd" data-id="${i}" class="${on(a.hd===i)}" aria-label="${n}" title="${n}">${avSvg({...a,hd:i,fc:0},34)}</button>`).join('')}</div>
- ${nm('Acessório de rosto',FACEN[a.fc])}<div class="avr">${FACEN.map((n,i)=>`<button data-act="avfc" data-id="${i}" class="${on(a.fc===i)}" aria-label="${n}" title="${n}">${avSvg({...a,fc:i,hd:0},34)}</button>`).join('')}</div>
- ${nm('Pelagem',FURS[a.fur][4])}<div class="avc">${FURS.map((f,i)=>`<button data-act="avfu" data-id="${i}" class="${on(a.fur===i)}" style="background:linear-gradient(135deg,${f[1]},${f[0]})" aria-label="${f[4]}" title="${f[4]}"></button>`).join('')}</div>
- <div class="lab">Cor de fundo</div><div class="avc">${BGS.map((b,i)=>`<button data-act="avb" data-id="${i}" class="${on(a.bg===i)}" style="background:${b[0]}" aria-label="Cor ${i+1}"></button>`).join('')}</div>
+ ${nm('Acessório de cabeça',HEADN[a.hd])}<div class="avr">${HEADN.map((n,i)=>jgAvOwned('hd',i)?`<button data-act="avhd" data-id="${i}" class="${on(a.hd===i)}" aria-label="${n}" title="${n}">${avSvg({...a,hd:i,fc:0},34)}</button>`:lk('hd',i,n,avSvg({...a,hd:i,fc:0},34))).join('')}</div>
+ ${nm('Acessório de rosto',FACEN[a.fc])}<div class="avr">${FACEN.map((n,i)=>jgAvOwned('fc',i)?`<button data-act="avfc" data-id="${i}" class="${on(a.fc===i)}" aria-label="${n}" title="${n}">${avSvg({...a,fc:i,hd:0},34)}</button>`:lk('fc',i,n,avSvg({...a,fc:i,hd:0},34))).join('')}</div>
+ ${nm('Pelagem',FURS[a.fur][4])}<div class="avc">${FURS.map((f,i)=>jgAvOwned('fur',i)?`<button data-act="avfu" data-id="${i}" class="${on(a.fur===i)}" style="background:linear-gradient(135deg,${f[1]},${f[0]})" aria-label="${f[4]}" title="${f[4]}"></button>`:lk('fur',i,f[4],'',' ')).map((h,i)=>jgAvOwned('fur',i)?h:h.replace('<button class="lk "','<button class="lk" style="background:linear-gradient(135deg,'+FURS[i][1]+','+FURS[i][0]+')"')).join('')}</div>
+ <div class="lab">Cor de fundo</div><div class="avc">${BGS.map((b,i)=>jgAvOwned('bg',i)?`<button data-act="avb" data-id="${i}" class="${on(a.bg===i)}" style="background:${b[0]}" aria-label="Cor ${i+1}"></button>`:lk('bg',i,'Cor '+(i+1),'').replace('<button class="lk"','<button class="lk" style="background:'+b[0]+'"')).join('')}</div>
  <button class="${a.an?'b1':'b2'} full" data-act="avt">Animações: ${a.an?'ativadas':'desativadas'}</button>${RM.matches?'<div class="lbl" style="margin-top:6px">O Android está com "reduzir movimento": as animações ficam paradas.</div>':''}
+ <div class="lbl" style="margin-top:8px">Itens com cadeado se desbloqueiam com moedas na Loja da Central de Jogos.</div>
  <div class="btns" style="margin-top:12px"><button class="b1" data-act="close">Concluir</button></div></div>`;o.hidden=false}
 const avSet=f=>{f(S.pref.av);save();avSheet();render()};
 let avT;function avLoop(){clearTimeout(avT);avT=setTimeout(()=>{const el=document.getElementById('avh');
@@ -787,7 +821,7 @@ function vRel(){const f=flows(),ms=Array.from({length:12},(_,i)=>ry+'-'+pad(i+1)
  <div class="card"><h3>Quitação das dívidas (acumulado pago)</h3>${paidAll?chart(L,[dp],['#16A34A'],{line:1})+`<div class="lbl">Quitado até hoje: ${Math.round(paidAll/od*100)}% de ${brl(od)}</div>`:noData('Nenhum pagamento de dívida registrado ainda.')}</div>`}
 
 function vCfg(){const p=S.pref;return `<h2>Configurações</h2><div class="card"><label>Nome do proprietário<input id="own" value="${esc(S.owner)}" maxlength="40"></label><button class="b1 full" data-act="own">Salvar nome</button></div>
- <div class="card"><h3>Aparência</h3><div class="acts" style="margin:0 0 12px"><button class="${p.theme!=='dark'?'b1':'b2'}" style="flex:1" data-act="theme" data-id="light">☀ Claro</button><button class="${p.theme==='dark'?'b1':'b2'}" style="flex:1" data-act="theme" data-id="dark">☾ Escuro</button></div><div class="lbl" style="margin-bottom:6px">Paleta de cores</div><div class="pals">${[['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488']].map(([k,n,c])=>`<button class="pal${p.pal===k?' on':''}" data-act="pal" data-id="${k}"><i style="background:${c}"></i>${n}</button>`).join('')}</div><label style="margin:12px 0 0">Efeito de vidro<select id="glSel"><option value="1"${p.gl!==0?' selected':''}>Completo</option><option value="0"${p.gl===0?' selected':''}>Leve (mais rápido)</option></select></label></div>
+ <div class="card"><h3>Aparência</h3><div class="acts" style="margin:0 0 12px"><button class="${p.theme!=='dark'?'b1':'b2'}" style="flex:1" data-act="theme" data-id="light">☀ Claro</button><button class="${p.theme==='dark'?'b1':'b2'}" style="flex:1" data-act="theme" data-id="dark">☾ Escuro</button></div><div class="lbl" style="margin-bottom:6px">Paleta de cores</div><div class="pals">${[['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['ouro','Ouro','#B88614'],['rose','Rosé','#BE3A66'],['grafite','Grafite','#4B5563']].map(([k,n,c])=>(['ouro','rose','grafite'].includes(k)&&!S.games.own['p:'+k])?`<button class="pal lk" data-act="shopbuy" data-id="p:${k}" data-from="pal" aria-label="Tema ${n}, bloqueado: ${jgItem('p:'+k)[4]} moedas"><i style="background:${c}"></i>${n}<b class="lkb">${jgIc('lock','s')}</b></button>`:`<button class="pal${p.pal===k?' on':''}" data-act="pal" data-id="${k}"><i style="background:${c}"></i>${n}</button>`).join('')}</div><label style="margin:12px 0 0">Efeito de vidro<select id="glSel"><option value="1"${p.gl!==0?' selected':''}>Completo</option><option value="0"${p.gl===0?' selected':''}>Leve (mais rápido)</option></select></label></div>
  ${secCard()}
  <div class="card"><h3>Avatar</h3><div class="bx"><div style="width:56px;flex:none">${avSvg(S.pref.av,56,false)}</div><button class="b2" style="flex:1" data-act="avs">Personalizar avatar</button></div></div>
  <div class="card"><h3>Backup</h3><div class="acts"><button class="b1" data-act="exp" style="flex:1">Exportar backup</button><button class="b2" data-act="imp" style="flex:1">Importar backup</button></div>${hasCrypto?'<button class="b2 full" style="margin-top:8px" data-act="expenc">Exportar backup criptografado</button>':''}<p class="lbl" style="margin-top:8px">Os dados ficam só neste navegador. Exporte um backup de vez em quando. O backup comum é um arquivo aberto; o <b>criptografado</b> só abre com a senha que você escolher (não é a senha de login — guarde-a: sem ela ninguém recupera o arquivo).</p>${bkpLine()}</div>
@@ -801,6 +835,7 @@ function vCfg(){const p=S.pref;return `<h2>Configurações</h2><div class="card"
  <p class="sys">Painel de ${esc(S.owner)} · ${(n=>n+(n===1?' lançamento':' lançamentos'))(S.items.length)}, ${(n=>n+(n===1?' dívida':' dívidas'))(S.debts.length)}, ${(n=>n+(n===1?' caixinha':' caixinhas'))(S.boxes.length)} · ${esc(String(BUILD).split(' · ').slice(1).join(' · '))} · funciona offline</p></div>`}
 
 /* ===== CENTRAL DE JOGOS: mini jogos leves de matemática e educação financeira. Tudo é virtual (XP, moedas, medalhas), fica salvo só neste aparelho (dentro dos seus dados) e nunca envolve dinheiro real. ===== */
+function gmOwnFix(o){const w=o.games&&o.games.own,a=o.pref&&o.pref.av;if(!w)return o;if(a&&typeof a==='object'){if(a.hd>=6&&!w['h'+a.hd])a.hd=0;if(a.fc>=5&&!w['f'+a.fc])a.fc=0;if(a.fur>=5&&!w['u'+a.fur])a.fur=0;if(a.bg>=9&&!w['b'+a.bg])a.bg=0}if(o.pref&&['ouro','rose','grafite'].includes(o.pref.pal)&&!w['p:'+o.pref.pal])o.pref.pal='blue';return o}
 function gmFix(o){ /* usada por migrate(): só usa literais (nada definido depois) */
  if(!o.games||typeof o.games!=='object'||Array.isArray(o.games))o.games={};
  const g=o.games,n=(v,d,mx)=>{v=Math.floor(+v);return Number.isFinite(v)&&v>=0?Math.min(v,mx||1e8):d},ob=k=>{if(!g[k]||typeof g[k]!=='object'||Array.isArray(g[k]))g[k]={};return g[k]},ds=v=>typeof v==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(v)?v:'';
@@ -812,16 +847,16 @@ function gmFix(o){ /* usada por migrate(): só usa literais (nada definido depoi
  const md=ob('medals');Object.keys(md).forEach(k=>{if(!ds(md[k]))delete md[k]});
  const dl=ob('daily');dl.d=ds(dl.d);dl.ch=(Array.isArray(dl.ch)?dl.ch:[]).filter(c=>c&&typeof c.k==='string').slice(0,3).map(c=>({k:c.k,g:Math.max(1,n(c.g,1,10000)),done:c.done?1:0}));
  if(!dl.pr||typeof dl.pr!=='object'||Array.isArray(dl.pr))dl.pr={};Object.keys(dl.pr).forEach(k=>{dl.pr[k]=n(dl.pr[k],0)});dl.bonus=dl.bonus?1:0;
- const ow=ob('own');Object.keys(ow).forEach(k=>{if(!ow[k])delete ow[k]});
+ const ow=ob('own');Object.keys(ow).forEach(k=>{if(!ow[k]||!['h6','h7','h8','f5','f6','u5','u6','u7','b9','b10','b11','p:ouro','p:rose','p:grafite'].includes(k))delete ow[k];else ow[k]=1});
  return o}
 const jgNames={quiz:'Quiz financeiro',vf:'Verdadeiro ou falso',math:'Desafio matemático',dec:'Decisão financeira',surv:'Sobreviva ao Mês'};
-const JGLV=['Fácil','Médio','Difícil'],JGXP=[10,15,20],JGSIZE={quiz:5,vf:6,math:6,dec:4};
+const JGLV=['Fácil','Médio','Difícil'],JGXP=[10,15,20],JGSIZE={quiz:5,vf:6,math:6,dec:4,surv:4};
 const jgLvl=xp=>Math.floor(Math.sqrt(xp/50))+1,jgNeed=l=>50*(l-1)*(l-1);
 const JGT=[[1,'Filhote'],[3,'Farejador'],[5,'Estrategista'],[8,'Líder da matilha'],[12,'Lobo alfa']];
 const jgTitle=l=>[...JGT].reverse().find(t=>l>=t[0])[1];
 const jgYest=()=>{const d=new Date();d.setDate(d.getDate()-1);return ymOf(d)+'-'+pad(d.getDate())};
 const jgStreakNow=()=>{const k=S.games.streak,t=todayStr();return(k.last===t||k.last===jgYest())?k.n:0};
-const JGDAILY=[{k:'quizOk',g:5,t:'Acerte 5 perguntas no Quiz financeiro'},{k:'vfOk',g:6,t:'Acerte 6 afirmações em Verdadeiro ou falso'},{k:'mathOk',g:6,t:'Acerte 6 desafios matemáticos'},{k:'decOk',g:3,t:'Faça 3 boas decisões financeiras'},{k:'rounds',g:2,t:'Complete 2 rodadas de qualquer jogo'},{k:'bestRun',g:5,t:'Faça 5 acertos seguidos'},{k:'perfect',g:1,t:'Termine uma rodada sem errar'},{k:'xp',g:60,t:'Ganhe 60 XP hoje'}];
+const JGDAILY=[{k:'quizOk',g:5,t:'Acerte 5 perguntas no Quiz financeiro'},{k:'vfOk',g:6,t:'Acerte 6 afirmações em Verdadeiro ou falso'},{k:'mathOk',g:6,t:'Acerte 6 desafios matemáticos'},{k:'decOk',g:3,t:'Faça 3 boas decisões financeiras'},{k:'rounds',g:2,t:'Complete 2 rodadas de qualquer jogo'},{k:'bestRun',g:5,t:'Faça 5 acertos seguidos'},{k:'perfect',g:1,t:'Termine uma rodada sem errar'},{k:'xp',g:60,t:'Ganhe 60 XP hoje'},{k:'surv',g:1,t:'Complete uma partida de Sobreviva ao Mês'}];
 const JGDR={coins:10,xp:25},JGBONUS={coins:25,xp:50};
 function jgHash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
 function jgDailyEnsure(){const g=S.games,t=todayStr(),d=g.daily;if(d.d===t&&d.ch.length===3)return d;
@@ -844,9 +879,13 @@ const JGM=[
  {id:'str7',t:'Uma semana jogando',d:'Jogue 7 dias seguidos.',ck:g=>g.streak.best>=7},
  {id:'str30',t:'Mês de constância',d:'Jogue 30 dias seguidos.',ck:g=>g.streak.best>=30},
  {id:'hard',t:'Desafio máximo',d:'Chegue ao nível Difícil em algum jogo.',ck:g=>Object.values(g.lv).some(v=>v>=3)},
- {id:'all',t:'Jogador completo',d:'Jogue todos os jogos de perguntas.',ck:g=>['quiz','vf','math','dec'].every(k=>g.st.played[k]>0)},
+ {id:'all',t:'Jogador completo',d:'Jogue todos os 5 jogos.',ck:g=>['quiz','vf','math','dec','surv'].every(k=>g.st.played[k]>0)},
+ {id:'surv1',t:'Sobrevivente',d:'Termine o Sobreviva ao Mês sem ficar no vermelho.',ck:g=>g.st.survOk>=1},
+ {id:'surv3',t:'Mestre do orçamento',d:'Faça 3 estrelas no Sobreviva ao Mês.',ck:g=>g.st.survBest>=3},
  {id:'day',t:'Dia completo',d:'Conclua os 3 desafios do dia.',ck:g=>g.st.dayWins>=1},
- {id:'coin200',t:'Cofre virtual',d:'Ganhe 200 moedas virtuais no total.',ck:g=>g.st.earned>=200}];
+ {id:'coin200',t:'Cofre virtual',d:'Ganhe 200 moedas virtuais no total.',ck:g=>g.st.earned>=200},
+ {id:'buy1',t:'Primeira compra',d:'Desbloqueie um item na loja.',ck:g=>g.st.bought>=1},
+ {id:'buy5',t:'Colecionador',d:'Desbloqueie 5 itens na loja.',ck:g=>g.st.bought>=5}];
 function jgMedals(){const g=S.games,nw=[];JGM.forEach(m=>{if(!g.medals[m.id]&&m.ck(g)){g.medals[m.id]=todayStr();jgGive(10,0);nw.push(m)}});return nw}
 function jgStreakTouch(){const g=S.games,k=g.streak,t=todayStr();if(k.last===t)return{n:k.n,bonus:0};
  k.n=(k.last===jgYest())?k.n+1:1;k.last=t;k.best=Math.max(k.best,k.n);g.st.days++;
@@ -986,7 +1025,7 @@ function jgBuild(game){const g=S.games,n=JGSIZE[game],lv=g.lv[game],qs=[];
   else if(game==='vf')qs.push({k,lv:b[0],t:b[1],vf:1,o:[{t:'Verdadeiro',s:b[2]?2:0},{t:'Falso',s:b[2]?0:2}],x:b[3]});
   else qs.push({k,lv:b[0],t:b[1],o:jgShuf(b[2].map(([t,s,x])=>({t,s,x}))),x:''})}
  return qs}
-function jgStart(game){if(!JGSIZE[game])return toast('Este jogo chega em breve.');jgDailyEnsure();JG={game,qs:jgBuild(game),i:0,ok:0,xp:0,run:0,sel:-1,t0:Date.now(),lv0:jgLvl(S.games.xp),lvChange:0,dmsg:[],mnew:[]};JGR=null;save();render();window.scrollTo(0,0)}
+function jgStart(game){if(!JGSIZE[game])return toast('Este jogo chega em breve.');if(game==='surv')return svStart();jgDailyEnsure();JG={game,qs:jgBuild(game),i:0,ok:0,xp:0,run:0,sel:-1,t0:Date.now(),lv0:jgLvl(S.games.xp),lvChange:0,dmsg:[],mnew:[]};JGR=null;save();render();window.scrollTo(0,0)}
 function jgAnswer(i){if(!JG||JG.sel>=0)return;const q=JG.qs[JG.i],o=q.o[i];if(!o)return;const g=S.games,L=q.lv||g.lv[JG.game],good=o.s===2,part=o.s===1;
  let xp=good?JGXP[L-1]:part?Math.round(JGXP[L-1]/2):2;const fast=JG.game==='math'&&good&&Date.now()-JG.t0<=10000;if(fast)xp+=3;
  JG.sel=i;JG.q={good,part,xp,fast};JG.xp+=xp;if(good){JG.ok++;JG.run++}else JG.run=0;
@@ -1007,7 +1046,7 @@ const jgIc=(n,c)=>`<svg class="jgi${c?' '+c:''}" viewBox="0 0 24 24" fill="none"
 /* ----- telas ----- */
 function jgHomeCard(){const g=S.games,d=jgDailyEnsure(),l=jgLvl(g.xp),dn=d.ch.filter(c=>c.done).length;
  return `<button class="card jgh0" data-act="nav" data-id="jg" aria-label="Abrir a Central de Jogos"><span class="jgic">${jgIc('quiz')}</span><span class="jgt"><b>Central de Jogos</b><span class="lbl">Nível ${l} · ${g.coins} moedas · ${dn}/3 desafios hoje</span></span><span class="jgchev" aria-hidden="true">›</span></button>`}
-function vJg(){jgDailyEnsure();return JG?jgPlayV():JGR?jgResV():jgHubV()}
+function vJg(){jgDailyEnsure();return JG?jgPlayV():JGR?jgResV():JGV==='shop'?jgShopV():jgHubV()}
 function jgHubV(){const g=S.games,d=g.daily,l=jgLvl(g.xp),a=jgNeed(l),b=jgNeed(l+1),pc=(g.xp-a)/(b-a)*100,sn=jgStreakNow(),nm=Object.keys(g.medals).length,played=g.streak.last===todayStr();
  return `<div class="sw"><button class="ib" data-act="nav" data-id="home" aria-label="Voltar">‹</button><h2 style="margin:0">Central de Jogos</h2><span style="width:44px"></span></div>
  <div class="card jgh"><div class="jgh1"><div class="jgav">${avSvg(S.pref.av,56,false)}</div><div class="jgt"><b>${jgTitle(l)}</b><span class="lbl">Nível ${l} · ${g.xp} XP</span></div></div>${bar(pc)}<div class="lbl">${g.xp-a} / ${b-a} XP para o nível ${l+1}</div>
@@ -1016,9 +1055,10 @@ function jgHubV(){const g=S.games,d=g.daily,l=jgLvl(g.xp),a=jgNeed(l),b=jgNeed(l
  <div class="card"><h3>Desafios do dia</h3>${d.ch.map(c=>{const p=Math.min(c.g,d.pr[c.k]||0);return `<div class="jgd${c.done?' on':''}"><div class="sw" style="margin:0"><span>${esc(jgDText(c.k))}</span>${c.done?`<span class="tag ok">${jgIc('check','s')} Feito</span>`:`<span class="lbl">${p}/${c.g}</span>`}</div>${bar(p/c.g*100,c.done?'g':'')}<span class="lbl">Recompensa: ${JGDR.coins} moedas e ${JGDR.xp} XP</span></div>`}).join('')}
   <div class="jgbn${d.bonus?' on':''}">${jgIc('star')}<span><b>Baú do dia</b> · conclua os 3 desafios para ganhar ${JGBONUS.coins} moedas e ${JGBONUS.xp} XP${d.bonus?' · <b>aberto!</b>':''}</span></div></div>
  <div class="sec">Jogos</div><div class="jgg">${JGAMES.map(([id,n,ds])=>JGSIZE[id]?`<button class="card jgc2" data-act="jgplay" data-id="${id}"><span class="jgic">${jgIc(id)}</span><b>${n}</b><span class="lbl">${ds}</span><span class="tag">Nível ${JGLV[g.lv[id]-1]}</span></button>`:`<button class="card jgc2 soon" data-act="jgsoon"><span class="jgic">${jgIc(id)}</span><b>${n}</b><span class="lbl">${ds}</span><span class="tag">Em breve</span></button>`).join('')}</div>
+ <button class="card jgh0" data-act="jgshop" aria-label="Abrir a Loja de recompensas"><span class="jgic">${jgIc('coin')}</span><span class="jgt"><b>Loja de recompensas</b><span class="lbl">${g.coins} moedas · ${JGSHOP.filter(x=>g.own[x[0]]).length}/${JGSHOP.length} itens desbloqueados</span></span><span class="jgchev" aria-hidden="true">›</span></button>
  <div class="card"><h3>Medalhas</h3><div class="jgmg">${JGM.map(m=>{const u=g.medals[m.id];return `<button class="jgm ${u?'on':'off'}" data-act="jgmed" data-id="${m.id}" aria-label="${esc(m.t)}: ${esc(m.d)}">${jgIc(u?'medal':'lock')}<b>${esc(m.t)}</b><span class="lbl">${esc(m.d)}</span></button>`}).join('')}</div></div>
  <p class="lbl" style="margin:4px 4px 0">As recompensas (XP, moedas e medalhas) são apenas virtuais. Não valem dinheiro e ficam salvas só neste aparelho, junto com os seus dados.</p>`}
-function jgPlayV(){const q=JG.qs[JG.i],an=JG.sel>=0,n=JG.qs.length,last=JG.i+1===n,L=q.lv||S.games.lv[JG.game],best=q.o.find(o=>o.s===2),ch=an?q.o[JG.sel]:null,r=JG.q;
+function jgPlayV(){if(JG.game==='surv')return svV();const q=JG.qs[JG.i],an=JG.sel>=0,n=JG.qs.length,last=JG.i+1===n,L=q.lv||S.games.lv[JG.game],best=q.o.find(o=>o.s===2),ch=an?q.o[JG.sel]:null,r=JG.q;
  const dots=JG.qs.map((_,k)=>`<i class="${k<JG.i||(k===JG.i&&an)?'d':k===JG.i?'c':''}"></i>`).join('');
  const fb=an?`<div class="card jgf ${r.good?'ok':r.part?'part':'bad'}" role="status"><div class="sw" style="margin:0 0 4px"><b>${r.good?(JG.game==='dec'?'Ótima decisão!':'Acertou!'):r.part?'Quase lá!':'Não foi dessa vez'}</b><span class="tag">+${r.xp} XP${r.fast?' · rápido!':''}</span></div>
   <p>${esc(JG.game==='dec'?ch.x:q.x)}</p>${!r.good?`<p class="jgb2"><b>${JG.game==='dec'?'Melhor escolha:':'Resposta certa:'}</b> ${esc(best.t)}${JG.game==='dec'?`<br><span class="lbl">${esc(best.x)}</span>`:''}</p>`:''}
@@ -1027,7 +1067,7 @@ function jgPlayV(){const q=JG.qs[JG.i],an=JG.sel>=0,n=JG.qs.length,last=JG.i+1==
  <div class="jgp" aria-hidden="true">${dots}</div><div class="jgst"><span>${jgIc('bolt')}${JG.xp} XP</span><span>${jgIc('check')}${JG.ok}/${JG.i+(an?1:0)}</span><span>${jgIc('flame')}${JG.run} seguidos</span></div>
  <div class="card jgq"><div class="lbl">${JG.game==='vf'?'Verdadeiro ou falso?':JG.game==='dec'?'Situação':'Pergunta'} ${JG.i+1} de ${n}</div><h3 class="jgqt">${esc(q.t)}</h3></div>
  <div class="jgo${q.vf?' vf':''}">${q.o.map((o,k)=>{const c=an?(o.s===2?'ok':k===JG.sel?(o.s===1?'part':'bad'):'dim'):'';return `<button class="jgb ${c}" data-act="jgans" data-id="${k}"${an?' disabled':''}>${q.vf?'':`<i>${'ABCD'[k]}</i>`}<span>${esc(o.t)}</span></button>`}).join('')}</div>${fb}`}
-function jgResV(){const R=JGR,g=S.games,pc=R.ok/R.n,msg=R.perfect?'Perfeito!':pc>=.7?'Muito bom!':pc>=.4?'Bom começo!':'Continue treinando!',st=R.perfect?3:pc>=.7?2:pc>=.4?1:0;
+function jgResV(){if(JGR.game==='surv')return svResV();const R=JGR,g=S.games,pc=R.ok/R.n,msg=R.perfect?'Perfeito!':pc>=.7?'Muito bom!':pc>=.4?'Bom começo!':'Continue treinando!',st=R.perfect?3:pc>=.7?2:pc>=.4?1:0;
  return `<div class="sw"><button class="ib" data-act="jghub" aria-label="Voltar à Central de Jogos">‹</button><h2 style="margin:0">${jgNames[R.game]}</h2><span style="width:44px"></span></div>
  <div class="card jgr"><div class="jgstars" aria-hidden="true">${[0,1,2].map(i=>jgIc('star',i<st?'on':'')).join('')}</div><div class="big" style="margin:4px 0">${R.ok}/${R.n}</div><b>${msg}</b>
   <div class="jgch" style="justify-content:center;margin-top:10px"><span class="jgc">${jgIc('bolt')}+${R.xp} XP</span><span class="jgc">${jgIc('coin')}+${R.coins} moedas</span></div>
@@ -1037,7 +1077,112 @@ function jgResV(){const R=JGR,g=S.games,pc=R.ok/R.n,msg=R.perfect?'Perfeito!':pc
   ${R.medals.map(m=>`<div class="jgnote up"><b>Nova medalha:</b> ${esc(m.t)} (+10 moedas)</div>`).join('')}${R.daily.map(t=>`<div class="jgnote up">${esc(t)}</div>`).join('')}</div>
  <div class="btns"><button class="b2" data-act="jghub">Central de Jogos</button><button class="b1" data-act="jgagain" data-id="${R.game}">Jogar de novo</button></div>`}
 const JGACT={jgplay:id=>jgStart(id),jgsoon:()=>toast('Este jogo chega em breve.'),jgans:id=>jgAnswer(+id),jgnext:()=>jgNext(),jgagain:id=>jgStart(id),jghub:()=>{JGR=null;render();window.scrollTo(0,0)},
- jgquit:()=>ask('Sair da rodada? O XP que você já ganhou fica, mas as moedas da rodada só vêm ao terminar.',()=>{JG=null;render()}),jgmed:id=>{const m=JGM.find(x=>x.id===id);if(m)toast(m.t+': '+m.d)}};
+ jgquit:()=>ask(JG&&JG.game==='surv'?'Sair da partida? Você perde o progresso deste mês de mentira (XP e moedas só vêm ao terminar).':'Sair da rodada? O XP que você já ganhou fica, mas as moedas da rodada só vêm ao terminar.',()=>{JG=null;render()}),jgmed:id=>{const m=JGM.find(x=>x.id===id);if(m)toast(m.t+': '+m.d)}};
+/* ===== SOBREVIVA AO MÊS: salário fictício, 4 semanas (contas, mercado e um imprevisto por semana). Tudo de mentira: nada aqui mexe nas suas finanças reais. ===== */
+const SVSAL=[2400,2900,3400],SVF=[1,1.15,1.25],SVB=[1,1.1,1.15],SVMK=[['Econômico',100,-2,'Compra só o necessário e pesquisa preços.'],['Equilibrado',140,0,'Boa variedade, sem exagero.'],['Farto',190,4,'Compras generosas, com algumas extravagâncias.']];
+const svr5=v=>Math.round(v/5)*5,svc=v=>Math.round(v*100)/100;
+const SVBILLS=[['Aluguel',900,1,1],['Internet',100,1,1],['Conta de luz',140,2,1],['Conta de água',60,2,1],['Parcela do celular novo',150,2,2],['Transporte',180,3,1],['Celular (plano)',60,3,1],['Streaming',40,4,1],['Plano de saúde',180,4,3]];
+/* evento: nível mínimo, título, texto, escolhas [texto, dinheiro agora, bem-estar, qualidade 0-2, explicação, adiado(opcional)] — valores do nível Fácil (são ampliados nos outros) */
+const SVEV=[
+{lv:1,t:'Aniversário de um amigo',x:'Seu amigo faz aniversário no fim de semana.',c:[['Comprar um presente de R$ 80',-80,3,1,'Um presente que cabe no orçamento mantém a amizade sem apertar o mês.'],['Dar um presente simples de R$ 30',-30,1,2,'Carinho não depende do preço. Escolher um valor que cabe é planejar.'],['Não ir à comemoração',0,-4,1,'Você economizou, mas deixou de curtir. Equilíbrio também faz parte do orçamento.']]},
+{lv:1,t:'Trabalho extra',x:'Um conhecido oferece um trabalho de fim de semana por R$ 200.',c:[['Aceitar o trabalho',200,-5,2,'Renda extra ajuda a fechar o mês. Só cuide do descanso.'],['Recusar para descansar',0,4,1,'Descansar é válido, mas a renda extra poderia reforçar sua reserva.']]},
+{lv:1,t:'Remédio na farmácia',x:'Você precisa de um remédio. A marca custa R$ 160 e o genérico, R$ 90.',c:[['Comprar o genérico',-90,0,2,'O genérico tem o mesmo princípio ativo e costuma custar menos. Confirme com o médico ou o farmacêutico.'],['Comprar a marca',-160,0,1,'Funciona, mas você pagou mais por um efeito equivalente.']]},
+{lv:1,t:'Dinheiro extra',x:'Você recebeu R$ 300 de uma restituição.',c:[['Guardar tudo',300,2,2,'Reservar o dinheiro cria segurança para os próximos imprevistos.'],['Guardar metade e usar metade no lazer',150,5,2,'Equilíbrio: você reforça a reserva e ainda se recompensa.'],['Gastar tudo em compras',0,8,0,'Gastar tudo de uma vez deixa o mês seguinte sem folga.']]},
+{lv:1,t:'Churrasco com a turma',x:'Convite para um churrasco, com rateio de R$ 60.',c:[['Participar e dividir a conta',-60,6,1,'Bom para o ânimo. Só confirme se o valor cabe no seu mês.'],['Levar só uma bebida',-25,3,2,'Você participa gastando menos. Combinar um valor menor é uma boa saída.'],['Não ir',0,-3,1,'Economizou, mas perdeu um momento social. Vale equilibrar.']]},
+{lv:1,t:'Assinatura esquecida',x:'Você percebe que paga uma assinatura que não usa há meses (R$ 40).',c:[['Cancelar agora e economizar',40,0,2,'Cortar o que não usa libera dinheiro sem perder nada.'],['Manter, vai que eu use',0,0,0,'Gastos pequenos e recorrentes viram dinheiro perdido ao longo do ano.']]},
+{lv:2,t:'Pneu furado',x:'Um pneu furou no caminho do trabalho.',c:[['Trocar por um pneu novo',-300,0,1,'É seguro, mas existem opções mais baratas e igualmente seguras.'],['Comprar um pneu usado em boas condições, com garantia',-150,-2,2,'Quando há garantia e segurança, usado equilibra custo e qualidade.'],['Rodar assim mesmo até o fim do mês',0,-8,0,'O pneu estourou: guincho e conserto saem bem mais caros. Adiar reparo de segurança costuma custar mais.',[-450,'Pneu estourou: guincho e conserto']]]},
+{lv:2,t:'Dor de dente',x:'Uma dor de dente forte apareceu.',c:[['Ir ao dentista particular',-250,0,1,'Resolve rápido, mas o custo é alto. Vale comparar opções.'],['Procurar o atendimento público (UBS)',0,-5,2,'O atendimento público é uma opção sem custo, ainda que possa ter espera.'],['Adiar e tomar analgésico',0,-8,0,'A dor foi ignorada e o tratamento ficou maior e mais caro.',[-500,'Tratamento do dente piorou']]]},
+{lv:2,t:'Pedido de empréstimo',x:'Um amigo pede R$ 150 emprestados, só até o mês que vem.',c:[['Emprestar os R$ 150',-150,2,0,'Emprestar o que você precisa pode desequilibrar o seu orçamento (e a amizade, se não voltar).'],['Emprestar só R$ 50',-50,1,2,'Emprestar apenas o que você aceitaria perder protege os dois lados.'],['Recusar com educação',0,-2,1,'Dizer não é um direito. Você protegeu o orçamento, ainda que com algum desconforto.']]},
+{lv:2,t:'Show da banda favorita',x:'O ingresso custa R$ 180 e você quer muito ir.',c:[['Pagar à vista',-180,8,2,'Sem juros e sem dívida. Só confirme antes se o gasto cabe no seu mês.'],['Parcelar em 3x sem juros',-60,8,1,'Sem juros ajuda, mas as parcelas já comprometem as próximas semanas.',[-120,'Parcelas do ingresso']],['Usar o cheque especial',-180,8,0,'O cheque especial cobra juros altos, e o show ficou mais caro do que o ingresso.',[-40,'Juros do cheque especial']]]},
+{lv:3,t:'Promoção de celular novo',x:'Uma loja oferece um celular em 12x de R$ 150.',c:[['Comprar parcelado',-150,6,0,'Doze parcelas comprometem sua renda por um ano. Só vale se você precisa e se cabe.',[-150,'Segunda parcela do celular']],['Manter o celular atual',0,-1,2,'Se o aparelho atual funciona, o melhor negócio é não comprar.'],['Esperar e pesquisar com calma',0,0,2,'Planejar a compra evita decidir por impulso e costuma achar preço melhor.']]},
+{lv:3,t:'Fatura do cartão',x:'Chegou a fatura do cartão: R$ 250 em gastos do mês passado.',c:[['Pagar o total',-250,0,2,'Pagar o total evita os juros do rotativo.'],['Pagar só o mínimo',-50,0,0,'O restante virou rotativo, com juros altos, e a dívida cresceu.',[-270,'Fatura do cartão com juros']],['Parcelar a fatura',-90,0,0,'Parcelar a fatura costuma ter juros altos. Você paga mais pelo mesmo gasto.',[-210,'Parcelas da fatura com juros']]]},
+{lv:3,t:'Revisão do veículo',x:'Está na hora da revisão do carro ou da moto (R$ 200).',c:[['Fazer a revisão agora',-200,0,2,'Manutenção preventiva costuma sair mais barata que o conserto.'],['Adiar para o mês que vem',0,-3,0,'O problema piorou e o conserto custou mais que o dobro da revisão.',[-420,'Conserto do veículo']]]},
+{lv:3,t:'Conta de luz alta',x:'A conta de luz veio R$ 80 mais alta que o normal.',c:[['Pagar e descobrir o que aumentou o consumo',-80,0,2,'Entender o motivo (chuveiro, ar-condicionado) ajuda a reduzir nos próximos meses.'],['Parcelar com a distribuidora',-40,0,1,'Alivia agora, mas você paga o restante depois.',[-45,'Parcela da conta de luz']],['Ignorar a conta',0,-3,0,'A conta atrasou e veio com multa e juros.',[-100,'Conta de luz atrasada com multa']]]}];
+function svStart(){const g=S.games,lv=g.lv.surv,f=SVF[lv-1],bf=SVB[lv-1];
+ const bills=SVBILLS.filter(b=>b[3]<=lv).map((b,i)=>({id:'b'+i,n:b[0],v:svr5(b[1]*bf),wk:b[2],paid:0}));
+ const own=SVEV.filter(e=>e.lv===lv),low=SVEV.filter(e=>e.lv<lv),k=lv===1?0:lv===2?1:2;
+ const evs=jgShuf([...jgShuf(own).slice(0,k),...jgShuf(lv===1?SVEV.filter(e=>e.lv===1):low).slice(0,4-Math.min(k,own.length))]).slice(0,4);
+ jgDailyEnsure();JG={game:'surv',lv0:jgLvl(g.xp),lvChange:0,dmsg:[],mnew:[],sv:{lv,f,sal:SVSAL[lv-1],bal:SVSAL[lv-1],wb:70,wk:1,ph:'bills',bills,evs,mk:null,ev:null,pend:[],log:[],ch:[],red:0}};JGR=null;save();render();window.scrollTo(0,0)}
+function svNeg(s){if(s.bal<0)s.red=1}
+function svWeekStart(s){s.log=[];s.pend=s.pend.filter(p=>{if(p.wk===s.wk){s.bal=svc(s.bal+p.amt);s.log.push(p.txt+': '+jf(p.amt));return false}return true});
+ s.bills.forEach(b=>{if(!b.paid&&b.wk<s.wk){const fee=svc(b.v*.05);s.bal=svc(s.bal-fee);s.wb=Math.max(0,s.wb-4);s.log.push('Multa e juros por atraso ('+b.n+'): '+jf(-fee))}});svNeg(s)}
+const svBillsNow=s=>s.bills.filter(b=>b.wk===s.wk||(b.wk<s.wk&&!b.paid));
+function svPay(id){const s=JG.sv,b=s.bills.find(x=>x.id===id);if(!b||b.paid||s.ph!=='bills')return;if(s.bal<b.v)return toast('Saldo insuficiente para pagar agora.');b.paid=1;s.bal=svc(s.bal-b.v);render()}
+function svPayAll(){const s=JG.sv;if(s.ph!=='bills')return;let n=0;svBillsNow(s).filter(b=>!b.paid).sort((a,b)=>a.wk-b.wk).forEach(b=>{if(s.bal>=b.v){b.paid=1;s.bal=svc(s.bal-b.v);n++}});if(!n)toast('Saldo insuficiente.');render()}
+function svMk(i){const s=JG.sv;if(s.ph!=='market')return;const o=SVMK[i],cost=svr5(o[1]*s.f);if(s.bal<cost)return toast('Saldo insuficiente para esta opção.');s.bal=svc(s.bal-cost);s.wb=Math.min(100,Math.max(0,s.wb+o[2]));s.mk={i,cost,w:o[2]};s.ph='mkdone';render()}
+function svEv(i){const s=JG.sv;if(s.ph!=='event')return;const e=s.ev,c=e.c[i],d=svr5(c[1]*s.f);s.bal=svc(s.bal+d);s.wb=Math.min(100,Math.max(0,s.wb+c[2]));svNeg(s);
+ let late=null;if(c[5]){late={amt:-svr5(Math.abs(c[5][0])*s.f),txt:c[5][1]};s.pend.push({wk:s.wk+1,amt:late.amt,txt:late.txt})}
+ s.ch.push({q:c[3],x:c[4],t:c[0],e:e.t});s.res={i,d,w:c[2],late,q:c[3],x:c[4]};s.ph='evdone';render()}
+function svNext(){const s=JG.sv;
+ if(s.ph==='bills'){s.ph='market';render();return}
+ if(s.ph==='mkdone'){s.ph='event';s.ev=s.evs[s.wk-1];render();return}
+ if(s.ph==='evdone'){if(s.wk<4){s.wk++;s.ph='bills';s.res=null;svWeekStart(s);render();window.scrollTo(0,0)}else svFinish();return}
+ if(s.ph==='market'){const cost=svr5(SVMK[0][1]*s.f);if(s.bal<cost){const pay=Math.max(0,s.bal);s.bal=svc(s.bal-pay);s.wb=Math.max(0,s.wb-15);s.mk={i:-1,cost:pay,w:-15};s.ph='mkdone';render()}}}
+function svScore(s,unpaid){if(s.bal<0||unpaid>=.15*s.sal)return 0;let st=1;if(!unpaid){if(s.bal>=.1*s.sal)st=2;if(s.bal>=.18*s.sal&&s.wb>=50)st=3}if(s.wb<30)st=Math.min(st,2);if(s.red)st=Math.min(st,2);return st}
+function svFinish(){const g=S.games,s=JG.sv;s.pend.forEach(p=>{s.bal=svc(s.bal+p.amt);s.log.push(p.txt+': '+jf(p.amt))});s.pend=[];
+ const unp=s.bills.filter(b=>!b.paid),unpaid=svc(unp.reduce((a,b)=>a+b.v,0));unp.forEach(b=>{const fee=svc(b.v*.05);s.bal=svc(s.bal-fee)});svNeg(s);
+ const st=svScore(s,unpaid),lv=s.lv,mult=[1,1.25,1.5][lv-1],xp=Math.round([15,40,70,100][st]*mult),base=Math.round([2,8,15,25][st]*mult);
+ g.st.rounds++;g.st.played.surv++;if(st>=1){g.st.survOk++}g.st.survBest=Math.max(g.st.survBest,st);jgGive(0,xp);
+ const stk=jgStreakTouch(),coins=base+stk.bonus;jgGive(coins,0);
+ let ch=0;if(st>=2&&g.lv.surv<3){g.lv.surv++;ch=1}else if(st===0&&g.lv.surv>1){g.lv.surv--;ch=-1}
+ const dm=[...jgDailyAdd('xp',xp),...jgDailyAdd('rounds',1),...jgDailyAdd('surv',1)],nm=jgMedals();
+ const bad=s.ch.filter(c=>c.q===0).slice(0,2).map(c=>({e:c.e,x:c.x})),good=s.ch.filter(c=>c.q===2).slice(0,1).map(c=>({e:c.e,x:c.x}));
+ JGR={game:'surv',stars:st,end:s.bal,wb:s.wb,unpaid,sal:s.sal,red:s.red,xp,coins,stk,lv0:JG.lv0,lv1:jgLvl(g.xp),lvChange:ch,dl:g.lv.surv,medals:nm,daily:dm,bad,good,ok:st,n:3};
+ JG=null;save();render();window.scrollTo(0,0);if(st>=2||JGR.lv1>JGR.lv0||nm.length)confetti()}
+/* ----- telas do simulador ----- */
+function svV(){const s=JG.sv,w=s.wk,m=x=>jf(x),sc=t=>t.replace(/R\$ (\d+)/g,(_,n)=>jf(svr5(+n*s.f)));
+ const dots=[1,2,3,4].map(k=>`<i class="${k<w?'d':k===w?'c':''}"></i>`).join('');
+ const head=`<div class="sw"><button class="ib" data-act="jgquit" aria-label="Sair da partida">✕</button><b>Sobreviva ao Mês</b><span class="tag">${JGLV[s.lv-1]}</span></div><div class="jgp" aria-hidden="true">${dots}</div>
+ <div class="card svs"><div class="sw" style="margin:0"><span class="lbl">Semana ${w} de 4</span><span class="lbl">Salário do mês: ${m(s.sal)}</span></div><div class="svb${s.bal<0?' neg':''}">${m(s.bal)}</div><div class="lbl">${s.bal<0?'Você está no vermelho!':'Saldo disponível'}</div>
+  <div class="svw"><span class="lbl">Bem-estar</span><span class="lbl">${s.wb}/100</span></div>${bar(s.wb,s.wb<30?'rd':'')}</div>
+ ${s.log.length?`<div class="jgnote">${s.log.map(x=>esc(x)).join('<br>')}</div>`:''}`;
+ let body='';
+ if(s.ph==='bills'){const bl=svBillsNow(s),open=bl.filter(b=>!b.paid),tot=svc(open.reduce((a,b)=>a+b.v,0));
+  body=`<div class="card"><h3>Contas desta semana</h3>${bl.map(b=>`<div class="row"><div class="t"><b>${esc(b.n)}</b><span class="lbl">${b.wk<w&&!b.paid?'Atrasada (multa de 5% por semana)':'Vence nesta semana'}</span></div><div style="text-align:right"><b>${m(b.v)}</b><br>${b.paid?`<span class="tag ok">${jgIc('check','s')} Paga</span>`:`<button class="b2" style="min-height:40px;padding:6px 12px" data-act="svpay" data-id="${b.id}"${s.bal<b.v?' disabled':''}>Pagar</button>`}</div></div>`).join('')||'<div class="empty">Nenhuma conta nesta semana.</div>'}
+  ${open.length?`<div class="lbl" style="margin:8px 0">${open.length===1?'Falta pagar':'Faltam pagar'} ${m(tot)}. Conta sem pagar vira atraso: multa, juros e menos bem-estar.</div>${open.length>1?'<button class="b2 full" data-act="svpayall" style="margin-bottom:8px">Pagar todas que o saldo permitir</button>':''}`:'<div class="lbl" style="margin:8px 0">Todas as contas da semana estão pagas.</div>'}
+  <button class="b1 full" data-act="svnext">Ir ao mercado</button></div>`}
+ else if(s.ph==='market'){body=`<div class="card"><h3>Mercado da semana</h3><p class="lbl" style="margin-bottom:8px">Comida não dá para cortar de vez, mas dá para escolher como comprar.</p></div><div class="jgo">${SVMK.map((o,i)=>{const c=svr5(o[1]*s.f);return `<button class="jgb" data-act="svmk" data-id="${i}"${s.bal<c?' disabled':''}><i>${'ABC'[i]}</i><span><b>${o[0]}: ${m(c)}</b><br><span class="lbl">${o[3]}</span></span></button>`}).join('')}</div>${s.bal<svr5(SVMK[0][1]*s.f)?'<button class="b1 full" data-act="svnext">Comprar o que der</button>':''}`}
+ else if(s.ph==='mkdone'){body=`<div class="card jgf ${s.mk.w>=0?'ok':'part'}"><b>${s.mk.i<0?'Você só conseguiu o básico':'Mercado feito'}</b><p>${s.mk.i<0?`Faltou dinheiro: você gastou ${m(s.mk.cost)} e o bem-estar caiu.`:`Você gastou ${m(s.mk.cost)} no mercado (${SVMK[s.mk.i][0].toLowerCase()}).`} Bem-estar ${s.mk.w>=0?'+':''}${s.mk.w}.</p><button class="b1 full" data-act="svnext" style="margin-top:8px">Ver o imprevisto da semana</button></div>`}
+ else if(s.ph==='event'){const e=s.ev;body=`<div class="card jgq"><div class="lbl">Imprevisto da semana ${w}</div><h3 class="jgqt">${esc(e.t)}</h3><p style="margin:6px 0 0">${esc(sc(e.x))}</p></div><div class="jgo">${e.c.map((c,i)=>{const d=svr5(c[1]*s.f);return `<button class="jgb" data-act="svev" data-id="${i}"><i>${'ABC'[i]}</i><span>${esc(sc(c[0]))}<br><span class="lbl">${d?(d>0?'Você recebe ':'Você paga ')+m(Math.abs(d)):'Sem custo agora'}</span></span></button>`}).join('')}</div>`}
+ else if(s.ph==='evdone'){const r=s.res,last=w===4;body=`<div class="card jgf ${r.q===2?'ok':r.q===1?'part':'bad'}" role="status"><div class="sw" style="margin:0 0 4px"><b>${r.q===2?'Ótima escolha!':r.q===1?'Escolha razoável':'Escolha arriscada'}</b><span class="tag">${r.d?(r.d>0?'+':'−')+m(Math.abs(r.d)):'Sem custo'}${r.w?' · bem-estar '+(r.w>0?'+':'')+r.w:''}</span></div><p>${esc(r.x)}</p>${r.late?`<p class="jgb2"><b>Atenção:</b> isso vai pesar na próxima ${last?'cobrança (no fechamento do mês)':'semana'}: ${m(Math.abs(r.late.amt))}.</p>`:''}<button class="b1 full" data-act="svnext" style="margin-top:10px">${last?'Fechar o mês':'Próxima semana'}</button></div>`}
+ return head+body}
+function svResV(){const R=JGR,m=x=>jf(x),msg=['Ficou no vermelho','Sobreviveu ao mês!','Mês equilibrado!','Mês exemplar!'][R.stars];
+ return `<div class="sw"><button class="ib" data-act="jghub" aria-label="Voltar à Central de Jogos">‹</button><h2 style="margin:0">Sobreviva ao Mês</h2><span style="width:44px"></span></div>
+ <div class="card jgr"><div class="jgstars" aria-hidden="true">${[0,1,2].map(i=>jgIc('star',i<R.stars?'on':'')).join('')}</div><b>${msg}</b>
+  <div class="grid" style="margin-top:12px;text-align:left"><div><div class="lbl">Saldo final</div><div class="v ${R.end<0?'neg':'pos'}">${m(R.end)}</div></div><div><div class="lbl">Bem-estar</div><div class="v">${R.wb}/100</div></div></div>
+  <div class="lbl" style="margin-top:8px">Guardado: ${R.end>0?Math.round(R.end/R.sal*100):0}% do salário${R.unpaid>0?' · contas sem pagar: '+m(R.unpaid):''}${R.red?' · você ficou no vermelho em algum momento':''}</div>
+  <div class="jgch" style="justify-content:center;margin-top:10px"><span class="jgc">${jgIc('bolt')}+${R.xp} XP</span><span class="jgc">${jgIc('coin')}+${R.coins} moedas</span></div>
+  ${R.stk.bonus?`<p class="lbl" style="margin-top:8px">Bônus de sequência: dia ${R.stk.n} seguido (+${R.stk.bonus} moedas)</p>`:''}
+  ${R.lv1>R.lv0?`<div class="jgnote up"><b>Subiu de nível!</b> Agora você é nível ${R.lv1}: ${jgTitle(R.lv1)}.</div>`:''}
+  ${R.lvChange>0?`<div class="jgnote up"><b>Dificuldade aumentou:</b> o simulador agora está no nível ${JGLV[R.dl-1]}.</div>`:R.lvChange<0?`<div class="jgnote"><b>Ajuste de dificuldade:</b> o simulador voltou para o nível ${JGLV[R.dl-1]}.</div>`:''}
+  ${R.good.map(t=>`<div class="jgnote up"><b>Boa decisão (${esc(t.e)}):</b> ${esc(t.x)}</div>`).join('')}${R.bad.map(t=>`<div class="jgnote"><b>Para melhorar (${esc(t.e)}):</b> ${esc(t.x)}</div>`).join('')}
+  ${R.medals.map(x=>`<div class="jgnote up"><b>Nova medalha:</b> ${esc(x.t)} (+10 moedas)</div>`).join('')}${R.daily.map(t=>`<div class="jgnote up">${esc(t)}</div>`).join('')}</div>
+ <div class="btns"><button class="b2" data-act="jghub">Central de Jogos</button><button class="b1" data-act="jgagain" data-id="surv">Jogar de novo</button></div>`}
+Object.assign(JGACT,{svpay:id=>svPay(id),svpayall:()=>svPayAll(),svnext:()=>svNext(),svmk:id=>svMk(+id),svev:id=>svEv(+id)});
+/* ===== LOJA: gaste moedas virtuais para desbloquear acessórios, pelagens, cores de fundo e temas visuais. Sem dinheiro real. ===== */
+const JGSHOP=[ /* [id, tipo, índice, nome, preço] */
+['h6','hd',6,'Capuz',70],['h7','hd',7,'Chapéu de caubói',90],['h8','hd',8,'Elmo viking',120],
+['f5','fc',5,'Máscara',60],['f6','fc',6,'Monóculo',80],
+['u5','fur',5,'Pelagem dourada',100],['u6','fur',6,'Pelagem verde-floresta',70],['u7','fur',7,'Pelagem rubi',70],
+['b9','bg',9,'Fundo magenta',40],['b10','bg',10,'Fundo ciano',40],['b11','bg',11,'Fundo dourado',40],
+['p:ouro','pal','ouro','Tema Ouro',150],['p:rose','pal','rose','Tema Rosé',150],['p:grafite','pal','grafite','Tema Grafite',150]];
+const JGSEC=[['hd','Acessórios de cabeça'],['fc','Acessórios de rosto'],['fur','Pelagens do lobo'],['bg','Cores de fundo do avatar'],['pal','Temas visuais do app']];
+const JGPALC={ouro:['#B88614','#F1D58A'],rose:['#BE3A66','#F4B3C8'],grafite:['#4B5563','#CBD5E1']};
+let JGV='hub';
+const jgItem=id=>JGSHOP.find(x=>x[0]===id);
+const jgOwned=id=>!jgItem(id)||!!S.games.own[id];
+const jgFree={hd:6,fc:5,fur:5,bg:9};
+const jgAvOwned=(f,i)=>i<jgFree[f]||!!S.games.own[({hd:'h',fc:'f',fur:'u',bg:'b'})[f]+i];
+function jgBuy(id,from){const it=jgItem(id),g=S.games;if(!it||g.own[id])return;if(g.coins<it[4])return toast('Faltam '+(it[4]-g.coins)+' moedas. Jogue na Central de Jogos para ganhar mais!');
+ ask(`Desbloquear "${it[3]}" por ${it[4]} moedas? Você tem ${g.coins}.`,()=>{if(g.coins<it[4]||g.own[id])return;g.coins-=it[4];g.own[id]=1;g.st.bought++;const nm=jgMedals();
+  if(from==='av'&&it[1]!=='pal'){S.pref.av[it[1]]=it[2]}save();toast('Desbloqueado: '+it[3]+(nm.length?' · nova medalha!':''));if(nm.length)confetti();render();if(from==='av')avSheet()})}
+function jgUse(id){const it=jgItem(id);if(!it||!S.games.own[id])return;if(it[1]==='pal')S.pref.pal=it[2];else S.pref.av[it[1]]=it[2];save();render();toast(it[1]==='pal'?'Tema aplicado':'Aplicado ao avatar')}
+function jgShopV(){const g=S.games,av=S.pref.av,cur=it=>it[1]==='pal'?S.pref.pal===it[2]:av[it[1]]===it[2];
+ const prev=it=>it[1]==='pal'?`<span class="palp" style="background:linear-gradient(135deg,${JGPALC[it[2]][0]},${JGPALC[it[2]][1]})"></span>`:`<span class="shp">${avSvg(it[1]==='hd'?{...av,hd:it[2],fc:0}:it[1]==='fc'?{...av,fc:it[2],hd:0}:it[1]==='fur'?{...av,fur:it[2]}:{...av,bg:it[2]},44,false)}</span>`;
+ return `<div class="sw"><button class="ib" data-act="jgshopback" aria-label="Voltar à Central de Jogos">‹</button><h2 style="margin:0">Loja</h2><span style="width:44px"></span></div>
+ <div class="card"><div class="jgch" style="margin:0"><span class="jgc">${jgIc('coin')}${g.coins} moedas</span><span class="jgc">${jgIc('star')}${JGSHOP.filter(x=>g.own[x[0]]).length}/${JGSHOP.length} itens</span></div><p class="lbl" style="margin-top:8px">Ganhe moedas jogando. Os itens são só visuais e ficam salvos junto com os seus dados. Nada aqui custa dinheiro de verdade.</p></div>
+ ${JGSEC.map(([k,t])=>`<div class="card"><h3>${t}</h3>${JGSHOP.filter(x=>x[1]===k).map(it=>{const own=!!g.own[it[0]],can=g.coins>=it[4];return `<div class="row shr">${prev(it)}<div class="t"><b>${esc(it[3])}</b><span class="lbl">${own?(cur(it)?'Em uso agora':'Desbloqueado'):it[4]+' moedas'}</span></div>${own?(cur(it)?`<span class="tag ok">${jgIc('check','s')} Em uso</span>`:`<button class="b2" style="min-height:40px;padding:6px 14px" data-act="shopuse" data-id="${it[0]}">Usar</button>`):`<button class="${can?'b1':'b2'}" style="min-height:40px;padding:6px 12px" data-act="shopbuy" data-id="${it[0]}" aria-label="Desbloquear ${esc(it[3])} por ${it[4]} moedas">${can?'Desbloquear':'Faltam '+(it[4]-g.coins)}</button>`}</div>`}).join('')}</div>`).join('')}`}
+Object.assign(JGACT,{jgshop:()=>{JGV='shop';render();window.scrollTo(0,0)},jgshopback:()=>{JGV='hub';render();window.scrollTo(0,0)},shopbuy:(id,b)=>jgBuy(id,b&&b.dataset.from),shopuse:id=>jgUse(id)});
 
 /* ----- navegação e renderização ----- */
 const SV=b=>`<svg viewBox="0 0 24 24" aria-hidden="true">${b}</svg>`;
@@ -1147,7 +1292,7 @@ const ACT={
  delmv:(id,b)=>{const bx=find(S.boxes,id),rest=bx.moves.filter(p=>p.id!==b.dataset.p);let a=0;if(rest.some(p=>(a+=p.c)<0))return toast('Remover esta movimentação deixaria o saldo negativo');ask('Remover esta movimentação?',()=>{bx.moves=rest;commit('Removido')})},
  edb:id=>boxForm(id),addb:()=>boxForm(),
  delb:id=>{const b=find(S.boxes,id),t=savedOf(b);ask(t>0?'Excluir "'+b.n+'"? Os '+brl(t)+' guardados voltam ao saldo disponível.':'Excluir "'+b.n+'"?',()=>{S.boxes=S.boxes.filter(x=>x.id!==id);commit('Excluída')})},
- theme:id=>{S.pref.theme=id;commit('Tema alterado')},pal:id=>{S.pref.pal=id;commit('Paleta alterada')},
+ theme:id=>{S.pref.theme=id;commit('Tema alterado')},pal:id=>{if(['ouro','rose','grafite'].includes(id)&&!S.games.own['p:'+id])return toast('Desbloqueie este tema na Loja da Central de Jogos.');S.pref.pal=id;commit('Paleta alterada')},
 
  qinc:()=>{vm=ymOf(new Date());itemForm('inc')},qexp:()=>{vm=ymOf(new Date());itemForm('exp',null,0)},
  own:()=>{const v=$('#own').value.trim();if(!v)return toast('Informe um nome');S.owner=v;commit()},
