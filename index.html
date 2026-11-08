@@ -359,7 +359,7 @@ nav{background-color:var(--navbase)}
 .svs{padding:14px}.svb{font-size:30px;font-weight:800;margin:4px 0 0;letter-spacing:-.5px}.svb.neg{color:var(--red)}.svw{display:flex;justify-content:space-between;margin:10px 0 4px}.bar.rd i{background:var(--red)}
 :root:not([data-theme=dark]) .jgr .v.pos{color:#14532D}:root:not([data-theme=dark]) .jgr .v.neg{color:#991B1B}
 .shp{width:44px;height:44px;border-radius:50%;overflow:hidden;flex:none;display:block}.shp svg{width:100%;height:100%;display:block}.palp{width:44px;height:44px;border-radius:14px;flex:none;border:2px solid var(--edge)}.shr{gap:12px;align-items:center}.shr .t{flex:1;min-width:0}
-.pals{flex-wrap:wrap}.pals .pal{flex:1 1 calc(33% - 8px);min-width:84px}.avr button.lk,.avc button.lk,.pal.lk{position:relative}.avr button.lk svg.avs{filter:grayscale(.7) brightness(.82)}.avc button.lk{filter:grayscale(.45) brightness(.85)}.pal.lk i{filter:grayscale(.5)}
+.pals{flex-wrap:wrap}.pals .pal{flex:0 0 calc(33.333% - 6px);min-width:84px}.avr button.lkd,.avc button.lkd,.pal.lkd{position:relative}.avr button.lkd svg.avs{filter:grayscale(.7) brightness(.82)}.avc button.lkd{filter:grayscale(.45) brightness(.85)}.pal.lkd i{filter:grayscale(.5)}
 .lkb{position:absolute;right:0;bottom:0;width:18px;height:18px;border-radius:50%;background:var(--navy);color:var(--bg);display:grid;place-items:center;border:1.5px solid var(--bg)}.lkb .jgi{width:11px;height:11px;vertical-align:0}
 @keyframes jgin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.jgf,.jgstars{animation:none}.jgb,.jgc2,.jgp i{transition:none}}
@@ -373,14 +373,6 @@ nav{background-color:var(--navbase)}
 [data-theme=dark][data-pal=ouro]{--blue:#D49F2D;--ink:#F0CD8E;--btn1:#765A0F;--btn2:#5E4A11}
 [data-pal=ouro]{--sb:rgba(214,190,142,.72);--se:rgba(238,225,202,.92);--b1:#F6F1E8;--b2:#E9E0D0}
 [data-theme=dark][data-pal=ouro]{--sa:rgba(152,121,44,.68);--sb:rgba(68,53,14,.92);--sc:rgba(54,44,12,.5);--sd:rgba(222,187,112,.28);--se:rgba(74,58,14,.52);--b1:#131007;--b2:#090803}
-[data-pal=rose]{--blue:#940D3E;--blue2:#B81454;--h1:#2F0411;--h2:#760F34;--light:#FBCCE3}
-[data-theme=dark][data-pal=rose]{--blue:#940D3E;--light:#411221}
-[data-pal=rose]{--light:rgba(148,13,62,.12);--o1:rgba(214,94,141,.5);--o3:rgba(180,45,94,.32);--o2:rgba(240,196,214,.95);--orbs:radial-gradient(circle at 6% 3%,var(--o1) 0,transparent 32%),radial-gradient(circle at 100% 16%,var(--o3) 0,transparent 30%),radial-gradient(circle at 62% 106%,var(--o2) 0,transparent 44%),radial-gradient(circle at 0% 72%,var(--o3) 0,transparent 26%),linear-gradient(165deg,#F7E9EF,#EBD4DD)}
-[data-theme=dark][data-pal=rose]{--light:rgba(212,45,112,.17);--o1:rgba(148,13,62,.4);--o3:rgba(184,20,84,.22);--o2:rgba(80,14,36,.55);--orbs:radial-gradient(circle at 94% 5%,var(--o1) 0,transparent 32%),radial-gradient(circle at 0% 42%,var(--o3) 0,transparent 34%),radial-gradient(circle at 68% 102%,var(--o2) 0,transparent 48%),radial-gradient(circle at 10% 100%,var(--o3) 0,transparent 26%),linear-gradient(170deg,#1A0606,#0E0303)}
-[data-pal=rose]{--blue:#760F34;--ink:#5E0F2C;--btn1:#760F34;--btn2:#5E112B}
-[data-theme=dark][data-pal=rose]{--blue:#D42D70;--ink:#F08EB9;--btn1:#760F34;--btn2:#5E112B}
-[data-pal=rose]{--sb:rgba(214,142,172,.72);--se:rgba(238,202,218,.92);--b1:#F6E8EE;--b2:#E9D0DB}
-[data-theme=dark][data-pal=rose]{--sa:rgba(152,44,84,.68);--sb:rgba(68,14,33,.92);--sc:rgba(54,12,26,.5);--sd:rgba(222,112,157,.28);--se:rgba(74,14,35,.52);--b1:#13070B;--b2:#090305}
 [data-pal=grafite]{--blue:#474F5A;--blue2:#5B6471;--h1:#16191D;--h2:#3B414A;--light:#E0E3E7}
 [data-theme=dark][data-pal=grafite]{--blue:#474F5A;--light:#26292D}
 [data-pal=grafite]{--light:rgba(71,79,90,.12);--o1:rgba(146,153,162,.5);--o3:rgba(103,111,122,.32);--o2:rgba(215,217,221,.95);--orbs:radial-gradient(circle at 6% 3%,var(--o1) 0,transparent 32%),radial-gradient(circle at 100% 16%,var(--o3) 0,transparent 30%),radial-gradient(circle at 62% 106%,var(--o2) 0,transparent 44%),radial-gradient(circle at 0% 72%,var(--o3) 0,transparent 26%),linear-gradient(165deg,#EFF0F1,#DEDFE1)}
@@ -389,7 +381,56 @@ nav{background-color:var(--navbase)}
 [data-theme=dark][data-pal=grafite]{--blue:#757F8C;--ink:#B8BEC6;--btn1:#3B414A;--btn2:#32373D}
 [data-pal=grafite]{--sb:rgba(173,177,183,.72);--se:rgba(217,220,223,.92);--b1:#EEEFF0;--b2:#DBDCDE}
 [data-theme=dark][data-pal=grafite]{--sa:rgba(90,97,106,.68);--sb:rgba(37,40,45,.92);--sc:rgba(30,33,36,.5);--sd:rgba(159,166,175,.28);--se:rgba(40,43,48,.52);--b1:#0C0D0E;--b2:#060606}
-.pal .lkb{right:8px;bottom:8px}
+.pal .lkb{right:8px;top:8px;bottom:auto}
+
+
+/* ===== olho (ocultar valores) e ícones das caixinhas ===== */
+.ib.eyeb{position:relative}.eyeb svg{width:22px;height:22px}.eyeb .ec{display:none}.eyeb.off .eo{display:none}.eyeb.off .ec{display:block}
+.eyeb.anim svg{animation:eyeblink .38s ease-out}@keyframes eyeblink{0%{transform:scaleY(.1)}55%{transform:scaleY(1.15)}100%{transform:scaleY(1)}}
+.ib.eyeb.eyefl{position:absolute;top:0;right:0;z-index:4}.top .tb{gap:0}.top .tb .ib{width:40px;height:40px}main>section{position:relative}#s-rec h2,#s-des h2,#s-div h2,#s-cx h2,#s-rel h2{padding-right:54px}
+.bxi{flex:none;overflow:visible}.bxh{display:flex;align-items:center;gap:10px}.bxic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--light);color:var(--blue);flex:none}
+.rgi{position:relative;width:56px;height:56px;flex:none}.rgc{position:absolute;inset:0;display:grid;place-items:center;color:var(--blue)}
+.icg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:6px 0 12px}.icg button{min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:6px 2px;background:var(--bg);border:2px solid transparent;border-radius:16px;font-size:11px;color:var(--navy)}.icg button.on{border-color:var(--blue);background:var(--light)}.icg .bxic{width:38px;height:38px;border-radius:12px}
+.bxi.an .icw,.bxi.an .iring,.bxi.an .ibob{transform-box:fill-box;transform-origin:center}
+.bxi.an .icw{animation:icspin 1.3s linear infinite}.bxi.an .icoin{animation:iccoin 2.4s ease-in infinite}.bxi.an .ismoke{animation:icsmoke 2.2s ease-out infinite}
+.bxi.an.viagem{animation:icfly 2.6s ease-in-out infinite}.bxi.an.moto,.bxi.an.carro,.bxi.an.bike{animation:icbob .55s ease-in-out infinite alternate}
+.bxi.an .iring{animation:icring 1.5s ease-in-out infinite}.bxi.an .icur{animation:icblink 1.1s steps(2,jump-none) infinite}.bxi.an .ibob{animation:icbob 1.6s ease-in-out infinite alternate}
+.bxi.an .ilid{animation:iclid 2.4s ease-in-out infinite}.bxi.an.emergencia{animation:icpulse 1.8s ease-in-out infinite}.bxi.an.saude{animation:icbeat 1.3s ease-in-out infinite}
+@keyframes icspin{to{transform:rotate(360deg)}}@keyframes iccoin{0%{transform:translateY(0);opacity:1}65%{transform:translateY(7px);opacity:1}100%{transform:translateY(9px);opacity:0}}
+@keyframes icsmoke{0%{transform:translate(0,0) scale(.7);opacity:.9}100%{transform:translate(2px,-4px) scale(1.6);opacity:0}}
+@keyframes icfly{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-2px)}}@keyframes icbob{from{transform:translateY(0)}to{transform:translateY(-.8px)}}
+@keyframes icring{0%,60%,100%{transform:rotate(0)}10%{transform:rotate(-7deg)}20%{transform:rotate(7deg)}30%{transform:rotate(-5deg)}40%{transform:rotate(5deg)}}
+@keyframes icblink{0%{opacity:1}100%{opacity:.1}}@keyframes iclid{0%,60%,100%{transform:translateY(0)}75%{transform:translateY(-2.5px)}}
+@keyframes icpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}@keyframes icbeat{0%,40%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(.97)}}
+@media(prefers-reduced-motion:reduce){.bxi,.bxi *,.eyeb svg{animation:none!important}}
+
+/* ===== cores extras: Rosa e Laranja (grátis) e Esmeralda (loja); mesma luminosidade da base, para o contraste continuar bom ===== */
+[data-pal=pink]{--blue:#C71266;--blue2:#ED0D84;--h1:#4B0C2A;--h2:#A71D5B;--light:#FEE4F5}
+[data-theme=dark][data-pal=pink]{--blue:#ED0D84;--light:#441D35}
+[data-pal=pink]{--light:rgba(199,18,102,.12);--o1:rgba(249,104,188,.55);--o3:rgba(237,13,132,.34);--o2:rgba(254,205,237,.95);--orbs:radial-gradient(circle at 6% 3%,var(--o1) 0,transparent 32%),radial-gradient(circle at 100% 16%,var(--o3) 0,transparent 30%),radial-gradient(circle at 62% 106%,var(--o2) 0,transparent 44%),radial-gradient(circle at 0% 72%,var(--o3) 0,transparent 26%),linear-gradient(165deg,#FCEBF5,#F5D7E9)}
+[data-theme=dark][data-pal=pink]{--light:rgba(249,104,188,.19);--o1:rgba(199,18,102,.4);--o3:rgba(237,13,132,.22);--o2:rgba(93,26,62,.55);--orbs:radial-gradient(circle at 94% 5%,var(--o1) 0,transparent 32%),radial-gradient(circle at 0% 42%,var(--o3) 0,transparent 34%),radial-gradient(circle at 68% 102%,var(--o2) 0,transparent 48%),radial-gradient(circle at 10% 100%,var(--o3) 0,transparent 26%),linear-gradient(170deg,#170814,#0B0309)}
+[data-pal=pink]{--ink:#8A194C;--btn1:#C71266;--btn2:#A71D5B}
+[data-theme=dark][data-pal=pink]{--ink:#FFC6E6}
+[data-pal=pink]{--sb:rgba(240,160,205,.78);--se:rgba(249,215,234,.92);--b1:#FAE9F3;--b2:#F2CEE0}
+[data-theme=dark][data-pal=pink]{--sa:rgba(199,49,132,.72);--sb:rgba(84,24,59,.92);--sc:rgba(69,22,49,.5);--sd:rgba(249,126,196,.3);--se:rgba(91,26,63,.55);--b1:#170812;--b2:#0A0208}
+[data-pal=orange]{--blue:#A84C0F;--blue2:#D5500C;--h1:#3D1D0A;--h2:#874718;--light:#FEE6E0}
+[data-theme=dark][data-pal=orange]{--blue:#D5500C;--light:#3F241B}
+[data-pal=orange]{--light:rgba(168,76,15,.12);--o1:rgba(247,120,69,.55);--o3:rgba(213,80,12,.34);--o2:rgba(254,209,197,.95);--orbs:radial-gradient(circle at 6% 3%,var(--o1) 0,transparent 32%),radial-gradient(circle at 100% 16%,var(--o3) 0,transparent 30%),radial-gradient(circle at 62% 106%,var(--o2) 0,transparent 44%),radial-gradient(circle at 0% 72%,var(--o3) 0,transparent 26%),linear-gradient(165deg,#FBECE8,#F3DAD2)}
+[data-theme=dark][data-pal=orange]{--light:rgba(247,120,69,.19);--o1:rgba(168,76,15,.4);--o3:rgba(213,80,12,.22);--o2:rgba(80,42,23,.55);--orbs:radial-gradient(circle at 94% 5%,var(--o1) 0,transparent 32%),radial-gradient(circle at 0% 42%,var(--o3) 0,transparent 34%),radial-gradient(circle at 68% 102%,var(--o2) 0,transparent 48%),radial-gradient(circle at 10% 100%,var(--o3) 0,transparent 26%),linear-gradient(170deg,#170807,#0A0403)}
+[data-pal=orange]{--ink:#713B15;--btn1:#A84C0F;--btn2:#874718}
+[data-theme=dark][data-pal=orange]{--ink:#FFCBB5}
+[data-pal=orange]{--sb:rgba(237,168,140,.78);--se:rgba(248,219,206,.92);--b1:#FAEBE6;--b2:#EFD2C4}
+[data-theme=dark][data-pal=orange]{--sa:rgba(177,86,43,.72);--sb:rgba(75,37,22,.92);--sc:rgba(61,32,19,.5);--sd:rgba(247,138,93,.3);--se:rgba(80,40,23,.55);--b1:#150A07;--b2:#090302}
+[data-pal=esmeralda]{--blue:#0D9940;--blue2:#15BE4F;--h1:#043017;--h2:#0F7938;--light:#D2FBDC}
+[data-theme=dark][data-pal=esmeralda]{--blue:#0D9940;--light:#124226}
+[data-pal=esmeralda]{--light:rgba(13,153,64,.12);--o1:rgba(105,217,143,.5);--o3:rgba(46,184,97,.32);--o2:rgba(200,241,213,.95);--orbs:radial-gradient(circle at 6% 3%,var(--o1) 0,transparent 32%),radial-gradient(circle at 100% 16%,var(--o3) 0,transparent 30%),radial-gradient(circle at 62% 106%,var(--o2) 0,transparent 44%),radial-gradient(circle at 0% 72%,var(--o3) 0,transparent 26%),linear-gradient(165deg,#EAF7EE,#D5EBDC)}
+[data-theme=dark][data-pal=esmeralda]{--light:rgba(64,216,114,.17);--o1:rgba(13,153,64,.4);--o3:rgba(21,190,79,.22);--o2:rgba(14,82,41,.55);--orbs:radial-gradient(circle at 94% 5%,var(--o1) 0,transparent 32%),radial-gradient(circle at 0% 42%,var(--o3) 0,transparent 34%),radial-gradient(circle at 68% 102%,var(--o2) 0,transparent 48%),radial-gradient(circle at 10% 100%,var(--o3) 0,transparent 26%),linear-gradient(170deg,#051611,#020C09)}
+[data-pal=esmeralda]{--blue:#0F7938;--ink:#0F602D;--btn1:#0F7938;--btn2:#116030}
+[data-theme=dark][data-pal=esmeralda]{--blue:#40D872;--ink:#99F1B3;--btn1:#0F7938;--btn2:#116030}
+[data-pal=esmeralda]{--sb:rgba(148,216,169,.72);--se:rgba(204,239,214,.92);--b1:#E9F7ED;--b2:#D1EAD8}
+[data-theme=dark][data-pal=esmeralda]{--sa:rgba(34,118,66,.58);--sb:rgba(14,70,35,.92);--sc:rgba(12,55,30,.5);--sd:rgba(123,225,156,.28);--se:rgba(14,76,39,.52);--b1:#07140C;--b2:#030906}
+[data-theme=dark] .neg,[data-theme=dark] .v.neg{color:#FCA5A5}
+[data-theme=dark] .b2.neg{color:#FFC9C9}
 </style>
 </head>
 <body>
@@ -414,7 +455,9 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const uid=()=>Math.random().toString(36).slice(2,10);
 const pad=n=>String(n).padStart(2,'0');
-const brl=c=>{const n=Math.abs(Math.round(c));return (c<0?'-':'')+'R$ '+String(Math.floor(n/100)).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+','+pad(n%100)};
+let HIDE=0;
+const brl0=c=>{const n=Math.abs(Math.round(c));return (c<0?'-':'')+'R$ '+String(Math.floor(n/100)).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+','+pad(n%100)};
+const brl=c=>HIDE?'R$ •••••':brl0(c);
 const fin=c=>c==null?'':(c/100).toFixed(2).replace('.',',');
 function parseMoney(s){ // "1.234,56" -> 123456 ; vazio/invalid -> null
   s=String(s||'').replace(/[R$\s]/g,'');if(!s)return null;
@@ -442,12 +485,12 @@ if(!S){S=seed();}
 function migrate(o){ // v2: saldo inicial, notificações, conquistas; parcelas antigas pertencem ao Celular
  if(o.ach===undefined)o.ach=null;if(!o.limits||typeof o.limits!=='object')o.limits={};if(!o.flags||typeof o.flags!=='object')o.flags={};
  if(o.opening===undefined)o.opening=null;if(!o.ntf||typeof o.ntf!=='object'||!o.ntf.read)o.ntf={read:{}};if(!o.ntf.since){const d=new Date();o.ntf.since=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}o.v=2;
- gmFix(o);gmOwnFix(o);
+ gmFix(o);gmOwnFix(o);o.boxes.forEach(b=>{if(!['cofre','moto','carro','casa','viagem','celular','computador','estudos','presente','emergencia','saude','bike'].includes(b.ic))b.ic='cofre'});
  const orphan=o.parc.filter(p=>!p.iid||!o.inst.some(x=>x.id===p.iid));
  if(orphan.length){let t=o.inst.find(x=>x.n==='Celular')||o.inst[0];if(!t){t={id:uid(),n:'Parcelado',c:null,np:null,day:null,paid:false};o.inst.push(t)}orphan.forEach(p=>{p.iid=t.id})}return o}
-const fixPref=o=>{if(!o.pref||typeof o.pref!=='object')o.pref={theme:'light',pal:'blue'};if(typeof o.pref.lk!=='number')o.pref.lk=5;if(typeof o.pref.br!=='number')o.pref.br=7;if(typeof o.pref.gl!=='number')o.pref.gl=1;if(o.pref.br===14)o.pref.br=15;delete o.pref.vz;const a=o.pref.av;const ci=(v,n)=>{v=Math.floor(+v||0);return v>=0&&v<n?v:0};o.pref.av=(a&&typeof a==='object')?{ex:ci(a.ex,7),hd:ci(a.hd,9),fc:ci(a.fc,7),fur:ci(a.fur,8),bg:ci(a.bg,12),an:(a.an===0||a.an===false)?0:1}:{ex:0,hd:0,fc:0,fur:0,bg:0,an:1};gmOwnFix(o);return o};fixPref(S);migrate(S);
+const fixPref=o=>{if(!o.pref||typeof o.pref!=='object')o.pref={theme:'light',pal:'blue'};if(typeof o.pref.lk!=='number')o.pref.lk=5;if(typeof o.pref.br!=='number')o.pref.br=7;if(typeof o.pref.gl!=='number')o.pref.gl=1;if(o.pref.br===14)o.pref.br=15;delete o.pref.vz;const a=o.pref.av;const ci=(v,n)=>{v=Math.floor(+v||0);return v>=0&&v<n?v:0};o.pref.av=(a&&typeof a==='object')?{ex:ci(a.ex,7),hd:ci(a.hd,9),fc:ci(a.fc,7),fur:ci(a.fur,8),bg:ci(a.bg,12),an:(a.an===0||a.an===false)?0:1}:{ex:0,hd:0,fc:0,fur:0,bg:0,an:1};gmOwnFix(o);o.pref.hide=o.pref.hide?1:0;if(o.pref.pal==='rose')o.pref.pal='pink';return o};fixPref(S);migrate(S);
 function lookPref(){try{const l=JSON.parse(localStorage.getItem('wallstreet.look'));if(l&&l.t)return{theme:l.t,pal:l.p,gl:l.g}}catch(e){}return{theme:'light',pal:'blue'}}
-function applyPref(){const p=(SECMODE&&!DEK)?lookPref():S.pref,r=document.documentElement;r.dataset.theme=p.theme==='dark'?'dark':'light';r.dataset.pal=['blue','violet','teal','ouro','rose','grafite'].includes(p.pal)?p.pal:'blue';const m=document.querySelector('meta[name=theme-color]');if(m)m.content=p.theme==='dark'?'#0B1220':'#0B1730';try{r.dataset.glass=p.gl===0?'off':'on';localStorage.setItem('wallstreet.look',JSON.stringify({t:r.dataset.theme,p:r.dataset.pal,g:p.gl===0?0:1}))}catch(e){}}
+function applyPref(){const p=(SECMODE&&!DEK)?lookPref():S.pref,r=document.documentElement;HIDE=p.hide?1:0;r.dataset.theme=p.theme==='dark'?'dark':'light';r.dataset.pal=['blue','violet','teal','pink','orange','ouro','esmeralda','grafite'].includes(p.pal)?p.pal:'blue';const m=document.querySelector('meta[name=theme-color]');if(m)m.content=p.theme==='dark'?'#0B1220':'#0B1730';try{r.dataset.glass=p.gl===0?'off':'on';localStorage.setItem('wallstreet.look',JSON.stringify({t:r.dataset.theme,p:r.dataset.pal,g:p.gl===0?0:1}))}catch(e){}}
 let view='home',vm=ymOf(new Date()),ry=new Date().getFullYear(),rm='',pend=null,open={};
 function save(){if(FIRST)return true;if(SECMODE){if(!DEK)return false;persist();return true}try{localStorage.setItem(KEY,JSON.stringify(S));return true}catch(e){toast('Não foi possível salvar (armazenamento cheio ou bloqueado)');return false}}
 save();
@@ -529,14 +572,14 @@ const PRESETS=[{ex:0,hd:0,fc:0,fur:0,bg:0},{ex:1,hd:0,fc:1,fur:4,bg:1},{ex:2,hd:
 const RM=window.matchMedia?matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
 const animOn=()=>!!S.pref.av.an&&!RM.matches;
 function avSheet(){const a=S.pref.av,o=$('#ov'),on=(c)=>c?'on':'',nm=(l,v)=>`<div class="lab">${l} · <b>${v}</b></div>`,P={hd:'h',fc:'f',fur:'u',bg:'b'},
- lk=(f,i,n,inner,cls)=>{const id=P[f]+i,it=jgItem(id);return `<button class="lk${cls||''}" data-act="shopbuy" data-id="${id}" data-from="av" aria-label="${n}, bloqueado: ${it[4]} moedas" title="${n}: ${it[4]} moedas">${inner}<b class="lkb">${jgIc('lock','s')}</b></button>`};
+ lk=(f,i,n,inner,cls)=>{const id=P[f]+i,it=jgItem(id);return `<button class="lkd${cls||''}" data-act="shopbuy" data-id="${id}" data-from="av" aria-label="${n}, bloqueado: ${it[4]} moedas" title="${n}: ${it[4]} moedas">${inner}<b class="lkb">${jgIc('lock','s')}</b></button>`};
  o.innerHTML=`<div class="sheet"><h3>Personalizar avatar</h3><div class="avp">${avSvg(a,96,animOn())}</div>
  <div class="lab">Sugestões</div><div class="avg">${PRESETS.map((q,i)=>`<button data-act="avp" data-id="${i}" class="${on(['ex','hd','fc','fur','bg'].every(k=>a[k]===q[k]))}" aria-label="Sugestão ${i+1}">${avSvg(q,44)}</button>`).join('')}</div>
  ${nm('Expressão',EXPN[a.ex])}<div class="avr">${EXPN.map((n,i)=>`<button data-act="avx" data-id="${i}" class="${on(a.ex===i)}" aria-label="${n}" title="${n}">${avSvg({...a,ex:i,hd:0,fc:0},34)}</button>`).join('')}</div>
  ${nm('Acessório de cabeça',HEADN[a.hd])}<div class="avr">${HEADN.map((n,i)=>jgAvOwned('hd',i)?`<button data-act="avhd" data-id="${i}" class="${on(a.hd===i)}" aria-label="${n}" title="${n}">${avSvg({...a,hd:i,fc:0},34)}</button>`:lk('hd',i,n,avSvg({...a,hd:i,fc:0},34))).join('')}</div>
  ${nm('Acessório de rosto',FACEN[a.fc])}<div class="avr">${FACEN.map((n,i)=>jgAvOwned('fc',i)?`<button data-act="avfc" data-id="${i}" class="${on(a.fc===i)}" aria-label="${n}" title="${n}">${avSvg({...a,fc:i,hd:0},34)}</button>`:lk('fc',i,n,avSvg({...a,fc:i,hd:0},34))).join('')}</div>
- ${nm('Pelagem',FURS[a.fur][4])}<div class="avc">${FURS.map((f,i)=>jgAvOwned('fur',i)?`<button data-act="avfu" data-id="${i}" class="${on(a.fur===i)}" style="background:linear-gradient(135deg,${f[1]},${f[0]})" aria-label="${f[4]}" title="${f[4]}"></button>`:lk('fur',i,f[4],'',' ')).map((h,i)=>jgAvOwned('fur',i)?h:h.replace('<button class="lk "','<button class="lk" style="background:linear-gradient(135deg,'+FURS[i][1]+','+FURS[i][0]+')"')).join('')}</div>
- <div class="lab">Cor de fundo</div><div class="avc">${BGS.map((b,i)=>jgAvOwned('bg',i)?`<button data-act="avb" data-id="${i}" class="${on(a.bg===i)}" style="background:${b[0]}" aria-label="Cor ${i+1}"></button>`:lk('bg',i,'Cor '+(i+1),'').replace('<button class="lk"','<button class="lk" style="background:'+b[0]+'"')).join('')}</div>
+ ${nm('Pelagem',FURS[a.fur][4])}<div class="avc">${FURS.map((f,i)=>jgAvOwned('fur',i)?`<button data-act="avfu" data-id="${i}" class="${on(a.fur===i)}" style="background:linear-gradient(135deg,${f[1]},${f[0]})" aria-label="${f[4]}" title="${f[4]}"></button>`:lk('fur',i,f[4],'',' ')).map((h,i)=>jgAvOwned('fur',i)?h:h.replace('<button class="lkd "','<button class="lkd" style="background:linear-gradient(135deg,'+FURS[i][1]+','+FURS[i][0]+')"')).join('')}</div>
+ <div class="lab">Cor de fundo</div><div class="avc">${BGS.map((b,i)=>jgAvOwned('bg',i)?`<button data-act="avb" data-id="${i}" class="${on(a.bg===i)}" style="background:${b[0]}" aria-label="Cor ${i+1}"></button>`:lk('bg',i,'Cor '+(i+1),'').replace('<button class="lkd"','<button class="lkd" style="background:'+b[0]+'"')).join('')}</div>
  <button class="${a.an?'b1':'b2'} full" data-act="avt">Animações: ${a.an?'ativadas':'desativadas'}</button>${RM.matches?'<div class="lbl" style="margin-top:6px">O Android está com "reduzir movimento": as animações ficam paradas.</div>':''}
  <div class="lbl" style="margin-top:8px">Itens com cadeado se desbloqueiam com moedas na Loja da Central de Jogos.</div>
  <div class="btns" style="margin-top:12px"><button class="b1" data-act="close">Concluir</button></div></div>`;o.hidden=false}
@@ -684,8 +727,8 @@ function vHome(){const d=new Date(),cm=ymOf(d),hr=d.getHours(),gr=hr<12?'Bom dia
  const prox=[...rowsOf('inc',cm),...rowsOf('exp',cm)].filter(i=>stat(i,cm)!=='ok').sort((a,b)=>a.day-b.day).slice(0,6);
  const row=i=>{const s=stat(i,cm);return `<div class="row"><div class="dchip ${s}">${pad(i.day)}</div><div class="t"><b>${esc(i.d)}</b><span class="tag ${s}">${slabel(i,s)}</span></div><div class="a ${i.t==='inc'?'pos':'neg'}">${i.t==='inc'?'+':'−'}${brl(i.c)}</div></div>`};
  const gt=greet(),un=unread();
- return `<div class="top"><button class="av" id="avh" data-act="avs" aria-label="Personalizar avatar">${avSvg(S.pref.av,44,animOn())}</button><div class="tx"><h1 class="hello" style="font-size:${gt.length>34?16:gt.length>24?18:20}px">${esc(gt)}</h1><small>${d.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}</small></div><div class="tb"><button class="ib bellw" data-act="ntf" aria-label="Notificações${un?', '+un+' não lidas':''}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 0112 0c0 6 2 7 2 7H4s2-1 2-7"/><path d="M10 20a2 2 0 004 0"/></svg>${un?`<span class="bdg">${un>9?'9+':un}</span>`:''}</button><button class="ib" data-act="nav" data-id="news" aria-label="Notícias financeiras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="14" height="16" rx="2"/><path d="M17 8h3v10a2 2 0 01-2 2M7 8h6M7 12h6M7 16h4"/></svg></button></div></div>
- <div class="card hero">${wg("wm")}<div class="lbl" style="letter-spacing:2px;font-weight:700;display:flex;align-items:center;gap:8px">${wg("bm")}<span>WALL STREET · Seu dinheiro, sob controle.</span></div><div class="lbl" style="margin-top:12px">Saldo disponível</div><div class="big" style="font-size:34px;margin-bottom:12px">${brl(bal)}</div>
+ return `<div class="top"><button class="av" id="avh" data-act="avs" aria-label="Personalizar avatar">${avSvg(S.pref.av,44,animOn())}</button><div class="tx"><h1 class="hello" style="font-size:${gt.length>34?16:gt.length>24?18:20}px">${esc(gt)}</h1><small>${d.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}</small></div><div class="tb"><button class="ib bellw" data-act="ntf" aria-label="Notificações${un?', '+un+' não lidas':''}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 0112 0c0 6 2 7 2 7H4s2-1 2-7"/><path d="M10 20a2 2 0 004 0"/></svg>${un?`<span class="bdg">${un>9?'9+':un}</span>`:''}</button><button class="ib" data-act="nav" data-id="news" aria-label="Notícias financeiras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="14" height="16" rx="2"/><path d="M17 8h3v10a2 2 0 01-2 2M7 8h6M7 12h6M7 16h4"/></svg></button>${eyeBtn()}</div></div>
+ <div class="card hero">${wg("wm")}<div class="lbl" style="letter-spacing:2px;font-weight:700;display:flex;align-items:center;gap:8px"><span>WALL STREET · Seu dinheiro, sob controle.</span></div><div class="lbl" style="margin-top:12px">Saldo disponível</div><div class="big" style="font-size:34px;margin-bottom:12px">${brl(bal)}</div>
   <div class="pills"><span class="pill">↓ Recebido ${brl(fl.inc)}</span><span class="pill">↑ Pago ${brl(fl.exp)}</span></div><div class="lbl" style="margin-top:8px">Só considera o que já aconteceu em ${MN[d.getMonth()]}${S.opening?` · inclui saldo inicial de ${brl(S.opening.c)}`:''}</div></div>
  ${mqHome()}${jgHomeCard()}
  <div class="qa"><button data-act="qinc"><i>+</i>Receita</button><button data-act="qexp"><i>−</i>Despesa</button><button data-act="nav" data-id="cx"><i>▣</i>Guardar</button></div>
@@ -695,7 +738,7 @@ function vHome(){const d=new Date(),cm=ymOf(d),hr=d.getHours(),gr=hr<12?'Bom dia
   <div class="tile"><div class="chip">▣</div><div class="lbl" style="margin-top:8px">Dinheiro guardado</div><div class="v">${brl(guard)}</div></div></div>
  <div class="sec">Próximos compromissos</div><div class="card">${prox.length?prox.map(row).join(''):`<div class="empty">${S.items.length?'Tudo em dia neste mês 🎉':'Nenhum compromisso cadastrado ainda.'}</div>`}</div>
  <div class="sec">Este mês</div><div class="card">${fl.inc||fl.exp?chart(['Receitas','Despesas','Saldo'],[[fl.inc,fl.exp,fl.inc-fl.exp]],['var(--blue)'],{cc:['#16A34A','#DC2626','var(--blue)'],val:1}):noData('Nada recebido ou pago ainda neste mês.')}</div>
- <div class="sec">Caixinhas</div>${S.boxes.length?`<div class="g2">${S.boxes.map(b=>{const s=savedOf(b),p=b.g?s/b.g*100:0;return `<div class="tile bx">${ring(p)}<div style="min-width:0"><b>${esc(b.n)}</b><span class="lbl">${brl(s)}${b.g?' / '+brl(b.g):''}</span></div></div>`}).join('')}</div>`:'<div class="card empty">Nenhuma caixinha criada.</div>'}
+ <div class="sec">Caixinhas</div>${S.boxes.length?`<div class="g2">${S.boxes.map(b=>{const s=savedOf(b),p=b.g?s/b.g*100:0;return `<div class="tile bx"><div class="rgi">${ring(p)}<span class="rgc">${bxIc(b.ic,22,animOn())}</span></div><div style="min-width:0"><b>${esc(b.n)}</b><span class="lbl">${brl(s)}${b.g?' / '+brl(b.g):''}</span></div></div>`}).join('')}</div>`:'<div class="card empty">Nenhuma caixinha criada.</div>'}
  <div class="sec">Dívidas</div><div class="card"><div class="sw" style="margin:0"><b style="text-transform:none">${brl(debts)} pendentes</b><span class="lbl">${orig?Math.round(pd/orig*100):0}% quitado</span></div>${bar(orig?pd/orig*100:0,'g')}</div>`}
 
 function vMonth(t){const rows=rowsOf(t,vm),inc=t==='inc',prev=sum(rows,i=>i.c),real=sum(rows.filter(i=>stat(i,vm)==='ok'),i=>i.done[vm]);
@@ -733,7 +776,7 @@ function vDiv(){const tot=sum(S.debts,balOf),orig=sum(S.debts,x=>x.o);
  <button class="b1 full" data-act="addd">+ Nova dívida</button>`}
 
 function vCx(){return `<h2>Caixinhas</h2><button class="b1 full" data-act="addb" style="margin-bottom:12px">+ Nova caixinha</button>${S.boxes.length?'':'<div class="card empty">Nenhuma caixinha ainda. Crie a primeira!</div>'}${S.boxes.map(b=>{const s=savedOf(b),has=b.moves.length>0,f=b.g?Math.max(0,b.g-s):null;
- return `<div class="card"><b>${esc(b.n)}</b>
+ return `<div class="card"><div class="bxh"><span class="bxic">${bxIc(b.ic,26,animOn())}</span><b>${esc(b.n)}</b></div>
  <div class="big" style="font-size:24px;margin:4px 0">${has?brl(s):'Não informado'}</div><div class="lbl">Dinheiro guardado${has?'':' (nenhum depósito registrado)'}</div>
  ${b.g?bar(s/b.g*100)+`<div class="grid"><div><div class="lbl">Falta</div><div class="v">${brl(f)}</div></div><div><div class="lbl">Concluído</div><div class="v">${Math.min(100,Math.round(s/b.g*100))}%</div></div></div>`:'<div class="lbl" style="margin:6px 0">Meta total: não definida</div>'}
  <div class="lbl" style="margin-top:8px">Planejado (não é dinheiro guardado): ${b.m?brl(b.m)+'/mês':'contribuição não definida'}${b.g?' · Meta '+brl(b.g):''} · Prazo: ${b.dl?mlabel(b.dl):'não definido'}</div>
@@ -821,7 +864,7 @@ function vRel(){const f=flows(),ms=Array.from({length:12},(_,i)=>ry+'-'+pad(i+1)
  <div class="card"><h3>Quitação das dívidas (acumulado pago)</h3>${paidAll?chart(L,[dp],['#16A34A'],{line:1})+`<div class="lbl">Quitado até hoje: ${Math.round(paidAll/od*100)}% de ${brl(od)}</div>`:noData('Nenhum pagamento de dívida registrado ainda.')}</div>`}
 
 function vCfg(){const p=S.pref;return `<h2>Configurações</h2><div class="card"><label>Nome do proprietário<input id="own" value="${esc(S.owner)}" maxlength="40"></label><button class="b1 full" data-act="own">Salvar nome</button></div>
- <div class="card"><h3>Aparência</h3><div class="acts" style="margin:0 0 12px"><button class="${p.theme!=='dark'?'b1':'b2'}" style="flex:1" data-act="theme" data-id="light">☀ Claro</button><button class="${p.theme==='dark'?'b1':'b2'}" style="flex:1" data-act="theme" data-id="dark">☾ Escuro</button></div><div class="lbl" style="margin-bottom:6px">Paleta de cores</div><div class="pals">${[['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['ouro','Ouro','#B88614'],['rose','Rosé','#BE3A66'],['grafite','Grafite','#4B5563']].map(([k,n,c])=>(['ouro','rose','grafite'].includes(k)&&!S.games.own['p:'+k])?`<button class="pal lk" data-act="shopbuy" data-id="p:${k}" data-from="pal" aria-label="Tema ${n}, bloqueado: ${jgItem('p:'+k)[4]} moedas"><i style="background:${c}"></i>${n}<b class="lkb">${jgIc('lock','s')}</b></button>`:`<button class="pal${p.pal===k?' on':''}" data-act="pal" data-id="${k}"><i style="background:${c}"></i>${n}</button>`).join('')}</div><label style="margin:12px 0 0">Efeito de vidro<select id="glSel"><option value="1"${p.gl!==0?' selected':''}>Completo</option><option value="0"${p.gl===0?' selected':''}>Leve (mais rápido)</option></select></label></div>
+ <div class="card"><h3>Aparência</h3><div class="acts" style="margin:0 0 12px"><button class="${p.theme!=='dark'?'b1':'b2'}" style="flex:1" data-act="theme" data-id="light">☀ Claro</button><button class="${p.theme==='dark'?'b1':'b2'}" style="flex:1" data-act="theme" data-id="dark">☾ Escuro</button></div><div class="lbl" style="margin-bottom:6px">Paleta de cores</div><div class="pals">${[['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['pink','Rosa','#DB2777'],['orange','Laranja','#EA580C'],['ouro','Ouro','#B88614'],['esmeralda','Esmeralda','#15803D'],['grafite','Grafite','#4B5563']].map(([k,n,c])=>(['ouro','esmeralda','grafite'].includes(k)&&!S.games.own['p:'+k])?`<button class="pal lkd" data-act="shopbuy" data-id="p:${k}" data-from="pal" aria-label="Tema ${n}, bloqueado: ${jgItem('p:'+k)[4]} moedas"><i style="background:${c}"></i>${n}<b class="lkb">${jgIc('lock','s')}</b></button>`:`<button class="pal${p.pal===k?' on':''}" data-act="pal" data-id="${k}"><i style="background:${c}"></i>${n}</button>`).join('')}</div><label style="margin:12px 0 0">Efeito de vidro<select id="glSel"><option value="1"${p.gl!==0?' selected':''}>Completo</option><option value="0"${p.gl===0?' selected':''}>Leve (mais rápido)</option></select></label></div>
  ${secCard()}
  <div class="card"><h3>Avatar</h3><div class="bx"><div style="width:56px;flex:none">${avSvg(S.pref.av,56,false)}</div><button class="b2" style="flex:1" data-act="avs">Personalizar avatar</button></div></div>
  <div class="card"><h3>Backup</h3><div class="acts"><button class="b1" data-act="exp" style="flex:1">Exportar backup</button><button class="b2" data-act="imp" style="flex:1">Importar backup</button></div>${hasCrypto?'<button class="b2 full" style="margin-top:8px" data-act="expenc">Exportar backup criptografado</button>':''}<p class="lbl" style="margin-top:8px">Os dados ficam só neste navegador. Exporte um backup de vez em quando. O backup comum é um arquivo aberto; o <b>criptografado</b> só abre com a senha que você escolher (não é a senha de login — guarde-a: sem ela ninguém recupera o arquivo).</p>${bkpLine()}</div>
@@ -835,7 +878,7 @@ function vCfg(){const p=S.pref;return `<h2>Configurações</h2><div class="card"
  <p class="sys">Painel de ${esc(S.owner)} · ${(n=>n+(n===1?' lançamento':' lançamentos'))(S.items.length)}, ${(n=>n+(n===1?' dívida':' dívidas'))(S.debts.length)}, ${(n=>n+(n===1?' caixinha':' caixinhas'))(S.boxes.length)} · ${esc(String(BUILD).split(' · ').slice(1).join(' · '))} · funciona offline</p></div>`}
 
 /* ===== CENTRAL DE JOGOS: mini jogos leves de matemática e educação financeira. Tudo é virtual (XP, moedas, medalhas), fica salvo só neste aparelho (dentro dos seus dados) e nunca envolve dinheiro real. ===== */
-function gmOwnFix(o){const w=o.games&&o.games.own,a=o.pref&&o.pref.av;if(!w)return o;if(a&&typeof a==='object'){if(a.hd>=6&&!w['h'+a.hd])a.hd=0;if(a.fc>=5&&!w['f'+a.fc])a.fc=0;if(a.fur>=5&&!w['u'+a.fur])a.fur=0;if(a.bg>=9&&!w['b'+a.bg])a.bg=0}if(o.pref&&['ouro','rose','grafite'].includes(o.pref.pal)&&!w['p:'+o.pref.pal])o.pref.pal='blue';return o}
+function gmOwnFix(o){if(o.pref&&o.pref.pal==='rose')o.pref.pal='pink';const w=o.games&&o.games.own,a=o.pref&&o.pref.av;if(!w)return o;if(a&&typeof a==='object'){if(a.hd>=6&&!w['h'+a.hd])a.hd=0;if(a.fc>=5&&!w['f'+a.fc])a.fc=0;if(a.fur>=5&&!w['u'+a.fur])a.fur=0;if(a.bg>=9&&!w['b'+a.bg])a.bg=0}if(o.pref&&['ouro','esmeralda','grafite'].includes(o.pref.pal)&&!w['p:'+o.pref.pal])o.pref.pal='blue';return o}
 function gmFix(o){ /* usada por migrate(): só usa literais (nada definido depois) */
  if(!o.games||typeof o.games!=='object'||Array.isArray(o.games))o.games={};
  const g=o.games,n=(v,d,mx)=>{v=Math.floor(+v);return Number.isFinite(v)&&v>=0?Math.min(v,mx||1e8):d},ob=k=>{if(!g[k]||typeof g[k]!=='object'||Array.isArray(g[k]))g[k]={};return g[k]},ds=v=>typeof v==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(v)?v:'';
@@ -847,7 +890,7 @@ function gmFix(o){ /* usada por migrate(): só usa literais (nada definido depoi
  const md=ob('medals');Object.keys(md).forEach(k=>{if(!ds(md[k]))delete md[k]});
  const dl=ob('daily');dl.d=ds(dl.d);dl.ch=(Array.isArray(dl.ch)?dl.ch:[]).filter(c=>c&&typeof c.k==='string').slice(0,3).map(c=>({k:c.k,g:Math.max(1,n(c.g,1,10000)),done:c.done?1:0}));
  if(!dl.pr||typeof dl.pr!=='object'||Array.isArray(dl.pr))dl.pr={};Object.keys(dl.pr).forEach(k=>{dl.pr[k]=n(dl.pr[k],0)});dl.bonus=dl.bonus?1:0;
- const ow=ob('own');Object.keys(ow).forEach(k=>{if(!ow[k]||!['h6','h7','h8','f5','f6','u5','u6','u7','b9','b10','b11','p:ouro','p:rose','p:grafite'].includes(k))delete ow[k];else ow[k]=1});
+ const ow=ob('own');if(ow['p:rose']){delete ow['p:rose'];g.coins=Math.min(1e8,g.coins+150);st.bought=Math.max(0,st.bought-1)}Object.keys(ow).forEach(k=>{if(!ow[k]||!['h6','h7','h8','f5','f6','u5','u6','u7','b9','b10','b11','p:ouro','p:esmeralda','p:grafite'].includes(k))delete ow[k];else ow[k]=1});
  return o}
 const jgNames={quiz:'Quiz financeiro',vf:'Verdadeiro ou falso',math:'Desafio matemático',dec:'Decisão financeira',surv:'Sobreviva ao Mês'};
 const JGLV=['Fácil','Médio','Difícil'],JGXP=[10,15,20],JGSIZE={quiz:5,vf:6,math:6,dec:4,surv:4};
@@ -985,7 +1028,7 @@ const JGDC=[
 [3,"Duas ofertas de empréstimo: A tem juros menores e tarifas altas. B tem juros um pouco maiores e nenhuma tarifa.",[["Compara o CET das duas e escolhe o de menor custo total",2,"O CET inclui juros, tarifas e impostos, e mostra o custo de verdade."],["Escolhe a de menor taxa de juros anunciada",1,"Pode dar certo, mas as tarifas podem anular a vantagem."],["Escolhe a de menor parcela, sem olhar o prazo",0,"Parcela menor com prazo maior pode custar muito mais no total."]]],
 [3,"Uma empresa promete rendimento garantido de 10% ao mês, sem risco.",[["Desconfia: retorno alto e garantido é sinal clássico de golpe ou pirâmide",2,"Nenhum investimento legítimo promete isso. Verifique sempre se a empresa é autorizada."],["Pesquisa a empresa antes de decidir",1,"Pesquisar é bom, mas aqui o próprio retorno prometido já é o alerta. Golpes costumam pagar um pouco no começo para atrair mais dinheiro."],["Investe tudo antes que as vagas acabem",0,"A pressa é uma tática comum de golpistas."]]]];
 /* ----- desafio matemático: gerado na hora, com explicação. meta guarda os números (usada nos testes) ----- */
-const jr=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,jp=a=>a[Math.floor(Math.random()*a.length)],jc=v=>Math.round(v*100),jf=v=>brl(jc(v)),jn=v=>String(v).replace('.',',');
+const jr=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,jp=a=>a[Math.floor(Math.random()*a.length)],jc=v=>Math.round(v*100),jf=v=>brl0(jc(v)),jn=v=>String(v).replace('.',',');
 function jgMathQ(lv){const T={
  1:[()=>{const p=jp([10,20,25,50]),v=jp([40,60,80,100,120,200,240,300]),a=v*p/100;return{q:`Quanto é ${p}% de ${jf(v)}?`,a,f:'brl',x:`${p}% de ${jf(v)} = ${jf(v)} × ${p}/100 = ${jf(a)}.`,m:{t:'pct',p,v}}},
     ()=>{const p=jp([10,20,25,50]),v=jp([40,60,80,100,120,200,240,300]),a=v*(100-p)/100;return{q:`Um produto custa ${jf(v)} e está com ${p}% de desconto. Quanto você paga?`,a,f:'brl',x:`Desconto: ${jf(v*p/100)}. Preço final: ${jf(v)} − ${jf(v*p/100)} = ${jf(a)}.`,m:{t:'desc',p,v}}},
@@ -1165,9 +1208,9 @@ const JGSHOP=[ /* [id, tipo, índice, nome, preço] */
 ['f5','fc',5,'Máscara',60],['f6','fc',6,'Monóculo',80],
 ['u5','fur',5,'Pelagem dourada',100],['u6','fur',6,'Pelagem verde-floresta',70],['u7','fur',7,'Pelagem rubi',70],
 ['b9','bg',9,'Fundo magenta',40],['b10','bg',10,'Fundo ciano',40],['b11','bg',11,'Fundo dourado',40],
-['p:ouro','pal','ouro','Tema Ouro',150],['p:rose','pal','rose','Tema Rosé',150],['p:grafite','pal','grafite','Tema Grafite',150]];
+['p:ouro','pal','ouro','Tema Ouro',150],['p:esmeralda','pal','esmeralda','Tema Esmeralda',150],['p:grafite','pal','grafite','Tema Grafite',150]];
 const JGSEC=[['hd','Acessórios de cabeça'],['fc','Acessórios de rosto'],['fur','Pelagens do lobo'],['bg','Cores de fundo do avatar'],['pal','Temas visuais do app']];
-const JGPALC={ouro:['#B88614','#F1D58A'],rose:['#BE3A66','#F4B3C8'],grafite:['#4B5563','#CBD5E1']};
+const JGPALC={ouro:['#B88614','#F1D58A'],esmeralda:['#15803D','#86EFAC'],grafite:['#4B5563','#CBD5E1']};
 let JGV='hub';
 const jgItem=id=>JGSHOP.find(x=>x[0]===id);
 const jgOwned=id=>!jgItem(id)||!!S.games.own[id];
@@ -1184,6 +1227,30 @@ function jgShopV(){const g=S.games,av=S.pref.av,cur=it=>it[1]==='pal'?S.pref.pal
  ${JGSEC.map(([k,t])=>`<div class="card"><h3>${t}</h3>${JGSHOP.filter(x=>x[1]===k).map(it=>{const own=!!g.own[it[0]],can=g.coins>=it[4];return `<div class="row shr">${prev(it)}<div class="t"><b>${esc(it[3])}</b><span class="lbl">${own?(cur(it)?'Em uso agora':'Desbloqueado'):it[4]+' moedas'}</span></div>${own?(cur(it)?`<span class="tag ok">${jgIc('check','s')} Em uso</span>`:`<button class="b2" style="min-height:40px;padding:6px 14px" data-act="shopuse" data-id="${it[0]}">Usar</button>`):`<button class="${can?'b1':'b2'}" style="min-height:40px;padding:6px 12px" data-act="shopbuy" data-id="${it[0]}" aria-label="Desbloquear ${esc(it[3])} por ${it[4]} moedas">${can?'Desbloquear':'Faltam '+(it[4]-g.coins)}</button>`}</div>`}).join('')}</div>`).join('')}`}
 Object.assign(JGACT,{jgshop:()=>{JGV='shop';render();window.scrollTo(0,0)},jgshopback:()=>{JGV='hub';render();window.scrollTo(0,0)},shopbuy:(id,b)=>jgBuy(id,b&&b.dataset.from),shopuse:id=>jgUse(id)});
 
+/* ===== ÍCONES DAS CAIXINHAS (SVG simples 2D com animação leve) e BOTÃO DO OLHO (ocultar valores) ===== */
+const BXI=[['cofre','Cofrinho'],['moto','Moto'],['carro','Carro'],['casa','Casa'],['viagem','Viagem'],['celular','Celular'],['computador','Computador'],['estudos','Estudos'],['presente','Presente'],['emergencia','Emergência'],['saude','Saúde'],['bike','Bicicleta']];
+const BXP={
+ cofre:'<ellipse cx="15" cy="18.5" rx="9.5" ry="7"/><path d="M20 12l2.5-3.2 1.2 4.2"/><path d="M24 17.5h3v3.2h-3.2"/><path d="M10.5 25v2.8M19 25v2.8"/><path d="M12 13.2h6"/><path d="M5.6 17.5c-2.4-.4-3 2-1.6 3.4"/><circle cx="20.5" cy="16.2" r=".9" fill="currentColor" stroke="none"/><circle class="icoin" cx="15" cy="5.2" r="2.4"/>',
+ moto:'<g class="icw"><circle cx="7.5" cy="22" r="4.3"/><path d="M7.5 17.7v8.6M3.2 22h8.6"/></g><g class="icw"><circle cx="24.5" cy="22" r="4.3"/><path d="M24.5 17.7v8.6M20.2 22h8.6"/></g><path d="M7.5 22l5.5-8.5h6.5l5 8.5"/><path d="M19.5 13.5l1.8-4.2h4"/><path d="M9.5 12.2h5.5"/>',
+ carro:'<path d="M3.5 21.5v-5l2.6-5.4a2 2 0 011.8-1.2h12.2a2 2 0 011.8 1.1l3.1 5.5v5a1 1 0 01-1 1H4.5a1 1 0 01-1-1z"/><path d="M6.5 16h19M13.5 10v6M19.5 10v6"/><g class="icw"><circle cx="9.5" cy="22.5" r="3.1"/><path d="M9.5 19.4v6.2M6.4 22.5h6.2"/></g><g class="icw"><circle cx="22.5" cy="22.5" r="3.1"/><path d="M22.5 19.4v6.2M19.4 22.5h6.2"/></g>',
+ casa:'<path d="M3.8 15.5L16 5l12.2 10.5"/><path d="M6.8 13.2V27h18.4V13.2"/><path d="M13.3 27v-7.2h5.4V27"/><path d="M22 9.3V6h3.2v6.2"/><circle class="ismoke" cx="23.6" cy="3.8" r="1.5"/>',
+ viagem:'<path d="M28 4.5L4.5 14l8.6 3.6 3 9.2z"/><path d="M13 17.6L28 4.5"/>',
+ celular:'<rect x="9" y="3.5" width="14" height="25" rx="3"/><path d="M14 7.2h4M15 25h2"/><path class="iring" d="M5 11a8 8 0 000 7M27 11a8 8 0 010 7"/>',
+ computador:'<rect x="6" y="7" width="20" height="14" rx="2"/><path d="M3 25.5h26l-2-4.5H5z"/><path class="icur" d="M10 12h5"/>',
+ estudos:'<g class="ibob"><path d="M16 6.5L3 12.8l13 6.2 13-6.2z"/><path d="M8 16v6.2c0 2 3.8 4 8 4s8-2 8-4V16"/><path d="M29 12.8v8"/></g>',
+ presente:'<rect x="5" y="14" width="22" height="13.5" rx="2"/><path d="M16 14v13.5M5 20h22"/><g class="ilid"><rect x="4" y="9.5" width="24" height="4.5" rx="1.5"/><path d="M16 9.5c-2-4.5-7.500-4-7.500-1.500S14 9.500 16 9.500c2 0 7.500.5 7.500-1.500S18 5 16 9.500z"/></g>',
+ emergencia:'<path d="M16 3.5l10 3.6v8c0 6.500-4.200 10.400-10 13-5.800-2.600-10-6.500-10-13v-8z"/><path d="M16 11v9M11.500 15.500h9"/>',
+ saude:'<path d="M16 27C6 20.500 4 15 4 11.500 4 7.800 6.800 5 10.200 5c2.400 0 4.600 1.400 5.800 3.600C17.200 6.400 19.400 5 21.800 5 25.200 5 28 7.800 28 11.500 28 15 26 20.500 16 27z"/><path d="M9 15.500h3.500l2-3.500 3 6.500 2-3H23"/>',
+ bike:'<g class="icw"><circle cx="7" cy="21.500" r="5"/><path d="M7 16.500v10M2 21.500h10"/></g><g class="icw"><circle cx="25" cy="21.500" r="5"/><path d="M25 16.500v10M20 21.500h10"/></g><path d="M7 21.500l5-9h8l5 9M12 12.500l6.500 9M10 9.500h4.500M20 12.500l-1.500-3h3"/>'};
+const bxIc=(id,sz,an)=>`<svg class="bxi ${BXP[id]?id:'cofre'}${an?' an':''}" viewBox="0 0 32 32" width="${sz}" height="${sz}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${BXP[id]||BXP.cofre}</svg>`;
+const bxOk=id=>BXI.some(x=>x[0]===id)?id:'cofre';
+function icHtml(f){const cur=bxOk(f.v);return `<div class="lab">${esc(f.l)}</div><div class="icg" role="radiogroup" aria-label="${esc(f.l)}">${BXI.map(([id,n])=>`<button type="button" role="radio" aria-checked="${id===cur}" class="${id===cur?'on':''}" data-act="icp" data-id="${id}" aria-label="${n}" title="${n}"><span class="bxic">${bxIc(id,28,animOn())}</span><span>${n}</span></button>`).join('')}</div><input type="hidden" name="${f.k}" value="${cur}">`}
+const EYEO='<svg class="eo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12C5 7.500 8.500 5.500 12 5.500S19 7.500 21.500 12C19 16.500 15.500 18.500 12 18.500S5 16.500 2.500 12Z"/><circle cx="12" cy="12" r="3"/></svg>',
+ EYEC='<svg class="ec" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.500c2.800 4 5.800 5.800 9 5.800s6.200-1.800 9-5.800"/><path d="M12 17.500v2.800M7 16l-1.700 2.400M17 16l1.700 2.400M3.500 13.800L1.800 15.200M20.500 13.800l1.700 1.400"/></svg>';
+const eyeBtn=c=>`<button class="ib eyeb${c?' '+c:''}${HIDE?' off':''}" data-act="eye" aria-pressed="${HIDE?'true':'false'}" aria-label="${HIDE?'Mostrar valores':'Ocultar valores'}" title="${HIDE?'Mostrar valores':'Ocultar valores'}">${EYEO}${EYEC}</button>`;
+const JGACT2={icp:(id,b)=>{const w=b.closest('.icg');w.querySelectorAll('button').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-checked',on)});w.nextElementSibling.value=bxOk(id)},
+ eye:()=>{S.pref.hide=S.pref.hide?0:1;HIDE=S.pref.hide;save();render();const all=()=>document.querySelectorAll('.eyeb');all().forEach(b=>b.classList.add('anim'));setTimeout(()=>all().forEach(b=>b.classList.remove('anim')),450)}};
+
 /* ----- navegação e renderização ----- */
 const SV=b=>`<svg viewBox="0 0 24 24" aria-hidden="true">${b}</svg>`;
 const IC={home:SV('<path class="fl" d="M4 10.6 12 4l8 6.6V19a1.5 1.5 0 0 1-1.5 1.5H15v-5.6H9v5.6H5.5A1.5 1.5 0 0 1 4 19z"/>'),
@@ -1197,14 +1264,14 @@ const VIEWS={home:['Home','⌂',vHome,'s-home'],rec:['Receitas','↓',()=>vMonth
 function render(){
  applyPref();
  for(const k in VIEWS){$('#'+VIEWS[k][3]).hidden=k!==view}
- try{$('#'+VIEWS[view][3]).innerHTML=VIEWS[view][2]()}catch(e){$('#'+VIEWS[view][3]).innerHTML='<div class="card">Erro ao exibir esta tela. Seus dados continuam salvos.</div>';console.error(e)}
+ try{$('#'+VIEWS[view][3]).innerHTML=VIEWS[view][2]();if(['rec','des','div','cx','rel'].includes(view))$('#'+VIEWS[view][3]).insertAdjacentHTML('afterbegin',eyeBtn('eyefl'))}catch(e){$('#'+VIEWS[view][3]).innerHTML='<div class="card">Erro ao exibir esta tela. Seus dados continuam salvos.</div>';console.error(e)}
  $('#nav').innerHTML=Object.entries(VIEWS).filter(([k,v])=>!v[4]).map(([k,v])=>`<button data-act="nav" data-id="${k}" class="${k===view?'on':''}">${IC[k]||'<span>'+v[1]+'</span>'}${v[0]}</button>`).join('')}
 function go(v){if(v==='home'&&view!=='home')G=null;view=v;render();if(v==='news')loadNews();window.scrollTo(0,0)}
 
 /* ----- formulários (um painel por vez) ----- */
 function closeOv(){$('#ov').hidden=true;$('#ov').innerHTML='';pend=null}
 function form(title,fields,onsave){
- const o=$('#ov');o.innerHTML=`<div class="sheet"><h3>${esc(title)}</h3><form id="f" autocomplete="off">${fields.map(f=>f.t==='cal'?calHtml(f):`<label>${esc(f.l)}${f.t==='sel'?`<select name="${f.k}">${f.o.map(([v,t])=>`<option value="${v}"${String(v)===String(f.v)?' selected':''}>${esc(t)}</option>`).join('')}</select>`:
+ const o=$('#ov');o.innerHTML=`<div class="sheet"><h3>${esc(title)}</h3><form id="f" autocomplete="off">${fields.map(f=>f.t==='cal'?calHtml(f):f.t==='ic'?icHtml(f):`<label>${esc(f.l)}${f.t==='sel'?`<select name="${f.k}">${f.o.map(([v,t])=>`<option value="${v}"${String(v)===String(f.v)?' selected':''}>${esc(t)}</option>`).join('')}</select>`:
  `<input name="${f.k}" type="${f.t==='date'||f.t==='month'?f.t:f.t==='pw'?'password':'text'}"${f.t==='pw'?` autocomplete="${f.ac||'off'}"`:''}${f.t==='money'?' inputmode="decimal"':f.t==='num'?' inputmode="numeric"':''} value="${esc(f.v??'')}"${f.p?` placeholder="${esc(f.p)}"`:''}>`}</label>`).join('')}<div class="err" id="er"></div><div class="btns"><button type="button" class="b2" data-act="close">Cancelar</button><button class="b1" type="submit">Salvar</button></div></form></div>`;
  o.hidden=false;o.querySelectorAll('.calw').forEach(calMount);$('#f').onsubmit=e=>{e.preventDefault();Promise.resolve(onsave(Object.fromEntries(new FormData(e.target)))).then(r=>{if(r)$('#er').textContent=r;else closeOv()})}}
 function ask(msg,ok){pend=ok;$('#ov').innerHTML=`<div class="sheet"><h3>Confirmar</h3><p style="margin-bottom:14px">${esc(msg)}</p><div class="btns"><button class="b2" data-act="close">Cancelar</button><button class="b1" data-act="yes" style="background:#DC2626">Confirmar</button></div></div>`;$('#ov').hidden=false}
@@ -1266,9 +1333,9 @@ function moveForm(kind,id){const isD=kind==='pay',x=find(isD?S.debts:S.boxes,id)
   const m=money(v.c,1);if(m.e)return m.e;if(!v.d)return'Informe a data.';if((isD||wd)&&m.c>lim)return'Valor maior que o disponível ('+brl(lim)+').';
   (isD?x.pays:x.moves).push({id:uid(),d:v.d,c:wd?-m.c:m.c});commit(isD&&balOf(x)===0?'Dívida quitada ✓':'Salvo ✓')})}
 function boxForm(id){const b=id?find(S.boxes,id):null;
- form(b?'Editar '+b.n:'Nova caixinha',[{k:'n',l:'Nome',v:b?.n,p:'Ex.: Viagem'},{k:'g',l:'Meta total (R$) — opcional',t:'money',v:fin(b?.g)},{k:'m',l:'Contribuição mensal planejada (R$) — opcional',t:'money',v:fin(b?.m)},{k:'dl',l:'Prazo (mês) — opcional',t:'month',v:b?.dl}],v=>{
+ form(b?'Editar '+b.n:'Nova caixinha',[{k:'n',l:'Nome',v:b?.n,p:'Ex.: Viagem'},{k:'ic',l:'Ícone da caixinha',t:'ic',v:b?.ic||'cofre'},{k:'g',l:'Meta total (R$) — opcional',t:'money',v:fin(b?.g)},{k:'m',l:'Contribuição mensal planejada (R$) — opcional',t:'money',v:fin(b?.m)},{k:'dl',l:'Prazo (mês) — opcional',t:'month',v:b?.dl}],v=>{
   if(!v.n.trim())return'Informe o nome.';const g=money(v.g),m=money(v.m);if(g.e||m.e)return'Valor inválido.';
-  const o=b||{id:uid(),moves:[]};Object.assign(o,{n:v.n.trim(),g:g.c,m:m.c,dl:v.dl||''});if(!b)S.boxes.push(o);commit(b?'Salvo ✓':'Caixinha criada ✓')})}
+  const o=b||{id:uid(),moves:[]};Object.assign(o,{n:v.n.trim(),g:g.c,m:m.c,dl:v.dl||'',ic:bxOk(v.ic)});if(!b)S.boxes.push(o);commit(b?'Salvo ✓':'Caixinha criada ✓')})}
 
 /* ----- ações (um único listener delegado: sem eventos duplicados) ----- */
 const ACT={
@@ -1292,7 +1359,7 @@ const ACT={
  delmv:(id,b)=>{const bx=find(S.boxes,id),rest=bx.moves.filter(p=>p.id!==b.dataset.p);let a=0;if(rest.some(p=>(a+=p.c)<0))return toast('Remover esta movimentação deixaria o saldo negativo');ask('Remover esta movimentação?',()=>{bx.moves=rest;commit('Removido')})},
  edb:id=>boxForm(id),addb:()=>boxForm(),
  delb:id=>{const b=find(S.boxes,id),t=savedOf(b);ask(t>0?'Excluir "'+b.n+'"? Os '+brl(t)+' guardados voltam ao saldo disponível.':'Excluir "'+b.n+'"?',()=>{S.boxes=S.boxes.filter(x=>x.id!==id);commit('Excluída')})},
- theme:id=>{S.pref.theme=id;commit('Tema alterado')},pal:id=>{if(['ouro','rose','grafite'].includes(id)&&!S.games.own['p:'+id])return toast('Desbloqueie este tema na Loja da Central de Jogos.');S.pref.pal=id;commit('Paleta alterada')},
+ theme:id=>{S.pref.theme=id;commit('Tema alterado')},pal:id=>{if(['ouro','esmeralda','grafite'].includes(id)&&!S.games.own['p:'+id])return toast('Desbloqueie este tema na Loja da Central de Jogos.');S.pref.pal=id;commit('Paleta alterada')},
 
  qinc:()=>{vm=ymOf(new Date());itemForm('inc')},qexp:()=>{vm=ymOf(new Date());itemForm('exp',null,0)},
  own:()=>{const v=$('#own').value.trim();if(!v)return toast('Informe um nome');S.owner=v;commit()},
@@ -1302,7 +1369,7 @@ const ACT={
  imp:()=>{$('#file').value='';$('#file').click()},
  reset:()=>resetForm()
 };
-Object.assign(ACT,JGACT);
+Object.assign(ACT,JGACT,JGACT2);
 document.addEventListener('click',e=>{if(e.target.id==='ov'){closeOv();return}const b=e.target.closest('[data-act]');if(!b)return;const f=ACT[b.dataset.act];if(f)f(b.dataset.id,b)});
 document.addEventListener('change',e=>{if(e.target.id==='rmSel'){rm=e.target.value;render()}});
 $('#file').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(WEL.on&&WEL.pick){WEL.pick=false;return welImport(f)}if(f.size>5e6)return toast('Arquivo grande demais');
