@@ -1,23 +1,94 @@
 {
- "at": "2026-11-09T13:15-03:00",
+ "at": "2026-11-09T16:06-03:00",
  "items": [
   {
    "c": "br",
-   "t": "Ibovespa Hoje Ao Vivo: Bolsa sobe e volta ao patamar de 170 mil pontos",
-   "f": "InfoMoney",
+   "t": "MPT processa Bella Falconi por posts que sugeriam contratar e manter funcionários conforme suas opiniões políticas e pede R$ 5 milhões",
+   "f": "G1 Economia",
    "d": "2026-11-09",
-   "h": "13:06",
-   "u": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-09112026/",
-   "s": "Bolsas dos EUA avançam com trade de IA, novos dados e balanços em foco The post Ibovespa Hoje Ao Vivo: Bolsa sobe e volta ao patamar de 170 mil pontos appeared first on InfoMoney ."
+   "h": "15:48",
+   "u": "https://g1.globo.com/trabalho-e-carreira/noticia/2026/11/09/mpt-processa-bella-falconi-posts-politica.ghtml",
+   "s": "O Ministério Público do Trabalho (MPT) processou a influenciadora Bella Falconi e pediu à Justiça uma indenização de R$ 5 milhões por danos morais coletivos. A ação foi motivada por publicações nas redes sociais que, segundo o…"
   },
   {
    "c": "br",
-   "t": "Dólar hoje sobe ante o real na contramão do exterior, com cautela fiscal",
+   "t": "Em manifesto, 7 entidades pedem ao governo e ao Congresso eleitos prioridade no combate a supersalários",
+   "f": "G1 Economia",
+   "d": "2026-11-09",
+   "h": "15:47",
+   "u": "https://g1.globo.com/politica/noticia/2026/11/09/em-manifesto-7-entidades-pedem-ao-governo-e-ao-congresso-eleitos-prioridade-no-combate-a-supersalarios.ghtml"
+  },
+  {
+   "c": "br",
+   "t": "Como buscar lucro na Bolsa sem passar horas na frente do computador",
    "f": "InfoMoney",
    "d": "2026-11-09",
-   "h": "13:04",
-   "u": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-09112026/",
-   "s": "Lula reafirmou compromisso com a responsabilidade fiscal em pronunciamento em rede nacional no domingo The post Dólar hoje sobe ante o real na contramão do exterior, com cautela fiscal appeared first on InfoMoney ."
+   "h": "15:43",
+   "u": "https://www.infomoney.com.br/onde-investir/como-buscar-lucro-na-bolsa-sem-passar-horas-na-frente-do-computador/",
+   "s": "Série gratuita e online do InfoMoney apresenta os conceitos por trás do Trader Sossegado The post Como buscar lucro na Bolsa sem passar horas na frente do computador appeared first on InfoMoney ."
+  },
+  {
+   "c": "br",
+   "t": "Teleperícia do INSS já funciona em 900 agências em todas as regiões do país",
+   "f": "InfoMoney",
+   "d": "2026-11-09",
+   "h": "15:35",
+   "u": "https://www.infomoney.com.br/brasil/telepericia-do-inss-ja-funciona-em-900-agencias-em-todas-as-regioes-do-pais/",
+   "s": "Neste ano, instituto realizou 487 mil avaliações médicas à distância The post Teleperícia do INSS já funciona em 900 agências em todas as regiões do país appeared first on InfoMoney ."
+  },
+  {
+   "c": "br",
+   "t": "Governo planeja investir R$ 46,3 mi em gerenciamento de dados em data centers",
+   "f": "InfoMoney",
+   "d": "2026-11-09",
+   "h": "15:34",
+   "u": "https://www.infomoney.com.br/politica/governo-planeja-investir-r-463-mi-em-gerenciamento-de-dados-em-data-centers/",
+   "s": "Plataforma batizada de Prisma utilizará IA para identificar como os dados devem ser processados e armazenados The post Governo planeja investir R$ 46,3 mi em gerenciamento de dados em data centers appeared first on InfoMoney ."
+  },
+  {
+   "c": "mu",
+   "t": "Avião da Airbus passa 24 horas no ar, bate recorde no Guinness e é testado para voos sem escalas",
+   "f": "G1 Economia",
+   "d": "2026-11-09",
+   "h": "14:44",
+   "u": "https://g1.globo.com/inovacao/noticia/2026/11/09/aviao-da-airbus-24-horas.ghtml",
+   "s": "Voo de testes realizado em julho, o modelo A350-1000ULR ligou Melbourne, na Austrália, a Toulouse, na França, sem escalas, percorrendo 23.155 quilômetros. Airbus Um avião da Airbus entrou para o Guinness World Records após…"
+  },
+  {
+   "c": "mu",
+   "t": "França acusa Irã pelos ataques hacker em refrigeradores de supermercados",
+   "f": "BBC News Brasil",
+   "d": "2026-11-09",
+   "h": "13:58",
+   "u": "https://www.bbc.com/portuguese/articles/c893z3ldzpz3o?at_medium=RSS&at_campaign=rss",
+   "s": "O ataque cibernético ocorrido no mês passado fez com que geladeiras e freezers em centenas de supermercados por toda a França sofressem um aumento de temperatura."
+  },
+  {
+   "c": "br",
+   "t": "Caixa muda identidade visual pela 1ª vez em quase 30 anos; veja evolução do logo desde 1861",
+   "f": "G1 Economia",
+   "d": "2026-11-09",
+   "h": "13:37",
+   "u": "https://g1.globo.com/economia/noticia/2026/11/09/caixa-logo-30-anos.ghtml",
+   "s": "Novo logo da Caixa. Divulgação A Caixa Econômica Federal lançou nesta segunda-feira (9) uma nova identidade visual, a primeira grande reformulação da marca em quase 30 anos. A mudança preserva elementos tradicionais, como o nome…"
+  },
+  {
+   "c": "mu",
+   "t": "França acusa grupo ligado ao Irã por ataque a geladeiras de supermercados e anuncia sanções",
+   "f": "G1 Economia",
+   "d": "2026-11-09",
+   "h": "13:26",
+   "u": "https://g1.globo.com/tecnologia/2026/franca-ataque-geladeiras.ghtml",
+   "s": "Hackers atacam supermercados europeus e elevam temperatura de freezers a 50°C As autoridades francesas atribuíram formalmente ao Irã a campanha de ataques cibernéticos que invadiu sistemas de refrigeração de supermercados na…"
+  },
+  {
+   "c": "mu",
+   "t": "França acusa Irã por ataque cibernético contra refrigeradores e promete impor sanções ao país",
+   "f": "G1 Mundo",
+   "d": "2026-11-09",
+   "h": "13:17",
+   "u": "https://g1.globo.com/mundo/noticia/2026/11/09/franca-investiga-se-ira-esta-por-tras-de-ataque-a-refrigeradores-e-promete-sancoes-ao-pais.ghtml",
+   "s": "Hackers atacam supermercados europeus e elevam temperatura de freezers a 50°C O ministro das Relações Exteriores da França, Jean-Noël Barrot, acusou a Guarda Revolucionária do Irã de estar por trás do ataque cibernético ocorrido…"
   },
   {
    "c": "br",
@@ -30,39 +101,12 @@
   },
   {
    "c": "mu",
-   "t": "Alpargatas (ALPA4) sobe mais de 6% após balanço acima do esperado e anima analistas",
-   "f": "InfoMoney",
-   "d": "2026-11-09",
-   "h": "12:22",
-   "u": "https://www.infomoney.com.br/mercados/alpargatas-alpa4-sobe-mais-de-6-apos-balanco-acima-do-esperado-e-anima-analistas/",
-   "s": "Varejista apresentou resultados acima das expectativas no terceiro trimestre de 2026, impulsionada pelo crescimento das vendas e pela melhora da rentabilidade no mercado internacional The post Alpargatas (ALPA4) sobe mais de 6%…"
-  },
-  {
-   "c": "mu",
-   "t": "Wall Street abre em alta após perdas do setor de IA na semana passada",
-   "f": "InfoMoney",
-   "d": "2026-11-09",
-   "h": "12:21",
-   "u": "https://www.infomoney.com.br/mercados/wall-street-abre-em-alta-apos-perdas-do-setor-de-ia-na-semana-passada/",
-   "s": "As ações da Nvidia, a segunda empresa mais valiosa do mundo, caíam 5,6% depois que uma investigação interna sobre se o presidente-executivo Huang foi alvo de uma operação de inteligência estrangeira The post Wall Street abre em…"
-  },
-  {
-   "c": "br",
-   "t": "Por que o Ibovespa sobe 1% nesta 2ª mesmo com queda de commodities e cautela fiscal",
-   "f": "InfoMoney",
-   "d": "2026-11-09",
-   "h": "12:11",
-   "u": "https://www.infomoney.com.br/mercados/por-que-o-ibovespa-sobe-1-nesta-2a-mesmo-com-queda-de-commodities-e-cautela-fiscal/",
-   "s": "Índice sobe com ganhos em NY; semana reserva divulgações capazes de mexer com os ativos e influenciar as apostas para juros aqui e nos Estados Unidos The post Por que o Ibovespa sobe 1% nesta 2ª mesmo com queda de commodities e…"
-  },
-  {
-   "c": "mu",
    "t": "China estende trégua comercial com os EUA até janeiro de 2027",
    "f": "G1 Economia",
    "d": "2026-11-09",
    "h": "12:02",
    "u": "https://g1.globo.com/economia/noticia/2026/11/09/china-estende-tregua-comercial-com-os-eua-ate-janeiro-de-2027.ghtml",
-   "s": "EUA e China anunciam redução de tarifas sobre produtos não-essenciais após cúpula entre Trump e Xi A China anunciou nesta segunda-feira (9) a prorrogação da trégua comercial com os Estados Unidos por mais dois meses. O acordo…"
+   "s": "EUA e China anunciam redução de tarifas sobre produtos não-essenciais após cúpula entre Trump e Xi A China anunciou nesta segunda-feira (9) a prorrogação da trégua comercial com os Estados Unidos por mais dois meses. 🗒️Tem alguma…"
   },
   {
    "c": "br",
@@ -83,48 +127,13 @@
    "s": "A mansão onde a operação foi feita também está na mira da Justiça. Segundo denúncia, Peña recebeu, em maio de 2024, dois empréstimos do ueno Bank, no valor de cerca de US$ 500 mil — aproximadamente R$ 2,6 milhões, na cotação da…"
   },
   {
-   "c": "br",
-   "t": "Grupo brasileiro compra dona da Maguary e do Flying Horse por R$ 500 milhões",
-   "f": "G1 Economia",
-   "d": "2026-11-09",
-   "h": "11:32",
-   "u": "https://g1.globo.com/economia/negocios/noticia/2026/11/09/grupo-brasileiro-compra-dona-da-maguary-e-do-flying-horse-por-r-500-milhoes.ghtml",
-   "s": "Energético Fying Horse e Suco Maguary agora passão a fazer parte do portfólio do Grupo Jav Divulgação O Grupo JAV, conglomerado brasileiro que atua em diferentes setores, de alimentos à construção civil, assinou um acordo para…"
-  },
-  {
-   "c": "br",
-   "t": "Traição envolvendo CEO da Nvidia rende memes nas redes sociais",
-   "f": "G1 Economia",
-   "d": "2026-11-09",
-   "h": "11:20",
-   "u": "https://g1.globo.com/tecnologia/noticia/2026/11/09/traicao-envolvendo-ceo-da-nvidia-rende-memes-nas-redes-sociais.ghtml"
-  },
-  {
    "c": "mu",
-   "t": "Paraguai escolhe novo chefe do Banco Central após colapso de banco digital e crise política",
-   "f": "G1 Economia",
+   "t": "'Bolsa Rentista desequilibra contas, não o Bolsa Família'",
+   "f": "BBC News Brasil",
    "d": "2026-11-09",
-   "h": "10:53",
-   "u": "https://g1.globo.com/economia/noticia/2026/11/09/paraguai-escolhe-novo-chefe-do-banco-central-apos-colapso-de-banco-digital-e-crise-politica.ghtml",
-   "s": "Santiago Peña é preso após impeachment no Paraguai O presidente interino do Paraguai, Pedro Alliana, que assumiu o cargo após o afastamento de Santiago Peña em meio a uma crise política e institucional envolvendo o banco digital…"
-  },
-  {
-   "c": "br",
-   "t": "Mercado eleva projeção da Selic para 13,75% em 2026",
-   "f": "Agência Brasil",
-   "d": "2026-11-09",
-   "h": "10:26",
-   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mercado-eleva-projecao-da-selic-para-1375-em-2026",
-   "s": "O mercado financeiro elevou de 13,5% para 13,75% ao ano a projeção para a taxa básica de juros (Selic) ao final de 2026, segundo o Boletim Focus divulgado nesta segunda-feira (9) pelo Banco Central. Com a revisão, a expectativa…"
-  },
-  {
-   "c": "mu",
-   "t": "Quem é Alice Huang, suposta amante do CEO da Nvidia",
-   "f": "G1 Economia",
-   "d": "2026-11-09",
-   "h": "09:59",
-   "u": "https://g1.globo.com/tecnologia/noticia/2026/11/09/quem-e-alice-huang-empresaria-chinesa-acusada-de-espionar-ceo-da-nvidia.ghtml",
-   "s": "Nvidia abre investigação contra CEO para investigar possível caso de espionagem A empresária chinesa Alice Huang é suspeita de trabalhar para o governo da China e coletar informações sobre Jensen Huang, presidente-executivo da…"
+   "h": "11:03",
+   "u": "https://www.bbc.com/portuguese/watch/cwzd6dn6jvj6o?at_medium=RSS&at_campaign=rss",
+   "s": "O economista André Lara Resende não imaginava que um artigo que ele publicou em sua newsletter na plataforma Substack, na metade de setembro, faria tanto alvoroço meses depois."
   },
   {
    "c": "mu",
@@ -134,15 +143,6 @@
    "h": "07:15",
    "u": "https://www.bbc.com/portuguese/articles/cmrlyln10jkpo?at_medium=RSS&at_campaign=rss",
    "s": "Na presença de Javier Milei, conhecido por insultar seus críticos, o papa Leão 14 disse que fortalecer a democracia exige “disposição para ouvir” e “cuidado com as palavras”"
-  },
-  {
-   "c": "mu",
-   "t": "Densa camada de fumaça encobre capital da Índia; poluição é 58 vezes maior que o limite recomendado",
-   "f": "G1 Mundo",
-   "d": "2026-11-09",
-   "h": "06:26",
-   "u": "https://g1.globo.com/mundo/noticia/2026/11/09/densa-camada-de-fumaca-encobre-capital-da-india-poluicao-e-58-vezes-maior-que-o-limite-recomendado.ghtml",
-   "s": "Densa camada de fumaça encobre capital da Índia Uma densa camada de fumaça cobriu a capital da Índia nesta segunda-feira, após fogos de artifício iluminarem o céu de Nova Déli durante as celebrações do Diwali, agravando os níveis…"
   }
  ]
 }
