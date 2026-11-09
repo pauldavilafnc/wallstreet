@@ -1,41 +1,121 @@
 {
- "at": "2026-11-09T10:27-03:00",
+ "at": "2026-11-09T13:15-03:00",
  "items": [
   {
    "c": "br",
-   "t": "Helbor (HBOR3): acionistas têm até dia 28 para vender ações após OPA",
+   "t": "Ibovespa Hoje Ao Vivo: Bolsa sobe e volta ao patamar de 170 mil pontos",
    "f": "InfoMoney",
    "d": "2026-11-09",
-   "h": "10:24",
-   "u": "https://www.infomoney.com.br/mercados/helbor-hbor3-acionistas-tem-ate-dia-28-para-vender-acoes-apos-opa/",
-   "s": "O período de venda começou em 29 de outubro e termina em 28 de novembro de 2026 The post Helbor (HBOR3): acionistas têm até dia 28 para vender ações após OPA appeared first on InfoMoney ."
+   "h": "13:06",
+   "u": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-09112026/",
+   "s": "Bolsas dos EUA avançam com trade de IA, novos dados e balanços em foco The post Ibovespa Hoje Ao Vivo: Bolsa sobe e volta ao patamar de 170 mil pontos appeared first on InfoMoney ."
   },
   {
    "c": "br",
-   "t": "COP31: Lula embarca com Janones e ministros para Turquia; Motta e Alcolumbre não integram comitiva",
+   "t": "Dólar hoje sobe ante o real na contramão do exterior, com cautela fiscal",
+   "f": "InfoMoney",
+   "d": "2026-11-09",
+   "h": "13:04",
+   "u": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-09112026/",
+   "s": "Lula reafirmou compromisso com a responsabilidade fiscal em pronunciamento em rede nacional no domingo The post Dólar hoje sobe ante o real na contramão do exterior, com cautela fiscal appeared first on InfoMoney ."
+  },
+  {
+   "c": "br",
+   "t": "Confira o calendário de pagamento do IPVA de 2027 em São Paulo",
+   "f": "Agência Brasil",
+   "d": "2026-11-09",
+   "h": "12:57",
+   "u": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/confira-o-calendario-de-pagamento-do-ipva-de-2027-em-sao-paulo",
+   "s": "O Governo do Estado de São Paulo divulgou nesta segunda-feira (9) o calendário de pagamento do Imposto sobre a Propriedade de Veículos Automotores (IPVA) de 2027. Em janeiro, os contribuintes poderão quitar o imposto em cota…"
+  },
+  {
+   "c": "mu",
+   "t": "Alpargatas (ALPA4) sobe mais de 6% após balanço acima do esperado e anima analistas",
+   "f": "InfoMoney",
+   "d": "2026-11-09",
+   "h": "12:22",
+   "u": "https://www.infomoney.com.br/mercados/alpargatas-alpa4-sobe-mais-de-6-apos-balanco-acima-do-esperado-e-anima-analistas/",
+   "s": "Varejista apresentou resultados acima das expectativas no terceiro trimestre de 2026, impulsionada pelo crescimento das vendas e pela melhora da rentabilidade no mercado internacional The post Alpargatas (ALPA4) sobe mais de 6%…"
+  },
+  {
+   "c": "mu",
+   "t": "Wall Street abre em alta após perdas do setor de IA na semana passada",
+   "f": "InfoMoney",
+   "d": "2026-11-09",
+   "h": "12:21",
+   "u": "https://www.infomoney.com.br/mercados/wall-street-abre-em-alta-apos-perdas-do-setor-de-ia-na-semana-passada/",
+   "s": "As ações da Nvidia, a segunda empresa mais valiosa do mundo, caíam 5,6% depois que uma investigação interna sobre se o presidente-executivo Huang foi alvo de uma operação de inteligência estrangeira The post Wall Street abre em…"
+  },
+  {
+   "c": "br",
+   "t": "Por que o Ibovespa sobe 1% nesta 2ª mesmo com queda de commodities e cautela fiscal",
+   "f": "InfoMoney",
+   "d": "2026-11-09",
+   "h": "12:11",
+   "u": "https://www.infomoney.com.br/mercados/por-que-o-ibovespa-sobe-1-nesta-2a-mesmo-com-queda-de-commodities-e-cautela-fiscal/",
+   "s": "Índice sobe com ganhos em NY; semana reserva divulgações capazes de mexer com os ativos e influenciar as apostas para juros aqui e nos Estados Unidos The post Por que o Ibovespa sobe 1% nesta 2ª mesmo com queda de commodities e…"
+  },
+  {
+   "c": "mu",
+   "t": "China estende trégua comercial com os EUA até janeiro de 2027",
+   "f": "G1 Economia",
+   "d": "2026-11-09",
+   "h": "12:02",
+   "u": "https://g1.globo.com/economia/noticia/2026/11/09/china-estende-tregua-comercial-com-os-eua-ate-janeiro-de-2027.ghtml",
+   "s": "EUA e China anunciam redução de tarifas sobre produtos não-essenciais após cúpula entre Trump e Xi A China anunciou nesta segunda-feira (9) a prorrogação da trégua comercial com os Estados Unidos por mais dois meses. O acordo…"
+  },
+  {
+   "c": "br",
+   "t": "Gás do Povo: governo prorroga vigência do auxílio até 2031",
+   "f": "Agência Brasil",
+   "d": "2026-11-09",
+   "h": "12:02",
+   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/gas-do-povo-governo-prorroga-vigencia-do-programa-ate-2031",
+   "s": "O governo federal publicou nesta segunda-feira (9), no Diário Oficial da União (DOU), medida provisória que prorroga até 19 de novembro de 2031 a vigência do auxílio Gás do Povo. Em nota, a Secretaria de Comunicação Social…"
+  },
+  {
+   "c": "mu",
+   "t": "Crise no Paraguai: porta secreta é descoberta durante buscas na casa de veraneio de Santiago Peña",
    "f": "G1 Mundo",
    "d": "2026-11-09",
-   "h": "10:21",
-   "u": "https://g1.globo.com/politica/noticia/2026/11/09/cop31-lula-embarca-com-janones-e-ministros-para-turquia-motta-e-alcolumbre-nao-integram-comitiva.ghtml",
-   "s": "O presidente Luiz Inácio da Silva (PT) embarcou nesta segunda-feira (9) para Antália, na Turquia, onde participará da 31ª Conferência das Nações Unidas sobre Mudança do Clima (COP31). A previsão é que Lula chegue ao país ainda na…"
+   "h": "11:37",
+   "u": "https://g1.globo.com/mundo/noticia/2026/11/09/crise-no-paraguai-porta-secreta-e-descoberta-durante-buscas-na-casa-de-santiago-pena.ghtml",
+   "s": "A mansão onde a operação foi feita também está na mira da Justiça. Segundo denúncia, Peña recebeu, em maio de 2024, dois empréstimos do ueno Bank, no valor de cerca de US$ 500 mil — aproximadamente R$ 2,6 milhões, na cotação da…"
   },
   {
    "c": "br",
-   "t": "GLP-1: novas marcas de semaglutida chegam às farmácias e ampliam disputa no Brasil",
-   "f": "InfoMoney",
+   "t": "Grupo brasileiro compra dona da Maguary e do Flying Horse por R$ 500 milhões",
+   "f": "G1 Economia",
    "d": "2026-11-09",
-   "h": "10:20",
-   "u": "https://www.infomoney.com.br/mercados/glp-1-novas-marcas-de-semaglutida-chegam-as-farmacias-e-ampliam-disputa-no-brasil/",
-   "s": "Mercado brasileiro de medicamentos para obesidade e diabetes da classe GLP-1 passa por uma nova fase de competição The post GLP-1: novas marcas de semaglutida chegam às farmácias e ampliam disputa no Brasil appeared first on…"
+   "h": "11:32",
+   "u": "https://g1.globo.com/economia/negocios/noticia/2026/11/09/grupo-brasileiro-compra-dona-da-maguary-e-do-flying-horse-por-r-500-milhoes.ghtml",
+   "s": "Energético Fying Horse e Suco Maguary agora passão a fazer parte do portfólio do Grupo Jav Divulgação O Grupo JAV, conglomerado brasileiro que atua em diferentes setores, de alimentos à construção civil, assinou um acordo para…"
   },
   {
    "c": "br",
-   "t": "Kassab condiciona aproximação do PSD com Lula a ajuste fiscal e corte de gastos",
-   "f": "InfoMoney",
+   "t": "Traição envolvendo CEO da Nvidia rende memes nas redes sociais",
+   "f": "G1 Economia",
    "d": "2026-11-09",
-   "h": "10:18",
-   "u": "https://www.infomoney.com.br/politica/kassab-condiciona-aproximacao-do-psd-com-lula-a-ajuste-fiscal-e-corte-de-gastos/",
-   "s": "Presidente do partido cobra revisão de despesas e mudanças nas emendas parlamentares antes de definir o apoio da legenda ao quarto mandato do petista The post Kassab condiciona aproximação do PSD com Lula a ajuste fiscal e corte…"
+   "h": "11:20",
+   "u": "https://g1.globo.com/tecnologia/noticia/2026/11/09/traicao-envolvendo-ceo-da-nvidia-rende-memes-nas-redes-sociais.ghtml"
+  },
+  {
+   "c": "mu",
+   "t": "Paraguai escolhe novo chefe do Banco Central após colapso de banco digital e crise política",
+   "f": "G1 Economia",
+   "d": "2026-11-09",
+   "h": "10:53",
+   "u": "https://g1.globo.com/economia/noticia/2026/11/09/paraguai-escolhe-novo-chefe-do-banco-central-apos-colapso-de-banco-digital-e-crise-politica.ghtml",
+   "s": "Santiago Peña é preso após impeachment no Paraguai O presidente interino do Paraguai, Pedro Alliana, que assumiu o cargo após o afastamento de Santiago Peña em meio a uma crise política e institucional envolvendo o banco digital…"
+  },
+  {
+   "c": "br",
+   "t": "Mercado eleva projeção da Selic para 13,75% em 2026",
+   "f": "Agência Brasil",
+   "d": "2026-11-09",
+   "h": "10:26",
+   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mercado-eleva-projecao-da-selic-para-1375-em-2026",
+   "s": "O mercado financeiro elevou de 13,5% para 13,75% ao ano a projeção para a taxa básica de juros (Selic) ao final de 2026, segundo o Boletim Focus divulgado nesta segunda-feira (9) pelo Banco Central. Com a revisão, a expectativa…"
   },
   {
    "c": "mu",
@@ -44,43 +124,7 @@
    "d": "2026-11-09",
    "h": "09:59",
    "u": "https://g1.globo.com/tecnologia/noticia/2026/11/09/quem-e-alice-huang-empresaria-chinesa-acusada-de-espionar-ceo-da-nvidia.ghtml",
-   "s": "Empresária teria sido recrutada por Pequim para obter informações sobre Jensen Huang, com quem manteria um relacionamento amoroso, segundo a imprensa americana. REUTERS A empresária chinesa Alice Huang é suspeita de trabalhar…"
-  },
-  {
-   "c": "mu",
-   "t": "Após impeachment, Peña tem casa vasculhada e cofre secreto descoberto no Paraguai",
-   "f": "InfoMoney",
-   "d": "2026-11-09",
-   "h": "09:52",
-   "u": "https://www.infomoney.com.br/mundo/apos-impeachment-pena-tem-casa-vasculhada-e-cofre-secreto-descoberto-no-paraguai/",
-   "s": "Ministério Público investiga suspeita de uso de recursos do Ueno Bank para financiar imóvel milionário do ex-presidente, preso após destituição The post Após impeachment, Peña tem casa vasculhada e cofre secreto descoberto no…"
-  },
-  {
-   "c": "br",
-   "t": "Gás do Povo: governo prorroga até 2031 programa que prevê recargas grátis para famílias de baixa renda",
-   "f": "G1 Economia",
-   "d": "2026-11-09",
-   "h": "09:35",
-   "u": "https://g1.globo.com/economia/noticia/2026/11/09/governo-federal-prorroga-ate-2031-programa-gas-do-povo.ghtml",
-   "s": "O governo Lula publicou uma medida provisória nesta segunda-feira (9) que prorroga até novembro de 2031 o programa Gás do Povo, que assegura, para mais de 15 milhões de famílias, a gratuidade na recarga do botijão de GLP de 13 kg…"
-  },
-  {
-   "c": "br",
-   "t": "Mercado eleva estimativa de inflação para 2027 e passa a prever corte de juros só em março do ano que vem",
-   "f": "G1 Economia",
-   "d": "2026-11-09",
-   "h": "09:06",
-   "u": "https://g1.globo.com/economia/noticia/2026/11/09/mercado-eleva-estimativa-de-inflacao-para-2027-e-passa-a-prever-corte-de-juros-so-em-marco-do-ano-que-vem.ghtml",
-   "s": "Corte dos juros Após a decisão do BC de manter o juro estável em 13,75% ao ano na semana passada, os analistas do mercado financeiro passaram a projetar um novo corte nos juros somente em março do próximo ano — quando a taxa…"
-  },
-  {
-   "c": "br",
-   "t": "Dólar abre em queda com projeções de inflação e dados da balança comercial no radar",
-   "f": "G1 Economia",
-   "d": "2026-11-09",
-   "h": "09:00",
-   "u": "https://g1.globo.com/economia/noticia/2026/11/09/dolar-ibovespa.ghtml",
-   "s": "Entenda o que faz o preço do dólar subir ou cair O dólar operava em queda de 0,31% nesta segunda-feira (9), cotado a R$ 5,4911 por volta das 9h17. Já o Ibovespa, principal índice da bolsa brasileira, inicia as negociações às 10h…"
+   "s": "Nvidia abre investigação contra CEO para investigar possível caso de espionagem A empresária chinesa Alice Huang é suspeita de trabalhar para o governo da China e coletar informações sobre Jensen Huang, presidente-executivo da…"
   },
   {
    "c": "mu",
@@ -99,51 +143,6 @@
    "h": "06:26",
    "u": "https://g1.globo.com/mundo/noticia/2026/11/09/densa-camada-de-fumaca-encobre-capital-da-india-poluicao-e-58-vezes-maior-que-o-limite-recomendado.ghtml",
    "s": "Densa camada de fumaça encobre capital da Índia Uma densa camada de fumaça cobriu a capital da Índia nesta segunda-feira, após fogos de artifício iluminarem o céu de Nova Déli durante as celebrações do Diwali, agravando os níveis…"
-  },
-  {
-   "c": "mu",
-   "t": "Ex-presidente da Colômbia é investigado após denúncia de contratos públicos em troca de sexo",
-   "f": "G1 Mundo",
-   "d": "2026-11-09",
-   "h": "03:31",
-   "u": "https://g1.globo.com/mundo/noticia/2026/11/09/ex-presidente-da-colombia-e-investigado-apos-denuncia-sobre-relacoes-sexuais-e-contratos-publicos.ghtml",
-   "s": "Gustavo Petro REUTERS/Luisa Gonzalez O ex-presidente de esquerda Gustavo Petro está sob investigação por um escândalo sexual durante seu mandato presidencial e quando era congressista, informou à imprensa, no sábado (7), o…"
-  },
-  {
-   "c": "mu",
-   "t": "O que a guerra no Oriente Médio e as mudanças climáticas têm a ver com o preço do hambúrguer?",
-   "f": "G1 Economia",
-   "d": "2026-11-09",
-   "h": "03:00",
-   "u": "https://g1.globo.com/economia/agronegocios/noticia/2026/11/09/o-que-a-guerra-no-oriente-medio-e-as-mudancas-climaticas-tem-a-ver-com-o-preco-do-hamburguer.ghtml",
-   "s": "Hamburguer; lanche Jean-claude Attipoe/Unplash Símbolo do soft power americano durante a Guerra Fria, o hambúrguer é consumido no mundo inteiro, com suas variações regionais, conforme o gosto dos clientes. Em um mundo sob tensões…"
-  },
-  {
-   "c": "mu",
-   "t": "Incêndio em prédio de apartamentos mata 14 pessoas na China",
-   "f": "G1 Mundo",
-   "d": "2026-11-09",
-   "h": "01:38",
-   "u": "https://g1.globo.com/mundo/noticia/2026/11/09/incendio-em-predio-de-apartamentos-mata-na-china.ghtml",
-   "s": "Um incêndio em um prédio de apartamentos em Taiyuan, na província de Shanxi, no norte da China, deixou 14 mortos no domingo (8), segundo informações divulgadas nesta segunda-feira (9) pela agência estatal Xinhua. Até o momento…"
-  },
-  {
-   "c": "mu",
-   "t": "Nvidia abre investigação após relatos de que CEO teve caso com suposta espiã chinesa",
-   "f": "BBC News Brasil",
-   "d": "2026-11-08",
-   "h": "19:28",
-   "u": "https://www.bbc.com/portuguese/articles/crwyq8zxew0no?at_medium=RSS&at_campaign=rss",
-   "s": "Jensen Huang admitiu ter sido \"infiel\" à esposa e disse que vai cooperar com as investigações. A China já havia rejeitado alegações de que teria conduzido uma operação de espionagem tendo como alvo o chefe da Nvidia e…"
-  },
-  {
-   "c": "br",
-   "t": "Itaipu tinha cerca de R$ 1 bilhão no Ueno Bank, banco do Paraguai que teve operações suspensas, e tenta recuperar dinheiro na Justiça",
-   "f": "G1 Mundo",
-   "d": "2026-11-08",
-   "h": "08:31",
-   "u": "https://g1.globo.com/pr/oeste-sudoeste/noticia/2026/11/08/itaipu-ueno-bank-banco-do-paraguai.ghtml",
-   "s": "Crise financeira no Paraguai afeta milhares de brasileiros que vivem no país e que trabalham em regiões de fronteira A margem paraguaia da Itaipu Binacional mantinha cerca de R$ 1 bilhão no Ueno Bank, instituição financeira do…"
   }
  ]
 }
