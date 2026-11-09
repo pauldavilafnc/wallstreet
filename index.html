@@ -431,6 +431,13 @@ nav{background-color:var(--navbase)}
 [data-theme=dark][data-pal=esmeralda]{--sa:rgba(34,118,66,.58);--sb:rgba(14,70,35,.92);--sc:rgba(12,55,30,.5);--sd:rgba(123,225,156,.28);--se:rgba(14,76,39,.52);--b1:#07140C;--b2:#030906}
 [data-theme=dark] .neg,[data-theme=dark] .v.neg{color:#FCA5A5}
 [data-theme=dark] .b2.neg{color:#FFC9C9}
+
+/* ícone da caixinha: azulejo de vidro com borda em degradê e símbolo luminoso (aba Caixinhas e seletor) */
+.bxic{position:relative;width:52px;height:52px;border-radius:17px;display:grid;place-items:center;flex:none;color:#fff;background:linear-gradient(155deg,rgba(255,255,255,.14),rgba(255,255,255,0) 46%),linear-gradient(160deg,var(--h2),var(--h1));box-shadow:0 8px 20px rgba(8,16,40,.28),inset 0 1px 0 rgba(255,255,255,.3)}
+.bxic::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(135deg,var(--blue2),#C084FC 55%,var(--blue));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);pointer-events:none}
+.bxic .bxi{fill:rgba(255,255,255,.5);stroke-width:1.9;filter:drop-shadow(0 0 5px rgba(255,255,255,.4))}
+.icg .bxic{width:46px;height:46px;border-radius:15px}
+.bxh{gap:12px}
 </style>
 </head>
 <body>
@@ -738,7 +745,7 @@ function vHome(){const d=new Date(),cm=ymOf(d),hr=d.getHours(),gr=hr<12?'Bom dia
   <div class="tile"><div class="chip">▣</div><div class="lbl" style="margin-top:8px">Dinheiro guardado</div><div class="v">${brl(guard)}</div></div></div>
  <div class="sec">Próximos compromissos</div><div class="card">${prox.length?prox.map(row).join(''):`<div class="empty">${S.items.length?'Tudo em dia neste mês 🎉':'Nenhum compromisso cadastrado ainda.'}</div>`}</div>
  <div class="sec">Este mês</div><div class="card">${fl.inc||fl.exp?chart(['Receitas','Despesas','Saldo'],[[fl.inc,fl.exp,fl.inc-fl.exp]],['var(--blue)'],{cc:['#16A34A','#DC2626','var(--blue)'],val:1}):noData('Nada recebido ou pago ainda neste mês.')}</div>
- <div class="sec">Caixinhas</div>${S.boxes.length?`<div class="g2">${S.boxes.map(b=>{const s=savedOf(b),p=b.g?s/b.g*100:0;return `<div class="tile bx"><div class="rgi">${ring(p)}<span class="rgc">${bxIc(b.ic,22,animOn())}</span></div><div style="min-width:0"><b>${esc(b.n)}</b><span class="lbl">${brl(s)}${b.g?' / '+brl(b.g):''}</span></div></div>`}).join('')}</div>`:'<div class="card empty">Nenhuma caixinha criada.</div>'}
+ <div class="sec">Caixinhas</div>${S.boxes.length?`<div class="g2">${S.boxes.map(b=>{const s=savedOf(b),p=b.g?s/b.g*100:0;return `<div class="tile bx"><div class="rgi">${ring(p)}</div><div style="min-width:0"><b>${esc(b.n)}</b><span class="lbl">${brl(s)}${b.g?' / '+brl(b.g):''}</span></div></div>`}).join('')}</div>`:'<div class="card empty">Nenhuma caixinha criada.</div>'}
  <div class="sec">Dívidas</div><div class="card"><div class="sw" style="margin:0"><b style="text-transform:none">${brl(debts)} pendentes</b><span class="lbl">${orig?Math.round(pd/orig*100):0}% quitado</span></div>${bar(orig?pd/orig*100:0,'g')}</div>`}
 
 function vMonth(t){const rows=rowsOf(t,vm),inc=t==='inc',prev=sum(rows,i=>i.c),real=sum(rows.filter(i=>stat(i,vm)==='ok'),i=>i.done[vm]);
