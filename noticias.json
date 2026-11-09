@@ -1,23 +1,95 @@
 {
- "at": "2026-11-09T07:10-03:00",
+ "at": "2026-11-09T10:27-03:00",
  "items": [
   {
    "c": "br",
-   "t": "Day Trade hoje (09): Ibovespa se aproxima dos 170 mil; pode subir mais?",
+   "t": "Helbor (HBOR3): acionistas têm até dia 28 para vender ações após OPA",
    "f": "InfoMoney",
    "d": "2026-11-09",
-   "h": "07:04",
-   "u": "https://www.infomoney.com.br/mercados/mercados-day-trade-hoje-analistas-09112026/",
-   "s": "Confira os pontos de suporte e resistência do mini-índice e minidólar The post Day Trade hoje (09): Ibovespa se aproxima dos 170 mil; pode subir mais? appeared first on InfoMoney ."
+   "h": "10:24",
+   "u": "https://www.infomoney.com.br/mercados/helbor-hbor3-acionistas-tem-ate-dia-28-para-vender-acoes-apos-opa/",
+   "s": "O período de venda começou em 29 de outubro e termina em 28 de novembro de 2026 The post Helbor (HBOR3): acionistas têm até dia 28 para vender ações após OPA appeared first on InfoMoney ."
   },
   {
    "c": "br",
-   "t": "Ações da Nvidia caem enquanto CEO é investigado por alegações de espionagem",
+   "t": "COP31: Lula embarca com Janones e ministros para Turquia; Motta e Alcolumbre não integram comitiva",
+   "f": "G1 Mundo",
+   "d": "2026-11-09",
+   "h": "10:21",
+   "u": "https://g1.globo.com/politica/noticia/2026/11/09/cop31-lula-embarca-com-janones-e-ministros-para-turquia-motta-e-alcolumbre-nao-integram-comitiva.ghtml",
+   "s": "O presidente Luiz Inácio da Silva (PT) embarcou nesta segunda-feira (9) para Antália, na Turquia, onde participará da 31ª Conferência das Nações Unidas sobre Mudança do Clima (COP31). A previsão é que Lula chegue ao país ainda na…"
+  },
+  {
+   "c": "br",
+   "t": "GLP-1: novas marcas de semaglutida chegam às farmácias e ampliam disputa no Brasil",
    "f": "InfoMoney",
    "d": "2026-11-09",
-   "h": "06:35",
-   "u": "https://www.infomoney.com.br/mundo/acoes-da-nvidia-caem-enquanto-ceo-e-investigado-por-alegacoes-de-espionagem/",
-   "s": "Huang disse aos funcionários da Nvidia que havia sido infiel à esposa, sem revelar detalhes sobre o relacionamento The post Ações da Nvidia caem enquanto CEO é investigado por alegações de espionagem appeared first on InfoMoney ."
+   "h": "10:20",
+   "u": "https://www.infomoney.com.br/mercados/glp-1-novas-marcas-de-semaglutida-chegam-as-farmacias-e-ampliam-disputa-no-brasil/",
+   "s": "Mercado brasileiro de medicamentos para obesidade e diabetes da classe GLP-1 passa por uma nova fase de competição The post GLP-1: novas marcas de semaglutida chegam às farmácias e ampliam disputa no Brasil appeared first on…"
+  },
+  {
+   "c": "br",
+   "t": "Kassab condiciona aproximação do PSD com Lula a ajuste fiscal e corte de gastos",
+   "f": "InfoMoney",
+   "d": "2026-11-09",
+   "h": "10:18",
+   "u": "https://www.infomoney.com.br/politica/kassab-condiciona-aproximacao-do-psd-com-lula-a-ajuste-fiscal-e-corte-de-gastos/",
+   "s": "Presidente do partido cobra revisão de despesas e mudanças nas emendas parlamentares antes de definir o apoio da legenda ao quarto mandato do petista The post Kassab condiciona aproximação do PSD com Lula a ajuste fiscal e corte…"
+  },
+  {
+   "c": "mu",
+   "t": "Quem é Alice Huang, suposta amante do CEO da Nvidia",
+   "f": "G1 Economia",
+   "d": "2026-11-09",
+   "h": "09:59",
+   "u": "https://g1.globo.com/tecnologia/noticia/2026/11/09/quem-e-alice-huang-empresaria-chinesa-acusada-de-espionar-ceo-da-nvidia.ghtml",
+   "s": "Empresária teria sido recrutada por Pequim para obter informações sobre Jensen Huang, com quem manteria um relacionamento amoroso, segundo a imprensa americana. REUTERS A empresária chinesa Alice Huang é suspeita de trabalhar…"
+  },
+  {
+   "c": "mu",
+   "t": "Após impeachment, Peña tem casa vasculhada e cofre secreto descoberto no Paraguai",
+   "f": "InfoMoney",
+   "d": "2026-11-09",
+   "h": "09:52",
+   "u": "https://www.infomoney.com.br/mundo/apos-impeachment-pena-tem-casa-vasculhada-e-cofre-secreto-descoberto-no-paraguai/",
+   "s": "Ministério Público investiga suspeita de uso de recursos do Ueno Bank para financiar imóvel milionário do ex-presidente, preso após destituição The post Após impeachment, Peña tem casa vasculhada e cofre secreto descoberto no…"
+  },
+  {
+   "c": "br",
+   "t": "Gás do Povo: governo prorroga até 2031 programa que prevê recargas grátis para famílias de baixa renda",
+   "f": "G1 Economia",
+   "d": "2026-11-09",
+   "h": "09:35",
+   "u": "https://g1.globo.com/economia/noticia/2026/11/09/governo-federal-prorroga-ate-2031-programa-gas-do-povo.ghtml",
+   "s": "O governo Lula publicou uma medida provisória nesta segunda-feira (9) que prorroga até novembro de 2031 o programa Gás do Povo, que assegura, para mais de 15 milhões de famílias, a gratuidade na recarga do botijão de GLP de 13 kg…"
+  },
+  {
+   "c": "br",
+   "t": "Mercado eleva estimativa de inflação para 2027 e passa a prever corte de juros só em março do ano que vem",
+   "f": "G1 Economia",
+   "d": "2026-11-09",
+   "h": "09:06",
+   "u": "https://g1.globo.com/economia/noticia/2026/11/09/mercado-eleva-estimativa-de-inflacao-para-2027-e-passa-a-prever-corte-de-juros-so-em-marco-do-ano-que-vem.ghtml",
+   "s": "Corte dos juros Após a decisão do BC de manter o juro estável em 13,75% ao ano na semana passada, os analistas do mercado financeiro passaram a projetar um novo corte nos juros somente em março do próximo ano — quando a taxa…"
+  },
+  {
+   "c": "br",
+   "t": "Dólar abre em queda com projeções de inflação e dados da balança comercial no radar",
+   "f": "G1 Economia",
+   "d": "2026-11-09",
+   "h": "09:00",
+   "u": "https://g1.globo.com/economia/noticia/2026/11/09/dolar-ibovespa.ghtml",
+   "s": "Entenda o que faz o preço do dólar subir ou cair O dólar operava em queda de 0,31% nesta segunda-feira (9), cotado a R$ 5,4911 por volta das 9h17. Já o Ibovespa, principal índice da bolsa brasileira, inicia as negociações às 10h…"
+  },
+  {
+   "c": "mu",
+   "t": "A mensagem do papa para Milei: 'A economia a serviço das pessoas, não as pessoas a serviço da economia'",
+   "f": "BBC News Brasil",
+   "d": "2026-11-09",
+   "h": "07:15",
+   "u": "https://www.bbc.com/portuguese/articles/cmrlyln10jkpo?at_medium=RSS&at_campaign=rss",
+   "s": "Na presença de Javier Milei, conhecido por insultar seus críticos, o papa Leão 14 disse que fortalecer a democracia exige “disposição para ouvir” e “cuidado com as palavras”"
   },
   {
    "c": "mu",
@@ -26,43 +98,7 @@
    "d": "2026-11-09",
    "h": "06:26",
    "u": "https://g1.globo.com/mundo/noticia/2026/11/09/densa-camada-de-fumaca-encobre-capital-da-india-poluicao-e-58-vezes-maior-que-o-limite-recomendado.ghtml",
-   "s": "Densa camada de fumaça em Nova Déli, na Índia AP Photo/Manish Swarup Uma densa camada de fumaça cobriu a capital da Índia nesta segunda-feira, após fogos de artifício iluminarem o céu de Nova Déli durante as celebrações do…"
-  },
-  {
-   "c": "br",
-   "t": "Focus e discurso de Lula dividem atenções com balanços de Magalu e JBS nesta segunda",
-   "f": "InfoMoney",
-   "d": "2026-11-09",
-   "h": "06:12",
-   "u": "https://www.infomoney.com.br/mercados/focus-lula-balancos-magalu-jbs-agenda-09112026/",
-   "s": "InfoMoney reúne as principais informações que devem movimentar os mercados nesta segunda-feira (9) The post Focus e discurso de Lula dividem atenções com balanços de Magalu e JBS nesta segunda appeared first on InfoMoney ."
-  },
-  {
-   "c": "mu",
-   "t": "Dow Jones Futuro sobe em início de semana marcada por inflação e balanços de IA",
-   "f": "InfoMoney",
-   "d": "2026-11-09",
-   "h": "05:45",
-   "u": "https://www.infomoney.com.br/mercados/dow-jones-futuro-sobe-em-inicio-de-semana-marcada-por-inflacao-e-balancos-de-ia/",
-   "s": "Mercado acompanha o índice de preços ao consumidor (CPI), na terça-feira, e o índice de preços ao produtor (PPI), na sexta-feira The post Dow Jones Futuro sobe em início de semana marcada por inflação e balanços de IA appeared…"
-  },
-  {
-   "c": "mu",
-   "t": "Wall Street sob pressão: Nasdaq e S&P 500 caem pela 4ª semana; até onde podem recuar?",
-   "f": "InfoMoney",
-   "d": "2026-11-09",
-   "h": "05:15",
-   "u": "https://www.infomoney.com.br/mercados/wall-street-nasdaq-sp500-quarta-semana-queda-analise-tecnica/",
-   "s": "Temores sobre inteligência artificial, risco de juros mais altos e forte liquidação de ações de tecnologia abalam bolsas americanas. Análise técnica aponta suportes e resistências decisivos para os principais índices dos EUA. The…"
-  },
-  {
-   "c": "br",
-   "t": "'Já tirei R$ 5 mil no mês': como funciona o trabalho de vender imagens de tarefas domésticas para IA e quais são os riscos",
-   "f": "G1 Economia",
-   "d": "2026-11-09",
-   "h": "05:00",
-   "u": "https://g1.globo.com/trabalho-e-carreira/noticia/2026/11/09/como-funciona-o-trabalho-de-vender-imagens-de-tarefas-domesticas-para-ia.ghtml",
-   "s": "Como funciona o trabalho de vender imagens de tarefas domésticas para IA Quem acessou as redes sociais nos últimos meses pode ter se deparado com microinfluenciadores apresentando uma nova forma de renda extra: ganhar dinheiro…"
+   "s": "Densa camada de fumaça encobre capital da Índia Uma densa camada de fumaça cobriu a capital da Índia nesta segunda-feira, após fogos de artifício iluminarem o céu de Nova Déli durante as celebrações do Diwali, agravando os níveis…"
   },
   {
    "c": "mu",
@@ -83,23 +119,6 @@
    "s": "Hamburguer; lanche Jean-claude Attipoe/Unplash Símbolo do soft power americano durante a Guerra Fria, o hambúrguer é consumido no mundo inteiro, com suas variações regionais, conforme o gosto dos clientes. Em um mundo sob tensões…"
   },
   {
-   "c": "br",
-   "t": "Chefe ruim e falta de crescimento fazem profissional pedir demissão em 2027, diz estudo",
-   "f": "G1 Economia",
-   "d": "2026-11-09",
-   "h": "03:00",
-   "u": "https://g1.globo.com/trabalho-e-carreira/noticia/2026/11/09/chefe-ruim-e-falta-de-crescimento-estudo.ghtml",
-   "s": "Imagem ilustrativa mostra trabalhador diante de um computador. Estresse crônico, assédio e sobrecarga de tarefas estão entre os riscos psicossociais relacionados ao trabalho. Reprodução/Adobe Stock. A relação com o chefe pesa na…"
-  },
-  {
-   "c": "br",
-   "t": "‘Imposto do pecado’: taxistas, autistas e PCDs não pagam taxa em carro zero km; veja categorias isentas",
-   "f": "G1 Economia",
-   "d": "2026-11-09",
-   "h": "02:00",
-   "u": "https://g1.globo.com/carros/noticia/2026/11/09/imposto-do-pecado-taxistas-autistas-pcds-nao-pagam.ghtml"
-  },
-  {
    "c": "mu",
    "t": "Incêndio em prédio de apartamentos mata 14 pessoas na China",
    "f": "G1 Mundo",
@@ -118,15 +137,6 @@
    "s": "Jensen Huang admitiu ter sido \"infiel\" à esposa e disse que vai cooperar com as investigações. A China já havia rejeitado alegações de que teria conduzido uma operação de espionagem tendo como alvo o chefe da Nvidia e…"
   },
   {
-   "c": "mu",
-   "t": "Por que o corpo humano pode estar esfriando",
-   "f": "BBC News Brasil",
-   "d": "2026-11-08",
-   "h": "17:39",
-   "u": "https://www.bbc.com/portuguese/articles/cqn8d3nd2pj8o?at_medium=RSS&at_campaign=rss",
-   "s": "Há 150 anos, a temperatura média do corpo humano parecia ser mais alta do que hoje. Os cientistas ainda estão investigando exatamente o porquê."
-  },
-  {
    "c": "br",
    "t": "Itaipu tinha cerca de R$ 1 bilhão no Ueno Bank, banco do Paraguai que teve operações suspensas, e tenta recuperar dinheiro na Justiça",
    "f": "G1 Mundo",
@@ -134,15 +144,6 @@
    "h": "08:31",
    "u": "https://g1.globo.com/pr/oeste-sudoeste/noticia/2026/11/08/itaipu-ueno-bank-banco-do-paraguai.ghtml",
    "s": "Crise financeira no Paraguai afeta milhares de brasileiros que vivem no país e que trabalham em regiões de fronteira A margem paraguaia da Itaipu Binacional mantinha cerca de R$ 1 bilhão no Ueno Bank, instituição financeira do…"
-  },
-  {
-   "c": "br",
-   "t": "Vales refeição e alimentação podem ser aceitos em mais maquininhas",
-   "f": "Agência Brasil",
-   "d": "2026-11-07",
-   "h": "09:03",
-   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/vr-e-va-podem-ser-aceitos-em-mais-maquininhas-partir-deste-sabado",
-   "s": "O valor aumenta? Não. As novas regras não determinam aumento nem redução automática do valor do vale-refeição ou do vale-alimentação pago pelas empresas aos funcionários. Os recursos continuam destinados exclusivamente à…"
   }
  ]
 }
