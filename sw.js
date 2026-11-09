@@ -1,7 +1,7 @@
 /* WALL STREET — modo offline. Estratégia: rede primeiro (sempre a versão mais nova quando há internet);
    se a rede falhar, usa a última cópia guardada. Não guarda dados financeiros (eles ficam no localStorage). */
-const CACHE = 'wallstreet-v1';
-const BASICOS = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'apple-touch-icon.png'];
+const CACHE = 'wallstreet-v2';
+const BASICOS = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'apple-touch-icon.png', 'favicon-32.png', 'favicon-48.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(BASICOS)).then(() => self.skipWaiting()));
 });
