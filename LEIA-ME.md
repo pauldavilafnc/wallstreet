@@ -118,3 +118,6 @@ Em Ajustes → Mascote: o lobo Executivo (terno branco) e 10 roupas (Jazz, Pilot
 
 ## Acabamento visual (versão 4.3)
 Transições e animações leves (só transform e opacidade, todas curtas e finitas; paradas quando o Android está com "reduzir movimento"): entrada em sequência nas telas de boas-vindas e login; indicador que desliza sob a aba ativa da navegação; brilho rápido ao tocar nos botões (inclusive nas abas); barras de gráfico que crescem, anéis que entram, linhas de lista que aparecem em sequência, sino que balança ao entrar na Home quando há avisos e aviso rápido (toast) que sobe deslizando.
+
+## Escolha do mascote no cadastro (versão 4.4)
+Em "Criar minha conta" há uma etapa nova depois do nome: "Escolha seu mascote". Mostra os 11 estilos (Executivo, Jazz, Piloto, Rei, Detetive, Hacker, Chefão, Preso, Bêbado, Magnata e Férias) em grade com miniatura e nome; o lobo do topo muda na hora ao tocar. A escolha é salva na conta (junto com as preferências, criptografadas quando há senha) e espelhada para a tela de login, então aparece nos próximos acessos. Quem toca só em Continuar fica com o Executivo. "Usar sem senha" e "Já tenho uma conta" não têm a etapa (o estilo muda em Ajustes → Mascote).
