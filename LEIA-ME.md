@@ -127,3 +127,6 @@ Depois de CRIAR uma conta nova ("Criar minha conta" ou "Usar sem senha"), o app 
 
 ## Detetive corrigido (versão 4.6)
 O estilo Detetive do mascote usa agora o PNG transparente enviado (chapéu, rosto, terno, distintivo, mão com o cigarro e a fumaça), embutido em WebP (~42 KB) na proporção do palco (1024×880), inteiro e sem cortes (só um esmaecido suave na cintura, onde a imagem original termina). Pálpebras e orelhas foram realinhadas ao novo desenho; a fumaça sai da ponta do cigarro (3 baforadas) e a brasa pulsa. O quadro do Detetive na Home e no login mostra o desenho completo; a miniatura em Ajustes e no cadastro é centrada no rosto.
+
+## Tema Pérola e escolha de cor no cadastro (versão 4.7)
+Nova paleta **Pérola** (#E8EDF5: fundo perolado com acento azul-ardósia legível; versão escura própria), primeira da lista em Ajustes → Aparência e padrão do site (aplicado já na primeira visita, sem piscar azul). O **Azul** e as demais cores continuam disponíveis. Em "Criar minha conta" há uma nova etapa depois do mascote: "Escolha a cor do seu tema" (9 cores + Claro/Escuro, com pré-visualização ao vivo, Pérola selecionada por padrão). A escolha é salva na conta e espelhada para a tela de login. Quem já usa o app mantém a cor que tem; "Usar sem senha" e "Já tenho uma conta" não passam pela etapa (troca em Ajustes).
