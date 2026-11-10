@@ -121,3 +121,6 @@ Transições e animações leves (só transform e opacidade, todas curtas e fini
 
 ## Escolha do mascote no cadastro (versão 4.4)
 Em "Criar minha conta" há uma etapa nova depois do nome: "Escolha seu mascote". Mostra os 11 estilos (Executivo, Jazz, Piloto, Rei, Detetive, Hacker, Chefão, Preso, Bêbado, Magnata e Férias) em grade com miniatura e nome; o lobo do topo muda na hora ao tocar. A escolha é salva na conta (junto com as preferências, criptografadas quando há senha) e espelhada para a tela de login, então aparece nos próximos acessos. Quem toca só em Continuar fica com o Executivo. "Usar sem senha" e "Já tenho uma conta" não têm a etapa (o estilo muda em Ajustes → Mascote).
+
+## Tutorial do primeiro acesso (versão 4.5)
+Depois de CRIAR uma conta nova ("Criar minha conta" ou "Usar sem senha"), o app mostra um passeio rápido de 8 passos (Seu painel, Lançamentos rápidos, Receitas, Despesas, Dívidas e Caixinhas, Relatórios, Ajustes e um final) com destaque na própria tela e um balão explicativo. "Pular" fica disponível o tempo todo (a tecla Esc também pula). Ao concluir ou pular, o app grava na conta (S.flags.tour) que o tutorial já foi visto e não o mostra de novo. Contas que já existem e backups importados NÃO veem o tutorial (o gatilho é só a criação de conta). Em Ajustes → Sobre há "Ver o tutorial" para rever quando quiser.

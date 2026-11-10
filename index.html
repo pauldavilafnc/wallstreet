@@ -533,6 +533,23 @@ nav.ind button.on{background:transparent;box-shadow:none}nav button{z-index:1}
 /* etapa do mascote no cadastro */
 .lk .mgrid{grid-template-columns:repeat(4,1fr);gap:6px}.lk .mgrid .skb{padding:6px 2px;min-height:84px;font-size:11.5px;overflow-wrap:anywhere}.lk .mgrid .skth{width:48px;height:48px}
 @media(max-width:340px){.lk .mgrid{grid-template-columns:repeat(3,1fr)}}
+
+/* ===== tutorial do primeiro acesso ===== */
+#tour{position:fixed;inset:0;z-index:16}.tbg{position:absolute;inset:0}#tour.nospot .tbg{background:rgba(7,14,35,.66)}
+.tspot{position:fixed;box-shadow:0 0 0 200vmax rgba(7,14,35,.66);outline:2px solid rgba(255,255,255,.92);pointer-events:none;transition:left .3s cubic-bezier(.22,.8,.3,1),top .3s cubic-bezier(.22,.8,.3,1),width .3s cubic-bezier(.22,.8,.3,1),height .3s cubic-bezier(.22,.8,.3,1)}
+.tspot::after{content:'';position:absolute;inset:-7px;border-radius:inherit;border:2px solid var(--blue2);animation:tpulse 1.4s ease-out 3}
+@keyframes tpulse{from{opacity:.95;transform:scale(.96)}to{opacity:0;transform:scale(1.08)}}
+.tcard{position:fixed;width:min(330px,calc(100vw - 20px));padding:16px 16px 14px;border-radius:24px;color:var(--navy);background:var(--gbg);border:1px solid var(--edge);box-shadow:0 14px 40px rgba(0,10,40,.35),var(--hi);-webkit-backdrop-filter:blur(var(--blur)) saturate(160%);backdrop-filter:blur(var(--blur)) saturate(160%);animation:tcin .3s cubic-bezier(.22,.8,.3,1) both}
+@keyframes tcin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tcard::after{content:'';position:absolute;left:var(--ax,50%);width:14px;height:14px;margin-left:-7px;background:inherit;border:inherit;transform:rotate(45deg)}
+.tcard[data-p=below]::after{top:-8px;border-right:0;border-bottom:0}.tcard[data-p=above]::after{bottom:-8px;border-left:0;border-top:0}.tcard[data-p=mid]::after{display:none}
+.tic{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;margin-bottom:6px;color:var(--blue);background:var(--light)}.tic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.tt{margin:0 0 4px;font-size:18px}.tx{margin:0 0 10px;font-size:14.5px;line-height:1.4}
+.tskip{position:absolute;top:8px;right:10px;min-height:44px;padding:0 10px;background:none;color:var(--navy);font-weight:700;font-size:14px;text-decoration:underline;text-underline-offset:3px}
+.tdots{display:flex;align-items:center;gap:5px;margin-bottom:10px}.tdots i{width:7px;height:7px;border-radius:50%;background:var(--line)}.tdots i.on{width:18px;border-radius:4px;background:var(--btn1);transition:width .25s}.tn{margin-left:auto;font-size:12px;color:var(--navy)}
+.tbt{display:flex;gap:8px;justify-content:space-between}.tbt .b1{flex:1}
+@media(prefers-reduced-motion:reduce){.tspot,.tdots i{transition:none!important}.tspot::after,.tcard{animation:none!important}}
+#tour.tight .tcard{padding:12px 12px 10px}#tour.tight .tic{display:none}#tour.tight .tt{font-size:16px;margin-right:64px}#tour.tight .tx{font-size:13.5px;margin-bottom:6px}#tour.tight .tdots{margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -549,7 +566,7 @@ nav.ind button.on{background:transparent;box-shadow:none}nav button{z-index:1}
 /* ===== WALL STREET — Seu dinheiro, sob controle. =====
    Valores internos em CENTAVOS inteiros. Dados em localStorage. */
 'use strict';
-const KEY='wallstreet.v1',BUILD='4.4 · escolha do mascote no cadastro · 10/11/2026';
+const KEY='wallstreet.v1',BUILD='4.5 · tutorial do primeiro acesso · 10/11/2026';
 const CATS={exp:['Alimentação','Transporte','Compras','Roupas','Lazer','Trabalho','Casa','Saúde','Educação','Financeiro','Tecnologia','Cuidados pessoais','Presentes','Outros'],inc:['Salário','Comissão','Freelancer','Outro']};
 const PAYS=['Pix','Cartão de débito','Cartão de crédito','Dinheiro/Espécie','Outro'];
 const MN=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
@@ -924,7 +941,7 @@ function vCfg(){const p=S.pref;return `<h2>Configurações</h2><div class="card"
  <div class="card"><h3>Backup</h3><div class="acts"><button class="b1" data-act="exp" style="flex:1">Exportar backup</button><button class="b2" data-act="imp" style="flex:1">Importar backup</button></div>${hasCrypto?'<button class="b2 full" style="margin-top:8px" data-act="expenc">Exportar backup criptografado</button>':''}<p class="lbl" style="margin-top:8px">Os dados ficam só neste navegador. Exporte um backup de vez em quando. O backup comum é um arquivo aberto; o <b>criptografado</b> só abre com a senha que você escolher (não é a senha de login — guarde-a: sem ela ninguém recupera o arquivo).</p>${bkpLine()}</div>
  <div class="card"><h3>Zerar todos os dados</h3><p class="lbl" style="margin-bottom:8px">Apaga tudo o que você registrou e deixa o app em branco. Seu nome, tema, avatar, senha e suas anotações, lembretes e tarefas continuam. Exporte um backup antes.</p><button class="b2 full neg" data-act="reset">Zerar todos os dados</button></div>
  <div class="card abt"><h3>Sobre</h3>
- <div class="ab1"><div class="ico"><img src="icon-192.png" alt="" width="64" height="64"></div><div><b>WALL STREET</b><span>Seu dinheiro, sob controle.</span><div class="ver">Versão ${esc(String(BUILD).split(' · ')[0])}</div><button class="b2" data-act="updchk" style="margin-top:8px">Verificar atualização</button></div></div>
+ <div class="ab1"><div class="ico"><img src="icon-192.png" alt="" width="64" height="64"></div><div><b>WALL STREET</b><span>Seu dinheiro, sob controle.</span><div class="ver">Versão ${esc(String(BUILD).split(' · ')[0])}</div><button class="b2" data-act="updchk" style="margin-top:8px">Verificar atualização</button> <button class="b2" data-act="tourgo" style="margin-top:8px">Ver o tutorial</button></div></div>
  <dl><div class="abr"><dt>Criador</dt><dd>Paul D'Ávila</dd></div><div class="abr"><dt>Desenvolvimento</dt><dd>Projeto desenvolvido com auxílio de inteligência artificial.</dd></div><div class="abr"><dt>Finalidade</dt><dd>Organização e acompanhamento das finanças pessoais.</dd></div></dl>
  <h4>Avisos importantes</h4>
  <ol><li>O WALL STREET é uma ferramenta de organização financeira pessoal, não uma instituição financeira.</li><li>Os cálculos e relatórios são baseados nos dados informados pelo próprio usuário.</li><li>As avaliações financeiras são orientativas e não substituem aconselhamento profissional.</li><li>O usuário é responsável por manter seus dados atualizados e realizar backups.</li><li>O sistema não garante resultados financeiros nem recomenda investimentos.</li></ol>
@@ -1417,7 +1434,42 @@ function viewMascot(){const cur=SKIDS.includes(S.pref.ms)?S.pref.ms:'terno';S.pr
  lockUI(`<h2 style="text-align:center">Escolha seu mascote</h2><p class="lbl" style="text-align:center;margin:6px 0 4px">Toque em um estilo para ver como ele fica. Você pode trocar depois em Ajustes → Mascote.</p><p class="lbl" id="mname" aria-live="polite" style="text-align:center;margin:0 0 10px;min-height:2.6em"><b>${esc(SKN[cur][0])}</b> · ${esc(SKN[cur][1])}</p><form id="mf"><div class="skgrid mgrid" role="radiogroup" aria-label="Estilos do mascote">${SKIDS.map(id=>`<button type="button" class="skb${id===cur?' on':''}" role="radio" aria-checked="${id===cur}" data-lk="mpick" data-id="${id}" aria-label="${esc(SKN[id][0])}"><span class="skth"><img src="${id==='terno'?WU.av0:skUrl(id)}" alt="" draggable="false"></span><span>${esc(SKN[id][0])}</span></button>`).join('')}</div><button class="b1 full" style="margin-top:14px">Continuar</button></form><p style="text-align:center;margin-top:14px"><button class="b2" data-lk="backname">Voltar</button></p>`)}
 function mascotPick(id){if(!SKIDS.includes(id))return;S.pref.ms=id;S.pref.ma=0;S.pref.mt=skSlot();const w=LK.querySelector('.wolf');if(w)w.outerHTML=wolfHtml('lkw skfade');
  LK.querySelectorAll('.mgrid .skb').forEach(x=>{const on=x.dataset.id===id;x.classList.toggle('on',on);x.setAttribute('aria-checked',on?'true':'false')});const n=$('#mname');if(n)n.innerHTML='<b>'+esc(SKN[id][0])+'</b> · '+esc(SKN[id][1]);try{applyPref()}catch(e){}}
-function finishNoSec(){try{localStorage.setItem('wallstreet.secskip','1')}catch(e){}achCheck(true);markWelcomed();WEL.on=false;G=null;save();closeLk();render();toast('Tudo pronto, '+(S.owner.split(' ')[0]||'')+'!')}
+
+/* ===== tutorial do primeiro acesso: só aparece logo depois de CRIAR uma conta nova (nunca para quem já tem conta) ===== */
+const TSTEPS=[
+ {t:'Seu painel',x:'Aqui ficam o saldo do mês, o que você já recebeu e pagou, as dicas do mascote e os próximos compromissos.',ic:'home',sel:()=>$('#s-home .hero')},
+ {t:'Lançamentos rápidos',x:'Toque em Receita, Despesa ou Guardar para registrar em poucos segundos.',sel:()=>$('#s-home .qa')},
+ {t:'Receitas',x:'Salário, comissões e tudo que entra. Marque como recebido quando o dinheiro cair.',ic:'rec',sel:()=>$('#nav button[data-id=rec]')},
+ {t:'Despesas',x:'Contas fixas, variáveis e parcelas. Marque como pago e acompanhe seus cartões de crédito aqui também.',ic:'des',sel:()=>$('#nav button[data-id=des]')},
+ {t:'Dívidas e Caixinhas',x:'Dívidas: veja quanto falta pagar. Caixinhas: guarde dinheiro para suas metas, como uma viagem.',ic:'div',sel:()=>[$('#nav button[data-id=div]'),$('#nav button[data-id=cx]')]},
+ {t:'Relatórios',x:'Gráficos do mês, gastos por categoria e como está a sua situação financeira.',ic:'rel',sel:()=>$('#nav button[data-id=rel]')},
+ {t:'Ajustes',x:'Tema e cores, avatar, mascote, backup e segurança. Faça backup de vez em quando!',ic:'cfg',sel:()=>$('#nav button[data-id=cfg]')},
+ {t:'Pronto!',x:'Use a calculadora flutuante, o sino de avisos e as Anotações na Home. Dá para rever este tutorial em Ajustes. Boas finanças!',sel:null}];
+let TOUR=null;
+function tourSoon(){setTimeout(()=>tourStart(false),900)}
+function tourStart(manual){if(window.__WS_NOTOUR&&!manual)return;if(TOUR||(!manual&&S&&S.flags&&S.flags.tour)||(SECMODE&&!DEK)||!$('#lock').hidden)return;
+ if(!$('#ov').hidden)closeOv();if(view!=='home')go('home');window.scrollTo(0,0);TOUR={i:0};
+ const d=document.createElement('div');d.id='tour';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-label','Tutorial do WALL STREET');
+ d.innerHTML='<div class="tbg"></div><div class="tspot"></div><div class="tcard"><button type="button" class="tskip" data-tr="skip">Pular</button><div class="tic" aria-hidden="true"></div><h3 class="tt"></h3><p class="tx" aria-live="polite"></p><div class="tdots" aria-hidden="true"></div><div class="tbt"><button type="button" class="b2" data-tr="prev">Voltar</button><button type="button" class="b1" data-tr="next">Próximo</button></div></div>';
+ document.body.appendChild(d);setTimeout(tourShow,60)}
+function tourShow(){const d=$('#tour');if(!d||!TOUR)return;const st=TSTEPS[TOUR.i],n=TSTEPS.length,sp=d.querySelector('.tspot'),cd=d.querySelector('.tcard'),last=TOUR.i===n-1;
+ cd.querySelector('.tt').textContent=st.t;cd.querySelector('.tx').textContent=st.x;cd.querySelector('.tic').innerHTML=st.ic&&IC[st.ic]?IC[st.ic]:'';cd.querySelector('.tic').hidden=!(st.ic&&IC[st.ic]);
+ cd.querySelector('.tdots').innerHTML=TSTEPS.map((x,k)=>'<i'+(k===TOUR.i?' class="on"':'')+'></i>').join('')+'<span class="tn">'+(TOUR.i+1)+' de '+n+'</span>';
+ const pv=cd.querySelector('[data-tr=prev]'),nx=cd.querySelector('[data-tr=next]');pv.style.visibility=TOUR.i?'visible':'hidden';nx.textContent=last?'Concluir':'Próximo';
+ const els=(st.sel?[].concat(st.sel()):[]).filter(Boolean);d.classList.toggle('nospot',!els.length);d.classList.toggle('tight',innerHeight<640);
+ if(els.length){els[0].scrollIntoView({block:'nearest'});if(!els[0].closest('nav')){const r0=els[0].getBoundingClientRect();if(r0.height>innerHeight*.4)window.scrollBy(0,r0.top-44)}tourPlace(els,sp,cd)}else{sp.style.cssText='';cd.dataset.p='mid';cd.style.top=Math.max(12,(innerHeight-cd.offsetHeight)/2)+'px';cd.style.left=Math.max(12,(innerWidth-cd.offsetWidth)/2)+'px'}
+ nx.focus({preventScroll:true})}
+function tourPlace(els,sp,cd){const rs=els.map(e=>e.getBoundingClientRect()),L=Math.min(...rs.map(r=>r.left)),T=Math.min(...rs.map(r=>r.top)),Rr=Math.max(...rs.map(r=>r.right)),B=Math.max(...rs.map(r=>r.bottom)),pd=6;
+ sp.style.cssText='left:'+(L-pd)+'px;top:'+(T-pd)+'px;width:'+(Rr-L+pd*2)+'px;height:'+(B-T+pd*2)+'px;border-radius:'+(els.length>1?'18px':(getComputedStyle(els[0]).borderRadius||'18px'));
+ const cw=cd.offsetWidth,ch=cd.offsetHeight,vh=innerHeight,vw=innerWidth,below=(T+B)/2<vh/2&&B+14+ch<=vh-8,top=below?B+pd+12:Math.max(8,T-pd-12-ch),left=Math.max(10,Math.min(vw-cw-10,(L+Rr)/2-cw/2));
+ cd.dataset.p=below?'below':'above';cd.style.top=Math.min(top,vh-ch-8)+'px';cd.style.left=left+'px';cd.style.setProperty('--ax',Math.max(18,Math.min(cw-18,(L+Rr)/2-left))+'px')}
+function tourEnd(){const d=$('#tour');if(d)d.remove();TOUR=null;window.scrollTo(0,0);try{S.flags=S.flags||{};S.flags.tour=1;save()}catch(e){}}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-tr]');if(!b||!TOUR)return;const a=b.dataset.tr;if(a==='skip')tourEnd();else if(a==='next'){if(TOUR.i>=TSTEPS.length-1)tourEnd();else{TOUR.i++;tourShow()}}else if(a==='prev'&&TOUR.i>0){TOUR.i--;tourShow()}});
+document.addEventListener('keydown',e=>{if(TOUR&&e.key==='Escape')tourEnd()});
+addEventListener('resize',()=>{if(TOUR)setTimeout(tourShow,120)});
+Object.assign(ACT,{tourgo:()=>{tourStart(true)}});
+
+function finishNoSec(){try{localStorage.setItem('wallstreet.secskip','1')}catch(e){}achCheck(true);markWelcomed();WEL.on=false;G=null;save();closeLk();render();toast('Tudo pronto, '+(S.owner.split(' ')[0]||'')+'!');tourSoon()}
 function welApply(o){if(!valid(o)||typeof o.owner!=='string')return viewHave('Arquivo inválido: não é um backup do WALL STREET.');migrate(o);if(!o.pref||typeof o.pref!=='object')o.pref=S.pref;fixPref(o);o.flags=(o.flags&&typeof o.flags==='object')?o.flags:{};o.flags.bkpAt=todayStr();S=o;G=null;open={};viewSetup(false,'import')}
 function welImport(f){if(f.size>5e6)return viewHave('Arquivo grande demais.');const r=new FileReader();r.onload=()=>{let o;try{o=JSON.parse(r.result)}catch(x){return viewHave('Arquivo inválido: não é um JSON.')}
  if(o&&o.app==='wallstreet-backup'&&o.enc===true){if(!hasCrypto)return viewHave('Este navegador não abre backups criptografados (precisa de https).');if(!(Number.isInteger(o.it)&&o.it>=100000&&o.it<=2000000)||typeof o.s!=='string'||typeof o.iv!=='string'||typeof o.ct!=='string')return viewHave('Arquivo inválido: backup criptografado danificado.');return viewBkPw(o)}
@@ -1448,7 +1500,7 @@ LK.addEventListener('submit',async e=>{e.preventDefault();if(secBusy)return;cons
  else if(id==='bf'){const o=WEL.bk;await go(async()=>{let d;try{d=JSON.parse(dec.decode(await unseal(await kdf(np(f.p),ub64(o.s),o.it),{iv:o.iv,ct:o.ct})))}catch(x){viewBkPw(o,'Senha incorreta ou arquivo corrompido.');return}welApply(d)})}
  else if(id==='sf'){const m=pwErr(f.u,f.p,f.c);if(m){err(m);return}
   await go(async()=>{const dek=await crypto.subtle.generateKey({name:'AES-GCM',length:256},true,['encrypt','decrypt']),raw=new Uint8Array(await crypto.subtle.exportKey('raw',dek)),{sec,code}=await wrapAll(f.u,f.p,raw,true);const snap=JSON.stringify(S);sec.d=await seal(dek,enc.encode(snap));
-   viewCode(code,async()=>{await finishSetup({sec,snap},f.u,f.p);closeLk();render();toast(WEL.ctx==='welcome'?'Conta criada! Tudo pronto ✓':'Proteção ativada ✓');WEL.ctx=''},'Seu código de recuperação')})}});
+   viewCode(code,async()=>{await finishSetup({sec,snap},f.u,f.p);closeLk();render();toast(WEL.ctx==='welcome'?'Conta criada! Tudo pronto ✓':'Proteção ativada ✓');{const nw=WEL.ctx==='welcome';WEL.ctx='';if(nw)tourSoon()}},'Seu código de recuperação')})}});
 /* ----- Ajustes → Segurança ----- */
 function secCard(){if(!hasCrypto)return'<div class="card"><h3>Segurança</h3><p class="lbl">Este navegador/endereço não permite criptografia (precisa de conexão segura, https).</p></div>';
  if(!SECMODE)return`<div class="card"><h3>Segurança</h3><p class="lbl" style="margin-bottom:8px">Proteção por usuário e senha <b>desativada</b>. Qualquer pessoa com acesso a este navegador vê seus dados.</p><button class="b1 full" data-act="secon">Ativar proteção</button></div>`;
