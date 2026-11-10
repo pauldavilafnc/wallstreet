@@ -112,3 +112,6 @@ Os 10 avatares são ilustrações no estilo do lobo Alfa, recortadas e otimizada
 - **Atalhos do ícone** (segurar o ícone do app instalado): Nova despesa, Nova receita e Anotações (definidos em `manifest.webmanifest`).
 - **Aviso de nova versão:** o app compara a versão (BUILD) do site publicado com a do aparelho e oferece "Atualizar agora" (os dados não são apagados). Para isso funcionar, a cada atualização o texto do BUILD no index.html precisa mudar; Ajustes → Sobre tem "Verificar atualização".
 - **Lembrar de pagar:** botão ⏰ nas despesas e parcelas pendentes e na fatura do cartão; os lembretes podem ir para o Google Agenda ou para um arquivo .ics (que avisa mesmo com o app fechado).
+
+## Estilos do mascote (versão 4.2)
+Em Ajustes → Mascote: o lobo Executivo (terno branco) e 10 roupas (Jazz, Piloto, Rei, Detetive, Hacker, Chefão, Preso, Bêbado, Magnata e Férias). Cada estilo tem animações próprias (piscar, orelhas, balanço de cabeça no ritmo da personalidade e efeitos como notas musicais, fumaça, faíscas e "hic!") e falas próprias sobre dinheiro. A troca automática (a cada 3 horas, nunca repetindo o estilo anterior) vem DESLIGADA por padrão; a escolha manual fica gravada. As telas de login usam o mesmo estilo (com a senha oculta, o lobo fecha os olhos).
