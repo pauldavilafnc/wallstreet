@@ -508,6 +508,27 @@ html.thm *,html.thm *::before,html.thm *::after{transition:background-color .35s
 .skb.on{outline:2px solid var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,.15)}
 .skth{width:56px;height:56px;border-radius:50%;overflow:hidden;background:#1B2A4A;display:block}.skth img{width:100%;height:100%;object-fit:cover;object-position:50% 14%;display:block}
 @media(prefers-reduced-motion:reduce){.vin,.vin>*,.vin .bar>i,.vin .bar>span,.lk,.rpl i,#ov:not([hidden]),#ov:not([hidden]) .sheet,#nav button.pop svg,.sfx i,.sfx i::after,.wolf[data-sk=bebado] .sinner,.skfade{animation:none!important}.sfx i{opacity:0}.fxh{opacity:.5!important}.wolf.sk .whead{animation:none}.wolf.sk.cl .whead,.wolf.sk.dn .whead{animation:none;transform:rotate(1.4deg) translateY(2%)}.wolf.sk .slid,html.thm *{transition:none!important}}
+
+/* ===== acabamento: entrada em sequência, aba deslizante e micro-animações (só transform e opacidade) ===== */
+#lock:not([hidden]){animation:vfade .3s ease both}
+.lk>*{animation:lkrise .5s cubic-bezier(.22,.8,.3,1) backwards}
+.lk>.wolf{animation:wolfin .7s cubic-bezier(.22,.8,.3,1) .06s backwards;transform-origin:50% 100%}
+.lk>:nth-child(2){animation-delay:.12s}.lk>:nth-child(3){animation-delay:.17s}.lk>:nth-child(4){animation-delay:.22s}.lk>:nth-child(5){animation-delay:.27s}.lk>:nth-child(6){animation-delay:.32s}.lk>:nth-child(n+7){animation-delay:.37s}
+@keyframes lkrise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes wolfin{from{opacity:0;transform:translateY(18px) scale(.93)}to{opacity:1;transform:none}}
+#navind{position:absolute;left:0;top:0;border-radius:10px;background:var(--light);box-shadow:inset 0 0 0 1px var(--edge);z-index:0;pointer-events:none;transition:transform .4s cubic-bezier(.3,1.25,.4,1)}
+nav.ind button.on{background:transparent;box-shadow:none}nav button{z-index:1}
+.vin svg[role=img] rect{transform-box:fill-box;transform-origin:50% 100%;animation:growy .65s cubic-bezier(.22,.8,.3,1) both}
+.vin svg[role=img] path{animation:vfade .7s ease both}
+.vin svg[viewBox="0 0 56 56"]{animation:ringin .6s cubic-bezier(.22,.8,.3,1) both}
+.vin .row{animation:rowin .32s ease both}.vin .row:nth-child(2){animation-delay:.05s}.vin .row:nth-child(3){animation-delay:.09s}.vin .row:nth-child(4){animation-delay:.13s}.vin .row:nth-child(n+5){animation-delay:.17s}
+.vin .bellw.ring svg{transform-origin:50% 12%;animation:bellring .7s .3s ease-in-out both}
+@keyframes growy{from{transform:scaleY(0)}}
+@keyframes ringin{from{opacity:0;transform:scale(.82) rotate(-35deg)}}
+@keyframes rowin{from{opacity:0;transform:translateX(-7px)}}
+@keyframes bellring{0%,100%{transform:rotate(0)}18%{transform:rotate(15deg)}36%{transform:rotate(-12deg)}54%{transform:rotate(8deg)}72%{transform:rotate(-4deg)}}
+#toast{transform:translate(-50%,10px);transition:opacity .2s,transform .3s cubic-bezier(.22,.8,.3,1)}#toast.s{transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){#lock:not([hidden]),.lk>*,.lk>.wolf,.vin svg[role=img] rect,.vin svg[role=img] path,.vin svg[viewBox="0 0 56 56"],.vin .row,.vin .bellw.ring svg{animation:none!important}#navind,#toast{transition:none!important}}
 </style>
 </head>
 <body>
@@ -524,7 +545,7 @@ html.thm *,html.thm *::before,html.thm *::after{transition:background-color .35s
 /* ===== WALL STREET — Seu dinheiro, sob controle. =====
    Valores internos em CENTAVOS inteiros. Dados em localStorage. */
 'use strict';
-const KEY='wallstreet.v1',BUILD='4.2 · roupas do mascote e animações · 10/11/2026';
+const KEY='wallstreet.v1',BUILD='4.3 · acabamento visual e animações · 10/11/2026';
 const CATS={exp:['Alimentação','Transporte','Compras','Roupas','Lazer','Trabalho','Casa','Saúde','Educação','Financeiro','Tecnologia','Cuidados pessoais','Presentes','Outros'],inc:['Salário','Comissão','Freelancer','Outro']};
 const PAYS=['Pix','Cartão de débito','Cartão de crédito','Dinheiro/Espécie','Outro'];
 const MN=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
@@ -755,7 +776,7 @@ function vHome(){const d=new Date(),cm=ymOf(d),hr=d.getHours(),gr=hr<12?'Bom dia
  const prox=[...rowsOf('inc',cm),...rowsOf('exp',cm)].filter(i=>stat(i,cm)!=='ok').sort((a,b)=>a.day-b.day).slice(0,6);
  const row=i=>{const s=stat(i,cm);return `<div class="row"><div class="dchip ${s}">${pad(i.day)}</div><div class="t"><b>${esc(i.d)}</b><span class="tag ${s}">${slabel(i,s)}</span></div><div class="a ${i.t==='inc'?'pos':'neg'}">${i.t==='inc'?'+':'−'}${brl(i.c)}</div></div>`};
  const gt=greet(),un=unread();
- return `<div class="top"><button class="av" id="avh" data-act="avs" aria-label="Escolher avatar">${avSvg(S.pref.av,44)}</button><div class="tx"><h1 class="hello" style="font-size:${gt.length>34?16:gt.length>24?18:20}px">${esc(gt)}</h1><small>${d.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}</small></div><div class="tb"><button class="ib bellw" data-act="ntf" aria-label="Notificações${un?', '+un+' não lidas':''}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 0112 0c0 6 2 7 2 7H4s2-1 2-7"/><path d="M10 20a2 2 0 004 0"/></svg>${un?`<span class="bdg">${un>9?'9+':un}</span>`:''}</button><button class="ib" data-act="nav" data-id="news" aria-label="Notícias financeiras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="14" height="16" rx="2"/><path d="M17 8h3v10a2 2 0 01-2 2M7 8h6M7 12h6M7 16h4"/></svg></button>${eyeBtn()}</div></div>
+ return `<div class="top"><button class="av" id="avh" data-act="avs" aria-label="Escolher avatar">${avSvg(S.pref.av,44)}</button><div class="tx"><h1 class="hello" style="font-size:${gt.length>34?16:gt.length>24?18:20}px">${esc(gt)}</h1><small>${d.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}</small></div><div class="tb"><button class="ib bellw${un?' ring':''}" data-act="ntf" aria-label="Notificações${un?', '+un+' não lidas':''}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 0112 0c0 6 2 7 2 7H4s2-1 2-7"/><path d="M10 20a2 2 0 004 0"/></svg>${un?`<span class="bdg">${un>9?'9+':un}</span>`:''}</button><button class="ib" data-act="nav" data-id="news" aria-label="Notícias financeiras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="14" height="16" rx="2"/><path d="M17 8h3v10a2 2 0 01-2 2M7 8h6M7 12h6M7 16h4"/></svg></button>${eyeBtn()}</div></div>
  <div class="card hero"><div class="lbl" style="letter-spacing:2px;font-weight:700;display:flex;align-items:center;gap:8px"><span>WALL STREET · Seu dinheiro, sob controle.</span></div><div class="lbl" style="margin-top:12px">Saldo disponível</div><div class="big" style="font-size:34px;margin-bottom:12px">${brl(bal)}</div>
   <div class="pills"><span class="pill">↓ Recebido ${brl(fl.inc)}</span><span class="pill">↑ Pago ${brl(fl.exp)}</span></div><div class="lbl" style="margin-top:8px">Só considera o que já aconteceu em ${MN[d.getMonth()]}${S.opening?` · inclui saldo inicial de ${brl(S.opening.c)}`:''}</div></div>
  ${mqHome()}${ntHomeCard()}${ccHomeCard()}
@@ -1156,7 +1177,18 @@ function render(){
  for(const k in VIEWS){$('#'+VIEWS[k][3]).hidden=k!==view}
  try{$('#'+VIEWS[view][3]).innerHTML=VIEWS[view][2]();if(['rec','des','div','cx','rel','cc'].includes(view))$('#'+VIEWS[view][3]).insertAdjacentHTML('afterbegin',eyeBtn('eyefl'))}catch(e){$('#'+VIEWS[view][3]).innerHTML='<div class="card">Erro ao exibir esta tela. Seus dados continuam salvos.</div>';console.error(e)}
  {const sc=$('#'+VIEWS[view][3]);if(view!==LASTV&&!RM.matches){sc.classList.remove('vin');void sc.offsetWidth;sc.classList.add('vin');setTimeout(()=>sc.classList.remove('vin'),800)}}
- $('#nav').innerHTML=Object.entries(VIEWS).filter(([k,v])=>!v[4]).map(([k,v])=>`<button data-act="nav" data-id="${k}" class="${k===view?'on':''}">${IC[k]||'<span>'+v[1]+'</span>'}${v[0]}</button>`).join('');if(view!==LASTV){const nb=$('#nav button.on');if(nb&&!RM.matches)nb.classList.add('pop');LASTV=view}}
+ {const nv=$('#nav'),ents=Object.entries(VIEWS).filter(([k,v])=>!v[4]),key=ents.map(([k,v])=>k+v[0]).join('|');
+ if(nv.dataset.k!==key){nv.innerHTML=ents.map(([k,v])=>`<button data-act="nav" data-id="${k}" class="${k===view?'on':''}">${IC[k]||'<span>'+v[1]+'</span>'}${v[0]}</button>`).join('');nv.dataset.k=key}
+ else nv.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.id===view));
+ navInd();if(view!==LASTV){nv.querySelectorAll('button.pop').forEach(b=>b.classList.remove('pop'));const nb=$('#nav button.on');if(nb&&!RM.matches){void nb.offsetWidth;nb.classList.add('pop')}LASTV=view}}}
+/* indicador que desliza sob a aba ativa (um só elemento; só transform) */
+let LASTIND=null,RZT=0;
+function navInd(){const n=$('#nav');if(!n)return;const old=n.querySelector('#navind');if(old)old.remove();const b=n.querySelector('button.on');if(!b)return;
+ const nr=n.getBoundingClientRect(),r=b.getBoundingClientRect();if(!r.width||!nr.width){n.classList.remove('ind');return}
+ const x=Math.round((r.left-nr.left-n.clientLeft)*10)/10,y=Math.round((r.top-nr.top-n.clientTop)*10)/10,i=document.createElement('i');i.id='navind';i.setAttribute('aria-hidden','true');i.style.width=r.width+'px';i.style.height=r.height+'px';
+ const anim=LASTIND&&!RM.matches&&(LASTIND.x!==x||LASTIND.y!==y),f=anim?LASTIND:{x,y};i.style.transform='translate('+f.x+'px,'+f.y+'px)';n.appendChild(i);n.classList.add('ind');
+ if(anim)requestAnimationFrame(()=>requestAnimationFrame(()=>{i.style.transform='translate('+x+'px,'+y+'px)'}));LASTIND={x,y}}
+addEventListener('resize',()=>{clearTimeout(RZT);RZT=setTimeout(()=>{LASTIND=null;navInd()},120)});
 function go(v){if(v==='home'&&view!=='home')G=null;if(v==='cc'&&view!=='cc'){CCO=null;CCM=null}view=v;render();if(v==='news')loadNews();window.scrollTo(0,0)}
 
 /* ----- formulários (um painel por vez) ----- */
