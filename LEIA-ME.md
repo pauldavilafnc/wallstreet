@@ -124,3 +124,6 @@ Em "Criar minha conta" há uma etapa nova depois do nome: "Escolha seu mascote".
 
 ## Tutorial do primeiro acesso (versão 4.5)
 Depois de CRIAR uma conta nova ("Criar minha conta" ou "Usar sem senha"), o app mostra um passeio rápido de 8 passos (Seu painel, Lançamentos rápidos, Receitas, Despesas, Dívidas e Caixinhas, Relatórios, Ajustes e um final) com destaque na própria tela e um balão explicativo. "Pular" fica disponível o tempo todo (a tecla Esc também pula). Ao concluir ou pular, o app grava na conta (S.flags.tour) que o tutorial já foi visto e não o mostra de novo. Contas que já existem e backups importados NÃO veem o tutorial (o gatilho é só a criação de conta). Em Ajustes → Sobre há "Ver o tutorial" para rever quando quiser.
+
+## Detetive corrigido (versão 4.6)
+O estilo Detetive do mascote usa agora o PNG transparente enviado (chapéu, rosto, terno, distintivo, mão com o cigarro e a fumaça), embutido em WebP (~42 KB) na proporção do palco (1024×880), inteiro e sem cortes (só um esmaecido suave na cintura, onde a imagem original termina). Pálpebras e orelhas foram realinhadas ao novo desenho; a fumaça sai da ponta do cigarro (3 baforadas) e a brasa pulsa. O quadro do Detetive na Home e no login mostra o desenho completo; a miniatura em Ajustes e no cadastro é centrada no rosto.
