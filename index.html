@@ -584,7 +584,7 @@ nav.ind button.on{background:transparent;box-shadow:none}nav button{z-index:1}
 /* ===== WALL STREET — Seu dinheiro, sob controle. =====
    Valores internos em CENTAVOS inteiros. Dados em localStorage. */
 'use strict';
-const KEY='wallstreet.v1',BUILD='4.7 · tema Pérola e escolha de cor no cadastro · 10/11/2026';
+const KEY='wallstreet.v1',BUILD='4.8 · situação financeira com cartões · 10/11/2026';
 const CATS={exp:['Alimentação','Transporte','Compras','Roupas','Lazer','Trabalho','Casa','Saúde','Educação','Financeiro','Tecnologia','Cuidados pessoais','Presentes','Outros'],inc:['Salário','Comissão','Freelancer','Outro']};
 const PALS=[['perola','Pérola','#E8EDF5'],['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['pink','Rosa','#DB2777'],['orange','Laranja','#EA580C'],['ouro','Ouro','#B88614'],['esmeralda','Esmeralda','#15803D'],['grafite','Grafite','#4B5563']];
 const PAYS=['Pix','Cartão de débito','Cartão de crédito','Dinheiro/Espécie','Outro'];
@@ -891,30 +891,30 @@ function limForm(cat){form('Limite mensal · '+cat,[{k:'c',l:'Limite por mês (R
 function limAddForm(){form('Novo limite mensal',[{k:'k',l:'Categoria',t:'sel',v:CATS.exp[0],o:CATS.exp.map(c=>[c,c])},{k:'c',l:'Limite por mês (R$)',t:'money',p:'0,00'}],v=>{const m=money(v.c,1);if(m.e)return m.e;S.limits=S.limits||{};S.limits[v.k]=m.c;commit('Limite salvo ✓')})}
 /* ===== MINHA SITUAÇÃO FINANCEIRA: regras claras (nada de nota misteriosa), só com os seus dados do mês atual ===== */
 const FSL={ok:['Saudável','#16A34A','✓','Finanças equilibradas'],est:['Estável','#2563EB','=','Situação controlada, com pontos de atenção'],atn:['Atenção','#D97706','!','Há riscos que merecem cuidado'],crt:['Crítica','#DC2626','!','Compromissos acima do que as finanças suportam'],none:['Sem dados suficientes','#64748B','?','Ainda não dá para avaliar']};
-function finSit(){const td=todayStr(),cm=td.slice(0,7),inc=rowsOf('inc',cm),exp=rowsOf('exp',cm),ok_=i=>stat(i,cm)==='ok';
+function finSit(){const td=todayStr(),cm=td.slice(0,7),inc=rowsOf('inc',cm),exp=rowsOf('exp',cm),ok_=i=>stat(i,cm)==='ok',Cc=ccFin(td),hc=(S.cards||[]).some(k=>k.buys.length||k.pays.length),A=hc?'Despesas, parcelas e faturas':'Despesas e parcelas',Bw=hc?'dívidas, parcelas e faturas de cartão':'dívidas e parcelas',Bc=hc?'Dívidas, parcelas e faturas de cartão':'Dívidas e parcelas';
  const R=sum(inc,i=>i.c),Rrec=sum(inc.filter(ok_),i=>i.done[cm]),G=sum(inc.filter(i=>stat(i,cm)==='late'),i=>i.c),
-  E=sum(exp,i=>i.c),Epaid=sum(exp.filter(ok_),i=>i.done[cm]),Pm=sum(S.parc.filter(q=>q.ym===cm),q=>q.c),
-  Pun=sum(S.parc.filter(q=>!q.paid),q=>q.c),Pf=sum(S.parc.filter(q=>!q.paid&&q.ym>cm),q=>q.c),D=sum(S.debts,balOf),
+  E=sum(exp,i=>i.c)+Cc.due,Epaid=sum(exp.filter(ok_),i=>i.done[cm])+Cc.duePaid,Pm=sum(S.parc.filter(q=>q.ym===cm),q=>q.c),
+  Pun=sum(S.parc.filter(q=>!q.paid),q=>q.c)+Cc.owed,Pf=sum(S.parc.filter(q=>!q.paid&&q.ym>cm),q=>q.c)+Cc.fut,D=sum(S.debts,balOf),
   lx=exp.filter(i=>stat(i,cm)==='late'),lp=S.parc.filter(q=>!q.paid&&(q.due?q.due<td:q.ym<cm)),ld=S.debts.filter(x=>balOf(x)>0&&x.due&&x.due<td),
-  L=sum(lx,i=>i.c)+sum(lp,q=>q.c)+sum(ld,balOf),Lc=lx.length+lp.length+ld.length,bal=balance(),Cm=E+Pm,M=R-Cm,O=D+Pun,
+  L=sum(lx,i=>i.c)+sum(lp,q=>q.c)+sum(ld,balOf)+Cc.late,Lc=lx.length+lp.length+ld.length+Cc.lateN,bal=balance(),Cm=E+Pm,M=R-Cm,O=D+Pun,
   ratio=R>0?Cm/R:0,cover=Cm>0?bal/Cm:(bal>0?99:0),mc=(O>0&&M>0)?O/M:0,
   cs=catSpend(cm),over=Object.keys(S.limits||{}).filter(k=>limSt(k,cs[k]||{paid:0,plan:0})==='over'),pc=Math.round(ratio*100);
- const m={cm,R,Rrec,G,E,Epaid,Pm,Pun,Pf,D,L,Lc,bal,Cm,M,O,ratio,cover,mc},flags=[],F=(sev,code,txt,rec)=>flags.push({sev,code,txt,rec});
- const has=S.items.length||S.debts.length||S.parc.length||S.opening||bal!==0;
+ const m={cm,R,Rrec,G,E,Epaid,Pm,Pun,Pf,D,L,Lc,bal,Cm,M,O,ratio,cover,mc,hc,cc:Cc},flags=[],F=(sev,code,txt,rec)=>flags.push({sev,code,txt,rec});
+ const has=S.items.length||S.debts.length||S.parc.length||hc||S.opening||bal!==0;
  if(!has)return{level:'none',m,flags,why:['Cadastre suas receitas, despesas e dívidas para ver a avaliação.'],good:[],recs:['Comece cadastrando as receitas e as despesas fixas do mês.']};
  if(bal<0)F('S','saldoneg',`Saldo disponível negativo (${brl(bal)}).`,'Cubra o saldo negativo: lance as receitas que faltam marcar como recebidas e segure os gastos variáveis até o saldo voltar a ser positivo.');
  if(R<=0&&bal>=0)return{level:'none',m,flags,why:['Você tem despesas ou dívidas cadastradas, mas nenhuma receita neste mês. Sem as receitas não dá para medir a sua capacidade de pagamento.'],good:[],recs:['Cadastre as receitas do mês (previstas ou recebidas) para liberar a avaliação.']};
  if(R>0){
-  if(ratio>1)F('S','comp100',`Despesas e parcelas do mês (${brl(Cm)}) passam das receitas previstas (${brl(R)}).`,`Reduza os compromissos do mês em pelo menos ${brl(Cm-R)} (cortando despesas) ou aumente a receita.`);
+  if(ratio>1)F('S','comp100',`${A} do mês (${brl(Cm)}) passam das receitas previstas (${brl(R)}).`,`Reduza os compromissos do mês em pelo menos ${brl(Cm-R)} (cortando despesas) ou aumente a receita.`);
   else if(ratio>.8)F('H','comp80',`Os compromissos do mês consomem ${pc}% da receita prevista.`,`Procure baixar os compromissos do mês: hoje eles consomem ${pc}% da receita.`);
   else if(ratio>.6)F('M','comp60',`Os compromissos do mês consomem ${pc}% da receita prevista (acima de 60%).`,'Tente manter os compromissos abaixo de 60% da receita para ter folga.');
   if(L>=.5*R)F('S','atraso50',`Os atrasos somam ${brl(L)}, metade ou mais da receita mensal.`,`Regularize primeiro os atrasos (${brl(L)}): eles costumam gerar multa e juros.`)}
  if(Lc>0&&!flags.some(f=>f.code==='atraso50'))F('H','atraso',`Há ${Lc} ${Lc>1?'itens atrasados':'item atrasado'} (${brl(L)}).`,`Regularize primeiro os atrasos (${brl(L)}): eles costumam gerar multa e juros.`);
  if(O>0&&R>0){
-  if(M<=0){if(cover<1)F('S','semfolga',`Há ${brl(O)} em dívidas e parcelas, sem sobra mensal no orçamento e com pouco dinheiro disponível.`,'Sem folga, evite novas dívidas e parcelas e renegocie ou reduza despesas para abrir espaço no orçamento.');else F('H','semsobra',`Há ${brl(O)} em dívidas e parcelas sem sobra mensal no orçamento; o pagamento depende do dinheiro guardado.`,'Abra folga no orçamento antes de assumir novas dívidas ou parcelas.')}
-  else{const meses=Math.ceil(O/(M/2));if(mc>12)F('H','cap12',`Dívidas e parcelas (${brl(O)}) levariam mais de 12 meses da sua sobra mensal (${brl(M)}) para serem pagas.`,`Separe parte da sobra mensal (${brl(M)}) para as dívidas: com ${brl(Math.round(M/2))} por mês, a quitação levaria cerca de ${meses} meses.`);
-   else if(mc>6)F('M','cap6',`Dívidas e parcelas (${brl(O)}) levariam de 6 a 12 meses da sua sobra mensal (${brl(M)}).`,`Direcione parte da sobra mensal (${brl(M)}) às dívidas para encurtar o prazo.`);
-   else if(mc>3)F('M','cap3',`Dívidas e parcelas (${brl(O)}) levariam de 3 a 6 meses da sua sobra mensal (${brl(M)}).`,`Direcione parte da sobra mensal (${brl(M)}) às dívidas para encurtar o prazo.`)}}
+  if(M<=0){if(cover<1)F('S','semfolga',`Há ${brl(O)} em ${Bw}, sem sobra mensal no orçamento e com pouco dinheiro disponível.`,'Sem folga, evite novas dívidas e parcelas e renegocie ou reduza despesas para abrir espaço no orçamento.');else F('H','semsobra',`Há ${brl(O)} em ${Bw} sem sobra mensal no orçamento; o pagamento depende do dinheiro guardado.`,'Abra folga no orçamento antes de assumir novas dívidas ou parcelas.')}
+  else{const meses=Math.ceil(O/(M/2));if(mc>12)F('H','cap12',`${Bc} (${brl(O)}) levariam mais de 12 meses da sua sobra mensal (${brl(M)}) para serem pagas.`,`Separe parte da sobra mensal (${brl(M)}) para as dívidas: com ${brl(Math.round(M/2))} por mês, a quitação levaria cerca de ${meses} meses.`);
+   else if(mc>6)F('M','cap6',`${Bc} (${brl(O)}) levariam de 6 a 12 meses da sua sobra mensal (${brl(M)}).`,`Direcione parte da sobra mensal (${brl(M)}) às dívidas para encurtar o prazo.`);
+   else if(mc>3)F('M','cap3',`${Bc} (${brl(O)}) levariam de 3 a 6 meses da sua sobra mensal (${brl(M)}).`,`Direcione parte da sobra mensal (${brl(M)}) às dívidas para encurtar o prazo.`)}}
  if(Cm>0){if(cover<.5)F('H','reserva05',`O dinheiro disponível (${brl(bal)}) cobre menos de meio mês de compromissos (${brl(Cm)}).`,`Monte uma reserva: guarde um valor todo mês até cobrir um mês de compromissos (${brl(Cm)}).`);
   else if(cover<1)F('M','reserva1',`O dinheiro disponível (${brl(bal)}) cobre menos de um mês de compromissos (${brl(Cm)}).`,`Aumente a reserva até cobrir um mês de compromissos (${brl(Cm)}).`)}
  if(over.length)F('M','limite',`Limite de categoria ultrapassado: ${over.join(', ')}.`,`Revise os gastos em ${over[0]} ou ajuste o limite se ele estiver irreal.`);
@@ -922,7 +922,7 @@ function finSit(){const td=todayStr(),cm=td.slice(0,7),inc=rowsOf('inc',cm),exp=
  const n=c=>flags.filter(f=>f.sev===c).length;let level=(n('S')||n('H')>=3)?'crt':(n('H')||n('M')>=3)?'atn':n('M')?'est':'ok';
  if(level==='ok'&&!(bal>0&&R>0))level='est';
  const pr={S:0,H:1,M:2},fl=[...flags].sort((a,b)=>pr[a.sev]-pr[b.sev]),good=[];
- if(bal>0)good.push(`Saldo disponível positivo (${brl(bal)}).`);if(Lc===0)good.push('Nenhum item atrasado.');if(R>0&&ratio<=.6)good.push(`Compromissos do mês em ${pc}% da receita prevista.`);if(O===0)good.push('Sem dívidas nem parcelas pendentes.');else if(M>0&&mc<=3)good.push(`Dívidas e parcelas pendentes (${brl(O)}) cabem em até 3 meses da sua sobra mensal.`);
+ if(bal>0)good.push(`Saldo disponível positivo (${brl(bal)}).`);if(Lc===0)good.push('Nenhum item atrasado.');if(R>0&&ratio<=.6)good.push(`Compromissos do mês em ${pc}% da receita prevista.`);if(O===0)good.push(hc?'Sem dívidas, parcelas nem faturas pendentes.':'Sem dívidas nem parcelas pendentes.');else if(M>0&&mc<=3)good.push(`${Bc} pendentes (${brl(O)}) cabem em até 3 meses da sua sobra mensal.`);
  const recs=fl.map(f=>f.rec);if(!recs.length)recs.push('Continue registrando tudo e use a sobra do mês para reforçar suas caixinhas.');
  return{level,m,flags:fl,why:fl.length?fl.map(f=>f.txt):['Nenhum ponto de risco encontrado nos seus dados deste mês.'],good:good.slice(0,3),recs:[...new Set(recs)].slice(0,2)}}
 function sitCard(){const r=finSit(),L=FSL[r.level],m=r.m,ord=['crt','atn','est','ok'],col=['#DC2626','#D97706','#2563EB','#16A34A'],nm=['Crítica','Atenção','Estável','Saudável'];
@@ -932,8 +932,8 @@ function sitCard(){const r=finSit(),L=FSL[r.level],m=r.m,ord=['crt','atn','est',
  <div class="fsl">Por que</div><ul class="fsu" style="--c:${L[1]}">${r.why.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
  ${r.good.length?`<div class="fsl">O que está bem</div><ul class="fsu" style="--c:#16A34A">${r.good.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:''}
  <div class="fsl">O que fazer agora</div><ul class="fsu" style="--c:var(--blue)">${r.recs.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
- ${r.level==='none'&&!m.R?'':`<div class="fgrid">${k('Saldo disponível',brl(m.bal),m.bal<0?'red':'')}${k('Folga prevista no mês',brl(m.M),m.M<0?'red':'')}${k('Receitas do mês',brl(m.Rrec)+' de '+brl(m.R))}${k('Despesas do mês',brl(m.Epaid)+' de '+brl(m.E))}${k('Dívidas pendentes',brl(m.D))}${k('Parcelas a pagar',brl(m.Pun)+(m.Pf?' ('+brl(m.Pf)+' nos próximos meses)':''))}${k('Atrasos',brl(m.L),m.L>0?'red':'')}${k('Reserva',m.Cm>0?(m.cover>=99?'sem compromissos':(m.cover<0?'negativa':(c=>c+(c==='1,0'?' mês':' meses'))(m.cover.toFixed(1).replace('.',',')))):'—')}</div>`}
- <details class="fsx"><summary>Como a avaliação é feita</summary><ul><li>Usa só os seus lançamentos do mês atual, as dívidas, as parcelas e o saldo disponível (apenas o que foi marcado como recebido ou pago).</li><li><b>Crítica:</b> saldo negativo, compromissos acima da receita, dívidas sem folga no orçamento e sem reserva, atrasos de metade da receita ou mais, ou vários riscos altos juntos.</li><li><b>Atenção:</b> algum risco alto (compromissos acima de 80% da receita, itens atrasados, prazo de quitação acima de 12 meses ou reserva abaixo de meio mês) ou vários pontos moderados.</li><li><b>Estável:</b> controlada, com um ou dois pontos moderados (por exemplo, compromissos acima de 60% da receita ou reserva abaixo de um mês).</li><li><b>Saudável:</b> saldo positivo, nenhum atraso, compromissos até 60% da receita, reserva de pelo menos um mês e dívidas que cabem em até 3 meses da sobra mensal.</li><li>O total das dívidas, sozinho, não define o resultado: pesam a sua sobra mensal e o dinheiro disponível.</li></ul></details>
+ ${r.level==='none'&&!m.R?'':`<div class="fgrid">${k('Saldo disponível',brl(m.bal),m.bal<0?'red':'')}${k('Folga prevista no mês',brl(m.M),m.M<0?'red':'')}${k('Receitas do mês',brl(m.Rrec)+' de '+brl(m.R))}${k('Despesas do mês',brl(m.Epaid)+' de '+brl(m.E))}${k('Dívidas pendentes',brl(m.D))}${k(m.hc?'Parcelas e faturas a pagar':'Parcelas a pagar',brl(m.Pun)+(m.Pf?' ('+brl(m.Pf)+' nos próximos meses)':''))}${k('Atrasos',brl(m.L),m.L>0?'red':'')}${k('Reserva',m.Cm>0?(m.cover>=99?'sem compromissos':(m.cover<0?'negativa':(c=>c+(c==='1,0'?' mês':' meses'))(m.cover.toFixed(1).replace('.',',')))):'—')}</div>`}
+ <details class="fsx"><summary>Como a avaliação é feita</summary><ul><li>Usa só os seus lançamentos do mês atual, as dívidas, as parcelas e o saldo disponível (apenas o que foi marcado como recebido ou pago).${m.hc?' As faturas dos cartões entram pelo valor ainda pendente (os pagamentos já feitos reduzem o pendente e não são contados duas vezes) e as compras parceladas no cartão pesam nos meses seguintes.':''}</li><li><b>Crítica:</b> saldo negativo, compromissos acima da receita, dívidas sem folga no orçamento e sem reserva, atrasos de metade da receita ou mais, ou vários riscos altos juntos.</li><li><b>Atenção:</b> algum risco alto (compromissos acima de 80% da receita, itens atrasados, prazo de quitação acima de 12 meses ou reserva abaixo de meio mês) ou vários pontos moderados.</li><li><b>Estável:</b> controlada, com um ou dois pontos moderados (por exemplo, compromissos acima de 60% da receita ou reserva abaixo de um mês).</li><li><b>Saudável:</b> saldo positivo, nenhum atraso, compromissos até 60% da receita, reserva de pelo menos um mês e dívidas que cabem em até 3 meses da sobra mensal.</li><li>O total das dívidas, sozinho, não define o resultado: pesam a sua sobra mensal e o dinheiro disponível.</li></ul></details>
  <p class="lbl" style="margin-top:8px">Avaliação orientativa, baseada nos dados que você informou. Não substitui aconselhamento profissional.</p></div>`}
 function vRel(){const f=flows(),ms=Array.from({length:12},(_,i)=>ry+'-'+pad(i+1)),L='JFMAMJJASOND'.split(''),z={inc:0,exp:0,dp:0,bx:0};
  const inc=ms.map(m=>(f[m]||z).inc),exp=ms.map(m=>(f[m]||z).exp),has=inc.some(Boolean)||exp.some(Boolean);
@@ -1082,6 +1082,14 @@ function ccPayForm(){const k=ccFind(CCO),ym=CCM||ccCur(k),rest=Math.max(0,ccTot(
 function ccHomeCard(){const L=S.cards||[];if(!L.length)return'';const x=L.map(k=>{const ym=ccCur(k);return{k,rest:Math.max(0,ccTot(k,ym)-ccPaid(k,ym)),due:ccDue(k,ym)}}).filter(x=>x.rest>0).sort((a,b)=>a.due.localeCompare(b.due))[0],
  sub=x?`${x.k.n}: ${brl(x.rest)} · vence ${dmy(x.due).slice(0,5)}`:'Faturas em dia';
  return `<button class="card nth0" data-act="nav" data-id="cc" aria-label="Abrir cartões de crédito"><span class="nic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.6"/><path d="M3 10h18M7 15h3"/></svg></span><span class="jt"><b>Cartões</b><span class="lbl">${esc(sub)}</span></span><span class="nchev" aria-hidden="true">›</span></button>`}
+
+/* situação financeira: o que os cartões pesam (usa as mesmas faturas da tela Cartões; só lê, não altera dados) */
+function ccFin(td){const cm=td.slice(0,7);let due=0,duePaid=0,fut=0,late=0,lateN=0,owed=0;
+ (S.cards||[]).forEach(k=>{owed+=ccOwed(k);const yms=new Set(ccParts(k).map(p=>p.ym).concat((k.pays||[]).map(p=>p.ym)));
+  yms.forEach(ym=>{const t=ccTot(k,ym),pd=ccPaid(k,ym),rest=Math.max(0,t-pd),dd=ccDue(k,ym),dm=dd.slice(0,7);
+   if(dm===cm){due+=t;duePaid+=Math.min(pd,t)}else if(dm>cm)fut+=rest;
+   if(rest>0&&dd<td){late+=rest;lateN++}})});
+ return{due,duePaid,fut,late,lateN,owed}}
 /* ===== agenda: Google Agenda e arquivo .ics (avisa mesmo com o app fechado) ===== */
 const ymdHm=(d,t)=>d.replace(/-/g,'')+'T'+t.replace(':','')+'00';
 function calEnd(d,t){const e=new Date(new Date(d+'T'+t).getTime()+18e5);return ymdOf(e).replace(/-/g,'')+'T'+pad(e.getHours())+pad(e.getMinutes())+'00'}
