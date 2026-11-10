@@ -1,103 +1,95 @@
 {
- "at": "2026-11-10T16:07-03:00",
+ "at": "2026-11-10T18:52-03:00",
  "items": [
   {
    "c": "mu",
-   "t": "Ações europeias permanecem perto de máxima histórica com queda nos preços do petróleo",
+   "t": "Bolsas de NY caem com inflação forte nos EUA e Nvidia amplia queda da véspera",
    "f": "InfoMoney",
    "d": "2026-11-10",
-   "h": "15:43",
-   "u": "https://www.infomoney.com.br/mercados/acoes-europeias-permanecem-perto-de-maxima-historica-com-queda-nos-precos-do-petroleo/",
-   "s": "Vitória dos democratas nos EUA aumentou as expectativas de uma resolução iminente do conflito no Oriente Médio The post Ações europeias permanecem perto de máxima histórica com queda nos preços do petróleo appeared first on…"
+   "h": "18:49",
+   "u": "https://www.infomoney.com.br/mercados/bolsas-de-ny-caem-com-inflacao-nos-eua-reforcando-apostas-de-alta-de-juro-pelo-fed/",
+   "s": "O Dow Jones recuou 0,30%, aos 52.231,89 pontos. O S&P 500 caiu 0 38%, a 7.520,93 pontos. Já o Nasdaq encerrou em baixa de 0,74%, nos 25.065,87 pontos The post Bolsas de NY caem com inflação forte nos EUA e Nvidia amplia queda da…"
   },
   {
    "c": "br",
-   "t": "Espanha pede suspensão do TikTok após denúncias de abuso sexual infantil",
-   "f": "G1 Economia",
-   "d": "2026-11-10",
-   "h": "15:39",
-   "u": "https://g1.globo.com/tecnologia/noticia/2026/11/10/espanha-tik-tok.ghtml",
-   "s": "Logo do Tik Tok Jornal Nacional O governo da Espanha pediu que o TikTok suspenda suas operações no país até que a plataforma elimine conteúdos de abuso sexual infantil. A solicitação foi feita nesta terça-feira (10), após uma…"
-  },
-  {
-   "c": "mu",
-   "t": "Ibovespa Hoje Ao Vivo: Bolsa recua em linha com exterior; dólar dispara",
+   "t": "Ibovespa ensaia 3ª alta, mas cai com receio sobre inflação e alta de juros nos EUA",
    "f": "InfoMoney",
    "d": "2026-11-10",
-   "h": "15:34",
+   "h": "18:49",
+   "u": "https://www.infomoney.com.br/mercados/ibovespa-reduz-folego-com-inflacao-dos-eua-e-cai-apos-superar-173-mil-pontos/",
+   "s": "A temporada de resultados corporativos no Brasil também ocupava as atenções, assim como a ata do Copom The post Ibovespa ensaia 3ª alta, mas cai com receio sobre inflação e alta de juros nos EUA appeared first on InfoMoney ."
+  },
+  {
+   "c": "br",
+   "t": "Como ter amigos imaginários nos ajuda na vida real: 'Éramos inseparáveis'",
+   "f": "BBC News Brasil",
+   "d": "2026-11-10",
+   "h": "18:42",
+   "u": "https://www.bbc.com/portuguese/articles/c9203024nmxpo?at_medium=RSS&at_campaign=rss",
+   "s": "De bailarinas invisíveis a caixas de leite falantes, os amigos imaginários podem trazer benefícios até a vida adulta e ajudar a enfrentar situações difíceis do dia a dia, segundo estudos."
+  },
+  {
+   "c": "br",
+   "t": "Nvidia perde R$ 2,5 trilhões em 2 dias após denúncias de infidelidade e suspeita de espionagem envolvendo CEO",
+   "f": "G1 Economia",
+   "d": "2026-11-10",
+   "h": "18:32",
+   "u": "https://g1.globo.com/economia/noticia/2026/11/10/nvidia-perde-r-25-trilhoes-em-2-dias-apos-denuncias-de-infidelidade-e-suspeita-de-espionagem-envolvendo-ceo.ghtml",
+   "s": "Como uma traição envolveu o CEO da Nvidia em investigação de espionagem As ações da Nvidia ampliaram as perdas nesta terça-feira (10) e fecharam em queda de 5,47%. Os papéis eliminaram US$ 470 bilhões (cerca de R$ 2,5 trilhões)…"
+  },
+  {
+   "c": "br",
+   "t": "Ibovespa termina em queda, com inflação nos EUA e Copom; dólar dispara mais de 1%",
+   "f": "InfoMoney",
+   "d": "2026-11-10",
+   "h": "18:26",
    "u": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-10112026/",
-   "s": "Bolsas dos EUA operam em baixa após CPI acima do esperado The post Ibovespa Hoje Ao Vivo: Bolsa recua em linha com exterior; dólar dispara appeared first on InfoMoney ."
+   "s": "Índices nos EUA fecham no vermelho com inflação ao consumidor acima do esperado The post Ibovespa termina em queda, com inflação nos EUA e Copom; dólar dispara mais de 1% appeared first on InfoMoney ."
+  },
+  {
+   "c": "br",
+   "t": "Relator atende agronegócio e MP que renegocia dívidas rurais é aprovada na Câmara",
+   "f": "G1 Economia",
+   "d": "2026-11-10",
+   "h": "18:24",
+   "u": "https://g1.globo.com/politica/noticia/2026/11/10/relator-atende-agronegocio-e-mp-que-renegocia-dividas-rurais-e-aprovada-na-camara.ghtml",
+   "s": "Depois de uma longa negociação, a Câmara dos Deputados aprovou nesta terça-feira (10) a Medida Provisória (MP) que renegocia as dívidas rurais. O líder do Governo na Câmara, Paulo Pimenta (PT-RS), aceitou pedidos do setor do…"
+  },
+  {
+   "c": "br",
+   "t": "Magalu: “ponto de inflexão” em outubro faz ação saltar 11%, mas movimento continua?",
+   "f": "InfoMoney",
+   "d": "2026-11-10",
+   "h": "18:20",
+   "u": "https://www.infomoney.com.br/mercados/magalu-mglu3-ponto-de-inflexao-em-outubro-faz-acao-saltar-15-apos-balanco-mas-movimento-continua/",
+   "s": "Magalu veem virada em outubro, mas juros ainda adiam recuperação mais forte, segundo analistas The post Magalu: “ponto de inflexão” em outubro faz ação saltar 11%, mas movimento continua? appeared first on InfoMoney ."
+  },
+  {
+   "c": "br",
+   "t": "Deputados admitem rever isenções se IVA superar 26,5%",
+   "f": "Agência Brasil",
+   "d": "2026-11-10",
+   "h": "18:20",
+   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/deputados-admitem-rever-isencoes-se-iva-superar-265",
+   "s": "Os deputados que participam da regulamentação da reforma tributária admitem rever benefícios fiscais concedidos a determinados setores caso a alíquota de referência do novo Imposto sobre Valor Agregado (IVA) ultrapasse 26,5%. A…"
+  },
+  {
+   "c": "br",
+   "t": "Porto de Santos: sistemas seguem afetados após ataque cibernético",
+   "f": "Agência Brasil",
+   "d": "2026-11-10",
+   "h": "18:08",
+   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/porto-de-santos-sistemas-seguem-afetados-apos-ataque-cibernetico",
+   "s": "A Autoridade Portuária de Santos (APS), responsável pela administração do Porto, confirmou que um ataque cibernético iniciado na última sexta-feira (6) derrubou os sistemas, a energia elétrica e o acesso a internet em toda área…"
   },
   {
    "c": "mu",
-   "t": "Autoridades do Paraguai abrem cofre em mansão de Santiago Peña, mas encontram o compartimento vazio, diz imprensa",
+   "t": "Autoridades do Paraguai abrem sala secreta em mansão de Santiago Peña, mas não encontram nada, diz imprensa",
    "f": "G1 Mundo",
    "d": "2026-11-10",
    "h": "15:18",
    "u": "https://g1.globo.com/mundo/noticia/2026/11/10/paraguai-autoridades-conseguem-abrir-cofre-em-casa-do-ex-presidente-santiago-pena.ghtml",
    "s": "A mansão foi financiada parcialmente por meio de empréstimos do ueno bank, cujas parcelas mensais, segundo a investigação, equivaleriam a seis vezes o salário de Peña. Outra residência de Peña, na capital Assunção, também foi…"
-  },
-  {
-   "c": "br",
-   "t": "Anthropic, dona do Claude, tem IPO estimado em US$ 1,4 trilhão, diz agência",
-   "f": "G1 Economia",
-   "d": "2026-11-10",
-   "h": "15:12",
-   "u": "https://g1.globo.com/tecnologia/noticia/2026/11/10/ipo-anthropic-valor-estreia-na-bolsa.ghtml"
-  },
-  {
-   "c": "br",
-   "t": "Bolsa brasileira está barata de novo, mas é oportunidade ou armadilha de valor?",
-   "f": "InfoMoney",
-   "d": "2026-11-10",
-   "h": "15:00",
-   "u": "https://www.infomoney.com.br/mercados/bolsa-brasileira-esta-barata-de-novo-mas-sera-oportunidade-ou-armadilha-de-valor/",
-   "s": "Desconto da Bolsa cresce, mas estrategistas veem risco de \"armadilha\" The post Bolsa brasileira está barata de novo, mas é oportunidade ou armadilha de valor? appeared first on InfoMoney ."
-  },
-  {
-   "c": "br",
-   "t": "MGLU3: BofA eleva Magalu para compra após melhora das vendas e ganho de mercado",
-   "f": "InfoMoney",
-   "d": "2026-11-10",
-   "h": "14:53",
-   "u": "https://www.infomoney.com.br/mercados/mglu3-bofa-eleva-magalu-para-compra-apos-melhora-das-vendas-e-ganho-de-mercado/",
-   "s": "O banco manteve preço-alvo de R$ 11 para a ação, o que representa potencial de valorização de cerca de 88% sobre o fechamento da véspera The post MGLU3: BofA eleva Magalu para compra após melhora das vendas e ganho de mercado…"
-  },
-  {
-   "c": "br",
-   "t": "Legacy encerra apostas no Brasil após vitória de Lula e vê estagflação em 2027",
-   "f": "InfoMoney",
-   "d": "2026-11-10",
-   "h": "14:53",
-   "u": "https://www.infomoney.com.br/onde-investir/legacy-encerra-apostas-no-brasil-apos-vitoria-de-lula-e-ve-estagflacao-em-2027/",
-   "s": "Gestora encerrou principais posições em moeda, juros e ações no país e prefere aguardar sinais sobre a equipe econômica do quarto mandato antes de voltar a se expor The post Legacy encerra apostas no Brasil após vitória de Lula e…"
-  },
-  {
-   "c": "br",
-   "t": "Dinheiro esquecido no sistema financeiro ultrapassa R$ 6 bilhões",
-   "f": "Agência Brasil",
-   "d": "2026-11-10",
-   "h": "14:39",
-   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dinheiro-esquecido-no-sistema-financeiro-ultrapassa-r-6-bilhoes",
-   "s": "Os brasileiros ainda não sacaram R$ 6,03 bilhões em recursos esquecidos em instituições financeiras, informou hoje o Banco Central. O valor disponível para resgate aumentou em relação ao levantamento anterior , quando havia cerca…"
-  },
-  {
-   "c": "br",
-   "t": "11.11: como evitar problemas nas compras em prévia da Black Friday",
-   "f": "G1 Economia",
-   "d": "2026-11-10",
-   "h": "14:23",
-   "u": "https://g1.globo.com/guia/guia-de-compras/1111-como-evitar-problemas-nas-compras-em-previa-da-black-friday-1.ghtml",
-   "s": "11.11: como evitar problemas nas compras em prévia da Black Friday O 11 de novembro (11.11) se tornou uma prévia das compras com descontos na Black Friday. Mas, com grandes ofertas, cupons e cashback prometidos pelas lojas…"
-  },
-  {
-   "c": "br",
-   "t": "Movimentos sociais denunciam proposta do mercado de corte de gastos",
-   "f": "Agência Brasil",
-   "d": "2026-11-10",
-   "h": "14:10",
-   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/movimentos-sociais-denunciam-proposta-do-mercado-de-corte-de-gastos",
-   "s": "Movimentos sociais e sindicais publicaram um manifesto criticando a proposta do mercado financeiro de corte de gastos como forma de equilibrar as contas públicas. As entidades pedem uma política fiscal que “garanta direitos…"
   },
   {
    "c": "mu",
@@ -143,6 +135,15 @@
    "h": "10:06",
    "u": "https://www.bbc.com/portuguese/articles/c6y43492vrzxo?at_medium=RSS&at_campaign=rss",
    "s": "Diagnosticado com Alzheimer, FHC teve sua interdição decretada pela Justiça neste ano, a pedido de seus filhos, diante do agravamento da doença."
+  },
+  {
+   "c": "mu",
+   "t": "EUA vão usar IA para revisar dados agrícolas após série de erros em relatórios que influenciam preços",
+   "f": "G1 Economia",
+   "d": "2026-11-10",
+   "h": "10:00",
+   "u": "https://g1.globo.com/economia/agronegocios/noticia/2026/11/10/eua-vao-usar-ia-para-revisar-dados-agricolas-apos-serie-de-erros-em-relatorios-que-influenciam-precos.ghtml",
+   "s": "Após cometer uma série de erros em relatórios que movimentam o mercado agrícola global, o Departamento de Agricultura dos Estados Unidos (USDA) decidiu recorrer à inteligência artificial para revisar seus dados antes da…"
   }
  ]
 }
