@@ -584,7 +584,7 @@ nav.ind button.on{background:transparent;box-shadow:none}nav button{z-index:1}
 /* ===== WALL STREET — Seu dinheiro, sob controle. =====
    Valores internos em CENTAVOS inteiros. Dados em localStorage. */
 'use strict';
-const KEY='wallstreet.v1',BUILD='5.0 · salvamento seguro · 10/11/2026';
+const KEY='wallstreet.v1',BUILD='5.1 · cache seguro do app · 10/11/2026';
 const CATS={exp:['Alimentação','Transporte','Compras','Roupas','Lazer','Trabalho','Casa','Saúde','Educação','Financeiro','Tecnologia','Cuidados pessoais','Presentes','Outros'],inc:['Salário','Comissão','Freelancer','Outro']};
 const PALS=[['perola','Pérola','#E8EDF5'],['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['pink','Rosa','#DB2777'],['orange','Laranja','#EA580C'],['ouro','Ouro','#B88614'],['esmeralda','Esmeralda','#15803D'],['grafite','Grafite','#4B5563']];
 const PAYS=['Pix','Cartão de débito','Cartão de crédito','Dinheiro/Espécie','Outro'];
@@ -1130,7 +1130,7 @@ const ST2ACT={ccnew:()=>ccForm(),ccopen:id=>{CCO=id;CCM=null;render();window.scr
  rgcal:()=>{const x=rfVals();if(x)calOpen(x)},rics:()=>{const x=rfVals();if(x)calFile(x)},
  rcal:id=>{const r=find(S.org.rems,id);if(!r)return;$('#ov').innerHTML=`<div class="sheet"><h3>Adicionar à agenda</h3><p class="lbl">${esc(r.t)} · ${dmy(r.at.slice(0,10))} às ${hm(r)}</p><div class="btns"><button class="b1" data-act="rcalg" data-id="${r.id}">Google Agenda</button><button class="b2" data-act="rcali" data-id="${r.id}">Arquivo .ics</button></div><p class="lbl">O arquivo .ics funciona em qualquer agenda do celular e avisa no horário mesmo com o app fechado. O Google Agenda abre numa nova aba com o título, a data e o horário.</p><button class="b2 full" data-act="close">Fechar</button></div>`;$('#ov').hidden=false},
  rcalg:id=>{const r=find(S.org.rems,id);if(r)calOpen(remX(r))},rcali:id=>{const r=find(S.org.rems,id);if(r)calFile(remX(r))},
- updnow:async()=>{toast('Atualizando...');try{flushNt()}catch(e){}try{save()}catch(e){}try{const rs=await navigator.serviceWorker.getRegistrations();await Promise.all(rs.map(r=>r.unregister()));const ks=await caches.keys();await Promise.all(ks.map(k=>caches.delete(k)))}catch(e){}location.reload()},
+ updnow:async()=>{toast('Atualizando...');try{flushNt()}catch(e){}try{save()}catch(e){}try{await persistQ}catch(e){}try{const g=await navigator.serviceWorker.getRegistration();const esc=g?new URL(g.scope).pathname:location.pathname.replace(/[^/]*$/,'');if(g)await g.unregister();const ks=await caches.keys();await Promise.all(ks.filter(k=>k.startsWith('wallstreet::'+esc+'::')||/^wallstreet-v\d+$/.test(k)).map(k=>caches.delete(k)))}catch(e){}location.reload()},
  upddis:()=>{try{sessionStorage.setItem('wallstreet.upddis',UPDV||'')}catch(e){}updHide()},updchk:()=>chkUpd(true)};
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&Date.now()-UPDT>18e5)chkUpd()});
 setTimeout(()=>{if(!UPDT)chkUpd()},6000);function scWait(n){if(SCDONE||!SCQ||n<=0)return;if(!$('#lock').hidden||(SECMODE&&!DEK)){setTimeout(()=>scWait(n-1),500);return}scRun()}setTimeout(()=>scWait(12),600);
