@@ -1,0 +1,70 @@
+name: Testes
+
+# Roda em TODO envio ao repositório (push) e em pull requests. Cada grupo de testes é um job separado,
+# então a tela do GitHub mostra exatamente qual área falhou (cálculos, segurança, backups...).
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "noticias.json"
+  pull_request:
+  workflow_dispatch:       # permite rodar manualmente (aba Actions → Testes → Run workflow)
+
+concurrency:
+  group: testes-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  testes:
+    name: ${{ matrix.nome }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false      # uma área com falha não esconde o resultado das outras
+      matrix:
+        include:
+          - nome: "Estático, cálculos e pagamentos"
+            args: "--grupo estatico,calculos,pagamentos"
+          - nome: "Armazenamento"
+            args: "--grupo armazenamento"
+          - nome: "Segurança"
+            args: "--grupo seguranca"
+          - nome: "Backups"
+            args: "--grupo backups"
+          - nome: "Relatórios"
+            args: "--grupo relatorios"
+          - nome: "Navegação e acessibilidade"
+            args: "--grupo navegacao"
+          - nome: "PWA e cache"
+            args: "--grupo pwa"
+          - nome: "Visual e experiência"
+            args: "--grupo extras"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descompactar tests.zip (publicação pelo celular envia a pasta tests/ compactada)
+        run: |
+          if [ ! -d tests ] && [ -f tests.zip ]; then unzip -q tests.zip; fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: tests/requirements.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Instalar dependências dos testes
+        run: |
+          pip install -r tests/requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Rodar os testes (${{ matrix.nome }})
+        run: python tests/run_all.py ${{ matrix.args }}
+      - name: Guardar logs dos testes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-${{ strategy.job-index }}
+          path: tests/report/
+          retention-days: 14
