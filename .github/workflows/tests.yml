@@ -20,7 +20,7 @@ permissions:
 jobs:
   testes:
     name: ${{ matrix.nome }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     strategy:
       fail-fast: false      # uma área com falha não esconde o resultado das outras
@@ -55,6 +55,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      - name: Instalar a fonte Inter (fonte de referência do app; sem ela o GitHub usaria uma fonte mais larga que a do celular)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-inter
+          fc-cache -f
+          fc-match Inter | grep -qi inter
       - name: Instalar dependências dos testes
         run: |
           pip install -r tests/requirements.txt
