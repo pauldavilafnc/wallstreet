@@ -568,6 +568,12 @@ nav.ind button.on{background:transparent;box-shadow:none}nav button{z-index:1}
 [data-pal=perola]{--sb:rgba(207,215,230,.78);--se:rgba(226,232,242,.92);--b1:#F4F6FA;--b2:#E8EDF5}
 [data-theme=dark][data-pal=perola]{--sa:rgba(104,120,156,.62);--sb:rgba(36,42,60,.92);--sc:rgba(30,36,52,.5);--sd:rgba(176,190,220,.26);--se:rgba(38,46,66,.52);--b1:#0E1119;--b2:#06080D}
 .pal i{box-shadow:inset 0 0 0 1px rgba(0,0,0,.18)}.lk .pals .pal{min-width:0;font-size:12px}.cpals{margin-top:10px}
+
+/* Relatórios novos: linhas, barra empilhada e comparação */
+.rrow{display:flex;justify-content:space-between;align-items:baseline;gap:4px 10px;padding:7px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}.rrow:last-child{border-bottom:0}.rrow>span{min-width:0;flex:1 1 44%}.rrow>b{text-align:right;flex:0 1 auto;max-width:100%;margin-left:auto}.rtot{border-top:1px solid var(--line);margin-top:2px;font-weight:700}
+.stk{display:flex;height:12px;border-radius:7px;overflow:hidden;background:var(--light);margin:8px 0}.stk i{display:block;height:100%}.s1{background:var(--blue)}.s2{background:var(--blue2)}.s3{background:#F59E0B}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}.dot.s1{background:var(--blue)}.dot.s2{background:var(--blue2)}.dot.s3{background:#F59E0B}
+.cmpsel{display:flex;gap:10px}.cmpsel label{flex:1;margin:0}.cmp{margin:10px 0 4px;font-size:13px}.cmp .ch,.cmp .cr{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:4px 8px;padding:6px 0;border-bottom:1px solid var(--line);align-items:baseline}.cmp .ch{font-size:12px}.cmp .ch b{text-align:right}.cmp .cr>span:nth-child(2),.cmp .cr>span:nth-child(3){text-align:right;white-space:nowrap}@media(max-width:360px){.cmp{font-size:12px}.cmp .ch,.cmp .cr{grid-template-columns:1fr auto auto;gap:4px 6px}}.cmp .cdf{grid-column:1/-1;text-align:right;font-size:12px}
+:root:not([data-theme=dark]) .rrow .pos,:root:not([data-theme=dark]) .cmp .pos{color:#166534}
 </style>
 </head>
 <body>
@@ -584,7 +590,7 @@ nav.ind button.on{background:transparent;box-shadow:none}nav button{z-index:1}
 /* ===== WALL STREET — Seu dinheiro, sob controle. =====
    Valores internos em CENTAVOS inteiros. Dados em localStorage. */
 'use strict';
-const KEY='wallstreet.v1',BUILD='5.3 · segurança de acesso reforçada · 10/11/2026';
+const KEY='wallstreet.v1',BUILD='5.4 · relatórios financeiros completos · 10/11/2026';
 const CATS={exp:['Alimentação','Transporte','Compras','Roupas','Lazer','Trabalho','Casa','Saúde','Educação','Financeiro','Tecnologia','Cuidados pessoais','Presentes','Outros'],inc:['Salário','Comissão','Freelancer','Outro']};
 const PALS=[['perola','Pérola','#E8EDF5'],['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['pink','Rosa','#DB2777'],['orange','Laranja','#EA580C'],['ouro','Ouro','#B88614'],['esmeralda','Esmeralda','#15803D'],['grafite','Grafite','#4B5563']];
 const PAYS=['Pix','Cartão de débito','Cartão de crédito','Dinheiro/Espécie','Outro'];
@@ -941,7 +947,7 @@ function vRel(){const f=flows(),ms=Array.from({length:12},(_,i)=>ry+'-'+pad(i+1)
  const ev=ms.map(m=>(cum+=net(f[m]||z)));const hasEv=keys.some(k=>k.slice(0,4)<=String(ry));
  let pc=0;const dp=ms.map(m=>(pc+=(f[m]||z).dp));const od=sum(S.debts,x=>x.o),paidAll=sum(S.debts,paidOf);
  const sel=rm?f[ry+'-'+rm]||z:null;
- return `<h2>Relatórios</h2>${sitCard()}<div class="card"><div class="sw"><button class="ib" data-act="yp">‹</button><b>${ry}</b><button class="ib" data-act="yn">›</button></div>
+ return `<h2>Relatórios</h2>${sitCard()}${relNew()}<div class="card"><div class="sw"><button class="ib" data-act="yp">‹</button><b>${ry}</b><button class="ib" data-act="yn">›</button></div>
  <label>Mês<select id="rmSel"><option value="">Ano inteiro</option>${MN.map((n,i)=>`<option value="${pad(i+1)}"${rm===pad(i+1)?' selected':''}>${n}</option>`).join('')}</select></label>
  ${sel?`<div class="grid"><div><div class="lbl">Recebido</div><div class="v pos">${brl(sel.inc)}</div></div><div><div class="lbl">Pago</div><div class="v neg">${brl(sel.exp)}</div></div><div><div class="lbl">Dívidas pagas</div><div class="v">${brl(sel.dp)}</div></div><div><div class="lbl">Guardado (líquido)</div><div class="v">${brl(sel.bx)}</div></div></div>`:''}</div>
  ${catCard()}
@@ -1557,6 +1563,66 @@ function viewColor(){const p=S.pref,dk=document.documentElement.dataset.theme===
 function colorPick(id){if(!PALS.some(x=>x[0]===id))return;S.pref.pal=id;applyPref();LK.querySelectorAll('.cpals .pal').forEach(x=>{const on=x.dataset.id===id;x.classList.toggle('on',on);x.setAttribute('aria-checked',on?'true':'false')})}
 function colorSync(){const dk=document.documentElement.dataset.theme==='dark';LK.querySelectorAll('[data-lk=cmode]').forEach(x=>{const on=(x.dataset.id==='dark')===dk;x.classList.toggle('b1',on);x.classList.toggle('b2',!on)})}
 function modePick(m){S.pref.theme=m==='dark'?'dark':'light';applyPref();colorSync()}
+/* ===== RELATÓRIOS (novos cartões): tudo calculado dos lançamentos reais, com as mesmas regras do saldo e da Situação financeira ===== */
+let rpm=ymOf(new Date()),rcA=shift(ymOf(new Date()),-1),rcB=ymOf(new Date());
+const pct=(a,b)=>b>0?Math.round(a/b*100):0;
+/* fluxo de caixa do mês: igual ao saldo principal (recebido, pago, dívidas pagas, guardado) + saldo inicial e final */
+function relFlow(m){const F=flows(),f=F[m]||{inc:0,exp:0,dp:0,bx:0};let ini=S.opening?S.opening.c:0;Object.keys(F).forEach(k=>{if(k<m)ini+=net(F[k])});return{...f,res:net(f),ini,fin:ini+net(f)}}
+/* compromissos do mês por vencimento (mesmas regras de pago/pendente/vencido da Situação financeira) */
+function relCommit(m){const td=todayStr(),cm=td.slice(0,7),z=()=>({tot:0,paid:0,pend:0,late:0,n:0,nl:0}),ct=z(),pt=z(),cc=z();
+ const inc=rowsOf('inc',m);rowsOf('exp',m).forEach(i=>{const s=stat(i,m);ct.tot+=i.c;ct.n++;if(s==='ok')ct.paid+=i.done[m];else if(s==='late'){ct.late+=i.c;ct.nl++}else ct.pend+=i.c});
+ S.parc.filter(q=>q.ym===m).forEach(q=>{pt.tot+=q.c;pt.n++;if(q.paid)pt.paid+=q.c;else if(q.due?q.due<td:q.ym<cm){pt.late+=q.c;pt.nl++}else pt.pend+=q.c});
+ (S.cards||[]).forEach(k=>{const yms=new Set(ccParts(k).map(p=>p.ym).concat((k.pays||[]).map(p=>p.ym)));yms.forEach(ym=>{const dd=ccDue(k,ym);if(dd.slice(0,7)!==m)return;const t=ccTot(k,ym),pd=Math.min(ccPaid(k,ym),t),rest=t-pd;if(!t)return;cc.tot+=t;cc.n++;cc.paid+=pd;if(rest>0){if(dd<td){cc.late+=rest;cc.nl++}else cc.pend+=rest}})});
+ const R=sum(inc,i=>i.c),Cm=ct.tot+pt.tot+cc.tot;return{R,Rrec:sum(inc.filter(i=>stat(i,m)==='ok'),i=>i.done[m]),ct,pt,cc,Cm,paid:ct.paid+pt.paid+cc.paid,pend:ct.pend+pt.pend+cc.pend,late:ct.late+pt.late+cc.late,ratio:R>0?Cm/R:0}}
+const relNav=(a,b)=>`<div class="sw"><button class="ib" data-act="${a}" aria-label="Mês anterior">‹</button><b>${mlabel(rpm)}</b><button class="ib" data-act="${b}" aria-label="Próximo mês">›</button></div>`;
+function relResumo(){const f=relFlow(rpm),pp=sum(S.parc.filter(q=>q.ym===rpm&&q.paid),q=>q.c),any=f.inc||f.exp||f.dp||f.bx||S.items.length||S.debts.length||S.parc.length||(S.cards||[]).length;
+ return `<div class="card"><h3>Resumo do mês</h3>${relNav('rpp','rpn')}${any?`<div class="grid"><div><div class="lbl">Receitas recebidas</div><div class="v pos">${brl(f.inc)}</div></div><div><div class="lbl">Despesas pagas</div><div class="v neg">${brl(f.exp)}</div></div><div><div class="lbl">Dívidas pagas</div><div class="v">${brl(f.dp)}</div></div><div><div class="lbl">Guardado (líquido)</div><div class="v">${brl(f.bx)}</div></div></div>
+ <div class="rrow"><span>Saldo no início do mês</span><b>${brl(f.ini)}</b></div><div class="rrow"><span>Resultado do mês</span><b class="${f.res<0?'neg':'pos'}">${brl(f.res)}</b></div><div class="rrow rtot"><span>Saldo final do mês</span><b class="${f.fin<0?'neg':''}">${brl(f.fin)}</b></div>
+ <p class="lbl" style="margin-top:8px">Só entra o que foi marcado como recebido ou pago (pagamentos de fatura de cartão contam na data do pagamento).${pp?` Parcelas deste mês já pagas: ${brl(pp)} (registradas à parte; não alteram o saldo).`:''}</p>`:noData('Cadastre receitas, despesas e dívidas para ver o resumo.')}</div>`}
+function relCatShare(){const cs=catSpend(rpm),rows=Object.entries(cs).map(([k,r])=>({k,v:r.paid})).filter(x=>x.v>0).sort((a,b)=>b.v-a.v),tot=sum(rows,x=>x.v);
+ const top=rows.slice(0,5),rest=sum(rows.slice(5),x=>x.v),list=rest>0?[...top,{k:'Outras categorias',v:rest}]:top;
+ return `<div class="card"><h3>Despesas por categoria</h3>${tot?`<div class="lbl" style="margin-bottom:6px">Total pago em ${mlabel(rpm)}: <b>${brl(tot)}</b></div>${list.map(x=>`<div class="sw" style="margin:8px 0 0"><span>${esc(x.k)}</span><b>${brl(x.v)} <span class="lbl">· ${pct(x.v,tot)}%</span></b></div>${bar(pct(x.v,tot))}`).join('')}<p class="lbl" style="margin-top:8px">Compras no cartão entram no mês da compra. Os limites por categoria estão no cartão "Gastos por categoria", mais abaixo.</p>`:noData('Nenhuma despesa paga neste mês.')}</div>`}
+const rtag=(s,t)=>`<span class="tag ${s}">${t}</span>`;
+function relComp(){const c=relCommit(rpm),f=relFlow(rpm),R=c.R,r=c.ratio,st=R<=0?null:r>1?['late','Crítico']:r>.6?['pend','Atenção']:['ok','Positivo'],seg=(v,cl)=>R>0&&v>0?`<i class="${cl}" style="width:${Math.min(100,v/R*100).toFixed(1)}%"></i>`:'';
+ const rows=[['Contas',c.ct.tot,'s1'],['Parcelas',c.pt.tot,'s2'],['Faturas de cartão',c.cc.tot,'s3']].filter(x=>x[1]>0);
+ return `<div class="card"><h3>Comprometimento da renda</h3><div class="lbl">${mlabel(rpm)}</div>${c.Cm||R?`<div class="sw"><span>Renda prevista</span><b>${brl(R)}</b></div>${R>0?`<div class="stk">${seg(c.ct.tot,'s1')}${seg(c.pt.tot,'s2')}${seg(c.cc.tot,'s3')}</div>`:''}
+ ${rows.map(x=>`<div class="rrow"><span><i class="dot ${x[2]}"></i>${x[0]}</span><b>${brl(x[1])}${R>0?` <span class="lbl">· ${pct(x[1],R)}%</span>`:''}</b></div>`).join('')}
+ <div class="rrow rtot"><span>Total comprometido</span><b>${brl(c.Cm)}${R>0?` <span class="lbl">· ${Math.round(r*100)}%</span> ${rtag(st[0],st[1])}`:''}</b></div>${R<=0?'<p class="lbl">Sem receitas previstas neste mês: não dá para calcular o percentual.</p>':r>1?`<p class="lbl">Os compromissos passam da renda prevista em ${brl(c.Cm-R)}.</p>`:''}
+ <div class="rrow"><span>Pago</span><b>${brl(c.paid)}</b></div><div class="rrow"><span>A pagar (no prazo)</span><b>${brl(c.pend)}</b></div><div class="rrow"><span>Vencido</span><b class="${c.late>0?'neg':''}">${brl(c.late)}</b></div>
+ <div class="rrow"><span>Dívidas pagas no mês <span class="lbl">(à parte)</span></span><b>${brl(f.dp)}${R>0&&f.dp>0?` <span class="lbl">· ${pct(f.dp,R)}%</span>`:''}</b></div>`:noData('Nenhum compromisso ou receita prevista neste mês.')}</div>`}
+function relRecor(){const m=rpm,R=sum(rowsOf('inc',m),i=>i.c),fx=rowsOf('exp',m).filter(i=>i.fixed),
+ pm=[...new Set(S.parc.filter(q=>q.ym===m).map(q=>q.iid))].map(id=>{const x=find(S.inst,id),all=S.parc.filter(p=>p.iid===id).sort((a,b)=>a.ym<b.ym?-1:a.ym>b.ym?1:0),q=all.find(p=>p.ym===m),i=all.indexOf(q);return{n:x?x.n:'Parcelado',k:i+1,of:all.length,c:q.c,left:all.slice(i+1).filter(p=>!p.paid).length,paid:!!q.paid,late:!q.paid&&(q.due?q.due<todayStr():q.ym<todayStr().slice(0,7))}}),
+ cd=[];(S.cards||[]).forEach(k=>ccParts(k).filter(p=>p.cm===m&&p.of>1).forEach(p=>cd.push({n:p.b.d||'Compra',k:p.n,of:p.of,c:p.c,card:k.n})));
+ const tot=sum(fx,i=>i.c)+sum(pm,x=>x.c)+sum(cd,x=>x.c),stt=i=>{const s=stat(i,m);return s==='ok'?rtag('ok','Paga'):s==='late'?rtag('late','Atrasada'):rtag('pend','Pendente')};
+ return `<div class="card"><h3>Despesas recorrentes</h3><div class="lbl">${mlabel(m)} · contas fixas, parcelas e compras parceladas</div>${tot?`${fx.length?`<div class="lbl" style="margin-top:8px"><b>Contas fixas</b></div>${fx.map(i=>`<div class="rrow"><span>${esc(i.d)} <span class="lbl">· dia ${pad(i.day)}</span> ${stt(i)}</span><b>${brl(i.c)}</b></div>`).join('')}`:''}
+ ${pm.length?`<div class="lbl" style="margin-top:8px"><b>Parcelamentos em andamento</b></div>${pm.map(x=>`<div class="rrow"><span>${esc(x.n)} <span class="lbl">· parcela ${x.k} de ${x.of}${x.left?' · restam '+x.left:''}</span> ${x.paid?rtag('ok','Paga'):x.late?rtag('late','Atrasada'):rtag('pend','Pendente')}</span><b>${brl(x.c)}</b></div>`).join('')}`:''}
+ ${cd.length?`<div class="lbl" style="margin-top:8px"><b>Compras parceladas no cartão</b></div>${cd.map(x=>`<div class="rrow"><span>${esc(x.n)} <span class="lbl">· ${x.k} de ${x.of} · ${esc(x.card)}</span></span><b>${brl(x.c)}</b></div>`).join('')}`:''}
+ <div class="rrow rtot"><span>Total que se repete</span><b>${brl(tot)}${R>0?` <span class="lbl">· ${pct(tot,R)}% da renda prevista</span>`:''}</b></div>`:noData('Nenhuma conta fixa, parcela ou compra parcelada neste mês.')}</div>`}
+function relDividas(){const td=todayStr(),ds=S.debts.map(d=>({d,o:d.o,p:paidOf(d),b:balOf(d),last:d.pays.length?d.pays.map(p=>p.d).sort().pop():''})),od=sum(ds,x=>x.o),pd=sum(ds,x=>x.p),bd=sum(ds,x=>x.b);
+ const ms=Array.from({length:12},(_,i)=>shift(rpm,i-11)),F=S.debts.flatMap(d=>d.pays),bal=ms.map(m=>od-sum(F.filter(p=>p.d.slice(0,7)<=m),p=>p.c)),L=ms.map(m=>MN[+m.slice(5)-1].slice(0,1));
+ return `<div class="card"><h3>Evolução das dívidas</h3>${ds.length?`<div class="grid"><div><div class="lbl">Valor inicial</div><div class="v">${brl(od)}</div></div><div><div class="lbl">Já pago</div><div class="v pos">${brl(pd)}</div></div><div><div class="lbl">Saldo restante</div><div class="v ${bd>0?'neg':''}">${brl(bd)}</div></div><div><div class="lbl">Quitado</div><div class="v">${pct(pd,od)}%</div></div></div>
+ ${ds.map(x=>{const q=x.b<=0,late=!q&&x.d.due&&x.d.due<td;return `<div class="sw" style="margin:10px 0 0"><span><b>${esc(x.d.n)}</b> ${q?rtag('ok','Quitada'):late?rtag('late','Vencida'):rtag('pend','Em aberto')}</span><b>${brl(Math.max(0,x.b))}</b></div>${bar(pct(x.p,x.o),q?'':'')}<div class="lbl">Inicial ${brl(x.o)} · pago ${brl(x.p)}${x.d.pays.length?' em '+x.d.pays.length+' pagamento'+(x.d.pays.length>1?'s':'')+(x.last?' (último em '+dmy(x.last)+')':''):' · nenhum pagamento ainda'}${x.d.due&&!q?' · vence em '+dmy(x.d.due):''}</div>`}).join('')}
+ <div class="lbl" style="margin:12px 0 4px"><b>Saldo devedor ao fim de cada mês</b> (últimos 12 meses até ${mlabel(rpm)})</div>${od>0?chart(L,[bal],['var(--blue)'],{line:1}):noData('Nenhuma dívida cadastrada.')}<p class="lbl">Valor inicial das dívidas cadastradas menos os pagamentos feitos até o fim de cada mês.</p>`:noData('Nenhuma dívida cadastrada.')}</div>`}
+function relCompara(){const F=flows(),cm=ymOf(new Date()),all=[...new Set([...Object.keys(F),cm,shift(cm,-1),shift(cm,-2),rcA,rcB])].sort().slice(-36),opt=v=>all.map(m=>`<option value="${m}"${m===v?' selected':''}>${MN[+m.slice(5)-1].slice(0,3)}/${m.slice(2,4)}</option>`).join(''),A=relFlow(rcA),B=relFlow(rcB);
+ const rows=[['Receitas recebidas','inc',1],['Despesas pagas','exp',-1],['Dívidas pagas','dp',1],['Guardado (líquido)','bx',1],['Resultado do mês','res',1]],
+ d=(a,b,g)=>{const x=b-a;if(!x)return'<span class="lbl">igual</span>';const good=g>0?x>0:x<0,p=a!==0?' ('+(x>0?'+':'')+Math.round(x/Math.abs(a)*100)+'%)':'';return `<span class="${good?'pos':'neg'}">${x>0?'▲':'▼'} ${brl(Math.abs(x))}${p}</span>`};
+ return `<div class="card"><h3>Comparação mensal</h3><div class="cmpsel"><label>Mês A<select id="rcA">${opt(rcA)}</select></label><label>Mês B<select id="rcB">${opt(rcB)}</select></label></div>
+ <div class="cmp"><div class="ch"><span></span><b>${mlabel(rcA).slice(0,3)}/${rcA.slice(2,4)}</b><b>${mlabel(rcB).slice(0,3)}/${rcB.slice(2,4)}</b></div>${rows.map(r=>`<div class="cr"><span>${r[0]}</span><span>${brl(A[r[1]])}</span><span>${brl(B[r[1]])}</span><span class="cdf">${d(A[r[1]],B[r[1]],r[2])}</span></div>`).join('')}</div>
+ ${A.inc||A.exp||B.inc||B.exp||A.dp||B.dp?chart(['Receitas','Despesas','Dívidas'],[[A.inc,A.exp,A.dp],[B.inc,B.exp,B.dp]],['#94A3B8','var(--blue)']):noData('Sem lançamentos pagos nesses meses.')}
+ <div class="lbl"><i class="dot" style="background:#94A3B8"></i>${mlabel(rcA)} &nbsp; <i class="dot" style="background:var(--blue)"></i>${mlabel(rcB)}</div></div>`}
+function relIndic(){const f=relFlow(rpm),c=relCommit(rpm),cs=catSpend(rpm),over=Object.keys(S.limits||{}).filter(k=>limSt(k,cs[k]||{paid:0,plan:0})==='over'),td=todayStr(),dl=S.debts.filter(x=>balOf(x)>0&&x.due&&x.due<td),
+ res=f.inc-f.exp-f.dp,I=[];
+ I.push(['Saldo no fim do mês',brl(f.fin),f.fin<0?'late':'ok']);
+ I.push(['Recebido − pago no mês',brl(res),res<0?'pend':'ok']);
+ if(c.R>0)I.push(['Comprometimento da renda',Math.round(c.ratio*100)+'%',c.ratio>1?'late':c.ratio>.6?'pend':'ok']);
+ I.push(['Compromissos vencidos',c.late>0?brl(c.late):'nenhum',c.late>0?'late':'ok']);
+ I.push(['Dívidas vencidas',dl.length?dl.length+' ('+brl(sum(dl,balOf))+')':'nenhuma',dl.length?'late':'ok']);
+ if(Object.keys(S.limits||{}).length)I.push(['Limites por categoria',over.length?over.length+' estourado'+(over.length>1?'s':''):'dentro dos limites',over.length?'pend':'ok']);
+ const lb={ok:'Positivo',pend:'Atenção',late:'Crítico'};
+ return `<div class="card"><h3>Indicadores do mês</h3><div class="lbl">${mlabel(rpm)}</div>${I.map(x=>`<div class="rrow"><span>${x[0]}</span><b>${x[1]} ${rtag(x[2],lb[x[2]])}</b></div>`).join('')}</div>`}
+function relNew(){return relResumo()+relIndic()+relComp()+relCatShare()+relRecor()+relDividas()+relCompara()}
+Object.assign(ACT,{rpp:()=>{rpm=shift(rpm,-1);render()},rpn:()=>{rpm=shift(rpm,1);render()}});
+document.addEventListener('change',e=>{const t=e.target;if(t&&(t.id==='rcA'||t.id==='rcB')){if(t.id==='rcA')rcA=t.value;else rcB=t.value;render()}});
 function finishNoSec(){try{localStorage.setItem('wallstreet.secskip','1')}catch(e){}achCheck(true);markWelcomed();WEL.on=false;G=null;save();closeLk();render();toast('Tudo pronto, '+(S.owner.split(' ')[0]||'')+'!');tourSoon()}
 async function welApply(o,meta){let r;try{r=await bkpPrepare(o,meta,true)}catch(e){r={err:'Não foi possível verificar o arquivo.'}}
  if(r.err)return viewHave(r.err.replace(' Seus dados atuais não foram alterados.',''));const n=r.n;n.flags=(n.flags&&typeof n.flags==='object')?n.flags:{};n.flags.bkpAt=todayStr();S=n;G=null;open={};viewSetup(false,'import')}
@@ -1623,7 +1689,7 @@ const bkM=(v,neg)=>Number.isSafeInteger(v)&&(neg||v>=0)&&Math.abs(v)<=1e12,bkDay
 async function bkpHash(str,alg){if(alg==='sha256'){const h=new Uint8Array(await crypto.subtle.digest('SHA-256',enc.encode(str)));return 'sha256:'+[...h].map(b=>b.toString(16).padStart(2,'0')).join('')}
  let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return 'fnv:'+(h>>>0).toString(16)+'-'+str.length}
 const bkAlg=()=>(typeof crypto!=='undefined'&&crypto.subtle)?'sha256':'fnv';
-const bkpSig=o=>bkpHash(JSON.stringify([o.owner,o.opening||null,o.limits||{},o.items,o.inst,o.parc,o.debts,o.boxes,o.cards||[],o.org||null]),bkAlg());
+const bkpSig=o=>bkpHash(JSON.stringify([o.owner,o.opening||null,o.limits||{},o.items,o.inst,o.parc,o.debts,o.boxes,o.cards||[],o.org||null,o.pref?[o.pref.theme,o.pref.pal,o.pref.ms]:null]),bkAlg());
 async function bkpExportText(){let sum='';try{sum=await bkpHash(JSON.stringify(S),bkAlg())}catch(e){}return JSON.stringify({...S,__backup:{app:'wallstreet-backup',fmt:2,build:BUILD,at:new Date().toISOString(),sum}},null,1)}
 function bkpScan(x,d){if(d>14)return'aninhamento excessivo';if(x&&typeof x==='object')for(const k of Object.keys(x)){if(k==='__proto__'||k==='constructor'||k==='prototype')return k;const r=bkpScan(x[k],d+1);if(r)return r}return''}
 function bkpCheck(o){const E=[],W=[];
