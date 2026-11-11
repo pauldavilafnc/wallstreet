@@ -584,7 +584,7 @@ nav.ind button.on{background:transparent;box-shadow:none}nav button{z-index:1}
 /* ===== WALL STREET — Seu dinheiro, sob controle. =====
    Valores internos em CENTAVOS inteiros. Dados em localStorage. */
 'use strict';
-const KEY='wallstreet.v1',BUILD='5.2 · importação protegida de backups · 10/11/2026';
+const KEY='wallstreet.v1',BUILD='5.3 · segurança de acesso reforçada · 10/11/2026';
 const CATS={exp:['Alimentação','Transporte','Compras','Roupas','Lazer','Trabalho','Casa','Saúde','Educação','Financeiro','Tecnologia','Cuidados pessoais','Presentes','Outros'],inc:['Salário','Comissão','Freelancer','Outro']};
 const PALS=[['perola','Pérola','#E8EDF5'],['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['pink','Rosa','#DB2777'],['orange','Laranja','#EA580C'],['ouro','Ouro','#B88614'],['esmeralda','Esmeralda','#15803D'],['grafite','Grafite','#4B5563']];
 const PAYS=['Pix','Cartão de débito','Cartão de crédito','Dinheiro/Espécie','Outro'];
@@ -1436,9 +1436,41 @@ addEventListener('beforeunload',e=>{if(SAVING||SNAP){e.preventDefault();e.return
 function staleWarn(){if(STALEW){toast('Não foi possível salvar: os dados foram alterados em outra janela do app. Recarregue a página.',5000);return}STALEW=1;ask('Seus dados foram alterados em outra janela ou aba do aplicativo. Para não perder nada, esta página precisa ser recarregada. Recarregar agora?',()=>location.reload())}
 addEventListener('storage',e=>{if(e.storageArea!==localStorage||STALE)return;if(e.key===null||e.key===KEY||e.key===SECK){STALE=true;if(!(SECMODE&&!DEK)&&$('#lock').hidden)staleWarn()}});
 const secNow=()=>{try{const r=JSON.parse(localStorage.getItem(SECK));if(r&&r.d&&r.w)return(SEC0=r)}catch(e){}return SEC0};
-const fails=()=>{try{return JSON.parse(localStorage.getItem(FK))||{n:0,u:0}}catch(e){return{n:0,u:0}}};
-const failAdd=()=>{const f=fails();f.n++;if(f.n>=3)f.u=Date.now()+Math.min(60,5*2**(f.n-3))*1000;try{localStorage.setItem(FK,JSON.stringify(f))}catch(e){}};
-const failWait=()=>Math.max(0,Math.ceil((fails().u-Date.now())/1000));
+/* ----- controle de tentativas de acesso (senha e código de recuperação) -----
+   Conta ANTES de verificar (fechar a aba no meio não escapa e tentativas paralelas não multiplicam palpites), espera progressiva
+   com teto de 30 min (nunca bloqueia para sempre), guarda o estado em 3 lugares independentes (localStorage, IndexedDB e Cache)
+   e usa sempre o mais restritivo: apagar só um deles não zera nada. A espera diminui sozinha com o tempo sem tentativas.
+   Não toca em senha, chaves, código de recuperação nem nos dados. */
+const GDB='wallstreet-guard',GCN='wallstreet-guard-state',GMAX=1800,GSCHED=[0,0,0,15,30,60,120,300,600,900,1800];
+let GST={p:{n:0,u:0,t:0},r:{n:0,u:0,t:0}},GREADY=Promise.resolve();
+const fmtW=s=>s<60?s+'s':Math.floor(s/60)+'min'+(s%60?' '+(s%60)+'s':'');
+const gUrl=()=>location.origin+location.pathname.replace(/[^/]*$/,'')+'__guard';
+function gMerge(list){const o={p:{n:0,u:0,t:0},r:{n:0,u:0,t:0}};
+ for(const x of list){if(!x||typeof x!=='object')continue;const q=(x.p||x.r)?x:{p:x};
+  for(const k of ['p','r']){const a=q[k];if(a&&typeof a==='object'&&Number.isFinite(a.n)&&a.n>0){o[k].n=Math.max(o[k].n,Math.min(a.n|0,99));if(Number.isFinite(a.u))o[k].u=Math.max(o[k].u,a.u);if(Number.isFinite(a.t))o[k].t=Math.max(o[k].t,a.t)}}}
+ return o}
+function gEff(k,now){const a=GST[k],q=now-a.t;let n=a.n;if(a.t>0&&q>=0){if(q>=864e5)n=Math.min(n,2);else if(q>=72e5)n=Math.min(n,6)}return{n,u:Math.min(a.u,now+GMAX*1000)}}   // espera/contagem efetivas: sem tentativas por horas, volta a ser leve; valor absurdo vira no máximo 30 min
+const gWaitS=k=>{const e=gEff(k,Date.now());return Math.max(0,Math.ceil((e.u-Date.now())/1000))};
+const failWait=()=>gWaitS('p');
+const gLsRead=()=>{try{return JSON.parse(localStorage.getItem(FK))}catch(e){return null}};
+const gIDB=()=>new Promise((ok,no)=>{try{const r=indexedDB.open(GDB,1);r.onupgradeneeded=()=>r.result.createObjectStore('g');r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)}catch(e){no(e)}});
+const gIdbGet=async()=>{try{const d=await gIDB();return await new Promise(ok=>{const q=d.transaction('g').objectStore('g').get('s');q.onsuccess=()=>{d.close();ok(q.result||null)};q.onerror=()=>{d.close();ok(null)}})}catch(e){return null}};
+const gIdbSet=async v=>{try{const d=await gIDB();return await new Promise(ok=>{const t=d.transaction('g','readwrite'),s=t.objectStore('g');if(v===null)s.delete('s');else s.put(v,'s');t.oncomplete=()=>{d.close();ok(true)};t.onerror=t.onabort=()=>{d.close();ok(false)}})}catch(e){return false}};
+const gCacheGet=async()=>{try{const c=await caches.open(GCN),r=await c.match(gUrl());return r?await r.json():null}catch(e){return null}};
+const gCacheSet=async v=>{try{const c=await caches.open(GCN);if(v===null)await c.delete(gUrl());else await c.put(gUrl(),new Response(JSON.stringify(v)));return true}catch(e){return false}};
+async function gLoad(){const a=gLsRead(),[b,c]=await Promise.all([gIdbGet(),gCacheGet()]);GST=gMerge([a,b,c]);
+ const j=JSON.stringify({v:2,...GST});if(GST.p.n>0||GST.r.n>0){if(JSON.stringify(a)!==j)try{localStorage.setItem(FK,j)}catch(e){}
+  if(JSON.stringify(b)!==j)gIdbSet({v:2,...GST});if(JSON.stringify(c)!==j)gCacheSet({v:2,...GST})}}      // se alguém apagou um dos três, é restaurado a partir dos outros
+async function gSave(){const v={v:2,...GST};try{localStorage.setItem(FK,JSON.stringify(v))}catch(e){}await Promise.all([gIdbSet(v),gCacheSet(v)])}
+async function gClear(){GST={p:{n:0,u:0,t:0},r:{n:0,u:0,t:0}};try{localStorage.removeItem(FK)}catch(e){}await Promise.all([gIdbSet(null),gCacheSet(null)])}
+/* reserva uma tentativa: {wait} se ainda há espera (nada é verificado nem contado); senão conta a tentativa e libera */
+async function gTry(k){await GREADY;await gLoad();const now=Date.now(),e=gEff(k,now),w=Math.max(0,Math.ceil((e.u-now)/1000));if(w>0)return{wait:w};
+ if(now-GST[k].t<1200&&GST[k].t<=now)return{wait:1};   // rajada: no mínimo ~1 s entre tentativas (não conta)
+ const n=e.n+1;GST[k]={n,t:now,u:n>=3?now+GSCHED[Math.min(n,GSCHED.length-1)]*1000:0};await gSave();return{ok:1}}
+async function gCheckPw(cur){const g=await gTry('p');if(g.wait)return'Muitas tentativas. Aguarde '+fmtW(g.wait)+'.';if(!await needPw(cur))return'Senha atual incorreta.';await gClear();return''}
+addEventListener('storage',e=>{if(e.key===FK||e.key===null){const a=gLsRead();GST=gMerge([a,GST])}});
+GST=gMerge([gLsRead()]);
+GREADY=gLoad().then(()=>{if(!LK.hidden&&$('#lf'))viewLogin()}).catch(()=>{});
 const pwErr=(u,p,c)=>nu(u).length<3?'Usuário: mínimo de 3 caracteres.':np(p).length<8?'A senha precisa ter pelo menos 8 caracteres.':nu(u)===np(p).toLowerCase()?'A senha não pode ser igual ao usuário.':p!==c?'As senhas não conferem.':'';
 
 /* ----- mascote "Wally" na tela de login. Só observa EVENTOS e o estado visual do campo (mostrar/ocultar);
@@ -1466,7 +1498,7 @@ LK.addEventListener('focusin',e=>{const t=e.target;if(!wolfEl()||t.tagName!=='IN
 LK.addEventListener('focusout',()=>{if(!wolfEl())return;setTimeout(()=>{const a=document.activeElement;if(!(a&&LK.contains(a)&&(a.tagName==='INPUT'||(a.dataset&&a.dataset.lk==='eye'))))wolfState('')},60)});
 const lockUI=(h,m)=>{LK.hidden=false;LK.innerHTML=`<button type="button" class="lkth" data-lk="theme" aria-label="Alternar entre tema claro e escuro"><svg class="mn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 119.8 3.5a6.8 6.8 0 0010.7 10.7z"/></svg><svg class="sn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7"/></svg></button><div class="lk">${wolfHtml('lkw')}<h1>WALL STREET</h1><p class="sub">Seu dinheiro, sob controle.</p>${h}</div>`};
 const eye='<button type="button" class="eyl" data-lk="eye" aria-label="Mostrar ou ocultar senha" aria-pressed="false"><svg viewBox="0 0 44 30" aria-hidden="true"><path class="eg" d="M3 15C10 4 34 4 41 15C34 26 10 26 3 15Z"/><g class="eo"><circle class="ei" cx="22" cy="15" r="9.4"/><g class="pp"><circle class="ep" cx="22" cy="15" r="5.2"/><circle cx="25" cy="11.6" r="2.8" fill="#fff"/></g></g><path class="ec" d="M5 14.5C12 24 32 24 39 14.5M11 21l-2.6 3.4M22 24.6V28.6M33 21l2.6 3.4"/></svg></button>';
-function viewLogin(msg){const w=failWait();lockUI(`<form id="lf"><label>Usuário<input name="u" autocomplete="username" autocapitalize="none" value="${esc(SEC0&&SEC0.u||'')}"></label><label>Senha<div class="pw"><input name="p" type="password" autocomplete="current-password">${eye}</div></label><div class="err" id="le">${esc(msg||'')}</div><button class="b1 full"${w?' disabled':''}>${w?'Aguarde '+w+'s':'Entrar'}</button></form><p style="text-align:center;margin-top:14px"><button class="b2" data-lk="rec">Esqueceu a senha?</button></p>`);if(w)setTimeout(()=>{if(!LK.hidden&&$('#lf'))viewLogin(msg)},1000)}
+function viewLogin(msg){const w=failWait();lockUI(`<form id="lf"><label>Usuário<input name="u" autocomplete="username" autocapitalize="none" value="${esc(SEC0&&SEC0.u||'')}"></label><label>Senha<div class="pw"><input name="p" type="password" autocomplete="current-password">${eye}</div></label><div class="err" id="le">${esc((msg||'')+(w?(msg?' ':'')+'Muitas tentativas. Aguarde o contador terminar.':''))}</div><button class="b1 full"${w?' disabled':''}>${w?'Aguarde '+fmtW(w):'Entrar'}</button></form><p style="text-align:center;margin-top:14px"><button class="b2" data-lk="rec">Esqueceu a senha?</button></p>`);if(w)setTimeout(()=>{if(!LK.hidden&&$('#lf'))viewLogin(msg)},1000)}
 function viewRecover(msg){lockUI(`<h2 style="text-align:center">Recuperar acesso</h2><p class="lbl" style="text-align:center;margin:6px 0 12px">Digite o código de recuperação (20 caracteres) e crie um novo usuário e senha. Seus dados são mantidos. Um novo código será gerado.</p><form id="rf"><label>Código de recuperação<input name="k" autocapitalize="characters" autocomplete="off" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX"></label><label>Usuário<input name="u" autocomplete="username" autocapitalize="none" value="${esc(SEC0&&SEC0.u||'')}"></label><label>Nova senha (mínimo 8 caracteres)<div class="pw"><input name="p" type="password" autocomplete="new-password">${eye}</div></label><label>Repita a nova senha<input name="c" type="password" autocomplete="new-password"></label><div class="err" id="le">${esc(msg||'')}</div><button class="b1 full">Redefinir senha</button></form><p style="text-align:center;margin-top:14px"><button class="b2" data-lk="back">Voltar</button></p>`)}
 function viewSetup(fromSettings,ctx){WEL.ctx=ctx||'';const W=ctx==='welcome',I=ctx==='import';
  lockUI(`<h2 style="text-align:center">${W?'Crie seu acesso':I?'Proteger seus dados?':'Proteger o WALL STREET'}</h2><p class="lbl" style="text-align:center;margin:6px 0 12px">${I?'Seus dados foram restaurados. Quer proteger com usuário e senha neste aparelho? Eles ficam criptografados e só abrem com a senha.':'Crie um usuário e uma senha. Seus dados ficam criptografados neste aparelho e só abrem com a senha.'}</p><form id="sf"><label>Usuário<input name="u" autocomplete="username" autocapitalize="none" value="${esc(nu((S.owner||'').split(' ')[0]))}"></label><label>Senha (mínimo 8 caracteres)<div class="pw"><input name="p" type="password" autocomplete="new-password">${eye}</div></label><label>Repita a senha<input name="c" type="password" autocomplete="new-password"></label><div class="err" id="le"></div><button class="b1 full">${W?'Criar minha conta':'Criar proteção'}</button></form><p style="text-align:center;margin-top:14px"><button class="b2" data-lk="${W?'backcolor':fromSettings?'cancel':'skip'}">${W?'Voltar':fromSettings?'Cancelar':'Agora não'}</button></p>`)}
@@ -1536,7 +1568,7 @@ const closeLk=()=>{LK.hidden=true;LK.innerHTML='';CODE_NEXT=null};
 async function openApp(dek,data,sec){if(!valid(data)){viewLogin('Os dados protegidos estão inválidos. Use o código de recuperação ou importe um backup.');return}
  const PRE=JSON.stringify(data);STALE=false;STALEW=0;fixPref(migrate(data));S=data;if(LOCKTHEME){S.pref.theme=LOCKTHEME;LOCKTHEME=null}DEK=dek;SECOBJ=sec;SEC0=sec;achCheck(true);document.body.classList.remove('locked');closeLk();G=null;render();loadNews();if(JSON.stringify(S)!==PRE)save();setTimeout(ntCheck,600);setTimeout(scRun,500);setTimeout(updShow,900)}
 async function lockNow(){try{await persistQ}catch(e){}location.reload()}
-async function finishSetup(st,u,p){STALE=false;STALEW=0;localStorage.setItem(SECK,JSON.stringify(st.sec));
+async function finishSetup(st,u,p){STALE=false;STALEW=0;await gClear();localStorage.setItem(SECK,JSON.stringify(st.sec));
  const chk=await tryPw(st.sec,u,p);if(!chk||JSON.stringify(chk.data)!==(st.snap||JSON.stringify(S))){localStorage.removeItem(SECK);throw new Error('verificação')}
  SECOBJ=st.sec;SEC0=st.sec;DEK=chk.dek;SECMODE=true;Object.keys(localStorage).filter(k=>k===KEY||k.startsWith(KEY+'.pre-v2')||k.startsWith(KEY+'.invalido-')).forEach(k=>localStorage.removeItem(k));persist();markWelcomed();WEL.on=false}
 LK.addEventListener('click',async e=>{const b=e.target.closest('[data-lk]');if(!b)return;const a=b.dataset.lk;
@@ -1548,9 +1580,9 @@ LK.addEventListener('click',async e=>{const b=e.target.closest('[data-lk]');if(!
 LK.addEventListener('change',e=>{if(e.target.id==='skok')$('#skdone').disabled=!e.target.checked});
 LK.addEventListener('submit',async e=>{e.preventDefault();if(secBusy)return;const id=e.target.id,f=Object.fromEntries(new FormData(e.target)),btn=e.target.querySelector('button:not([type=button])'),err=m=>{const x=$('#le');if(x)x.textContent=m};
  const go=async fn=>{secBusy=true;const t=btn.textContent;btn.disabled=true;btn.textContent='Verificando…';try{await fn()}catch(x){err('Algo deu errado. Tente novamente.');console.error(x)}secBusy=false;if($('#'+id)){btn.disabled=false;btn.textContent=t}};
- if(id==='lf'){if(failWait())return;await go(async()=>{const S0=secNow(),r=await tryPw(S0,f.u,f.p);if(!r){failAdd();viewLogin('Usuário ou senha incorretos.');return}try{localStorage.removeItem(FK)}catch(x){}await openApp(r.dek,r.data,S0)})}
- else if(id==='rf'){if(failWait()){err('Muitas tentativas. Aguarde '+failWait()+'s.');return}const m=pwErr(f.u,f.p,f.c);if(m){err(m);return}
-  await go(async()=>{const S0=secNow(),r=await tryCode(S0,f.k);if(!r){failAdd();err('Código de recuperação inválido.');return}try{localStorage.removeItem(FK)}catch(x){}
+ if(id==='lf'){await go(async()=>{const g=await gTry('p');if(g.wait){viewLogin(g.wait<=1?'Aguarde um instante e tente de novo.':'');return}const S0=secNow(),r=await tryPw(S0,f.u,f.p);if(!r){viewLogin('Usuário ou senha incorretos.');return}await gClear();await openApp(r.dek,r.data,S0)})}
+ else if(id==='rf'){if(gWaitS('r')){err('Muitas tentativas. Aguarde '+fmtW(gWaitS('r'))+'.');return}const m=pwErr(f.u,f.p,f.c);if(m){err(m);return}
+  await go(async()=>{const g=await gTry('r');if(g.wait){err('Muitas tentativas. Aguarde '+fmtW(g.wait)+'.');return}const S0=secNow(),r=await tryCode(S0,f.k);if(!r){err('Código de recuperação inválido.');return}await gClear();
    const {sec,code}=await wrapAll(f.u,f.p,r.raw,true);sec.d=S0.d;viewCode(code,async()=>{localStorage.setItem(SECK,JSON.stringify(sec));await openApp(r.dek,r.data,sec);toast('Senha redefinida ✓')},'Novo código de recuperação')})}
  else if(id==='nf'){const nm=String(f.n||'').trim().replace(/\s+/g,' ');if(!nm){err('Digite seu nome.');return}if(nm.length>30){err('Use no máximo 30 caracteres.');return}WEL.name=nm;S.owner=nm;G=null;if(WEL.nosec||!hasCrypto)finishNoSec();else viewMascot()}
  else if(id==='mf'){viewColor()}
@@ -1568,14 +1600,14 @@ function secCard(){if(!hasCrypto)return'<div class="card"><h3>Segurança</h3><p 
 document.addEventListener('change',e=>{if(e.target.id==='lkSel'){S.pref.lk=+e.target.value;commit('Bloqueio automático alterado')}});
 const needPw=async cur=>{const r=await tryPw(SECOBJ,SECOBJ.u,cur);return r};
 function chgForm(){form('Alterar usuário/senha',[{k:'cur',l:'Senha atual',t:'pw',ac:'current-password'},{k:'u',l:'Usuário',v:SECOBJ.u,ac:'username'},{k:'p',l:'Nova senha (mínimo 8)',t:'pw',ac:'new-password'},{k:'c',l:'Repita a nova senha',t:'pw',ac:'new-password'}],async v=>{
- if(secBusy)return'Aguarde…';const m=pwErr(v.u,v.p,v.c);if(m)return m;secBusy=true;try{if(failWait())return'Muitas tentativas. Aguarde '+failWait()+'s.';if(!await needPw(v.cur)){failAdd();return'Senha atual incorreta.'}
+ if(secBusy)return'Aguarde…';const m=pwErr(v.u,v.p,v.c);if(m)return m;secBusy=true;try{{const e=await gCheckPw(v.cur);if(e)return e}
   await persistQ;const raw=new Uint8Array(await crypto.subtle.exportKey('raw',DEK)),{sec}=await wrapAll(v.u,v.p,raw,false,SECOBJ);sec.d=SECOBJ.d;SECOBJ=sec;SEC0=sec;localStorage.setItem(SECK,JSON.stringify(sec));try{localStorage.removeItem(FK)}catch(x){}toast('Senha alterada ✓');render()}finally{secBusy=false}})}
 function newCodeForm(){form('Gerar novo código de recuperação',[{k:'cur',l:'Senha atual',t:'pw',ac:'current-password'}],async v=>{
- if(secBusy)return'Aguarde…';secBusy=true;try{if(failWait())return'Muitas tentativas. Aguarde '+failWait()+'s.';if(!await needPw(v.cur)){failAdd();return'Senha atual incorreta.'}
+ if(secBusy)return'Aguarde…';secBusy=true;try{{const e=await gCheckPw(v.cur);if(e)return e}
   await persistQ;const raw=new Uint8Array(await crypto.subtle.exportKey('raw',DEK)),code=newCode(),rs=rnd(16),r=await seal(await kdf(normCode(code),rs,150000),raw);
   setTimeout(()=>viewCode(code,async()=>{await persistQ;SECOBJ={...SECOBJ,ri:150000,rs:b64(rs),r};SEC0=SECOBJ;localStorage.setItem(SECK,JSON.stringify(SECOBJ));closeLk();toast('Novo código ativado — o anterior deixou de valer')},'Novo código de recuperação'),50)}finally{secBusy=false}})}
 function offForm(){form('Remover proteção',[{k:'cur',l:'Senha atual',t:'pw',ac:'current-password'}],async v=>{
- if(secBusy)return'Aguarde…';secBusy=true;try{if(failWait())return'Muitas tentativas. Aguarde '+failWait()+'s.';if(!await needPw(v.cur)){failAdd();return'Senha atual incorreta.'}
+ if(secBusy)return'Aguarde…';secBusy=true;try{{const e=await gCheckPw(v.cur);if(e)return e}
   await persistQ;localStorage.setItem(KEY,JSON.stringify(S));localStorage.removeItem(SECK);SECMODE=false;DEK=null;SECOBJ=null;SEC0=null;toast('Proteção removida — dados voltaram a ficar sem senha');render()}finally{secBusy=false}})}
 /* ===== BACKUP CRIPTOGRAFADO: arquivo .json cifrado com uma senha própria (AES-256-GCM, chave derivada por PBKDF2 de 600.000 voltas) ===== */
 async function saveText(fn,txt){try{const dl=window.claude&&await window.claude.use('downloads');if(dl){await dl.save({filename:fn,data:txt});return true}
