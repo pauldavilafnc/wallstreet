@@ -584,7 +584,7 @@ nav.ind button.on{background:transparent;box-shadow:none}nav button{z-index:1}
 /* ===== WALL STREET — Seu dinheiro, sob controle. =====
    Valores internos em CENTAVOS inteiros. Dados em localStorage. */
 'use strict';
-const KEY='wallstreet.v1',BUILD='5.1 · cache seguro do app · 10/11/2026';
+const KEY='wallstreet.v1',BUILD='5.2 · importação protegida de backups · 10/11/2026';
 const CATS={exp:['Alimentação','Transporte','Compras','Roupas','Lazer','Trabalho','Casa','Saúde','Educação','Financeiro','Tecnologia','Cuidados pessoais','Presentes','Outros'],inc:['Salário','Comissão','Freelancer','Outro']};
 const PALS=[['perola','Pérola','#E8EDF5'],['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['pink','Rosa','#DB2777'],['orange','Laranja','#EA580C'],['ouro','Ouro','#B88614'],['esmeralda','Esmeralda','#15803D'],['grafite','Grafite','#4B5563']];
 const PAYS=['Pix','Cartão de débito','Cartão de crédito','Dinheiro/Espécie','Outro'];
@@ -1318,7 +1318,7 @@ function boxForm(id){const b=id?find(S.boxes,id):null;
 
 /* ----- ações (um único listener delegado: sem eventos duplicados) ----- */
 const ACT={
- nav:id=>go(id),close:closeOv,yes:()=>{const f=pend;closeOv();if(f)f()},
+ nav:id=>go(id),close:closeOv,yes:()=>{const f=pend;pend=null;closeOv();if(f)f()},
  mp:()=>{vm=shift(vm,-1);render()},mn:()=>{vm=shift(vm,1);render()},yp:()=>{ry--;render()},yn:()=>{ry++;render()},
  tog:(id,b)=>{const i=find(S.items,id),m=b.dataset.m||vm;if(!i)return;i.done=i.done||{};i.paidOn=i.paidOn||{};if(i.done[m]!=null){delete i.done[m];delete i.paidOn[m]}else{i.done[m]=i.c;i.paidOn[m]=todayStr()}commit()},
  avs:()=>{AVT=S.pref.av.m;avSheet()},avpick:id=>{AVT=cl(id,10);avSheet()},avok:()=>{S.pref.av.m=AVT;S.pref.av.set=1;save();closeOv();render();toast('Avatar atualizado')},
@@ -1342,7 +1342,7 @@ const ACT={
 
  qinc:()=>{vm=ymOf(new Date());itemForm('inc')},qexp:()=>{vm=ymOf(new Date());itemForm('exp',null,0)},
  own:()=>{const v=$('#own').value.trim();if(!v)return toast('Informe um nome');S.owner=v;commit()},
- exp:async()=>{try{const dl=window.claude&&await window.claude.use('downloads');const txt=JSON.stringify(S,null,1),fn='wallstreet-backup-'+todayStr()+'.json';
+ exp:async()=>{try{const dl=window.claude&&await window.claude.use('downloads');const txt=await bkpExportText(),fn='wallstreet-backup-'+todayStr()+'.json';
   if(dl){await dl.save({filename:fn,data:txt});toast('Backup exportado');flagBkp();return}
   const u=URL.createObjectURL(new Blob([txt],{type:'application/json'})),a=document.createElement('a');a.href=u;a.download=fn;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000);toast('Backup exportado');flagBkp()}catch(e){if(e&&e.code==='declined')return;toast('Não foi possível exportar')}},
  imp:()=>{$('#file').value='';$('#file').click()},
@@ -1351,9 +1351,9 @@ const ACT={
 Object.assign(ACT,NTACT,ICACT,ST2ACT,SKACT);
 document.addEventListener('click',e=>{if(e.target.id==='ov'){closeOv();return}const b=e.target.closest('[data-act]');if(!b)return;const f=ACT[b.dataset.act];if(f)f(b.dataset.id,b)});
 document.addEventListener('change',e=>{if(e.target.id==='rmSel'){rm=e.target.value;render()}});
-$('#file').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(WEL.on&&WEL.pick){WEL.pick=false;return welImport(f)}if(f.size>5e6)return toast('Arquivo grande demais');
- const r=new FileReader();r.onload=()=>{let o;try{o=JSON.parse(r.result)}catch(x){return toast('Arquivo inválido: não é um JSON')}
-  if(o&&o.app==='wallstreet-backup'&&o.enc===true)return importEnc(o);importObj(o)};r.onerror=()=>toast('Falha ao ler o arquivo');r.readAsText(f)});
+$('#file').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(WEL.on&&WEL.pick){WEL.pick=false;return welImport(f)}if(f.size>5e6)return toast('O arquivo é grande demais para ser um backup (máximo 5 MB). Seus dados atuais não foram alterados.',6000);if(f.size===0)return toast('O arquivo está vazio. Seus dados atuais não foram alterados.',6000);
+ const r=new FileReader();r.onload=()=>{let o;try{o=JSON.parse(String(r.result).replace(/^\uFEFF/,''))}catch(x){return toast('Arquivo corrompido ou incompleto: não foi possível ler o conteúdo. Seus dados atuais não foram alterados.',7000)}
+  if(o&&o.app==='wallstreet-backup'&&o.enc===true)return importEnc(o);importObj(o)};r.onerror=()=>toast('Falha ao ler o arquivo. Seus dados atuais não foram alterados.',6000);r.readAsText(f)});
 window.addEventListener('storage',async e=>{if(e.storageArea!==localStorage||STALE)return;if(!(e.key===null||e.key===KEY||e.key===SECK))return;
  try{let same=false;if(e.key===KEY&&!SECMODE)same=e.newValue!==null&&e.newValue===JSON.stringify(S);else if(e.key===SECK&&SECMODE&&DEK&&e.newValue)same=dec.decode(await unseal(DEK,JSON.parse(e.newValue).d))===JSON.stringify(S);if(same)return}catch(x){}
  STALE=true;if(!(SECMODE&&!DEK)&&$('#lock').hidden)staleWarn()});
@@ -1526,9 +1526,10 @@ function colorPick(id){if(!PALS.some(x=>x[0]===id))return;S.pref.pal=id;applyPre
 function colorSync(){const dk=document.documentElement.dataset.theme==='dark';LK.querySelectorAll('[data-lk=cmode]').forEach(x=>{const on=(x.dataset.id==='dark')===dk;x.classList.toggle('b1',on);x.classList.toggle('b2',!on)})}
 function modePick(m){S.pref.theme=m==='dark'?'dark':'light';applyPref();colorSync()}
 function finishNoSec(){try{localStorage.setItem('wallstreet.secskip','1')}catch(e){}achCheck(true);markWelcomed();WEL.on=false;G=null;save();closeLk();render();toast('Tudo pronto, '+(S.owner.split(' ')[0]||'')+'!');tourSoon()}
-function welApply(o){if(!valid(o)||typeof o.owner!=='string')return viewHave('Arquivo inválido: não é um backup do WALL STREET.');migrate(o);if(!o.pref||typeof o.pref!=='object')o.pref=S.pref;fixPref(o);o.flags=(o.flags&&typeof o.flags==='object')?o.flags:{};o.flags.bkpAt=todayStr();S=o;G=null;open={};viewSetup(false,'import')}
-function welImport(f){if(f.size>5e6)return viewHave('Arquivo grande demais.');const r=new FileReader();r.onload=()=>{let o;try{o=JSON.parse(r.result)}catch(x){return viewHave('Arquivo inválido: não é um JSON.')}
- if(o&&o.app==='wallstreet-backup'&&o.enc===true){if(!hasCrypto)return viewHave('Este navegador não abre backups criptografados (precisa de https).');if(!(Number.isInteger(o.it)&&o.it>=100000&&o.it<=2000000)||typeof o.s!=='string'||typeof o.iv!=='string'||typeof o.ct!=='string')return viewHave('Arquivo inválido: backup criptografado danificado.');return viewBkPw(o)}
+async function welApply(o,meta){let r;try{r=await bkpPrepare(o,meta,true)}catch(e){r={err:'Não foi possível verificar o arquivo.'}}
+ if(r.err)return viewHave(r.err.replace(' Seus dados atuais não foram alterados.',''));const n=r.n;n.flags=(n.flags&&typeof n.flags==='object')?n.flags:{};n.flags.bkpAt=todayStr();S=n;G=null;open={};viewSetup(false,'import')}
+function welImport(f){if(f.size>5e6)return viewHave('O arquivo é grande demais para ser um backup (máximo 5 MB).');if(f.size===0)return viewHave('O arquivo está vazio.');const r=new FileReader();r.onload=()=>{let o;try{o=JSON.parse(String(r.result).replace(/^\uFEFF/,''))}catch(x){return viewHave('Arquivo corrompido ou incompleto: não foi possível ler o conteúdo.')}
+ if(o&&o.app==='wallstreet-backup'&&o.enc===true){if(!hasCrypto)return viewHave('Este navegador não abre backups criptografados (precisa de https).');if(!(Number.isInteger(o.it)&&o.it>=100000&&o.it<=2000000)||typeof o.s!=='string'||typeof o.iv!=='string'||typeof o.ct!=='string')return viewHave('Backup criptografado danificado ou incompleto.');if(o.v!=null&&(!Number.isInteger(o.v)||o.v>1))return viewHave('Backup criptografado de uma versão mais nova do app; atualize o app antes de importar.');return viewBkPw(o)}
  welApply(o)};r.onerror=()=>viewHave('Falha ao ler o arquivo.');r.readAsText(f)}
 function viewCode(code,next,title){CODE_NEXT=next;lockUI(`<h2 style="text-align:center">${title||'Código de recuperação'}</h2><p class="lbl" style="text-align:center;margin:6px 0 12px">Se você esquecer a senha, <b>este código é a única forma</b> de recuperar os dados. Anote em papel ou guarde fora deste celular. Ele <b>não será mostrado de novo</b>.</p><div class="code" id="skcode">${code}</div><div class="acts" style="justify-content:center"><button class="b2" data-lk="copy">Copiar código</button></div><label style="display:flex;gap:10px;align-items:center;margin:14px 0;color:var(--navy)"><input type="checkbox" id="skok" style="width:24px;height:24px;min-height:24px;margin:0;flex:none"> Guardei o código em lugar seguro</label><div class="err" id="skerr"></div><button class="b1 full" id="skdone" data-lk="done" disabled>Concluir</button>`)}
 const closeLk=()=>{LK.hidden=true;LK.innerHTML='';CODE_NEXT=null};
@@ -1554,7 +1555,7 @@ LK.addEventListener('submit',async e=>{e.preventDefault();if(secBusy)return;cons
  else if(id==='nf'){const nm=String(f.n||'').trim().replace(/\s+/g,' ');if(!nm){err('Digite seu nome.');return}if(nm.length>30){err('Use no máximo 30 caracteres.');return}WEL.name=nm;S.owner=nm;G=null;if(WEL.nosec||!hasCrypto)finishNoSec();else viewMascot()}
  else if(id==='mf'){viewColor()}
  else if(id==='cf'){viewSetup(false,'welcome')}
- else if(id==='bf'){const o=WEL.bk;await go(async()=>{let d;try{d=JSON.parse(dec.decode(await unseal(await kdf(np(f.p),ub64(o.s),o.it),{iv:o.iv,ct:o.ct})))}catch(x){viewBkPw(o,'Senha incorreta ou arquivo corrompido.');return}welApply(d)})}
+ else if(id==='bf'){const o=WEL.bk;await go(async()=>{let d;try{d=JSON.parse(dec.decode(await unseal(await kdf(np(f.p),ub64(o.s),o.it),{iv:o.iv,ct:o.ct})))}catch(x){viewBkPw(o,'Senha incorreta ou arquivo corrompido.');return}await welApply(d,{at:o.at})})}
  else if(id==='sf'){const m=pwErr(f.u,f.p,f.c);if(m){err(m);return}
   await go(async()=>{const dek=await crypto.subtle.generateKey({name:'AES-GCM',length:256},true,['encrypt','decrypt']),raw=new Uint8Array(await crypto.subtle.exportKey('raw',dek)),{sec,code}=await wrapAll(f.u,f.p,raw,true);const snap=JSON.stringify(S);sec.d=await seal(dek,enc.encode(snap));
    viewCode(code,async()=>{await finishSetup({sec,snap},f.u,f.p);closeLk();render();toast(WEL.ctx==='welcome'?'Conta criada! Tudo pronto ✓':'Proteção ativada ✓');{const nw=WEL.ctx==='welcome';WEL.ctx='';if(nw)tourSoon()}},'Seu código de recuperação')})}});
@@ -1584,13 +1585,82 @@ function expEncForm(){form('Exportar backup criptografado',[{k:'p',l:'Senha do b
  secBusy=true;try{const salt=rnd(16),it=600000,sl=await seal(await kdf(np(v.p),salt,it),enc.encode(JSON.stringify(S)));
   const out=JSON.stringify({app:'wallstreet-backup',enc:true,v:1,at:todayStr(),it,s:b64(salt),iv:sl.iv,ct:sl.ct},null,1);
   if(await saveText('wallstreet-backup-criptografado-'+todayStr()+'.json',out))setTimeout(()=>{toast('Backup criptografado exportado');flagBkp()},60)}catch(e){return'Não foi possível exportar.'}finally{secBusy=false}})}
-function importObj(o){if(!valid(o)||typeof o.owner!=='string')return toast('Arquivo inválido: não é um backup do WALL STREET');
- ask('Substituir os dados atuais pelo backup selecionado?',()=>{migrate(o);if(!o.pref||typeof o.pref!=='object')o.pref=S.pref;o.flags=(o.flags&&typeof o.flags==='object')?o.flags:{};o.flags.bkpAt=todayStr();S=o;open={};commit('Backup importado ✓')})}
+/* ===== BACKUP: validação completa, confirmação com resumo, proteção contra duplicadas e importação atômica ===== */
+const BK_V=2,BKYM=/^\d{4}-(0[1-9]|1[0-2])$/,BKDT=/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;let IMPBUSY=0;
+const bkM=(v,neg)=>Number.isSafeInteger(v)&&(neg||v>=0)&&Math.abs(v)<=1e12,bkDay=v=>Number.isInteger(v)&&v>=1&&v<=31,bkTx=v=>typeof v==='string'?v.slice(0,28):'';
+async function bkpHash(str,alg){if(alg==='sha256'){const h=new Uint8Array(await crypto.subtle.digest('SHA-256',enc.encode(str)));return 'sha256:'+[...h].map(b=>b.toString(16).padStart(2,'0')).join('')}
+ let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return 'fnv:'+(h>>>0).toString(16)+'-'+str.length}
+const bkAlg=()=>(typeof crypto!=='undefined'&&crypto.subtle)?'sha256':'fnv';
+const bkpSig=o=>bkpHash(JSON.stringify([o.owner,o.opening||null,o.limits||{},o.items,o.inst,o.parc,o.debts,o.boxes,o.cards||[],o.org||null]),bkAlg());
+async function bkpExportText(){let sum='';try{sum=await bkpHash(JSON.stringify(S),bkAlg())}catch(e){}return JSON.stringify({...S,__backup:{app:'wallstreet-backup',fmt:2,build:BUILD,at:new Date().toISOString(),sum}},null,1)}
+function bkpScan(x,d){if(d>14)return'aninhamento excessivo';if(x&&typeof x==='object')for(const k of Object.keys(x)){if(k==='__proto__'||k==='constructor'||k==='prototype')return k;const r=bkpScan(x[k],d+1);if(r)return r}return''}
+function bkpCheck(o){const E=[],W=[];
+ if(!o||typeof o!=='object'||Array.isArray(o))return{E:['o conteúdo não é um backup do WALL STREET (formato inesperado)'],W};
+ const bad=bkpScan(o,0);if(bad)return{E:['o arquivo tem estrutura suspeita ('+bad+') e por segurança não foi aberto'],W};
+ const miss=['items','inst','parc','debts','boxes'].filter(k=>!Array.isArray(o[k]));
+ if(miss.length)return{E:['o arquivo está incompleto ou não é um backup do WALL STREET (faltam: '+miss.join(', ')+')'],W};
+ if(typeof o.owner!=='string')E.push('o nome do proprietário não é um texto válido');
+ if(o.v!=null){if(!Number.isInteger(o.v)||o.v<1)E.push('a versão dos dados é inválida');else if(o.v>BK_V)E.push('ele foi feito por uma versão mais nova do aplicativo (dados v'+o.v+'); atualize o app antes de importar')}else W.push('feito por uma versão antiga do app (será atualizado)');
+ if(o.limits!=null&&(typeof o.limits!=='object'||Array.isArray(o.limits)||!Object.values(o.limits).every(v=>bkM(v)&&v>0)))E.push('os limites de categoria têm valores inválidos');
+ if(o.opening!=null&&(typeof o.opening!=='object'||!bkM(o.opening.c)))E.push('o saldo inicial é inválido');
+ ['org','ntf','flags','pref','ach'].forEach(k=>{if(o[k]!=null&&(typeof o[k]!=='object'||Array.isArray(o[k])))E.push('o campo "'+k+'" tem formato inválido')});
+ if(o.cards!=null&&!Array.isArray(o.cards))E.push('a lista de cartões é inválida');
+ [['items','lançamentos'],['inst','parcelados'],['parc','parcelas'],['debts','dívidas'],['boxes','caixinhas'],['cards','cartões']].forEach(([k,n])=>{if(Array.isArray(o[k])&&o[k].length>20000)E.push('há '+n+' demais ('+o[k].length+'); o arquivo parece corrompido')});
+ if(E.length)return{E,W};
+ const obj=x=>x&&typeof x==='object'&&!Array.isArray(x);
+ o.items.forEach((i,x)=>{if(!obj(i))return E.push('o lançamento nº '+(x+1)+' está danificado');if(i.t!=='inc'&&i.t!=='exp')return E.push('o lançamento nº '+(x+1)+' tem tipo inválido');
+  const w=(i.t==='inc'?'a receita':'a despesa')+' "'+bkTx(i.d)+'" (nº '+(x+1)+')';
+  if(!bkM(i.c))E.push(w+' tem valor inválido');if(i.d!=null&&typeof i.d!=='string')E.push(w+' tem descrição inválida');if(i.day!=null&&!bkDay(i.day))E.push(w+' tem dia inválido');
+  if(i.fixed){if(!BKYM.test(i.from||''))E.push(w+' tem mês de início inválido')}else if(!BKYM.test(i.ym||''))E.push(w+' tem mês inválido');
+  if(i.done!=null&&(!obj(i.done)||Object.entries(i.done).some(([k,v])=>!BKYM.test(k)||!bkM(v))))E.push(w+' tem registro de pagamento inválido')});
+ o.inst.forEach((i,x)=>{if(!obj(i))return E.push('o parcelado nº '+(x+1)+' está danificado');if(i.n!=null&&typeof i.n!=='string')E.push('o parcelado nº '+(x+1)+' tem nome inválido');if(i.c!=null&&!bkM(i.c))E.push('o parcelado "'+bkTx(i.n)+'" tem valor inválido')});
+ o.parc.forEach((p,x)=>{if(!obj(p))return E.push('a parcela nº '+(x+1)+' está danificada');if(!bkM(p.c))E.push('a parcela nº '+(x+1)+' tem valor inválido');if(!BKYM.test(p.ym||''))E.push('a parcela nº '+(x+1)+' tem mês inválido');if(p.due!=null&&p.due!==''&&!BKDT.test(p.due))E.push('a parcela nº '+(x+1)+' tem vencimento inválido')});
+ o.debts.forEach((d,x)=>{if(!obj(d))return E.push('a dívida nº '+(x+1)+' está danificada');const w='a dívida "'+bkTx(d.n)+'" (nº '+(x+1)+')';if(!bkM(d.o))E.push(w+' tem valor inválido');if(d.n!=null&&typeof d.n!=='string')E.push(w+' tem nome inválido');
+  if(d.due!=null&&d.due!==''&&!BKDT.test(d.due))E.push(w+' tem vencimento inválido');if(!Array.isArray(d.pays)||d.pays.some(p=>!obj(p)||!bkM(p.c,1)||!BKDT.test(p.d||'')))E.push(w+' tem pagamentos inválidos')});
+ o.boxes.forEach((b,x)=>{if(!obj(b))return E.push('a caixinha nº '+(x+1)+' está danificada');const w='a caixinha "'+bkTx(b.n)+'" (nº '+(x+1)+')';if(b.n!=null&&typeof b.n!=='string')E.push(w+' tem nome inválido');
+  if(b.g!=null&&!bkM(b.g))E.push(w+' tem meta inválida');if(b.m!=null&&!bkM(b.m))E.push(w+' tem valor mensal inválido');if(!Array.isArray(b.moves)||b.moves.some(p=>!obj(p)||!bkM(p.c,1)||!BKDT.test(p.d||'')))E.push(w+' tem movimentações inválidas')});
+ (o.cards||[]).forEach((k,x)=>{if(!obj(k))return E.push('o cartão nº '+(x+1)+' está danificado');const w='o cartão "'+bkTx(k.n)+'" (nº '+(x+1)+')';if(typeof k.n!=='string')E.push(w+' tem nome inválido');if(!bkM(k.lim))E.push(w+' tem limite inválido');if(!bkDay(k.cl)||!bkDay(k.dd))E.push(w+' tem dia de fechamento/vencimento inválido');
+  if(!Array.isArray(k.buys)||k.buys.some(b=>!obj(b)||!bkM(b.c)||!BKDT.test(b.dt||'')||!Number.isInteger(b.np)||b.np<1||b.np>120))E.push(w+' tem compras inválidas');if(!Array.isArray(k.pays)||k.pays.some(p=>!obj(p)||!bkM(p.c)||!BKYM.test(p.ym||'')||!BKDT.test(p.d||'')))E.push(w+' tem pagamentos inválidos')});
+ const dup=a=>{const s=new Set();let n=0;a.forEach(i=>{if(obj(i)&&typeof i.id==='string'){if(s.has(i.id))n++;s.add(i.id)}});return n},dn=['items','inst','parc','debts','boxes'].reduce((a,k)=>a+dup(o[k]),0);
+ if(dn)W.push(dn+(dn>1?' registros com identificação repetida':' registro com identificação repetida'));
+ return{E,W}}
+const bkCnt=x=>({inc:x.items.filter(i=>i.t==='inc').length,exp:x.items.filter(i=>i.t==='exp').length,debts:x.debts.length,parc:x.parc.length,boxes:x.boxes.length,cards:(x.cards||[]).length});
+const bkRes=c=>[[c.inc,'receita','receitas'],[c.exp,'despesa','despesas'],[c.debts,'dívida','dívidas'],[c.parc,'parcela','parcelas'],[c.boxes,'caixinha','caixinhas'],[c.cards,'cartão','cartões']].filter(x=>x[0]>0).map(x=>x[0]+' '+(x[0]===1?x[1]:x[2])).join(', ')||'nenhum registro';
+/* verifica TUDO antes de mexer em qualquer dado: devolve {err} | {same} | {n (cópia já normalizada), msg, sig, resumo} */
+async function bkpPrepare(o,meta,welcome){const fail=m=>({err:'Backup inválido: '+m+'. Seus dados atuais não foram alterados.'});
+ const {E,W}=bkpCheck(o);if(E.length)return fail(E[0]+(E.length>1?' (e mais '+(E.length-1)+(E.length>2?' problemas)':' problema)'):''));
+ const mt=o.__backup;
+ if(mt!=null){if(!mt||typeof mt!=='object'||Array.isArray(mt))return fail('o selo de integridade está danificado');
+  if(typeof mt.sum==='string'){const {__backup,...rest}=o,al=mt.sum.split(':')[0];if(al==='fnv'||(al==='sha256'&&typeof crypto!=='undefined'&&crypto.subtle)){if(await bkpHash(JSON.stringify(rest),al)!==mt.sum)return fail('o arquivo foi alterado ou está corrompido (a verificação de integridade falhou)')}}}
+ let n;try{n=JSON.parse(JSON.stringify(o))}catch(e){return fail('não foi possível ler o conteúdo')}
+ delete n.__backup;if(!valid(n)||typeof n.owner!=='string')return fail('os dados não passaram na verificação de estrutura');
+ migrate(n);if(!n.pref||typeof n.pref!=='object')n.pref=S.pref;fixPref(n);
+ const sig=await bkpSig(n);if(!welcome&&sig===await bkpSig(S))return{same:true};
+ const a=bkCnt(n),b=bkCnt(S),at=(meta&&meta.at)||(mt&&typeof mt.at==='string'?mt.at.slice(0,10):''),ws=W.slice();
+ [['inc','receitas'],['exp','despesas'],['debts','dívidas'],['parc','parcelas'],['boxes','caixinhas'],['cards','cartões']].forEach(([k,t])=>{if(b[k]>a[k])ws.push('o backup tem menos '+t+' ('+a[k]+') do que os seus dados atuais ('+b[k]+')')});
+ const lb=S.flags&&S.flags.bkpAt;if(BKDT.test(at)&&BKDT.test(lb||'')&&at<lb)ws.push('ele é mais antigo que o seu último backup ('+dmy(lb)+')');
+ const ja=((S.flags&&Array.isArray(S.flags.imp))?S.flags.imp:[]).find(x=>x&&x.h===sig);if(ja)ws.push('você já importou este mesmo backup em '+dmy(ja.at));
+ const resumo=bkRes(a);
+ const msg='Importar o backup'+(BKDT.test(at)?' de '+dmy(at):'')+' de "'+(n.owner||'sem nome')+'" ('+resumo+')? Seus dados atuais ('+bkRes(b)+') serão SUBSTITUÍDOS e isso não pode ser desfeito.'+(ws.length?' Atenção: '+ws.join('; ')+'.':'')+' Continuar?';
+ return{n,sig,msg,resumo}}
+/* aplica de uma vez; se gravar falhar, volta tudo como estava */
+async function bkpApply(r){if(IMPBUSY)return;IMPBUSY=1;const prev=S,prevOpen=open;
+ try{const n=r.n;n.flags=(n.flags&&typeof n.flags==='object')?n.flags:{};n.flags.bkpAt=todayStr();n.flags.imp=[{h:r.sig,at:todayStr()},...((prev.flags&&Array.isArray(prev.flags.imp))?prev.flags.imp:[])].slice(0,6);
+  S=n;open={};const nw=achCheck();let okS=false;try{okS=SECMODE?(DEK?await persist():false):save()}catch(e){okS=false}
+  if(!okS){S=prev;open=prevOpen;render();toast('A importação foi cancelada: não foi possível gravar. Seus dados atuais foram mantidos.',6000);return}
+  render();toast('Backup importado ✓ — '+r.resumo,5000);if(nw.length)celebrate(nw)}
+ catch(e){S=prev;open=prevOpen;try{render()}catch(x){}toast('A importação foi cancelada por um erro. Seus dados atuais foram mantidos.',6000)}
+ finally{IMPBUSY=0}}
+async function importObj(o,meta){if(IMPBUSY)return toast('Já existe uma importação em andamento.');IMPBUSY=1;let r;
+ try{r=await bkpPrepare(o,meta)}catch(e){r={err:'Não foi possível verificar o arquivo. Seus dados atuais não foram alterados.'}}finally{IMPBUSY=0}
+ if(r.err)return toast(r.err,7000);if(r.same)return toast('Este backup é igual aos dados atuais — nada foi alterado.',6000);
+ ask(r.msg,()=>bkpApply(r))}
 function importEnc(o){if(!hasCrypto)return toast('Este navegador não consegue abrir backups criptografados (precisa de https).');
- if(!(Number.isInteger(o.it)&&o.it>=100000&&o.it<=2000000)||typeof o.s!=='string'||typeof o.iv!=='string'||typeof o.ct!=='string')return toast('Arquivo inválido: backup criptografado danificado');
+ if(!(Number.isInteger(o.it)&&o.it>=100000&&o.it<=2000000)||typeof o.s!=='string'||typeof o.iv!=='string'||typeof o.ct!=='string')return toast('Backup criptografado danificado ou incompleto. Seus dados atuais não foram alterados.',6000);
+ if(o.v!=null&&(!Number.isInteger(o.v)||o.v>1))return toast('Backup criptografado de uma versão mais nova do app; atualize o app antes de importar.',6000);
  form('Backup criptografado',[{k:'p',l:'Senha do backup',t:'pw',ac:'current-password'}],async v=>{if(secBusy)return'Aguarde…';secBusy=true;let d;
   try{d=JSON.parse(dec.decode(await unseal(await kdf(np(v.p),ub64(o.s),o.it),{iv:o.iv,ct:o.ct})))}catch(e){return'Senha incorreta ou arquivo corrompido.'}finally{secBusy=false}
-  setTimeout(()=>importObj(d),60)})}
+  setTimeout(()=>importObj(d,{at:o.at}),60)})}
 /* ----- bloqueio automático ao ficar fora do app ----- */
 document.addEventListener('visibilitychange',()=>{if(!SECMODE||!DEK)return;if(document.hidden)hid=Date.now();else if(hid&&S.pref.lk>=0&&Date.now()-hid>=S.pref.lk*60000)lockNow()});
 /* ----- inicialização da segurança ----- */
