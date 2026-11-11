@@ -584,7 +584,7 @@ nav.ind button.on{background:transparent;box-shadow:none}nav button{z-index:1}
 /* ===== WALL STREET — Seu dinheiro, sob controle. =====
    Valores internos em CENTAVOS inteiros. Dados em localStorage. */
 'use strict';
-const KEY='wallstreet.v1',BUILD='4.8 · situação financeira com cartões · 10/11/2026';
+const KEY='wallstreet.v1',BUILD='4.9 · validação dos pagamentos de fatura · 10/11/2026';
 const CATS={exp:['Alimentação','Transporte','Compras','Roupas','Lazer','Trabalho','Casa','Saúde','Educação','Financeiro','Tecnologia','Cuidados pessoais','Presentes','Outros'],inc:['Salário','Comissão','Freelancer','Outro']};
 const PALS=[['perola','Pérola','#E8EDF5'],['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['pink','Rosa','#DB2777'],['orange','Laranja','#EA580C'],['ouro','Ouro','#B88614'],['esmeralda','Esmeralda','#15803D'],['grafite','Grafite','#4B5563']];
 const PAYS=['Pix','Cartão de débito','Cartão de crédito','Dinheiro/Espécie','Outro'];
@@ -1076,9 +1076,17 @@ function ccBuyForm(bid){const k=ccFind(CCO),b=bid?k.buys.find(x=>x.id===bid):nul
   const m=money(v.c,1),np=parseInt(v.np,10);if(!v.d.trim())return'Descreva a compra.';if(m.e)return m.e;if(!/^\d{4}-\d{2}-\d{2}$/.test(v.dt||''))return'Informe a data da compra.';if(!(np>=1&&np<=48))return'Parcelas: de 1 a 48.';
   const o=b||{id:uid()};Object.assign(o,{d:v.d.trim().slice(0,80),c:m.c,dt:v.dt,np,cat:v.cat});if(!b)k.buys.push(o);CCM=ccInv(k,o.dt);save();render()});
  if(b)$('#f .btns').insertAdjacentHTML('beforebegin','<button type="button" class="b2 full neg" data-act="ccbdel" data-id="'+b.id+'" style="margin-bottom:8px">Excluir compra</button>')}
-function ccPayForm(){const k=ccFind(CCO),ym=CCM||ccCur(k),rest=Math.max(0,ccTot(k,ym)-ccPaid(k,ym));
- form('Pagar fatura de '+mlabel(ym),[{k:'c',l:'Valor pago (R$)',t:'money',v:fin(rest)},{k:'d',l:'Data do pagamento',t:'date',v:todayStr()}],v=>{
-  const m=money(v.c,1);if(m.e)return m.e;if(!/^\d{4}-\d{2}-\d{2}$/.test(v.d||''))return'Informe a data do pagamento.';k.pays.push({id:uid(),ym,c:m.c,d:v.d});save();render();toast('Pagamento registrado')})}
+/* pagamento de fatura: nunca acima do que falta, nunca em fatura quitada, sem duplicar em cliques repetidos */
+const ccRest=(k,ym)=>Math.max(0,ccTot(k,ym)-ccPaid(k,ym));let CCPAYT=-1e9;
+function ccPayForm(){const k=ccFind(CCO);if(!k)return;const ym=CCM||ccCur(k),rest0=ccRest(k,ym);
+ if(rest0<=0){toast('Esta fatura já está totalmente paga.');return}
+ form('Pagar fatura de '+mlabel(ym),[{k:'c',l:'Valor pago (R$) — máximo '+brl(rest0),t:'money',v:fin(rest0)},{k:'d',l:'Data do pagamento',t:'date',v:todayStr()}],v=>{
+  const m=money(v.c,1);if(m.e)return m.e;if(!/^\d{4}-\d{2}-\d{2}$/.test(v.d||''))return'Informe a data do pagamento.';
+  const t=ccTot(k,ym),pd=ccPaid(k,ym),rest=Math.max(0,t-pd);
+  if(rest<=0)return'Esta fatura já está totalmente paga. Não é possível registrar outro pagamento.';
+  if(m.c>rest)return`O valor informado (${brl(m.c)}) é maior do que falta pagar nesta fatura (${brl(rest)}). Já foram pagos ${brl(pd)} de ${brl(t)}. Informe até ${brl(rest)}.`;
+  if(performance.now()-CCPAYT<900)return'Pagamento já registrado. Aguarde um instante antes de registrar outro.';
+  k.pays.push({id:uid(),ym,c:m.c,d:v.d});CCPAYT=performance.now();save();render();toast('Pagamento registrado')})}
 function ccHomeCard(){const L=S.cards||[];if(!L.length)return'';const x=L.map(k=>{const ym=ccCur(k);return{k,rest:Math.max(0,ccTot(k,ym)-ccPaid(k,ym)),due:ccDue(k,ym)}}).filter(x=>x.rest>0).sort((a,b)=>a.due.localeCompare(b.due))[0],
  sub=x?`${x.k.n}: ${brl(x.rest)} · vence ${dmy(x.due).slice(0,5)}`:'Faturas em dia';
  return `<button class="card nth0" data-act="nav" data-id="cc" aria-label="Abrir cartões de crédito"><span class="nic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.6"/><path d="M3 10h18M7 15h3"/></svg></span><span class="jt"><b>Cartões</b><span class="lbl">${esc(sub)}</span></span><span class="nchev" aria-hidden="true">›</span></button>`}
@@ -1244,7 +1252,7 @@ function closeOv(){if(typeof NED!=='undefined'&&NED)ntClose();$('#ov').hidden=tr
 function form(title,fields,onsave){
  const o=$('#ov');o.innerHTML=`<div class="sheet"><h3>${esc(title)}</h3><form id="f" autocomplete="off">${fields.map(f=>f.t==='cal'?calHtml(f):f.t==='ic'?icHtml(f):`<label>${esc(f.l)}${f.t==='sel'?`<select name="${f.k}">${f.o.map(([v,t])=>`<option value="${v}"${String(v)===String(f.v)?' selected':''}>${esc(t)}</option>`).join('')}</select>`:
  `<input name="${f.k}" type="${f.t==='date'||f.t==='month'?f.t:f.t==='pw'?'password':'text'}"${f.t==='pw'?` autocomplete="${f.ac||'off'}"`:''}${f.t==='money'?' inputmode="decimal"':f.t==='num'?' inputmode="numeric"':''} value="${esc(f.v??'')}"${f.p?` placeholder="${esc(f.p)}"`:''}>`}</label>`).join('')}<div class="err" id="er"></div><div class="btns"><button type="button" class="b2" data-act="close">Cancelar</button><button class="b1" type="submit">Salvar</button></div></form></div>`;
- o.hidden=false;o.querySelectorAll('.calw').forEach(calMount);$('#f').onsubmit=e=>{e.preventDefault();Promise.resolve(onsave(Object.fromEntries(new FormData(e.target)))).then(r=>{if(r)$('#er').textContent=r;else closeOv()})}}
+ o.hidden=false;o.querySelectorAll('.calw').forEach(calMount);$('#f').onsubmit=e=>{e.preventDefault();Promise.resolve(onsave(Object.fromEntries(new FormData(e.target)))).then(r=>{if(r){const e=$('#er');if(e)e.textContent=r}else closeOv()})}}
 function ask(msg,ok){pend=ok;$('#ov').innerHTML=`<div class="sheet"><h3>Confirmar</h3><p style="margin-bottom:14px">${esc(msg)}</p><div class="btns"><button class="b2" data-act="close">Cancelar</button><button class="b1" data-act="yes" style="background:#DC2626">Confirmar</button></div></div>`;$('#ov').hidden=false}
 const money=(v,req)=>{const c=parseMoney(v);if(Number.isNaN(c))return{e:'Valor inválido.'};if(c==null)return req?{e:'Informe um valor.'}:{c:null};if(req&&c<=0)return{e:'O valor deve ser maior que zero.'};return{c}};
 const dayOk=v=>{const n=Number(v);return Number.isInteger(n)&&n>=1&&n<=31?n:null};
