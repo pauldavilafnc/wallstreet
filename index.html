@@ -6,7 +6,7 @@
 <script>try{var l=JSON.parse(localStorage.getItem("wallstreet.look")),r=document.documentElement;r.dataset.theme=l&&l.t==="dark"?"dark":"light";r.dataset.pal=l&&l.p?l.p:"perola"}catch(e){document.documentElement.dataset.pal="perola"}</script><meta name="theme-color" content="#0B1730">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="preload" as="image" href="icon-512.png">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Wolfin"><meta name="application-name" content="Wolfin">
 <meta name="description" content="Wolfin – Controle Financeiro. Domine seu dinheiro. Receitas, despesas, dívidas, cartões e metas em um só lugar, com seus dados guardados só no seu aparelho.">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Wolfin"><meta property="og:title" content="Wolfin – Controle Financeiro"><meta property="og:description" content="Domine seu dinheiro.">
@@ -591,9 +591,38 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 @media(min-width:360px){#nav button{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.skip{transition:none}html{scroll-behavior:auto!important}}
 :root:not([data-theme=dark]) .a.pos{color:#166534}.ab.off{opacity:.9}[data-theme=dark] .chip.a{color:#FCD34D}
+
+/* ===== intro animada do Wolfin (~1,5 s; só transform/opacidade; usa o arquivo icon-512.png, a logo do lobo, sem alterá-lo) ===== */
+#intro{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;background:var(--orbs);background-color:var(--bg);color:var(--navy);padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);animation:ifade .22s cubic-bezier(.4,0,.2,1) 1.3s forwards;-webkit-tap-highlight-color:transparent}
+#intro.x{animation:ifade .16s ease-out forwards}
+#intro .il{display:flex;flex-direction:column;align-items:center;transform:translateY(-3vh)}
+#intro .ib{position:relative;width:clamp(116px,36vw,168px);aspect-ratio:1;animation:ilogo 1.1s cubic-bezier(.3,.7,.3,1) .05s backwards;filter:drop-shadow(0 10px 26px rgba(37,99,235,.30));will-change:transform,opacity}
+#intro .ib img{display:block;width:100%;height:100%;-webkit-user-drag:none;user-select:none}
+#intro .ie{position:absolute;inset:0;background:url(icon-512.png) center/100% 100% no-repeat;pointer-events:none;will-change:transform}
+#intro .ie.l{-webkit-mask-image:radial-gradient(ellipse 14% 20% at 36% 29%,#000 52%,transparent 100%);mask-image:radial-gradient(ellipse 14% 20% at 36% 29%,#000 52%,transparent 100%);transform-origin:41% 40%;animation:iearl .85s ease-in-out .5s backwards}
+#intro .ie.r{-webkit-mask-image:radial-gradient(ellipse 14% 20% at 64% 29%,#000 52%,transparent 100%);mask-image:radial-gradient(ellipse 14% 20% at 64% 29%,#000 52%,transparent 100%);transform-origin:59% 40%;animation:iearr .85s ease-in-out .6s backwards}
+#intro .sw{position:absolute;inset:0;overflow:hidden;-webkit-mask:url(icon-512.png) center/100% 100% no-repeat;mask:url(icon-512.png) center/100% 100% no-repeat;pointer-events:none}
+#intro .sh{position:absolute;top:-10%;bottom:-10%;left:0;width:55%;background:linear-gradient(100deg,transparent 0,rgba(150,205,255,.0) 20%,rgba(190,225,255,.62) 50%,rgba(150,205,255,.0) 80%,transparent 100%);mix-blend-mode:screen;transform:translateX(-120%) skewX(-16deg);animation:ish .82s cubic-bezier(.45,.05,.35,1) .42s both}
+#intro .in{margin-top:clamp(14px,3.2vh,24px);font-size:clamp(24px,7.4vw,32px);font-weight:800;letter-spacing:.3em;text-indent:.3em;line-height:1.1;animation:itx .45s cubic-bezier(.3,.7,.3,1) .5s backwards}
+#intro .is{margin-top:8px;font-size:clamp(13px,3.7vw,15px);color:var(--gray);letter-spacing:.01em;animation:itx .45s cubic-bezier(.3,.7,.3,1) .72s backwards}
+@keyframes ilogo{0%{opacity:0;transform:scale(.86)}32%{opacity:1;transform:scale(1)}68%{transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes iearl{0%,32%{transform:rotate(0)}56%{transform:rotate(-2.6deg)}78%{transform:rotate(.7deg)}100%{transform:rotate(0)}}
+@keyframes iearr{0%,32%{transform:rotate(0)}56%{transform:rotate(2.2deg)}78%{transform:rotate(-.6deg)}100%{transform:rotate(0)}}
+@keyframes ish{from{transform:translateX(-120%) skewX(-16deg)}to{transform:translateX(230%) skewX(-16deg)}}
+@keyframes itx{0%{opacity:0;transform:translateY(9px)}100%{opacity:1;transform:none}}
+@keyframes ifade{to{opacity:0;visibility:hidden}}
+@media(max-height:420px){#intro .il{transform:none}#intro .ib{width:clamp(84px,22vh,120px)}#intro .in{margin-top:8px;font-size:22px}#intro .is{margin-top:4px}}
+@media(prefers-reduced-motion:reduce){#intro,#intro *{animation:none!important;transition:none!important}#intro .ie,#intro .sw{display:none}}
 </style>
 </head>
 <body>
+<div id="intro" aria-hidden="true"><div class="il"><div class="ib"><img src="icon-512.png" alt="" width="512" height="512" decoding="async" onerror="this.style.visibility='hidden'"><i class="ie l"></i><i class="ie r"></i><div class="sw"><i class="sh"></i></div></div><b class="in">WOLFIN</b><span class="is">Domine seu dinheiro.</span></div></div>
+<script>/* intro: roda uma vez a cada abertura/recarga da página (nunca na navegação interna); toque ou tecla pula; sem atraso para o login */(function(){var e=document.getElementById("intro");if(!e)return;function rm(){if(e.parentNode)e.parentNode.removeChild(e)}
+if(window.__WS_NOTOUR){rm();return}
+var r=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches,t=setTimeout(rm,r?600:2300);
+function sk(){clearTimeout(t);e.className="x";setTimeout(rm,200)}
+e.addEventListener("pointerdown",sk);addEventListener("keydown",sk,{once:true});
+e.addEventListener("animationend",function(v){if(v.target===e&&v.animationName==="ifade"){clearTimeout(t);rm()}})})()</script>
 <a class="skip" href="#main">Pular para o conteúdo</a>
 <main id="main" tabindex="-1">
  <section id="s-home"></section><section id="s-rec" hidden></section><section id="s-des" hidden></section>
@@ -608,7 +637,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 /* ===== Wolfin — Domine seu dinheiro. =====
    Valores internos em CENTAVOS inteiros. Dados em localStorage. */
 'use strict';
-const KEY='wallstreet.v1',BUILD='6.0 · nova identidade Wolfin · 11/11/2026';
+const KEY='wallstreet.v1',BUILD='6.1 · intro animada do Wolfin · 11/11/2026';
 const CATS={exp:['Alimentação','Transporte','Compras','Roupas','Lazer','Trabalho','Casa','Saúde','Educação','Financeiro','Tecnologia','Cuidados pessoais','Presentes','Outros'],inc:['Salário','Comissão','Freelancer','Outro']};
 const PALS=[['perola','Pérola','#E8EDF5'],['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['pink','Rosa','#DB2777'],['orange','Laranja','#EA580C'],['ouro','Ouro','#B88614'],['esmeralda','Esmeralda','#15803D'],['grafite','Grafite','#4B5563']];
 const PAYS=['Pix','Cartão de débito','Cartão de crédito','Dinheiro/Espécie','Outro'];
