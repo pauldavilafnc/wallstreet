@@ -1,4 +1,4 @@
-/* WALL STREET — modo offline.
+/* Wolfin — modo offline.
    Estratégia: rede primeiro, sempre revalidando (nunca aparece arquivo velho quando há internet);
    se a rede falhar ou demorar demais, usa a última cópia guardada.
    Identificação dos caches: wallstreet::<escopo>::v<versão>  (ex.: wallstreet::/wallstreet/::v3).

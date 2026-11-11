@@ -1,4 +1,4 @@
-# WALL STREET no GitHub Pages — notícias que se atualizam sozinhas
+# Wolfin no GitHub Pages — notícias que se atualizam sozinhas
 
 Com este pacote, o site fica num endereço próprio (`https://SEU-USUARIO.github.io/wallstreet/`) e o GitHub
 busca as notícias sozinho a cada 3 horas, de graça. Você só faz isso uma vez.
@@ -6,7 +6,7 @@ busca as notícias sozinho a cada 3 horas, de graça. Você só faz isso uma vez
 ## Arquivos
 | Arquivo | Para quê |
 |---|---|
-| `index.html` | O site WALL STREET (já lê o `noticias.json`) |
+| `index.html` | O site Wolfin (já lê o `noticias.json`) |
 | `manifest.webmanifest`, `sw.js` | Fazem o site ser instalável como app e abrir sem internet |
 | `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-touch-icon.png` | Ícone do app / atalho na tela inicial |
 | `noticias.json` | Notícias (começa com a coleta de 05/11/2026; depois o robô atualiza) |
@@ -14,7 +14,7 @@ busca as notícias sozinho a cada 3 horas, de graça. Você só faz isso uma vez
 | `.github/workflows/noticias.yml` | Manda o GitHub rodar o script a cada 3 horas |
 
 ## ⚠️ ANTES de começar: faça backup
-Os dados do WALL STREET ficam guardados **por endereço**. Ao abrir o site no endereço novo, ele começa vazio.
+Os dados do Wolfin ficam guardados **por endereço**. Ao abrir o site no endereço novo, ele começa vazio.
 1. No site atual: **Ajustes → Exportar backup** e guarde o arquivo.
 2. No site novo: **Ajustes → Importar backup**.
 
@@ -60,7 +60,7 @@ no menu ⋮ do navegador, escolha **Instalar app** (ou **Adicionar à tela inici
 Depois de instalado, o app abre em tela cheia e, sem internet, abre com a última versão guardada.
 
 ## Segurança (usuário e senha)
-- Na primeira abertura aparece "Proteger o WALL STREET": crie usuário e senha. Os dados passam a ficar **criptografados (AES-256)** no aparelho e só abrem com a senha.
+- Na primeira abertura aparece "Proteger o Wolfin": crie usuário e senha. Os dados passam a ficar **criptografados (AES-256)** no aparelho e só abrem com a senha.
 - O app mostra **um código de recuperação** (20 caracteres) **uma única vez**. Anote em papel ou guarde fora do celular. É a única forma de recuperar o acesso se esquecer a senha. **Não há recuperação por e-mail** (o site não tem servidor).
 - Esqueceu a senha? Na tela de login toque em "Esqueceu a senha?", digite o código e crie uma nova senha (um novo código é gerado).
 - Perdeu a senha **e** o código? Os dados não podem ser abertos por ninguém. Só o backup (arquivo exportado em Ajustes) salva. **Backups exportados não são criptografados** — guarde em local seguro.
@@ -157,3 +157,10 @@ Janelas (formulários, confirmações, avatar, limites) agora são diálogos mod
 
 ## Testes automatizados
 A pasta `tests/` tem a estrutura de testes (veja `tests/README.md`) e `.github/workflows/tests.yml` roda tudo no GitHub a cada envio, com um job por área. Localmente: `pip install -r tests/requirements.txt`, `python -m playwright install chromium` e `python tests/run_all.py`. Usa só dados fictícios; não depende de nada do app em produção. Um envio com teste vermelho não deve ser publicado.
+
+## Nova identidade: Wolfin (versão 6.0)
+O aplicativo agora se chama **Wolfin** (título: "Wolfin – Controle Financeiro"; slogan: "Domine seu dinheiro."). O nome e o slogan aparecem nas telas de boas-vindas e login, no cartão principal da Home, na página Sobre, no título das abas, no tutorial, nos avisos e nos arquivos gerados (`wolfin-backup-AAAA-MM-DD.json`, `lembrete-wolfin.ics`). O manifesto PWA passa a ter nome "Wolfin – Controle Financeiro" e nome na tela inicial "Wolfin"; o `id`, o `start_url` e o `scope` não mudaram, então o app instalado continua o mesmo (o Android pode levar um tempo para atualizar o nome e o ícone na tela inicial).
+
+**O que NÃO mudou, de propósito (compatibilidade):** o endereço do site e do repositório (`/wallstreet/`), as chaves de armazenamento no navegador (`wallstreet.*`), o prefixo dos caches do Service Worker (`wallstreet::`) e o marcador interno dos backups (`wallstreet-backup`). Por isso quem já usa o app **não perde dados, não precisa refazer a senha** e continua importando backups antigos. A logo (lobo) foi preservada.
+
+**Marca:** a disponibilidade jurídica do nome "Wolfin" (registro de marca, domínio, Play Store) **não** foi verificada por esta mudança e deve ser validada à parte antes de qualquer publicação comercial.

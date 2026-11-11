@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "WALL STREET",
-  "short_name": "WALL STREET",
-  "description": "Seu dinheiro, sob controle.",
+  "name": "Wolfin – Controle Financeiro",
+  "short_name": "Wolfin",
+  "description": "Domine seu dinheiro.",
   "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",
