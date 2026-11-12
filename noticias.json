@@ -1,6 +1,51 @@
 {
- "at": "2026-11-11T22:26-03:00",
+ "at": "2026-11-12T01:06-03:00",
  "items": [
+  {
+   "c": "br",
+   "t": "Senado deve votar pacote de medidas fiscais nesta quinta; governo fala em um impacto de até R$ 60 bi",
+   "f": "G1 Economia",
+   "d": "2026-11-12",
+   "h": "00:00",
+   "u": "https://g1.globo.com/politica/noticia/2026/11/12/senado-deve-votar-pacote-de-medidas-fiscais-nesta-quinta-governo-fala-em-um-impacto-de-ate-r-60-bi.ghtml",
+   "s": "O Senado deve votar nesta quinta-feira (12) o Projeto de Lei Complementar (PLP) com as medidas de ajuste das contas públicas propostas pelo governo do presidente Luiz Inácio Lula da Silva (PT). Segundo o ministro do Planejamento…"
+  },
+  {
+   "c": "mu",
+   "t": "Jensen Huang: O papel do CEO da Nvidia investigado por caso com suposta espiã na guerra tecnológica entre EUA e China",
+   "f": "G1 Economia",
+   "d": "2026-11-12",
+   "h": "00:00",
+   "u": "https://g1.globo.com/tecnologia/noticia/2026/11/12/jensen-huang-o-papel-do-ceo-da-nvidia-investigado-por-caso-com-suposta-espia-na-guerra-tecnologica-entre-eua-e-china.ghtml",
+   "s": "Como uma traição envolveu o CEO da Nvidia em investigação de espionagem Jensen Huang lembra, de certa forma, o falecido Steve Jobs. Já entrevistei ambos e notei que compartilham um carisma marcante — além de uma genialidade que…"
+  },
+  {
+   "c": "br",
+   "t": "Mega-Sena pode pagar R$ 20 milhões nesta quinta-feira; g1 transmite ao vivo",
+   "f": "G1 Economia",
+   "d": "2026-11-12",
+   "h": "00:00",
+   "u": "https://g1.globo.com/loterias/mega-sena/noticia/2026/11/12/mega-sena-pode-pagar-r-20-milhoes-nesta-quinta-feira-g1-transmite-ao-vivo.ghtml",
+   "s": "Como funciona a Mega-Sena? O concurso 3.085 da Mega-Sena pode pagar um prêmio de R$ 20 milhões para os apostadores que acertarem as seis dezenas. O sorteio ocorre às 21h desta quarta-feira (11), em São Paulo. 📱Favorite o g1 no…"
+  },
+  {
+   "c": "mu",
+   "t": "Prisões de imigrantes continuam nos EUA após derrota republicana nas midterms, apesar de críticas de Trump",
+   "f": "G1 Mundo",
+   "d": "2026-11-12",
+   "h": "00:00",
+   "u": "https://g1.globo.com/mundo/noticia/2026/11/12/prisoes-de-imigrantes-continuam-nos-eua-apos-derrota-republicana-nas-midterms-apesar-de-criticas-de-trump.ghtml",
+   "s": "Agente do ICE aponta arma para mulher nos EUA Reprodução As operações de fiscalização migratória e prisão de imigrantes continuam nos Estados Unidos, apesar de o presidente Donald Trump ter sinalizado uma possível mudança de tom…"
+  },
+  {
+   "c": "br",
+   "t": "BB traz decepção generalizada e coloca recuperação em xeque: como mercado leu o 3T",
+   "f": "InfoMoney",
+   "d": "2026-11-11",
+   "h": "23:54",
+   "u": "https://www.infomoney.com.br/mercados/banco-do-brasil-bbas3-traz-decepcao-generalizada-alertas-e-coloca-recuperacao-em-xeque-como-mercado-leu-o-3t/",
+   "s": "Resultado veio muito abaixo do esperado, com aumento da inadimplência, crescimento fraco da carteira e dúvidas crescentes sobre dividendos e geração de capital. The post BB traz decepção generalizada e coloca recuperação em…"
+  },
   {
    "c": "br",
    "t": "Lucro do BB cai 66,5% no 3º trimestre com inadimplência do agro",
@@ -38,24 +83,6 @@
    "s": "A presidente da Petrobras, Magda Chambriard, destacou a eficiência operacional da companhia ao ampliar a capacidade de produção de 11 plataformas em 282 mil barris de óleo por dia. Segundo ela, os dados reforçam o resultado…"
   },
   {
-   "c": "br",
-   "t": "Lucro do Banco do Brasil cai 66,5% no 3º trimestre, para R$ 1,27 bilhão",
-   "f": "G1 Economia",
-   "d": "2026-11-11",
-   "h": "20:03",
-   "u": "https://g1.globo.com/economia/noticia/2026/11/11/banco-do-brasil-bb-resultados-3t26.ghtml",
-   "s": "Banco do Brasil Divulgação \"A elevação do risco de crédito no trimestre reflete, principalmente, a continuidade da dinâmica mais agravada em parte da carteira de Agronegócios e reforços pontuais realizados em algumas empresas do…"
-  },
-  {
-   "c": "br",
-   "t": "Baic Arcfox T5 chega ao Brasil por R$ 219.990; SUV elétrico recarrega em 18 minutos",
-   "f": "G1 Economia",
-   "d": "2026-11-11",
-   "h": "19:25",
-   "u": "https://g1.globo.com/carros/noticia/2026/11/11/baic-arcfox-t5.ghtml",
-   "s": "BAIC Arcfox T5 André Fogaça/g1 A BAIC anunciou nesta quarta-feira (11) a chegada do Arcfox T5 por R$ 219.990 em versão única. Preço é maior que maior parte dos concorrentes. O utilitário 100% elétrico tem 4,76 metros de…"
-  },
-  {
    "c": "mu",
    "t": "A operação de Bukele que teria destruído casa de líder de facção no Haiti",
    "f": "BBC News Brasil",
@@ -81,15 +108,6 @@
    "h": "15:34",
    "u": "https://g1.globo.com/mundo/noticia/2026/11/11/bebe-de-11-meses-sobrevive-apos-passar-um-dia-enterrado-vivo-em-gaiola-nos-eua.ghtml",
    "s": "A toalha provavelmente formou uma bolsa de ar dentro da gaiola, o que permitiu que o menino respirasse, afirmou o xerife. As baixas temperaturas também podem ter contribuído para sua sobrevivência. Koah desapareceu na última…"
-  },
-  {
-   "c": "mu",
-   "t": "Lula se reúne com Delcy Rodríguez e discute tarifas, petróleo e relação diplomática com Venezuela",
-   "f": "G1 Mundo",
-   "d": "2026-11-11",
-   "h": "14:52",
-   "u": "https://g1.globo.com/politica/noticia/2026/11/11/lula-se-reune-com-presidente-interina-da-venezuela-na-turquia.ghtml",
-   "s": "Lula se reúne com Delcy Rodríguez, presidente interina da Venezuela O presidente Luiz Inácio Lula da Silva (PT) se reuniu com a presidente interina da Venezuela, Delcy Rodríguez, nesta quarta-feira (11), em Antália, na Turquia…"
   },
   {
    "c": "mu",
@@ -126,24 +144,6 @@
    "h": "11:00",
    "u": "https://g1.globo.com/carros/noticia/2026/11/11/resultados-anfavea.ghtml",
    "s": "GAC GS3. Divulgação / GAC De janeiro a outubro de 2026, o Brasil emplacou 288 mil veículos vindos da China, o dobro dos 143 mil trazidos da Argentina. No mesmo período, as importações brasileiras de veículos de todas as origens…"
-  },
-  {
-   "c": "mu",
-   "t": "Resort, restaurante e sede da Nvidia: suposta espiã e CEO tiveram encontros pelo mundo nos últimos 3 anos",
-   "f": "G1 Economia",
-   "d": "2026-11-11",
-   "h": "09:41",
-   "u": "https://g1.globo.com/tecnologia/noticia/2026/11/11/resort-restaurante-e-sede-da-nvidia-suposta-espia-e-ceo-tiveram-encontros-pelo-mundo-nos-ultimos-3-anos.ghtml",
-   "s": "Como uma traição envolveu o CEO da Nvidia em investigação de espionagem Uma investigação do jornal norte-americano The New York Times revelou que o CEO da Nvidia, Jensen Huang, e Alice Huang, acusada de espionar para a China…"
-  },
-  {
-   "c": "br",
-   "t": "Quem vai cuidar dos idosos do Brasil? Por que o envelhecimento acelerado é o 'desafio do século'",
-   "f": "BBC News Brasil",
-   "d": "2026-11-11",
-   "h": "05:31",
-   "u": "https://www.bbc.com/portuguese/articles/c60qkxv44pq8o?at_medium=RSS&at_campaign=rss",
-   "s": "Com menos nascimentos e uma população cada vez mais velha, o país terá de adaptar Previdência, saúde e mercado de trabalho a uma transformação demográfica sem precedentes."
   }
  ]
 }
