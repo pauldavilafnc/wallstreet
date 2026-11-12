@@ -67,8 +67,9 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Rodar os testes (${{ matrix.nome }})
         run: python tests/run_all.py ${{ matrix.args }}
-      - name: Guardar logs dos testes
-        if: always()
+      - name: Guardar logs dos testes (só se algo falhar; um erro do próprio GitHub aqui não reprova os testes)
+        if: failure()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: logs-${{ strategy.job-index }}
