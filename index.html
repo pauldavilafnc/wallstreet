@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
-<script>try{var l=JSON.parse(localStorage.getItem("wallstreet.look")),r=document.documentElement;r.dataset.theme=l&&l.t==="dark"?"dark":"light";r.dataset.pal=l&&l.p?l.p:"perola"}catch(e){document.documentElement.dataset.pal="perola"}</script><meta name="theme-color" content="#0B1730">
+<script>try{var l=JSON.parse(localStorage.getItem("wallstreet.look")),r=document.documentElement;r.dataset.theme=l&&l.t==="dark"?"dark":"light";r.dataset.pal=l&&l.p?l.p:"blue"}catch(e){document.documentElement.dataset.pal="blue"}</script><meta name="theme-color" content="#0B1730">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="preload" as="image" href="icon-512.png">
@@ -619,21 +619,29 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 #intro.v video{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;background:transparent}
 #intro.v.c video{object-fit:contain}
 #intro.v.e{animation:ifade .45s ease-out forwards}
+:root:not([data-theme=dark]) .pos{color:#166534}
+:root[data-theme=dark] .bub .cl{color:#fff}
+#introsnd{display:none}
+#intro.v.m #introsnd{display:block;position:absolute;left:50%;bottom:calc(env(safe-area-inset-bottom) + 28px);transform:translateX(-50%);z-index:2;min-height:44px;padding:11px 20px;border:1px solid rgba(255,255,255,.6);border-radius:999px;background:rgba(8,40,110,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font-size:14px;font-weight:600;line-height:1.2;font-family:inherit;white-space:nowrap;cursor:pointer}
 @media(prefers-reduced-motion:reduce){#intro,#intro *{animation:none!important;transition:none!important}#intro .ie,#intro .sw{display:none}}
 </style>
 </head>
 <body>
-<div id="intro" aria-hidden="true"><video id="introv" muted playsinline preload="auto" disablepictureinpicture tabindex="-1"></video><div class="il"><div class="ib"><img src="icon-512.png" alt="" width="512" height="512" decoding="async" onerror="this.style.visibility='hidden'"><i class="ie l"></i><i class="ie r"></i><div class="sw"><i class="sh"></i></div></div><b class="in">WOLFIN</b><span class="is">Domine seu dinheiro.</span></div></div>
-<script>/* intro: roda uma vez a cada abertura/recarga (nunca na navegação interna). Retrato → vídeo (MP4 ou WebM, mudo); tela larga, movimento reduzido, vídeo indisponível/lento/offline sem cópia → intro em CSS. Toque ou tecla pula. */(function(){var e=document.getElementById("intro");if(!e)return;var v=document.getElementById("introv"),t;function rm(){clearTimeout(t);if(v){try{v.pause();v.removeAttribute("src");v.load()}catch(x){}}if(e.parentNode)e.parentNode.removeChild(e)}
-if(window.__WS_NOTOUR){rm();return}
+<div id="intro" aria-hidden="true"><video id="introv" playsinline preload="auto" disablepictureinpicture tabindex="-1"></video><button id="introsnd" type="button" tabindex="-1">Toque para ativar o som</button><div class="il"><div class="ib"><img src="icon-512.png" alt="" width="512" height="512" decoding="async" onerror="this.style.visibility='hidden'"><i class="ie l"></i><i class="ie r"></i><div class="sw"><i class="sh"></i></div></div><b class="in">WOLFIN</b><span class="is">Domine seu dinheiro.</span></div></div>
+<script>/* intro: UMA vez por sessão (nova janela/aba/abertura do app; recarregar não repete). Retrato → vídeo com som (se o navegador não permitir som automático, toca mudo e mostra "Toque para ativar o som"); tela larga, movimento reduzido, vídeo indisponível/lento → intro em CSS. Toque ou tecla pula. */(function(){var e=document.getElementById("intro");if(!e)return;var v=document.getElementById("introv"),sb=document.getElementById("introsnd"),t;function rm(){clearTimeout(t);if(v){try{v.pause();v.removeAttribute("src");v.load()}catch(x){}}if(e.parentNode)e.parentNode.removeChild(e)}
+var seen=0;try{seen=sessionStorage.getItem("wolfin.intro")}catch(x){}
+if(window.__WS_NOTOUR||seen){rm();return}
+try{sessionStorage.setItem("wolfin.intro","1")}catch(x){}
 var r=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches,ar=innerWidth/innerHeight,ext="";
-if(v&&!r&&ar<=.85&&innerHeight>=480&&window.__WS_INTRO!=="css"){ext=v.canPlayType('video/mp4; codecs="avc1.640028"')?"mp4":(v.canPlayType('video/webm; codecs="vp9"')?"webm":"")}
-function css(){clearTimeout(t);e.classList.remove("v");t=setTimeout(rm,r?600:2300)}
+if(v&&!r&&ar<=.85&&innerHeight>=480&&window.__WS_INTRO!=="css"){ext=v.canPlayType('video/mp4; codecs="avc1.640028, mp4a.40.2"')?"mp4":(v.canPlayType('video/webm; codecs="vp9, opus"')?"webm":"")}
+function css(){clearTimeout(t);e.classList.remove("v","m");t=setTimeout(rm,r?600:2300)}
 if(ext){var pl=0,vt=setTimeout(css,3200);e.classList.add("v");if(ar<.43)e.classList.add("c");
 v.addEventListener("playing",function(){if(!pl){pl=1;clearTimeout(vt);clearTimeout(t);t=setTimeout(rm,(isFinite(v.duration)?v.duration:7)*1000+3000)}});
 v.addEventListener("error",function(){if(!pl)css()});
 v.addEventListener("ended",function(){e.classList.add("e");clearTimeout(t);t=setTimeout(rm,700)});
-v.src="intro-wolfin."+ext;var q=v.play();if(q&&q.catch)q.catch(function(){if(!pl)css()});t=setTimeout(rm,14000)}
+function mudo(){v.muted=true;e.classList.add("m");var p2=v.play();if(p2&&p2.catch)p2.catch(function(){if(!pl)css()})}
+if(sb){sb.addEventListener("pointerdown",function(ev){ev.stopPropagation()});sb.addEventListener("click",function(ev){ev.stopPropagation();v.muted=false;e.classList.remove("m")})}
+v.src="intro-wolfin."+ext;v.muted=false;var q=v.play();if(q&&q.catch)q.catch(function(){if(!pl)mudo()});t=setTimeout(rm,14000)}
 else t=setTimeout(rm,r?600:2300);
 function sk(){clearTimeout(t);e.classList.add("x");t=setTimeout(rm,220)}
 e.addEventListener("pointerdown",sk);addEventListener("keydown",sk,{once:true});
@@ -652,9 +660,9 @@ e.addEventListener("animationend",function(ev){if(ev.target===e&&ev.animationNam
 /* ===== Wolfin — Domine seu dinheiro. =====
    Valores internos em CENTAVOS inteiros. Dados em localStorage. */
 'use strict';
-const KEY='wallstreet.v1',BUILD='6.2 · intro em vídeo do Wolfin · 11/11/2026';
+const KEY='wallstreet.v1',BUILD='6.3 · intro com som e uma vez por sessão, azul padrão · 12/11/2026';
 const CATS={exp:['Alimentação','Transporte','Compras','Roupas','Lazer','Trabalho','Casa','Saúde','Educação','Financeiro','Tecnologia','Cuidados pessoais','Presentes','Outros'],inc:['Salário','Comissão','Freelancer','Outro']};
-const PALS=[['perola','Pérola','#E8EDF5'],['blue','Azul','#2563EB'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['pink','Rosa','#DB2777'],['orange','Laranja','#EA580C'],['ouro','Ouro','#B88614'],['esmeralda','Esmeralda','#15803D'],['grafite','Grafite','#4B5563']];
+const PALS=[['blue','Azul','#2563EB'],['perola','Pérola','#E8EDF5'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['pink','Rosa','#DB2777'],['orange','Laranja','#EA580C'],['ouro','Ouro','#B88614'],['esmeralda','Esmeralda','#15803D'],['grafite','Grafite','#4B5563']];
 const PAYS=['Pix','Cartão de débito','Cartão de crédito','Dinheiro/Espécie','Outro'];
 const MN=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
 const $=s=>document.querySelector(s);
@@ -676,7 +684,7 @@ const mlabel=ym=>{const [y,m]=ym.split('-');return MN[m-1]+' de '+y};
 const dmy=d=>d.split('-').reverse().join('/');
 
 /* ----- dados iniciais ----- */
-function seed(){return{v:2,owner:"Paul",opening:null,limits:{},cards:[],ntf:{read:{}},pref:{theme:'light',pal:'perola',av:{v:2,m:0,an:1,set:0},ms:'terno',ma:0,mt:0},items:[],inst:[],parc:[],debts:[],boxes:[]}}
+function seed(){return{v:2,owner:"Paul",opening:null,limits:{},cards:[],ntf:{read:{}},pref:{theme:'light',pal:'blue',av:{v:2,m:0,an:1,set:0},ms:'terno',ma:0,mt:0},items:[],inst:[],parc:[],debts:[],boxes:[]}}
 
 function valid(o){return o&&typeof o==='object'&&(o.limits==null||(typeof o.limits==='object'&&Object.values(o.limits).every(v=>Number.isInteger(v)&&v>0)))&&(o.opening==null||(typeof o.opening==='object'&&Number.isInteger(o.opening.c)&&o.opening.c>=0))&&['items','inst','parc','debts','boxes'].every(k=>Array.isArray(o[k]))&&
  o.items.every(i=>i&&Number.isInteger(i.c)&&i.c>=0&&(i.t==='inc'||i.t==='exp'))&&o.debts.every(d=>d&&Number.isInteger(d.o)&&Array.isArray(d.pays)&&d.pays.every(p=>Number.isInteger(p.c)&&typeof p.d==='string'))&&
@@ -694,10 +702,10 @@ function migrate(o){ // v2: saldo inicial, notificações, conquistas; parcelas 
  delete o.games;ensureOrg(o);ensureCards(o);if(o.pref&&typeof o.pref==='object'&&typeof fixPref==='function')fixPref(o);o.boxes.forEach(b=>{if(!['cofre','moto','carro','casa','viagem','celular','computador','estudos','presente','emergencia','saude','bike'].includes(b.ic))b.ic='cofre'});
  const orphan=o.parc.filter(p=>!p.iid||!o.inst.some(x=>x.id===p.iid));
  if(orphan.length){let t=o.inst.find(x=>x.n==='Celular')||o.inst[0];if(!t){t={id:uid(),n:'Parcelado',c:null,np:null,day:null,paid:false};o.inst.push(t)}orphan.forEach(p=>{p.iid=t.id})}return o}
-const fixPref=o=>{if(!o.pref||typeof o.pref!=='object')o.pref={theme:'light',pal:'perola'};if(typeof o.pref.lk!=='number')o.pref.lk=5;if(typeof o.pref.br!=='number')o.pref.br=7;if(typeof o.pref.gl!=='number')o.pref.gl=1;if(!['terno','jazz','piloto','rei','detetive','hacker','mafioso','preso','bebado','ostentacao','praia'].includes(o.pref.ms))o.pref.ms='terno';o.pref.ma=o.pref.ma===1?1:0;if(!Number.isInteger(o.pref.mt))o.pref.mt=-1;if(o.pref.br===14)o.pref.br=15;delete o.pref.vz;const a=o.pref.av;const ci=(v,n)=>{v=Math.floor(+v||0);return v>=0&&v<n?v:0};o.pref.av=(a&&typeof a==='object')?{v:2,m:a.v===2?ci(a.m,10):0,an:(a.an===0||a.an===false)?0:1,set:a.v===2&&a.set?1:0}:{v:2,m:0,an:1,set:0};o.pref.hide=o.pref.hide?1:0;if(o.pref.pal==='rose')o.pref.pal='pink';return o};fixPref(S);migrate(S);
-function lookPref(){try{const l=JSON.parse(localStorage.getItem('wallstreet.look'));if(l&&l.t)return{theme:l.t,pal:l.p,gl:l.g}}catch(e){}return{theme:'light',pal:'perola'}}
+const fixPref=o=>{if(!o.pref||typeof o.pref!=='object')o.pref={theme:'light',pal:'blue'};if(typeof o.pref.lk!=='number')o.pref.lk=5;if(typeof o.pref.br!=='number')o.pref.br=7;if(typeof o.pref.gl!=='number')o.pref.gl=1;if(!['terno','jazz','piloto','rei','detetive','hacker','mafioso','preso','bebado','ostentacao','praia'].includes(o.pref.ms))o.pref.ms='terno';o.pref.ma=0;   /* troca automática de roupa removida; o campo fica só por compatibilidade com backups antigos */if(!Number.isInteger(o.pref.mt))o.pref.mt=-1;if(o.pref.br===14)o.pref.br=15;delete o.pref.vz;const a=o.pref.av;const ci=(v,n)=>{v=Math.floor(+v||0);return v>=0&&v<n?v:0};o.pref.av=(a&&typeof a==='object')?{v:2,m:a.v===2?ci(a.m,10):0,an:(a.an===0||a.an===false)?0:1,set:a.v===2&&a.set?1:0}:{v:2,m:0,an:1,set:0};o.pref.hide=o.pref.hide?1:0;if(o.pref.pal==='rose')o.pref.pal='pink';return o};fixPref(S);migrate(S);
+function lookPref(){try{const l=JSON.parse(localStorage.getItem('wallstreet.look'));if(l&&l.t)return{theme:l.t,pal:l.p,gl:l.g}}catch(e){}return{theme:'light',pal:'blue'}}
 let LASTTH=null;
-function applyPref(){const p=(SECMODE&&!DEK)?lookPref():S.pref,r=document.documentElement;HIDE=p.hide?1:0;{const nt=p.theme==='dark'?'dark':'light';if(LASTTH&&LASTTH!==nt&&!RM.matches){r.classList.add('thm');setTimeout(()=>r.classList.remove('thm'),450)}LASTTH=nt}r.dataset.theme=p.theme==='dark'?'dark':'light';r.dataset.pal=PALS.some(x=>x[0]===p.pal)?p.pal:'perola';const m=document.querySelector('meta[name=theme-color]');if(m)m.content=p.theme==='dark'?'#0B1220':'#0B1730';try{r.dataset.glass=p.gl===0?'off':'on';{const lk=(SECMODE&&!DEK),o=lk?(JSON.parse(localStorage.getItem('wallstreet.look')||'{}')||{}):{};localStorage.setItem('wallstreet.look',JSON.stringify({t:r.dataset.theme,p:r.dataset.pal,g:p.gl===0?0:1,m:lk?o.m:p.ms,a:lk?o.a:(p.ma===1?1:0),s:lk?o.s:p.mt}))}}catch(e){}}
+function applyPref(){const p=(SECMODE&&!DEK)?lookPref():S.pref,r=document.documentElement;HIDE=p.hide?1:0;{const nt=p.theme==='dark'?'dark':'light';if(LASTTH&&LASTTH!==nt&&!RM.matches){r.classList.add('thm');setTimeout(()=>r.classList.remove('thm'),450)}LASTTH=nt}r.dataset.theme=p.theme==='dark'?'dark':'light';r.dataset.pal=PALS.some(x=>x[0]===p.pal)?p.pal:'blue';const m=document.querySelector('meta[name=theme-color]');if(m)m.content=p.theme==='dark'?'#0B1220':'#0B1730';try{r.dataset.glass=p.gl===0?'off':'on';{const lk=(SECMODE&&!DEK),o=lk?(JSON.parse(localStorage.getItem('wallstreet.look')||'{}')||{}):{};localStorage.setItem('wallstreet.look',JSON.stringify({t:r.dataset.theme,p:r.dataset.pal,g:p.gl===0?0:1,m:lk?o.m:p.ms,a:lk?o.a:(p.ma===1?1:0),s:lk?o.s:p.mt}))}}catch(e){}}
 let view='home',vm=ymOf(new Date()),ry=new Date().getFullYear(),rm='',pend=null,open={};
 function save(){if(FIRST)return true;if(STALE){staleWarn();return false}if(SECMODE){if(!DEK)return false;persist();return true}try{localStorage.setItem(KEY,JSON.stringify(S));return true}catch(e){toast('Não foi possível salvar (armazenamento cheio ou bloqueado). As últimas alterações podem não ter sido gravadas.',5000);return false}}
 if(!(RAW0!==null&&JSON.stringify(S)===RAW0))save();
@@ -1213,7 +1221,7 @@ const skSlot=()=>{const d=new Date();return Math.floor((Date.now()-d.getTimezone
 let SKA=new Uint8Array(0);
 function skFor(slot){const N=SKIDS.length,h=n=>{let x=Math.imul(n|0,2654435761)>>>0;x^=x>>>15;x=Math.imul(x,2246822519)>>>0;x^=x>>>13;return x>>>0};slot=Math.max(0,slot|0);if(SKA.length<=slot){const L=slot+800,A=new Uint8Array(L);A[0]=h(0)%N;for(let i=1;i<L;i++)A[i]=(A[i-1]+1+h(i)%(N-1))%N;SKA=A}return SKIDS[SKA[slot]]}
 function lookSk(){try{const l=JSON.parse(localStorage.getItem('wallstreet.look'));if(l){const ok=SKIDS.includes(l.m);if(l.a!==1)return ok?l.m:'terno';if(ok&&l.s===skSlot())return l.m}}catch(e){}return skFor(skSlot())}
-function skSync(){if(!S||(SECMODE&&!DEK))return;const p=S.pref;if(!SKIDS.includes(p.ms))p.ms='terno';if(p.ma===1){const sl=skSlot();if(p.mt!==sl){p.ms=skFor(sl);p.mt=sl;save()}}}
+function skSync(){if(!S||(SECMODE&&!DEK))return;const p=S.pref;if(!SKIDS.includes(p.ms))p.ms='terno';}
 function skCur(){if(SECMODE&&!DEK)return lookSk();skSync();return S.pref.ms}
 /* efeitos próprios de cada estilo (só CSS, bem leves) */
 const spx=x=>(x/1024*100).toFixed(2)+'%',spy=y=>(y/880*100).toFixed(2)+'%';
@@ -1277,10 +1285,10 @@ function mqHome(){const [mood,txt]=mqSay(),A=S.ach||{},n=ACH.filter(a=>A[a.id]).
  return `<div class="card mqc"><button class="mqbtn" data-act="mqtap" aria-label="Brincar com o mascote">${wolfHtml('bust'+(jp?' nod':'')+(fd?' skfade':''))}</button><div class="bub"><p>${esc(txt)}</p><button class="cl" data-act="nav" data-id="conq">Conquistas ${n}/${ACH.length} ›</button></div></div>`}
 /* ===== configurações do mascote ===== */
 function skCfgCard(){const p=S.pref,cur=SKIDS.includes(p.ms)?p.ms:'terno';
- return `<div class="card"><h3>Mascote</h3><label>Trocar de roupa automaticamente<select id="maSel"><option value="1"${p.ma===1?' selected':''}>Ligado (muda ao longo do dia)</option><option value="0"${p.ma!==1?' selected':''}>Desligado</option></select></label><p class="lbl" style="margin:8px 0 10px">Roupa de agora: <b>${esc(SKN[cur][0])}</b> · ${esc(SKN[cur][1])}.</p><div class="skgrid">${SKIDS.map(id=>`<button class="skb${id===cur?' on':''}" data-act="skpick" data-id="${id}" aria-pressed="${id===cur}" aria-label="${esc(SKN[id][0])}"><span class="skth"><img src="${id==='terno'?WU.av0:skUrl(id)}" alt="" draggable="false"></span><span>${esc(SKN[id][0])}</span></button>`).join('')}</div><p class="lbl" style="margin-top:8px">Ligado: a roupa muda a cada 3 horas, e a que você escolher vale até a próxima troca. Desligado: a roupa escolhida fica fixa.</p></div>`}
+ return `<div class="card"><h3>Mascote</h3><p class="lbl" style="margin:0 0 10px">Roupa de agora: <b>${esc(SKN[cur][0])}</b> · ${esc(SKN[cur][1])}.</p><div class="skgrid">${SKIDS.map(id=>`<button class="skb${id===cur?' on':''}" data-act="skpick" data-id="${id}" aria-pressed="${id===cur}" aria-label="${esc(SKN[id][0])}"><span class="skth"><img src="${id==='terno'?WU.av0:skUrl(id)}" alt="" draggable="false"></span><span>${esc(SKN[id][0])}</span></button>`).join('')}</div></div>`}
 const SKACT={skpick:id=>{if(!SKIDS.includes(id))return;S.pref.ms=id;S.pref.mt=skSlot();save();render();toast('Roupa: '+SKN[id][0])}};
-document.addEventListener('change',e=>{if(e.target.id==='maSel'&&S){S.pref.ma=e.target.value==='0'?0:1;S.pref.mt=skSlot();save();render();toast(S.pref.ma?'Troca automática ligada':'Troca automática desligada')}});
-let SKT=0;function skLoop(){clearTimeout(SKT);SKT=setTimeout(()=>{try{if(S&&!(SECMODE&&!DEK)&&S.pref.ma===1&&S.pref.mt!==skSlot()&&!document.hidden&&view==='home'&&$('#ov').hidden&&$('#lock').hidden)render()}catch(e){}skLoop()},60000)}skLoop();
+
+
 /* ===== toque nos botões: brilho rápido, como nas teclas do celular ===== */
 document.addEventListener('pointerdown',e=>{if(RM.matches||(e.pointerType==='mouse'&&e.button!==0))return;const b=e.target.closest&&e.target.closest('button,.pal,.skb');if(!b||b.disabled)return;const r=b.getBoundingClientRect();if(r.width<8||r.height<8)return;
  const x=e.clientX-r.left,y=e.clientY-r.top,s=Math.hypot(Math.max(x,r.width-x),Math.max(y,r.height-y))*2/10,w=document.createElement('span');w.className='rpl';w.innerHTML='<i></i>';const i=w.firstChild;i.style.setProperty('--x',x+'px');i.style.setProperty('--y',y+'px');i.style.setProperty('--s',s.toFixed(1));b.appendChild(w);setTimeout(()=>w.remove(),560)},{passive:true});

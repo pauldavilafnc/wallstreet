@@ -12,7 +12,7 @@ const CACHE = PREFIXO + 'v' + VERSAO;
 const LEGADO = /^wallstreet-v\d+$/;                                    // nome das versões antigas deste app
 const meuCache = k => k.startsWith(PREFIXO) || LEGADO.test(k);
 const ESSENCIAIS = ['index.html'];                                     // sem isso a instalação falha (e a versão atual continua valendo)
-const OPCIONAIS = ['./', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'apple-touch-icon.png', 'favicon-32.png', 'favicon-48.png'];
+const OPCIONAIS = ['./', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'apple-touch-icon.png', 'favicon-32.png', 'favicon-48.png', 'intro-wolfin.mp4'];   // o MP4 (≈0,7 MB) já fica guardado: a intro em vídeo toca offline desde a 1ª abertura
 const ESPERA_REDE = 6000;                                              // rede lenta: depois disso usa a cópia guardada (e atualiza em segundo plano)
 const meu = u => u.origin === location.origin && u.pathname.startsWith(ESCOPO);   // só arquivos deste app
 
