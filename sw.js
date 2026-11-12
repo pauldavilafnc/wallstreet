@@ -71,9 +71,34 @@ async function responder(e, r) {
   }
 }
 
+/* Vídeo da intro (mp4/webm): o navegador pede trechos (Range). Baixa o arquivo inteiro uma vez, guarda no cache deste app e
+   responde os trechos (206) a partir da cópia — assim a intro em vídeo também toca offline. Se não houver cópia nem rede, falha
+   (a página então usa a intro em CSS). Nomes de arquivo mudam a cada nova versão do vídeo. */
+const ehVideo = u => /\.(mp4|webm)$/i.test(u.pathname);
+async function video(e, r) {
+  const url = new URL(r.url).href;
+  let c, cop;
+  try { c = await caches.open(CACHE); cop = await c.match(url); } catch (_) { /* segue sem cache */ }
+  if (!cop) {
+    try {
+      const res = await fetch(url, { cache: 'no-cache' });
+      if (!res.ok || res.type !== 'basic') return res;
+      cop = res;
+      if (c) e.waitUntil(c.put(url, res.clone()).catch(() => {}));
+    } catch (_) { return new Response('', { status: 503, statusText: 'Offline' }); }
+  }
+  const faixa = r.headers.get('range'), m = faixa && /^bytes=(\d*)-(\d*)$/.exec(faixa);
+  if (!m) return cop;
+  const buf = await cop.arrayBuffer(), total = buf.byteLength;
+  let ini = m[1] === '' ? Math.max(0, total - Number(m[2])) : Number(m[1]);
+  let fim = (m[1] === '' || m[2] === '') ? total - 1 : Math.min(Number(m[2]), total - 1);
+  if (!(ini <= fim) || ini >= total) return new Response('', { status: 416, headers: { 'Content-Range': 'bytes */' + total } });
+  return new Response(buf.slice(ini, fim + 1), { status: 206, headers: { 'Content-Type': cop.headers.get('Content-Type') || (/\.mp4$/i.test(url) ? 'video/mp4' : 'video/webm'), 'Content-Range': 'bytes ' + ini + '-' + fim + '/' + total, 'Content-Length': String(fim - ini + 1), 'Accept-Ranges': 'bytes' } });
+}
+
 self.addEventListener('fetch', e => {
   const r = e.request;
   if (r.method !== 'GET' || !meu(new URL(r.url))) return;
   if (!limpou) { limpou = true; e.waitUntil(limparAntigos()); }
-  e.respondWith(responder(e, r));
+  e.respondWith(ehVideo(new URL(r.url)) ? video(e, r) : responder(e, r));
 });
