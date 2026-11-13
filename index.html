@@ -170,13 +170,12 @@
 @keyframes ish{from{transform:translateX(-120%) skewX(-16deg)}to{transform:translateX(230%) skewX(-16deg)}}
 @keyframes itx{0%{opacity:0;transform:translateY(9px)}100%{opacity:1;transform:none}}
 @keyframes ifade{to{opacity:0;visibility:hidden}}
-@media(max-height:420px){#intro .il{transform:none}#intro .ib{width:clamp(84px,22vh,120px)}#intro .in{margin-top:8px;font-size:22px}#intro .is{margin-top:4px}}#intro video{display:none}#intro.v{background:linear-gradient(155deg,#d6eaff 0%,#3086eb 28%,#1860c6 50%,#0640a1 75%,#011c4d 100%)}#intro.v .il{display:none}#intro.v video{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;background:transparent}#intro.v.c video{object-fit:contain}#intro.v.e{animation:ifade .45s ease-out forwards}:root:not([data-theme=dark]) .pos{color:#166534}:root[data-theme=dark] .bub .cl{color:#fff}#introsnd{display:none}#intro.v.m #introsnd{display:block;position:absolute;left:50%;bottom:calc(env(safe-area-inset-bottom) + 28px);transform:translateX(-50%);z-index:2;min-height:44px;padding:11px 20px;border:1px solid rgba(255,255,255,.6);border-radius:999px;background:rgba(8,40,110,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font-size:14px;font-weight:600;line-height:1.2;font-family:inherit;white-space:nowrap;cursor:pointer}
-@media(prefers-reduced-motion:reduce){#intro,#intro *{animation:none!important;transition:none!important}#intro .ie,#intro .sw{display:none}}
+@media(max-height:420px){#intro .il{transform:none}#intro .ib{width:clamp(84px,22vh,120px)}#intro .in{margin-top:8px;font-size:22px}#intro .is{margin-top:4px}}#intro video{display:none}#intro.v{background:linear-gradient(155deg,#d6eaff 0%,#3086eb 28%,#1860c6 50%,#0640a1 75%,#011c4d 100%)}#intro.v .il{display:none}#intro.v video{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;background:transparent}#intro.v.c video{object-fit:contain}#intro.v.e{animation:ifade .45s ease-out forwards}:root:not([data-theme=dark]) .pos{color:#166534}:root[data-theme=dark] .bub .cl{color:#fff}@media(prefers-reduced-motion:reduce){#intro,#intro *{animation:none!important;transition:none!important}#intro .ie,#intro .sw{display:none}}
 </style>
 </head>
 <body>
-<div id="intro" aria-hidden="true"><video id="introv" playsinline preload="auto" disablepictureinpicture tabindex="-1"></video><button id="introsnd" type="button" tabindex="-1">Toque para ativar o som</button><div class="il"><div class="ib"><img src="icon-512.png" alt="" width="512" height="512" decoding="async" onerror="this.style.visibility='hidden'"><i class="ie l"></i><i class="ie r"></i><div class="sw"><i class="sh"></i></div></div><b class="in">WOLFIN</b><span class="is">Domine seu dinheiro.</span></div></div>
-<script>/* intro: UMA vez por sessão (nova janela/aba/abertura do app; recarregar não repete). Retrato → vídeo com som (se o navegador não permitir som automático, toca mudo e mostra "Toque para ativar o som"); tela larga, movimento reduzido, vídeo indisponível/lento → intro em CSS. Toque ou tecla pula. */(function(){var e=document.getElementById("intro");if(!e)return;var v=document.getElementById("introv"),sb=document.getElementById("introsnd"),t;function rm(){clearTimeout(t);if(v){try{v.pause();v.removeAttribute("src");v.load()}catch(x){}}if(e.parentNode)e.parentNode.removeChild(e)}
+<div id="intro" aria-hidden="true"><video id="introv" playsinline preload="auto" disablepictureinpicture tabindex="-1"></video><div class="il"><div class="ib"><img src="icon-512.png" alt="" width="512" height="512" decoding="async" onerror="this.style.visibility='hidden'"><i class="ie l"></i><i class="ie r"></i><div class="sw"><i class="sh"></i></div></div><b class="in">WOLFIN</b><span class="is">Domine seu dinheiro.</span></div></div>
+<script>/* intro: UMA vez por sessão (nova janela/aba/abertura do app; recarregar não repete). Retrato → vídeo com som (o navegador decide se permite som automático; se bloquear, toca mudo, sem botão); tela larga, movimento reduzido, vídeo indisponível/lento → intro em CSS. Toque ou tecla pula. */(function(){var e=document.getElementById("intro");if(!e)return;var v=document.getElementById("introv"),t;function rm(){clearTimeout(t);if(v){try{v.pause();v.removeAttribute("src");v.load()}catch(x){}}if(e.parentNode)e.parentNode.removeChild(e)}
 var seen=0;try{seen=sessionStorage.getItem("wolfin.intro")}catch(x){}
 if(window.__WS_NOTOUR||seen){rm();return}
 try{sessionStorage.setItem("wolfin.intro","1")}catch(x){}
@@ -187,8 +186,7 @@ if(ext){var pl=0,vt=setTimeout(css,3200);e.classList.add("v");if(ar<.43)e.classL
 v.addEventListener("playing",function(){if(!pl){pl=1;clearTimeout(vt);clearTimeout(t);t=setTimeout(rm,(isFinite(v.duration)?v.duration:7)*1000+3000)}});
 v.addEventListener("error",function(){if(!pl)css()});
 v.addEventListener("ended",function(){e.classList.add("e");clearTimeout(t);t=setTimeout(rm,700)});
-function mudo(){v.muted=true;e.classList.add("m");var p2=v.play();if(p2&&p2.catch)p2.catch(function(){if(!pl)css()})}
-if(sb){sb.addEventListener("pointerdown",function(ev){ev.stopPropagation()});sb.addEventListener("click",function(ev){ev.stopPropagation();v.muted=false;e.classList.remove("m")})}
+function mudo(){v.muted=true;var p2=v.play();if(p2&&p2.catch)p2.catch(function(){if(!pl)css()})}
 v.src="intro-wolfin."+ext;v.muted=false;var q=v.play();if(q&&q.catch)q.catch(function(){if(!pl)mudo()});t=setTimeout(rm,14000)}
 else t=setTimeout(rm,r?600:2300);
 function sk(){clearTimeout(t);e.classList.add("x");t=setTimeout(rm,220)}
@@ -212,7 +210,7 @@ const MCIDS=['wolfin','leonidas','vito','oraculo','brutus','mako','bento','penny
 /* migração: avatar antigo (10 modelos) e roupa antiga do lobo → mascote novo; sem correspondência = Wolfin */
 const MCOLD_AV=['wolfin',null,'nyx','leonidas','vito','wolfin',null,null,'oraculo','elliot'],MCOLD_MS={terno:'wolfin',rei:'leonidas',detetive:'elliot',hacker:'nyx',ostentacao:'vito'};
 function mcMigrate(p){const a=p&&p.av&&typeof p.av==='object'&&p.av.v===2?p.av:null,ia=a?MCOLD_AV[Math.floor(+a.m)]||null:null;return (a&&a.set===1&&ia)||(MCOLD_MS[p&&p.ms]&&MCOLD_MS[p.ms]!=='wolfin'?MCOLD_MS[p.ms]:null)||ia||'wolfin'}
-const KEY='wallstreet.v1',BUILD='7.1 · correções da auditoria final · 12/11/2026';
+const KEY='wallstreet.v1',BUILD='7.2 · intro com som automático, sem botão · 13/11/2026';
 const CATS={exp:['Alimentação','Transporte','Compras','Roupas','Lazer','Trabalho','Casa','Saúde','Educação','Financeiro','Tecnologia','Cuidados pessoais','Presentes','Outros'],inc:['Salário','Comissão','Freelancer','Outro']};
 const PALS=[['blue','Azul','#2563EB'],['perola','Pérola','#E8EDF5'],['violet','Violeta','#7C3AED'],['teal','Turquesa','#0D9488'],['pink','Rosa','#DB2777'],['orange','Laranja','#EA580C'],['ouro','Ouro','#B88614'],['esmeralda','Esmeralda','#15803D'],['grafite','Grafite','#4B5563']];
 const PAYS=['Pix','Cartão de débito','Cartão de crédito','Dinheiro/Espécie','Outro'];

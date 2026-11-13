@@ -194,3 +194,6 @@ O app tem **10 mascotes oficiais**, e o escolhido é também o **avatar** em tod
 
 ### Privacidade: origem compartilhada no GitHub Pages (importante)
 Todos os sites de `pauldavilafnc.github.io` compartilham o mesmo armazenamento do navegador. **Não publique outros projetos nesta conta**, porque eles poderiam ler os dados do Wolfin (especialmente no modo "sem senha"). Para isolar de verdade, use uma conta/organização ou domínio próprio para o Wolfin (o endereço muda e os dados do navegador são por endereço: restaure por backup exportado). No modo sem senha os dados ficam em texto simples no navegador e o backup comum também; prefira proteger com senha e exportar backup criptografado.
+
+## Intro: som automático, sem botão (versão 7.2)
+O botão "Toque para ativar o som" foi removido. A intro **tenta tocar com som sozinha**; se o navegador bloquear o som automático (a regra da maioria), ela toca **muda**, sem botão nem aviso. Um toque ainda pula a intro. **Nenhum site consegue forçar som automático**: quem decide é o navegador. O som costuma tocar automaticamente quando o Wolfin está **instalado como app** (tela inicial) e, em alguns navegadores, depois de permitir som/autoplay para o site nas configurações do navegador.
