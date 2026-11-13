@@ -1,14 +1,41 @@
 {
- "at": "2026-11-12T22:22-03:00",
+ "at": "2026-11-13T01:05-03:00",
  "items": [
   {
    "c": "br",
-   "t": "Senado aprova texto-base do ajuste fiscal do governo Lula por 45 votos a 31",
+   "t": "Outlook e IA da Microsoft seguem instáveis nesta sexta-feira",
+   "f": "G1 Economia",
+   "d": "2026-11-13",
+   "h": "00:00",
+   "u": "https://g1.globo.com/tecnologia/noticia/2026/11/13/outlook-e-ia-da-microsoft-seguem-instaveis-nesta-sexta-feira.ghtml",
+   "s": "\"Estamos investigando relatos de usuários que estão enfrentando problemas ao acessar caixas de correio do Exchange Online por vários métodos de conexão nas Américas. Mais detalhes podem ser encontrados no centro de administração…"
+  },
+  {
+   "c": "br",
+   "t": "Proclamação da República é feriado ou ponto facultativo? Veja os direitos de quem trabalha",
+   "f": "G1 Economia",
+   "d": "2026-11-13",
+   "h": "00:00",
+   "u": "https://g1.globo.com/trabalho-e-carreira/noticia/2026/11/13/proclamacao-da-republica-e-feriado.ghtml",
+   "s": "Região dos Lagos é alvo do turismo no feriado. Divulgação O Brasil celebra o feriado nacional da Proclamação da República no próximo domingo (15). Neste ano, a data cai no fim de semana e não gera, por si só, um dia extra de…"
+  },
+  {
+   "c": "br",
+   "t": "Microsoft tem dificuldade para restabelecer Outlook e Copilot após horas de pane",
+   "f": "InfoMoney",
+   "d": "2026-11-12",
+   "h": "23:10",
+   "u": "https://www.infomoney.com.br/consumo/microsoft-tem-dificuldade-para-restabelecer-outlook-e-copilot-apos-horas-de-pane/",
+   "s": "Empresa diz que medidas não trouxeram o alívio esperado e vê só “recuperação limitada em algumas regiões”; pico teve 200 mil reclamações The post Microsoft tem dificuldade para restabelecer Outlook e Copilot após horas de pane…"
+  },
+  {
+   "c": "br",
+   "t": "Senado aprova texto-base de ajuste fiscal do governo Lula por 45 votos a 31",
    "f": "InfoMoney",
    "d": "2026-11-12",
    "h": "21:28",
    "u": "https://www.infomoney.com.br/politica/senado-aprova-texto-base-do-ajuste-fiscal-do-governo-lula-por-45-votos-a-31/",
-   "s": "O governo estima que as regras sejam válidas já no próximo ano, sendo aprovadas antes da votação do Orçamento de 2027 The post Senado aprova texto-base do ajuste fiscal do governo Lula por 45 votos a 31 appeared first on…"
+   "s": "Destaques devem ser votados na terça (17); depois, o projeto segue para a Câmara. Governo quer as regras valendo já em 2027 The post Senado aprova texto-base de ajuste fiscal do governo Lula por 45 votos a 31 appeared first on…"
   },
   {
    "c": "br",
@@ -30,24 +57,6 @@
   },
   {
    "c": "br",
-   "t": "Ataque hacker ao Tesouro Nacional expõe dados de 30 mil cadastros e 4 mil chaves PIX",
-   "f": "G1 Economia",
-   "d": "2026-11-12",
-   "h": "20:13",
-   "u": "https://g1.globo.com/economia/noticia/2026/11/12/tesouro-nacional-incidente-seguranca.ghtml",
-   "s": "Um ataque hacker identificado pelo Tesouro Nacional atingiu cerca de 30 mil cadastros de usuários do portal e-Serviços e 4 mil chaves PIX de beneficiários de pagamentos do governo federal, informou o órgão nesta quinta-feira…"
-  },
-  {
-   "c": "br",
-   "t": "Marisa Lojas (AMAR3) reverte lucro e tem prejuízo líquido de R$ 52,9 milhões no 3T",
-   "f": "InfoMoney",
-   "d": "2026-11-12",
-   "h": "20:09",
-   "u": "https://www.infomoney.com.br/mercados/marisa-lojas-amar3-resultados-terceiro-trimestre-2026/",
-   "s": "Mesmo com a melhora operacional, o resultado foi pressionado pelo custo da dívida e por uma base de comparação beneficiada por créditos tributários extraordinários em 2025 The post Marisa Lojas (AMAR3) reverte lucro e tem…"
-  },
-  {
-   "c": "br",
    "t": "Caixa Seguridade informa ataque cibernético e vazamento de dados",
    "f": "Agência Brasil",
    "d": "2026-11-12",
@@ -63,15 +72,6 @@
    "h": "19:35",
    "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-dispara-158-e-fecha-r-565-maior-nivel-em-17-meses",
    "s": "Em meio a turbulências nos cenários doméstico e internacional, o dólar disparou frente ao real e fechou acima de R$ 5,65 nesta quinta-feira (12), no maior patamar desde junho de 2025. A moeda foi impulsionada pela insatisfação…"
-  },
-  {
-   "c": "br",
-   "t": "Mãe de menino brasileiro que teve dedo mutilado em Portugal contesta resultado de investigação: 'É como se a vida do meu filho não valesse de nada'",
-   "f": "BBC News Brasil",
-   "d": "2026-11-12",
-   "h": "17:55",
-   "u": "https://www.bbc.com/portuguese/articles/ck0jxpxl6q24o?at_medium=RSS&at_campaign=rss",
-   "s": "Família contesta conclusão de investigação oficial que descartou bullying e classificou o caso como acidente e aguarda desfecho de processos judiciais."
   },
   {
    "c": "mu",
