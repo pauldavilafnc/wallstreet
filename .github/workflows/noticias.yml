@@ -8,19 +8,37 @@ on:
 permissions:
   contents: write
 
+concurrency:                  # nunca duas atualizações ao mesmo tempo
+  group: atualizar-noticias
+  cancel-in-progress: false
+
 jobs:
   noticias:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Buscar feeds e gerar noticias.json
         run: python scripts/atualizar_noticias.py
-      - name: Salvar se mudou
+      - name: Salvar se mudou (reconcilia com envios feitos no meio do caminho)
         run: |
           git config user.name "wallstreet-bot"
           git config user.email "wallstreet-bot@users.noreply.github.com"
           git add noticias.json
-          git diff --cached --quiet || (git commit -m "Atualiza notícias" && git push)
+          if git diff --cached --quiet; then
+            echo "Sem mudanças nas notícias."
+            exit 0
+          fi
+          git commit -m "Atualiza notícias"
+          ok=0
+          for i in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then ok=1; break; fi
+            echo "Tentativa $i falhou (alguém enviou arquivos agora?). Aguardando para tentar de novo..."
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 6))
+          done
+          [ "$ok" = 1 ]
+          
