@@ -43,16 +43,16 @@ jobs:
           - nome: "Visual e experiência"
             args: "--grupo extras"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Descompactar tests.zip (publicação pelo celular envia a pasta tests/ compactada)
         run: |
           if [ ! -d tests ] && [ -f tests.zip ]; then unzip -q tests.zip; fi
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: tests/requirements.txt
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: "20"
       - name: Instalar a fonte Inter (fonte de referência do app; sem ela o GitHub usaria uma fonte mais larga que a do celular)
@@ -70,7 +70,7 @@ jobs:
       - name: Guardar logs dos testes (só se algo falhar; um erro do próprio GitHub aqui não reprova os testes)
         if: failure()
         continue-on-error: true
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: logs-${{ strategy.job-index }}
           path: tests/report/
