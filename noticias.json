@@ -1,6 +1,78 @@
 {
- "at": "2026-11-14T12:50-03:00",
+ "at": "2026-11-14T15:56-03:00",
  "items": [
+  {
+   "c": "mu",
+   "t": "Smart: o que é o novo sistema de tráfego aéreo anunciado pelos EUA?",
+   "f": "InfoMoney",
+   "d": "2026-11-14",
+   "h": "15:15",
+   "u": "https://www.infomoney.com.br/mercados/smart-o-que-e-o-novo-sistema-de-trafego-aereo-anunciado-pelos-eua/",
+   "s": "O governo americano anunciou na última terça (10) a expansão para todo o país do SMART, plataforma que analisa com IA informações para identificar possíveis gargalos antes que eles afetem os voos The post Smart: o que é o novo…"
+  },
+  {
+   "c": "mu",
+   "t": "Como troca de cabos levou ao maior caos aéreo nos EUA desde o 11 de Setembro, segundo o governo Trump",
+   "f": "BBC News Brasil",
+   "d": "2026-11-14",
+   "h": "15:06",
+   "u": "https://www.bbc.com/portuguese/articles/ckd71ne91y79o?at_medium=RSS&at_campaign=rss",
+   "s": "O governo dos Estados Unidos não acredita que a interrupção tenha sido resultado de um ataque cibernético, embora as investigações ainda estejam em andamento."
+  },
+  {
+   "c": "mu",
+   "t": "De onde surgiu a teoria de que haverá um 'apagão mundial' no dia 17 de novembro — e por que ele é improvável",
+   "f": "BBC News Brasil",
+   "d": "2026-11-14",
+   "h": "15:01",
+   "u": "https://www.bbc.com/portuguese/articles/c57429m97421o?at_medium=RSS&at_campaign=rss",
+   "s": "Publicações nas redes associam teste de alertas nos EUA, cena de 'Os Simpsons' e recomendações de emergência a uma suposta interrupção mundial de energia. Não há evidências que sustentem a previsão."
+  },
+  {
+   "c": "mu",
+   "t": "Apagão aéreo nos EUA: especialista aponta vulnerabilidade no sistema",
+   "f": "G1 Mundo",
+   "d": "2026-11-14",
+   "h": "14:57",
+   "u": "https://g1.globo.com/mundo/noticia/2026/11/14/apagao-aereo-nos-eua-especialista-aponta-vulnerabilidade-no-sistema.ghtml",
+   "s": "Moacyr Duarte aponta vulnerabilidade do sistema aéreo dos EUA Ao comentar as declarações do secretário de Transportes dos Estados Unidos, Sean Duffy, sobre o apagão aéreo no país, o especialista em gerenciamento de risco Moacyr…"
+  },
+  {
+   "c": "br",
+   "t": "Em vídeo, ministro afirma que ajuste fiscal preserva direitos e combate privilégios",
+   "f": "InfoMoney",
+   "d": "2026-11-14",
+   "h": "14:50",
+   "u": "https://www.infomoney.com.br/politica/em-video-ministro-afirma-que-ajuste-fiscal-preserva-direitos-e-combate-privilegios/",
+   "s": "Bruno Moretti cita supersalários e benefícios fiscais; texto ainda tramita no Congresso e enfrenta desconfiança do mercado e de alas do governo The post Em vídeo, ministro afirma que ajuste fiscal preserva direitos e combate…"
+  },
+  {
+   "c": "mu",
+   "t": "Controle de tráfego aéreo dos EUA ainda opera com disquetes; veja como eles funcionam",
+   "f": "G1 Economia",
+   "d": "2026-11-14",
+   "h": "14:23",
+   "u": "https://g1.globo.com/tecnologia/noticia/2026/11/14/controle-de-trafego-aereo-dos-eua-ainda-opera-com-disquetes-veja-como-eles-funcionam.ghtml",
+   "s": "Armazenamento de disquetes, em foto de julho de 2022 Iswoar/Wikimedia Commons O apagão aéreo da última sexta-feira (13) nos Estados Unidos chamou atenção para as ferramentas usadas no país para controlar o tráfego de aviões. O…"
+  },
+  {
+   "c": "br",
+   "t": "Mpox: variante que causou crise na África avança no Brasil; veja sintomas",
+   "f": "InfoMoney",
+   "d": "2026-11-14",
+   "h": "14:15",
+   "u": "https://www.infomoney.com.br/brasil/mpox-variante-que-causou-crise-na-africa-avanca-no-brasil-veja-sintomas/",
+   "s": "O Brasil chegou a 1.009 casos de mpox e a primeira morte pela doença foi confirmada no país, em um paciente na cidade do Rio The post Mpox: variante que causou crise na África avança no Brasil; veja sintomas appeared first on…"
+  },
+  {
+   "c": "mu",
+   "t": "Governo Trump diz não acreditar em ataque hacker e aponta troca de cabos como causa de apagão aéreo nos EUA",
+   "f": "G1 Mundo",
+   "d": "2026-11-14",
+   "h": "11:24",
+   "u": "https://g1.globo.com/mundo/noticia/2026/11/14/caos-aereo-eua-atrasos-cancelamentos-voos.ghtml",
+   "s": "Autoridades dos EUA explicam crise aérea O governo dos Estados Unidos afirmou neste sábado (14) não acreditar em um ataque hacker como causa da paralisação nacional das decolagens na sexta-feira (13). Segundo o secretário de…"
+  },
   {
    "c": "br",
    "t": "Microsoft alerta sobre tentativas de golpe após falha no Teams e no Outlook",
@@ -46,33 +118,6 @@
    "s": "Como a falha da Microsoft afetou serviços e eventos em diversas partes do mundo A Microsoft informou neste sábado (14) que seus serviços foram totalmente restabelecidos após uma falha global que durou várias horas. \"Concluímos os…"
   },
   {
-   "c": "mu",
-   "t": "FBI desmantela rede de hackers da Coreia do Norte; objetivo do golpe era financiar armas ilícitas no país",
-   "f": "G1 Mundo",
-   "d": "2026-11-14",
-   "h": "02:01",
-   "u": "https://g1.globo.com/mundo/noticia/2026/11/14/fbi-desmantela-rede-de-hackers-da-coreia-do-norte-objetivo-do-golpe-era-financiar-armas-ilicitas-no-pais.ghtml",
-   "s": "No caso da Binance, o FBI informou que o grupo conhecido como TraderTraitor roubou mais de 6 bilhões de dólares por volta do dia 29 de outubro. A agência de notícias Associated Press (AP) estimou o valor em cerca de 6,3 bilhões…"
-  },
-  {
-   "c": "mu",
-   "t": "Suspensão de voos nos EUA: secretário cita inconsistências entre radar e torre e diz que sistema de tráfego aéreo é velho",
-   "f": "G1 Mundo",
-   "d": "2026-11-13",
-   "h": "22:37",
-   "u": "https://g1.globo.com/mundo/noticia/2026/11/13/suspensao-de-voos-secretario-diz-que-houve-inconsistencias-entre-radar-e-torre-e-que-sistema-de-trafego-aereo-e-velho.ghtml",
-   "s": "O secretário de Transportes dos Estados Unidos, Sean Duffy, afirmou que a falha atinge todos os centros de controle responsáveis pelo tráfego nas rotas aéreas do país. Técnicos da FAA investigam o problema, segundo ele. A…"
-  },
-  {
-   "c": "mu",
-   "t": "Anac orienta passageiros a consultar aéreas sobre voos para os EUA",
-   "f": "Agência Brasil",
-   "d": "2026-11-13",
-   "h": "21:00",
-   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/anac-orienta-passageiros-consultar-aereas-sobre-voos-para-os-eua",
-   "s": "A Agência Nacional de Aviação Civil (Anac) orienta os passageiros com viagens marcadas para os Estados Unidos que busquem as companhias aéreas para verificar a situação do voo ou eventuais alterações. Mais cedo, a Administração…"
-  },
-  {
    "c": "br",
    "t": "Brasileiro que morreu em prisão isralense é sepultado depois de 1 ano e 8 meses; governo cobra explicação de Israel",
    "f": "G1 Mundo",
@@ -80,15 +125,6 @@
    "h": "20:36",
    "u": "https://g1.globo.com/politica/noticia/2026/11/13/brasileiro-que-morreu-em-prisao-isralense-e-sepultado-depois-de-1-ano-e-8-meses-governo-cobra-explicacao-de-israel.ghtml",
    "s": "O Ministério das Relações Exteriores informou nesta sexta-feira (13) que o brasileiro-palestino Walid Khalid Abdalla Ahmad, que morreu em custódia israelense em março de 2025, foi sepultado nesta quinta-feira (12). Como o…"
-  },
-  {
-   "c": "mu",
-   "t": "Paralisação de voos nos EUA: Anac diz monitorar situação e recomenda que passageiros procurem companhias aéreas",
-   "f": "G1 Economia",
-   "d": "2026-11-13",
-   "h": "20:21",
-   "u": "https://g1.globo.com/economia/noticia/2026/11/13/paralisacao-de-voos-nos-eua-anac-diz-monitorar-situacao-e-recomenda-que-passageiros-procurem-companhias-aereas.ghtml",
-   "s": "Problemas de comunicação A FAA informou que a suspensão das decolagens foi adotada por circunstâncias extraordinárias e motivos de segurança. A orientação é que todos os voos com partida prevista nos Estados Unidos permaneçam em…"
   },
   {
    "c": "br",
@@ -107,42 +143,6 @@
    "h": "19:54",
    "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-nao-renova-subsidio-de-r-140-ao-diesel-importado",
    "s": "Após um mês em vigor, a subvenção de R$ 1,40 por litro ao diesel importado não será renovada, informou na noite desta sexta-feira (13) o Ministério da Fazenda. O benefício chegou ao fim após o vencimento da Portaria 3.082 do…"
-  },
-  {
-   "c": "br",
-   "t": "Tesouro prevê normalizar sistemas fora do ar até segunda-feira",
-   "f": "Agência Brasil",
-   "d": "2026-11-13",
-   "h": "19:27",
-   "u": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/tesouro-preve-normalizar-sistemas-fora-do-ar-ate-segunda-feira",
-   "s": "A Secretaria do Tesouro Nacional informou que prevê restabelecer até a manhã de segunda-feira (16) os sistemas e serviços temporariamente indisponíveis após o incidente de segurança informado na quinta-feira (12) à noite. A…"
-  },
-  {
-   "c": "br",
-   "t": "Apagão do Outlook afetou até os prazos de ações no Judiciário: dá para pedir indenização à Microsoft?",
-   "f": "BBC News Brasil",
-   "d": "2026-11-13",
-   "h": "16:49",
-   "u": "https://www.bbc.com/portuguese/articles/cq62pdgrer0po?at_medium=RSS&at_campaign=rss",
-   "s": "Contrato da Microsoft prevê desconto na assinatura, não indenização, em caso de prejuízo; no Brasil, pequenos negócios podem contestar esse limite usando Código do Consumidor, diz especialista."
-  },
-  {
-   "c": "mu",
-   "t": "Faxes, celulares e Bluetooth: queda da Microsoft força empresas a recorrer a soluções antigas",
-   "f": "G1 Economia",
-   "d": "2026-11-13",
-   "h": "12:03",
-   "u": "https://g1.globo.com/tecnologia/noticia/2026/11/13/faxes-celulares-e-bluetooth-queda-da-microsoft.ghtml",
-   "s": "Microsoft descarta ataque hacker após falha em 70 países A queda mundial dos serviços da Microsoft obrigou empresas de diferentes setores a recorrer a tecnologias tradicionais, como fax, telefone e Bluetooth, para manter suas…"
-  },
-  {
-   "c": "mu",
-   "t": "CEO da Nvidia renuncia após caso com suposta espiã chinesa: quem assumirá o comando da empresa?",
-   "f": "BBC News Brasil",
-   "d": "2026-11-12",
-   "h": "13:40",
-   "u": "https://www.bbc.com/portuguese/articles/cx1l053gmq5zo?at_medium=RSS&at_campaign=rss",
-   "s": "Jensen Huang deixou o cargo nesta quinta-feira (12/11) após vir à tona que ele teria um segundo relacionamento com uma funcionária da empresa. Valor de mercado da companhia despencou desde o início da crise."
   }
  ]
 }
